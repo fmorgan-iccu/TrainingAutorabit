@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CPI</name>
+    <style>none</style>
+    <subject>CPI charge</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+It appears you were charged for Collateral Protection Insurance (CPI), which means that we do not have an insurance policy on file for your loan or that policy is insufficient. CPI is issued by our insurance provider, Allied Insurance, and protects only the credit union. Do you have a current policy we can list for your loan?
+
+You can update that insurance online at https://www1.myinsuranceinfo.com/MyInsuranceInfo/, fax that to 208-239-3056 or contact our insurance vendor, Allied, directly at 800-523-6404.
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

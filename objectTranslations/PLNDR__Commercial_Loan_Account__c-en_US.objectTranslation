@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- This field is only valid when the Rate Type is Adjustable --></help>
+        <label><!-- Adjustment Frequency --></label>
+        <name>PLNDR__Adjustment_Frequency__c</name>
+    </fields>
+    <fields>
+        <help><!-- Any notes about the Amortization Schedule (e.g. interest only periods, non-linear amortization, etc.) --></help>
+        <label><!-- Amortization Notes --></label>
+        <name>PLNDR__Amortization_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values are in months --></help>
+        <label><!-- Amortization --></label>
+        <name>PLNDR__Amortization__c</name>
+    </fields>
+    <fields>
+        <help><!-- Loan Amount --></help>
+        <label><!-- Amount --></label>
+        <name>PLNDR__Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Fees --></label>
+        <name>PLNDR__Annual_Fees__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Effective LTV --></help>
+        <label><!-- Effective LTV --></label>
+        <name>PLNDR__CalculatedEffectiveLoanToValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Relevant for Floating or Adjustable rates only. --></help>
+        <label><!-- Caps &amp; Floors Summary --></label>
+        <name>PLNDR__Caps_Floors_Summary__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values are in months --></help>
+        <label><!-- Expected Life --></label>
+        <name>PLNDR__Expected_Life__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Assets --></help>
+        <label><!-- Average Assets --></label>
+        <name>PLNDR__FS_Average_Assets__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Equity --></help>
+        <label><!-- Average Equity --></label>
+        <name>PLNDR__FS_Average_Equity__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the average interest income divided by the average outstanding assets. --></help>
+        <label><!-- Average Yield --></label>
+        <name>PLNDR__FS_Average_Yield__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Expense --></help>
+        <label><!-- Interest Expense --></label>
+        <name>PLNDR__FS_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Income --></help>
+        <label><!-- Interest Income --></label>
+        <name>PLNDR__FS_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Average Balance --></help>
+        <label><!-- Loan Average Balance --></label>
+        <name>PLNDR__FS_Loan_Average_Balance__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Commitment --></help>
+        <label><!-- Loan Commitment --></label>
+        <name>PLNDR__FS_Loan_Commitment__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Gross Funding --></help>
+        <label><!-- Loan Gross Funding --></label>
+        <name>PLNDR__FS_Loan_Gross_Funding__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Loss Reserves --></help>
+        <label><!-- Loan Loss Reserves --></label>
+        <name>PLNDR__FS_Loan_Loss_Reserves__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Loan Net Commitment --></help>
+        <label><!-- Loan Net Commitment --></label>
+        <name>PLNDR__FS_Loan_Net_Commitment__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Net Funding --></help>
+        <label><!-- Loan Net Funding --></label>
+        <name>PLNDR__FS_Loan_Net_Funding__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Income --></help>
+        <label><!-- Net Income --></label>
+        <name>PLNDR__FS_Net_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Interest Income --></help>
+        <label><!-- Net Interest Income --></label>
+        <name>PLNDR__FS_Net_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the Net Interest Margin - the Net Interest Income divided by the Average Outstanding Assets. --></help>
+        <label><!-- Net Interest Margin --></label>
+        <name>PLNDR__FS_Net_Interest_Margin__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Non Interest Expense --></help>
+        <label><!-- Non Interest Expense --></label>
+        <name>PLNDR__FS_Non_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Other Income --></help>
+        <label><!-- Other Income --></label>
+        <name>PLNDR__FS_Other_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Pre-Tax Income --></help>
+        <label><!-- Pre-Tax Income --></label>
+        <name>PLNDR__FS_Pre_Tax_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROA --></help>
+        <label><!-- ROA --></label>
+        <name>PLNDR__FS_ROA__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROE --></help>
+        <label><!-- ROE --></label>
+        <name>PLNDR__FS_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target Net Income --></help>
+        <label><!-- Target Net Income --></label>
+        <name>PLNDR__FS_Target_Net_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target ROA --></help>
+        <label><!-- Target ROA --></label>
+        <name>PLNDR__FS_Target_ROA__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target ROE --></help>
+        <label><!-- Target ROE --></label>
+        <name>PLNDR__FS_Target_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Taxes --></help>
+        <label><!-- Taxes --></label>
+        <name>PLNDR__FS_Taxes__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the initial fixed period for an Adjustable Rate Loan, as such it is only applicable when the Rate Type is Adjustable. Values are in months. --></help>
+        <label><!-- Fixed Period --></label>
+        <name>PLNDR__Fixed_Period__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fixed Rate Lock Summary --></label>
+        <name>PLNDR__Fixed_Rate_Lock_Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Index --></label>
+        <name>PLNDR__Index__c</name>
+    </fields>
+    <fields>
+        <help><!-- The fixed dollar portion of the initial fees. --></help>
+        <label><!-- Initial Fees ($) --></label>
+        <name>PLNDR__Initial_Fees_Dollars__c</name>
+    </fields>
+    <fields>
+        <help><!-- The percentage portion of the initial fees. --></help>
+        <label><!-- Initial Fees (%) --></label>
+        <name>PLNDR__Initial_Fees_Percent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initial Fees --></label>
+        <name>PLNDR__Initial_Fees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initial Rate --></label>
+        <name>PLNDR__Initial_Rate__c</name>
+    </fields>
+    <fields>
+        <help><!-- A summary of the Interest Options within PrecisionLender (e.g. Payment Frequency, Interest Rate Basis, etc.) --></help>
+        <label><!-- Interest Options --></label>
+        <name>PLNDR__Interest_Options__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Renewal Loan --></label>
+        <name>PLNDR__Is_Renewal_Loan__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values are in months --></help>
+        <label><!-- Maturity --></label>
+        <name>PLNDR__Maturity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Type --></label>
+        <name>PLNDR__Payment_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- PrecisionLender Last Updated --></label>
+        <name>PLNDR__PrecisionLender_Last_Updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- PrecisionLender Scenario --></label>
+        <name>PLNDR__PrecisionLender_Scenario__c</name>
+        <relationshipLabel><!-- Commercial Loan Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Prepayment Option --></label>
+        <name>PLNDR__Prepayment_Option__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Name --></label>
+        <name>PLNDR__Product_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate Type --></label>
+        <name>PLNDR__Rate_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Repricing Duration for a Floating rate is equal to the Adjustment Frequency, for a Fixed rate it is equal to the Maturity and for an Adjustable rate it equals the Fixed Period. --></help>
+        <label><!-- Repricing Duration --></label>
+        <name>PLNDR__Repricing_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk Rating --></label>
+        <name>PLNDR__Risk_Rating__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scenario Weight --></label>
+        <name>PLNDR__ScenarioWeight__c</name>
+    </fields>
+    <fields>
+        <help><!-- The short code is generated in PrecisionLender when a loan is priced. This code serves as the roundtrip Id which  follows the loan&apos;s journey through pricing, booking and then back to PL through the RA process. --></help>
+        <label><!-- Short Code --></label>
+        <name>PLNDR__Short_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Spread above the Index for pricing Floating and Adjustable loans. --></help>
+        <label><!-- Spread --></label>
+        <name>PLNDR__Spread__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Status --></label>
+        <name>PLNDR__Tax_Exempt_Status__c</name>
+    </fields>
+    <layouts>
+        <layout>Commercial Loan Account Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- PrecisionLender Visualforce Section --></label>
+            <section>PrecisionLender Visualforce Section</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

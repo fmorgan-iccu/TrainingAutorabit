@@ -1,0 +1,105 @@
+.THIS #SystemBody p {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/** DECISION COLOR CODING **/
+/*Default color and styles*/
+.THIS.SystemResponses-Cards {
+    border: 1px solid #F2F2F2;
+}
+.THIS.SystemResponses-Cards.responseMessage {
+    border: 1px solid rgb(62,62,60);
+}
+.THIS.SystemResponses-Cards #SystemBody {
+    background-color: rgba(242,242,242,.5);
+}
+.THIS h3 {
+    color: #999;
+}
+.THIS p.decision {
+    font-weight: bold;
+    color: #999;
+}
+.THIS.Accept h3,
+.THIS.Approve h3,
+.THIS.Approved h3,
+.THIS.Denied h3,
+.THIS.Decline h3,
+.THIS.Declined h3,
+.THIS.Fail h3,
+.THIS.responseMessage h3,
+.THIS.responseMessage p.decision,
+.THIS.Accept p.decision,
+.THIS.Approve p.decision,
+.THIS.Approved p.decision,
+.THIS.Denied p.decision,
+.THIS.Decline p.decision,
+.THIS.Declined p.decision{
+    color: rgb(62,62,60);
+}
+.THIS .message:hover {
+    cursor: pointer;
+    background-color: rgba(242,242,242,.5);
+}
+/*Success color and styles*/
+.THIS.SystemResponses-Cards.Accept,
+.THIS.SystemResponses-Cards.Approve,
+.THIS.SystemResponses-Cards.Approved {
+    border: 1px solid #24b200;
+}
+.THIS.SystemResponses-Cards.Accept #SystemBody,
+.THIS.SystemResponses-Cards.Approve #SystemBody,
+.THIS.SystemResponses-Cards.Approved #SystemBody {
+    background-color: rgba(36, 178, 0, 0.1);
+}
+.THIS.SystemResponses-Cards.Accept .decisionStatus,
+.THIS.SystemResponses-Cards.Approve .decisionStatus,
+.THIS.SystemResponses-Cards.Approved .decisionStatus {
+    color: #24b200;
+}
+.THIS.Accept .systemHeader:hover,
+.THIS.Approve .systemHeader:hover,
+.THIS.Approved .systemHeader:hover {
+    cursor: pointer;
+    background-color: rgba(36, 178, 0, 0.1);
+}
+/*Error/Decline color and styles*/
+.THIS.SystemResponses-Cards.Denied,
+.THIS.SystemResponses-Cards.Decline,
+.THIS.SystemResponses-Cards.Declined,
+.THIS.SystemResponses-Cards.Fail,
+.THIS.SystemResponses-Cards.Review {
+    border: 1px solid #eb3d3d;
+}
+.THIS.SystemResponses-Cards.Denied #SystemBody,
+.THIS.SystemResponses-Cards.Decline #SystemBody,
+.THIS.SystemResponses-Cards.Declined #SystemBody,
+.THIS.SystemResponses-Cards.Fail #SystemBody,
+.THIS.SystemResponses-Cards.Review #SystemBody {
+    background-color: rgba(235,61,61,.05);
+}
+.THIS.SystemResponses-Cards.Denied .decisionStatus,
+.THIS.SystemResponses-Cards.Decline .decisionStatus,
+.THIS.SystemResponses-Cards.Declined .decisionStatus,
+.THIS.SystemResponses-Cards.Fail .decisionStatus,
+.THIS.SystemResponses-Cards.Review .decisionStatus {
+    color: #eb3d3d;
+}
+.THIS.Denied .systemHeader:hover,
+.THIS.Decline .systemHeader:hover,
+.THIS.Declined .systemHeader:hover,
+.THIS.Fail .systemHeader:hover,
+.THIS.Review .systemHeader:hover {
+    cursor: pointer;
+    background-color: rgba(235,61,61,.05);
+}
+
+/** TOGLE **/
+.THIS .hideMe {
+    display: none;
+}
+.THIS .showMe {
+    display: block;
+}

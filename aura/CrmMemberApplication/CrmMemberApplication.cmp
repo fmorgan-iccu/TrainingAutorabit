@@ -1,0 +1,108 @@
+<aura:component >
+	<!-- 
+	COMPONENT OVERVIEW:
+	This is the singular application that is used within
+	the CrmMemberApplications component and anywhere else
+	a single application needs to be displayed. 
+
+	THIS COMPONENT REQUIRES:
+	
+	This component needs to be passed an application object ('Application' attribute).
+	The following things are expected to be available on the object: (TODO)
+
+	There are attributes that pass in values to be displayed and attributes that
+	determine what things display. An example of this would be displaying certain
+	info for FSC agents and not MCC agents.
+	
+	ATTRIBUTES:
+	This component accepts the following attributes:
+	Unless otherwise stated, the attribute only accepts a string
+		• "Application" - the application to display
+		• "DetailedView" - (boolean) set to true when you need to display the  more detailed view for FSC agents
+							or anyone else who will need to see details of an application
+		• "ViewNotes" - (boolean) will be set to true or false by the controller based on whether 
+						the "see more" button has been clicked or not.
+		• "NotesClosed" - (boolean) will be set to true or false by the controller based on whether 
+						the "see less" button has been clicked or not.
+
+	-->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatDates}" />
+    
+    <!-- Defining Attributes -->
+    <aura:attribute name="Application" type="Object"/>
+    <aura:attribute name="DetailedView" type="boolean" default="false"/>
+    <aura:attribute name="ViewNotes" type="boolean" default="false"/>
+    <aura:attribute name="allowedToViewNotes" type="boolean" default="false"/>
+    <aura:attribute name="NotesClosed" type="boolean" default="false"/>
+    <aura:attribute name="formattedCompletedDate" type="String" />
+    <aura:attribute name="formattedStartedDate" type="String" />
+    
+    <!-- Begin Component -->
+    
+    <div>
+        <h4 class="appType">{!v.Application.productName}</h4>
+        <lightning:layout horizontalAlign="spread">
+        	<lightning:layoutItem >
+                <aura:if isTrue="{!v.Application.isCompleted}">
+                    <p>Date Completed: {!v.formattedCompletedDate}</p>
+                    <aura:set attribute="else">
+            			<p>Date Started: {!v.formattedStartedDate}</p>
+                    </aura:set>
+                </aura:if>
+            </lightning:layoutItem>
+            <lightning:layoutItem >
+                <p>Application #{!v.Application.applicationNumber}</p>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layout horizontalAlign="spread">
+        	<lightning:layoutItem >
+                <p>Loan Officer: <span class="loan-officer">{!v.Application.agent.name}</span> </p>
+            </lightning:layoutItem>
+            <lightning:layoutItem >
+                <aura:if isTrue="{!v.DetailedView}">
+                    <p>Status: <span class="{!'status-' + v.Application.status}">{!v.Application.status}</span></p>
+                    <aura:set attribute="else">
+            			<p><span class="lo-extension"> x{!v.Application.agent.extension}</span></p>
+                    </aura:set>
+                </aura:if>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <!-- This part will only display for FSC users
+			 or anyone else who needs a more detailed view
+			 of an application. -->
+        <aura:if isTrue="{!and(v.DetailedView, v.Application.notes.length > 0)}">
+            <lightning:layout horizontalAlign="spread">
+                <aura:if isTrue="{!v.Application.creditScore}">
+                    <lightning:layoutItem >
+                        <p>Credit Score: {!v.Application.creditScore}</p>
+                    </lightning:layoutItem>
+                </aura:if>
+                <aura:if isTrue="{!v.allowedToViewNotes}">
+                    <lightning:layoutItem >
+                        <aura:if isTrue="{!v.ViewNotes}">
+                            <a onclick="{!c.showLess}">See Less</a>
+                            <aura:set attribute="else">
+                                <a onclick="{!c.showMore}">See More</a>
+                            </aura:set>
+                        </aura:if>
+                    </lightning:layoutItem>
+                </aura:if>
+            </lightning:layout>
+            
+            <!-- This contains the notes associated with the application
+				 it uses the CRMApplicationNote to format the note
+				 This will display conditionally -->
+
+                <!--<div class="{! 'appNoteContainer open-' + v.ViewNotes + ' close-' + v.NotesClosed}">
+                    <aura:iteration items="{!v.Application.notes}" var="note">
+                        <c:CRMApplicationNote NoteDetails="{!note}"></c:CRMApplicationNote>
+                    </aura:iteration>
+                </div>-->
+        </aura:if>
+        <hr/>
+    </div>
+</aura:component>

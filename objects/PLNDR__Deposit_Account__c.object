@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>PrecisionLender Deposit Account</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>PLNDR__Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__Deposit_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Deposit Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Average_Assets__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Average Assets</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Average Assets</inlineHelpText>
+        <label>Average Assets</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Average_Equity__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Average Equity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Average Equity</inlineHelpText>
+        <label>Average Equity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Average_Yield__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the average interest income divided by the average outstanding assets.</description>
+        <externalId>false</externalId>
+        <formula>if( PLNDR__FS_Average_Assets__c &gt; 0, PLNDR__FS_Interest_Income__c / PLNDR__FS_Average_Assets__c , null )</formula>
+        <inlineHelpText>This is the average interest income divided by the average outstanding assets.</inlineHelpText>
+        <label>Average Yield</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Interest_Expense__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Interest Expense</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Interest Expense</inlineHelpText>
+        <label>Interest Expense</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Interest_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Interest Income</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Interest Income</inlineHelpText>
+        <label>Interest Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Loan_Average_Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Loan Average Balance</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Loan Average Balance</inlineHelpText>
+        <label>Loan Average Balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Loan_Commitment__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Loan Commitment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Loan Commitment</inlineHelpText>
+        <label>Loan Commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Loan_Gross_Funding__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Loan Gross Funding</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Loan Gross Funding</inlineHelpText>
+        <label>Loan Gross Funding</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Loan_Loss_Reserves__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Loan Loss Reserves</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Loan Loss Reserves</inlineHelpText>
+        <label>Loan Loss Reserves</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Loan_Net_Commitment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Loan Net Commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Loan_Net_Funding__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Loan Net Funding</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Loan Net Funding</inlineHelpText>
+        <label>Loan Net Funding</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Net_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Net Income</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Net Income</inlineHelpText>
+        <label>Net Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Net_Interest_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Net Interest Income</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Net Interest Income</inlineHelpText>
+        <label>Net Interest Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Net_Interest_Margin__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the Net Interest Margin - the Net Interest Income divided by the Average Outstanding Assets.</description>
+        <externalId>false</externalId>
+        <formula>IF( PLNDR__FS_Average_Assets__c &gt; 0, PLNDR__FS_Net_Interest_Income__c / PLNDR__FS_Average_Assets__c, null )</formula>
+        <inlineHelpText>This is the Net Interest Margin - the Net Interest Income divided by the Average Outstanding Assets.</inlineHelpText>
+        <label>Net Interest Margin</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Non_Interest_Expense__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Non Interest Expense</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Non Interest Expense</inlineHelpText>
+        <label>Non Interest Expense</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Other_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Other Income</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Other Income</inlineHelpText>
+        <label>Other Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Pre_Tax_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Pre-Tax Income</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Pre-Tax Income</inlineHelpText>
+        <label>Pre-Tax Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_ROA__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement ROA</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement ROA</inlineHelpText>
+        <label>ROA</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_ROE__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement ROE</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement ROE</inlineHelpText>
+        <label>ROE</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Target_Net_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Target Net Income</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Target Net Income</inlineHelpText>
+        <label>Target Net Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Target_ROA__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Target ROA</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Target ROA</inlineHelpText>
+        <label>Target ROA</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Target_ROE__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Target ROE</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Target ROE</inlineHelpText>
+        <label>Target ROE</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__FS_Taxes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender Scenario Financial Statement Taxes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PrecisionLender Scenario Financial Statement Taxes</inlineHelpText>
+        <label>Taxes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__Origination_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Origination date for CDs.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Origination date for CDs.</inlineHelpText>
+        <label>Origination Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__PrecisionLender_Last_Updated__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>PrecisionLender Last Updated</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__PrecisionLender_Scenario__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>PrecisionLender Scenario</label>
+        <referenceTo>PLNDR__PrecisionLender_Scenario__c</referenceTo>
+        <relationshipLabel>Deposit Accounts</relationshipLabel>
+        <relationshipName>Deposit_Accounts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>PLNDR__Product_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Product Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PLNDR__Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Rate</label>
+        <precision>13</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__ScenarioWeight__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Scenario Weight</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__Term__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The term of the CD (TIme Deposit) in months.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value is in months.</inlineHelpText>
+        <label>Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Deposit Account</label>
+    <nameField>
+        <displayFormat>PL-DA-{00000000}</displayFormat>
+        <label>Deposit Account</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Deposit Accounts</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

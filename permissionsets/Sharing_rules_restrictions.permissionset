@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will restrict the ability to edit sharing rules</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Sharing rules restrictions</label>
+    <license>Salesforce</license>
+</PermissionSet>

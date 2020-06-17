@@ -1,0 +1,179 @@
+/* Normalizing Font Size */
+.THIS {
+    color: #1A1A1A;
+    font-size: 16px;
+}
+
+.THIS:focus {
+    outline: none;
+}
+
+.THIS h5 {
+    font-weight: t(fontWeightBold);
+}
+
+.THIS .slds-modal__container {
+    width: 100%;
+}
+
+/* Header Styling */
+
+.THIS .slds-modal__header {
+    background-image: linear-gradient(90deg, #00AE00 0%, #006C18 100%);
+    border-bottom: none;
+}
+
+.THIS .slds-modal__headerOverdrawn {
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
+    position: relative;
+    background-image: linear-gradient(90deg, #EB3D3D 0%, #8D2424 100%);
+    border-bottom: none;
+}
+
+.THIS .slds-modal__header h2 {
+    font-weight: 600;
+    color: #fff;
+}
+
+
+.THIS .AccountHeaderContainer {
+    width: 80%;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.THIS .BalanceHeader {
+    text-align: right;
+}
+
+.THIS .BalanceSize {
+    font-size: 2em;
+}
+
+.THIS #CurrentBalanceHeader {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.THIS .AccountHeader {
+    background-image: linear-gradient(90deg, #00AE00 0%, #006C18 100%);
+    height: 12em;
+    padding-top: 2em;
+}
+
+.THIS .AccountHeaderOverdrawn {
+    background-image: linear-gradient(90deg, #EB3D3D 0%, #8D2424 100%);
+    height: 12em;
+    padding-top: 2em;
+}
+
+/*Tabular Navigation Styling */
+
+.THIS .slds-tabs_default, .THIS .slds-tabs--default {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #F2F2F2;
+    border-radius: 0.25em;
+    margin-top: -3.5em;
+}
+
+.THIS .slds-tabs--default__link {
+    color: #1a1a1a;
+}
+
+.cCRMAccountDetails .slds-tabs--default__item:active {
+    background-color: rgba(36, 178, 0, 0.1);
+}
+
+.cCRMAccountDetails .slds-tabs--default__item:focus {
+    background-color: rgba(36, 178, 0, 0.1);
+}
+
+.THIS .slds-tabs--default__item.slds-has-focus {
+    background-color: #fff;
+}
+
+.THIS .slds-tabs_default__nav, .THIS .slds-tabs--default__nav {
+    background-color: #F2F2F2;
+	border-bottom: 2px solid #F2F2F2;
+}
+
+.THIS .slds-tabs_default__link:hover {
+    color: t(iccuPrimaryGreen);
+}
+
+.THIS .slds-tabs_default__link:active {
+    color: t(iccuPrimaryGreen);
+}
+
+.THIS .slds-tabs_default__link:focus {
+    color: #1a1a1a;    
+}
+
+.THIS .slds-tabs_default__item, .THIS .slds-tabs--default__item {
+    padding: .5em 1.75rem;
+    letter-spacing: 0;
+    color: #1A1A1A;
+}
+
+/* Content Styling */
+.THIS h2 > p {
+    margin-bottom: 1em;
+}
+
+.THIS h2 {
+    font-size: 1.5em;
+    font-weight: t(fontWeightBold);
+}
+
+.THIS .AccountDetailsContainer {
+    padding: 2em 2.75em;
+}
+
+.THIS .AccountDetailInfo {
+    margin: 1em 0;
+}
+
+.THIS .areaForAccount {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.THIS .slds-modal__footer {
+    background-color: #fff;
+    border-top: none;
+}
+
+.THIS .IntroInfo {
+    padding: 2em 2.75em;
+    margin-bottom: 1em;
+}
+.THIS .noTransactions {
+    padding: 0 2.75rem;
+    margin-bottom: 1em;
+}
+
+.THIS #TransactHistoryHeader {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* No Transactions */
+.THIS .cCRMAlert h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Media Queries */ 
+@media (max-width: 80em) {
+    .THIS .slds-modal__container {
+        max-width: 80rem !important;
+        width: 100%;
+    }
+}

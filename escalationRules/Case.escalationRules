@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EscalationRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <escalationRule>
+        <fullName>Cases Under Review</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <businessHours>FSC Business Hours</businessHours>
+            <businessHoursSource>Static</businessHoursSource>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>equals</operation>
+                <value>In Review</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>FSC Online Account Opening</value>
+            </criteriaItems>
+            <disableEscalationWhenModified>true</disableEscalationWhenModified>
+            <escalationAction>
+                <assignedTo>Escalated_Cases</assignedTo>
+                <assignedToTemplate>unfiled$public/SUPPORTCaseescalationnotificationSAMPLE</assignedToTemplate>
+                <assignedToType>Queue</assignedToType>
+                <minutesToEscalation>720</minutesToEscalation>
+                <notifyCaseOwner>true</notifyCaseOwner>
+                <notifyEmail>chenricksen@iccu.com</notifyEmail>
+                <notifyEmail>cmsmith@iccu.com</notifyEmail>
+                <notifyEmail>dchristensen@iccu.com</notifyEmail>
+                <notifyToTemplate>unfiled$public/SUPPORTCaseescalationnotificationSAMPLE</notifyToTemplate>
+            </escalationAction>
+            <escalationStartTime>CaseCreation</escalationStartTime>
+        </ruleEntry>
+    </escalationRule>
+</EscalationRules>

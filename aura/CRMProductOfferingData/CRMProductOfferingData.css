@@ -1,0 +1,15 @@
+.THIS {
+}
+
+.THIS .main-row-1 {
+    display: t(iccuFlex);
+    width: 100%;
+}
+
+.THIS .title {
+    font-weight: 600;
+    padding-left: 10px;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    text-align: left;
+}

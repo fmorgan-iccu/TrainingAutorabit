@@ -1,0 +1,94 @@
+.THIS a {
+    text-decoration: underline;
+    font-weight: bold;
+    color: t(linkColor);
+}
+.THIS p, 
+.THIS a {
+    font-size: t(mediumText);
+}
+.THIS .loan-officer {
+    font-weight: bold;
+}
+.THIS .lo-extension {
+    font-style:italic;
+}
+.THIS .appType {
+    font-size: t(mediumText);
+    font-weight: bold;
+    margin-bottom: .4em;
+}
+.THIS hr {
+    margin: 1rem 0;
+}
+/** STATUS STYLING **/
+.THIS .status-Assigned,
+.THIS .status-assigned,
+.THIS .status-Underwriting,
+.THIS .status-Application{
+    color: t(iconBlue);
+}
+.THIS .status-in.progress,
+.THIS .status-In.Progress,
+.THIS .status-Pre-Qual {
+    color: t(iconPurple);
+}
+.THIS .status-denied,
+.THIS .status-Denied,
+.THIS .status-Declined {
+    color: t(iconRed);
+}
+.THIS .status-funded,
+.THIS .status-Funded,
+.THIS .status-Contracted,
+.THIS .status-DataAcquisition,
+.THIS .status-Approved {
+    color: t(iconGreen);
+}
+/**FSC Application Notes**/
+.THIS .appNoteContainer {
+    max-height: 500px;
+    overflow: scroll;
+    margin-top: 1em;
+}
+.THIS .appNoteContainer.open-false {
+    display: none;
+}
+.THIS .appNoteContainer.open-true {
+    display: block;
+    animation-name: container-grow;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+.THIS .appNoteContainer.close-true {
+    display: block;
+    max-height: 0px;
+    overflow: hidden;
+    animation-name: container-shrink;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+@keyframes container-grow {
+    0% {
+        max-height: 0;
+    	overflow: hidden;
+        background-color: transparent;
+    }
+    60% {
+        background-color: rgba(1, 166, 79, .05);
+        max-height: 500px;
+        overflow: scroll;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+@keyframes container-shrink {
+    from {
+        max-height: 500px;
+    }
+    to {
+        max-height: 0px;
+        overflow: hidden;
+    }
+}

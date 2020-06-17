@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Dispute email</name>
+    <style>none</style>
+    <subject>Transaction dispute</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+Thank you for your email. Unfortunately, we were not provided with any additional, specific information regarding this transaction or merchant.  We suggest contacting the merchant to request an explanation on the charge as well as a refund for the charge. This is the quickest way to receive a refund. If they are unwilling or unable to help, then we can assist you with disputing the transaction. You can contact us at 800-456-5067 or stop by one of our branches to get the dispute process started.
+
+We can also send the documents to you electronically; you will just need to provide us with a valid email address to send the documentation to.
+
+We will also need to cancel the card the charge was made on. We can mail you a replacement, or you can stop by any branch and get a new one instantly!
+
+It has been our pleasure to help. If there is anything else we can do, please do not hesitate to contact us. We appreciate your membership. Have a wonderful day!
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

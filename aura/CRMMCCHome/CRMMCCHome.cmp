@@ -1,0 +1,21 @@
+<aura:component implements="lightning:homeTemplate" >
+	
+    <aura:attribute name="left" type="Aura.Component[]" />
+    <aura:attribute name="right" type="Aura.Component[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.notifyRequireSystemOfRecordLogin}"/>
+    <!-- register event to fire on when auth is required for system of record   -->
+    <aura:registerEvent name="notifyRequireSystemOfRecordLogin" type="c:RequireSystemOfRecordLogin"/> 
+    
+    <div>
+        <lightning:layout horizontalAlign="spread" class="layout-row-2">
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '4' : '6' }"  class="slds-m-large layout-row-2__column-1 dnaAuth-layout-fix">
+                {!v.left}
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="grow">
+                {!v.right}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    
+</aura:component>

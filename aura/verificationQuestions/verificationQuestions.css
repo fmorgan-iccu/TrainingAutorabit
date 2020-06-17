@@ -1,0 +1,28 @@
+.THIS {
+    padding: 1em 0 0;
+}
+/**Question and Answer**/
+.THIS .identify-question {
+    display: flex;
+    align-items: center;
+}
+.THIS .identify-question p {
+    padding-left: 1em;
+    font-weight: bold;
+    font-size: t(mediumText);
+}
+.THIS .identify-answer p {
+    font-size: t(mediumText);
+    margin-left: 4em;
+    padding: 1em 0;
+}
+/**Icons**/
+.THIS .cFontawesomeIcon.question {
+    background-color: t(iccuPrimaryGreen) !important;
+}
+.THIS .cFontawesomeIcon.check {
+    background-color: t(iconGreen) !important;
+}
+.THIS .cFontawesomeIcon.times {
+    background-color: t(iconRed) !important;
+}

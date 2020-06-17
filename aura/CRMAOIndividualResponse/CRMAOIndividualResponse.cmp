@@ -1,0 +1,36 @@
+<aura:component >
+
+    <aura:attribute name="responseData" type="Object"
+                    description="The data coming from the system that we want to display"/>
+    <aura:attribute name="showMessage" type="boolean" default="false" />
+
+    <div class="{! v.responseData.message ? 'responseMessage SystemResponses-Cards ' + v.responseData.systemDecision : 'SystemResponses-Cards ' + v.responseData.systemDecision }" aura:id="{!v.responseData.systemName}-info">
+
+        <div id="SystemHeader" onclick="{!c.toggle}" class="{! v.responseData.message ? 'message systemHeader' : 'systemHeader' }">
+            <h3>{!v.responseData.systemName}</h3>
+            <p class="decision">
+                <aura:if isTrue="{!v.responseData.systemDecision.length &gt; 0}">
+                    <span id="DecisionLabel">Decision: </span>
+                    <span class="decisionStatus">{!v.responseData.systemDecision}</span>
+                    <aura:set attribute="else">
+                        <span>Decision Not Found</span>
+                    </aura:set>
+                </aura:if>
+            </p>
+        </div>
+
+        <!-- This is the system message -->
+        <aura:if isTrue="{! v.responseData.message.length &gt; 0 || v.responseData.systemDecision.length &gt; 0 }">
+            <div aura:id="Message" id="SystemBody" class="{! v.showMessage ? 'showMe' : 'hideMe' }">
+                <h3 id="SystemMessage-Header">System Message:</h3>
+                <aura:if isTrue="{! v.responseData.message.length &gt; 0 }">
+                	<p>{!v.responseData.message}</p>
+                    <aura:set attribute="else">
+                    	<p>No additional information available.</p>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </aura:if>
+
+    </div>
+</aura:component>

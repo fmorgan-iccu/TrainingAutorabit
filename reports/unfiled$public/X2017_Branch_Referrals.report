@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>Lead.ReferringTeamMember__c</field>
+    </columns>
+    <columns>
+        <field>Lead.Branch__c</field>
+    </columns>
+    <description>2017 All leads BRO owner</description>
+    <filter>
+        <criteriaItems>
+            <column>LEAD_SOURCE</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>Experian,HARV,IL Onboarding,MRA-Runoff,OSC Lead,Referral,Pre-approved HELOC,Home Loan Report,MRA Home Loan,Asset Watch</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>deanna turner,brett bawden,angela hickmon,therese goodwin,nick mcghee,julia rhoads,stephanie young,jacob velasquez</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.Branch__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Addison,Benton,Blackfoot,Blue Lakes,Broadway,Burley,Caldwell,Cherry Lane,Chubbuck,Cleveland,Coeur d&apos;Alene,Downtown,Eagle,Fairview,Hayden,Hitt Road,LBJ,Mountain View,MVHS,Nampa,North Linder,Overland,Park Center,Pierce Park,Pocatello,Post Falls,Rexburg North,Southside Nampa,Sunnyside,Ustick</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>2017 Branch Referrals</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>LeadList</reportType>
+    <scope>allusers</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Lead.Branch__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-01-01</startDate>
+    </timeFrameFilter>
+</Report>

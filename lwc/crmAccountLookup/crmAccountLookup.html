@@ -1,0 +1,54 @@
+<template>
+    <template if:false={showSelectedAccount}>
+        <div class="account-search">
+            <!-- TODO:  We wanted to have this close when it looses focus, but this actually hides
+                the options before the event is handled to select the option.  We may need to not
+                use an if:true to hide the list and see if the selection event is still fired.
+                onfocusout={handleHideAccounts} -->
+            <lightning-input disabled={isDisabled} type="search" label="Select an account" name="account number" class="search" onfocusin={handleFilterAccounts} onchange={handleFilterAccounts}></lightning-input>
+            <template if:true={showAccountList}>
+                <div class="search-dropdown">
+                    <template for:each={displayAccounts} for:item="account">
+                        <div class="search-item" key={account.accountNumber} data-account-number={account.accountNumber} onclick={handleSelectAccount}>
+                            <!-- TODO:  For some reason, this causes the for:each to show nothing when there is dynamic
+                                data. However, it works with static data.  An error, "Unknown token: undefined" occurs
+                                when the following code is added:
+                                    <lightning-icon icon-name={account.icon} size="small"></lightning-icon>
+                                
+                                However, when dumping the contents of the dynamic data, it does have
+                                an icon field on each entry.  Using sample data works:
+                                    {'displayName': 'test', 'accountNumber' : '12345', 'icon': 'custom:custom40'}
+
+                                Using a static value works:
+                                    <lightning-icon icon-name="custom:custom40" size="small"></lightning-icon>
+
+                                This also works:
+                                    {account.icon}
+
+                                Further research of this issue is needed to get icons added.
+                                -->
+                            <p><span class="account-nickname">{account.displayName}</span> - {account.accountNumber}</p>
+                        </div>
+                    </template>
+                </div>
+            </template> 
+        </div>
+    </template>
+
+    <!-- Account Card -->
+    <template if:true={showSelectedAccount}>
+        <div class="account">
+            <div class="account-info">
+                <h3 class="title">
+                    <lightning-icon icon-name="custom:custom31" size="medium"></lightning-icon>
+                    {selectedAccount.displayName}
+                </h3>
+                <div class="account-number">
+                    <h3>Account Number</h3>
+                    <p>{selectedAccount.accountNumber}</p>
+                </div>
+                <lightning-button-icon icon-name="utility:close" variant="bare" alternative-text="remove account" onclick={handleClearAccount}></lightning-button-icon>
+            </div>
+        </div>
+    </template>
+</template>

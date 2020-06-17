@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>MRA_General_Purpose</letterhead>
+    <name>Left Message Follow-Up</name>
+    <style>freeForm</style>
+    <subject>Idaho Central Follow-up</subject>
+    <textOnly>Hello {!Opportunity.Name},
+
+Thank you for choosing Idaho Central Credit Union! I attempted to contact you regarding your recent transaction to gather some follow-up information. Would you please call me back at your earliest convenience?
+
+Thank you again for your membership!
+
+Sincerely,
+
+{!Opportunity.OwnerFullName}
+Idaho Central Credit Union
+{!Opportunity.OwnerTitle}
+d: {!Opportunity.OwnerPhone}
+{!Opportunity.OwnerEmail}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,117 @@
+.THIS {
+    padding: 1em;
+    font-size: t(mediumText);
+    border: 1px solid #F2F2F2;
+    background-color: #FFF;
+    border-radius: .25em;
+    border-left: 0.5em solid t(iccuNotification);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.15s ease-in-out;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+
+.THIS:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+    border-top: 1px solid t(iccuNotification);
+    border-right: 1px solid t(iccuNotification);
+    border-bottom: 1px solid t(iccuNotification);
+}
+
+.THIS h3 {
+    font-size: t(xLargeText);
+    font-weight: 600;
+    color: #4A4A4A;
+}
+
+.THIS #ApplicationHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.THIS #LoanProduct {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.THIS #LoanProduct h3 {
+    margin-left: 0.5em;
+}
+
+.THIS #ApplicationHeader a {
+    margin-left: 2em;
+}
+
+.THIS #ApplicationInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.THIS #ReferenceCode {
+    font-weight: 800;
+    color: #FE620D;
+}
+
+/* Added styling for all available TM Statuses*/
+.THIS #StatusOpened {
+    font-weight: 800;
+    color: t(iccuNotification);
+}
+
+.THIS #StatusAssigned {
+    font-weight: 800;
+}
+
+.THIS #StatusSaved {
+    font-weight: 800;
+    color: t(iccuNotification);
+}
+
+.THIS #StatusSubmitted {
+    font-weight: 800;
+    color: t(iccuPrimaryGreen);
+}
+
+.THIS #StatusCompleted {
+    font-weight: 800;
+    color: t(iccuPrimaryGreen);
+}
+
+.THIS #StatusCancelled {
+    font-weight: 800;
+    color: t(iccuError);
+}
+
+.THIS #StatusAbandonded {
+    font-weight: 800;
+    color: t(iccuError);
+}
+
+.THIS .InfoContainer {
+    width: 15%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.THIS .InfoLabel {
+    font-size: t(xSmallText);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Meda breakpoints for smaller screens */
+@media only screen and (min-width: 30em){
+    .THIS .InfoContainer {
+    width: 40%;
+    }
+}
+
+@media only screen and (min-width: 64em){
+    .THIS .InfoContainer {
+    width: 15%;
+    }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>External Principal Only</name>
+    <style>none</style>
+    <subject>Your recent loan payment</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+Thank you for your email. We apologize for this inconvenience. Unfortunately, this is due to the payments coming from an External Account. Our system cannot differentiate how you would like an external transfer applied to a loan; therefore, all payments are applied as regular payments, regardless of whether you select principal only or not.
+
+
+If you are able to provide a list of any of the payments that you would like backed off and applied to principal only, we would be happy to assist you with getting this corrected.
+
+It has been our pleasure to help. If there is anything else we can do, please do not hesitate to contact us. We appreciate your membership. Have a wonderful day!
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

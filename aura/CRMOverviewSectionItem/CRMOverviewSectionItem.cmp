@@ -1,0 +1,40 @@
+<aura:component >
+
+    <!--
+		This component is for one individual 'item' within a 'section' in the overview tab
+		on the member record (contact) page.
+		
+		A 'section' within the overview section is one overview component, such as accounts,
+ 	 	notes, or any other overview/summary section.
+		
+		An 'item' is an instance within a 'section'. For example, if there is a flag 'section' with
+		2 flags, each of those flags would be considered an 'item'.
+	-->
+    
+    <aura:attribute name="tileTitle" type="String"/>
+    <aura:attribute name="rightInfo" type="Object"/>
+    <aura:attribute name="column1" type="Object"/>
+    <aura:attribute name="column2" type="Object"/>
+    
+	<lightning:card title="{!v.tileTitle}" class="half-size">
+        <aura:set attribute="actions">
+            {!v.rightInfo}
+        </aura:set>
+        <aura:set attribute="body">
+            <aura:if isTrue="{!v.column1}">
+                <lightning:layout >
+                    <lightning:layoutItem >
+                    	{!v.column1}
+                    </lightning:layoutItem>
+                    <lightning:layoutItem >
+                    	{!v.column2}
+                    </lightning:layoutItem>
+                </lightning:layout>
+                <aura:set attribute="else">
+                    <p class="right-align">{!v.column2}</p>
+                </aura:set>
+            </aura:if>
+        </aura:set>
+    </lightning:card>
+    
+</aura:component>

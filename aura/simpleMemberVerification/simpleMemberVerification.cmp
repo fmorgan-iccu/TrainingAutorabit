@@ -1,0 +1,135 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="SimpleMemberVerificationController">
+    <!-- The contact ID -->
+    <aura:attribute name="recordId" type="String" />
+    
+    <!--use boolean attribute for Store true/false value,
+        make default to "false" so modal boxes do not display on the load of component.
+  		Also controls when identifying questions and out of wallet questions show up
+    --> 
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="showResetPassphrase" type="Boolean" default="false" />
+    <aura:attribute name="iQuestions" type="Object" />
+    <aura:attribute name="wQuestions" type="Object" />
+    <aura:attribute name="pQuestions" type="Array" default="[]" />
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="infoMessage" type="String" />
+    <aura:attribute name="passphrase" type="String" />
+    <aura:attribute name="passphraseHint" type="String" />
+    
+    
+    <aura:attribute name="actions" type="Aura.Component[]"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <!-- Modal -->
+    <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                    X
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+            </div>
+            <div class="slds-modal__content">
+                <!-- Begin Tabs -->
+                <lightning:tabset class="utility identifyMember">
+                    <lightning:tab label="Passphrase">
+                        <aura:if isTrue="{!v.isLoading}">
+                            <c:CRMLoadingSpinner message="Passphrase..." />
+                        </aura:if>
+                        <aura:if isTrue="{!v.errorMessage}">
+                            <div class="alert-container">
+                                <c:CRMAlert alertState="error">
+                                    <aura:set attribute="alertMessage">
+                                        <p>
+                                            {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.fetchQuestions}" />
+                                        </p>
+                                    </aura:set>
+                                </c:CRMAlert>
+                            </div>
+                        </aura:if>
+                        
+                        <!-- Don't show these fields while loading... -->
+                        <aura:if isTrue="{!v.isLoading == false}">
+                            <aura:if isTrue="{!v.pQuestions.length &gt; 0}">
+                                <!-- Member Has a Passphrase -->
+                                <div class="identify passphrase hasPassphrase">
+                                    <div class="message">
+                                        <p>Member's passphrase:</p>
+                                    </div>
+                                    <aura:iteration items="{!v.pQuestions}" var="question">
+                                        <c:verificationQuestions question="{!question.question}" answers="{!question.answers}" />
+                                    </aura:iteration>
+                                    <aura:if isTrue="{!v.showResetPassphrase == false}">
+                                        <lightning:button variant="brand" label="Reset Passphrase" onclick="{! c.resetPassphrase }" />
+                                    </aura:if>
+                                </div>
+                            </aura:if> <!-- end has passphrase if logic -->
+
+                            <aura:if isTrue="{!v.showResetPassphrase}">
+                                <div class="identify passphrase">
+                                    <div class="message">
+                                        <p>Setup Passphrase.</p>
+                                    </div>
+                                    <p>In order to establish or reestablish a phone identification phrase, please follow the <a href="https://isearchwp.iccu.com/policy/member-phone-identification-phrase/" target="_new">Member Phone/Chat Identification Phrase</a> procedure.</p>
+                                    <lightning:input value="{!v.passphrase}" aura:id="passphrase" label="Passphrase:" maxlength="254" required="true" />
+                                    <lightning:input value="{!v.passphraseHint}" aura:id="passphrase" label="Passphrase Hint:" maxlength="254" required="true" />
+                                    <lightning:button variant="brand" label="Create Passphrase" onclick="{! c.createPassphrase }" />
+                                </div>
+                            </aura:if>
+                        </aura:if> <!-- end NOT loading logic -->
+                    </lightning:tab>
+                    
+                    
+                    <lightning:tab label="Identification Questions">
+                    <!-- Identication Questions Tab -->
+                        
+                        <div class="identify identifyTab">
+                            <aura:if isTrue="{!v.isLoading}">
+                               <c:CRMLoadingSpinner message="Questions..." />
+                            </aura:if>
+                            <div class="message">
+                                <p>Ask <span class="qAmount">2</span> of these questions.</p>
+                            </div>
+                            <aura:if isTrue="{!v.errorMessage}">
+                            	<c:CRMAlert alertState="error" alertMessage="{!v.errorMessage}"/>
+                            </aura:if>
+                            <aura:iteration items="{!v.iQuestions}" var="question">
+                                <c:verificationQuestions question="{!question.question}" answers="{!question.answers}" />
+                            </aura:iteration>
+                        </div>
+                        
+                    </lightning:tab>
+                    
+                    
+                    <lightning:tab label="Out-of-Wallet Questions">
+                    <!-- Out of Wallet Questions Tab -->
+                        
+                        <div class="identify wallet">
+                            <aura:if isTrue="{!v.isLoading}">
+                               <c:CRMLoadingSpinner message="Questions..." />
+                            </aura:if>
+                            <div class="message">
+                                <p>Ask <span class="qAmount">1</span> of these questions.</p>
+                            </div>
+                            <aura:if isTrue="{!v.errorMessage}">
+                            	<c:CRMAlert alertState="error" alertMessage="{!v.errorMessage}"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.infoMessage}">
+                                <c:CRMAlert alertState="warning" alertMessage="{!v.infoMessage}"/>
+                            </aura:if>
+                            <aura:iteration items="{!v.wQuestions}" var="question">
+                                <c:verificationQuestions question="{!question.question}" answers="{!question.answers}" />
+                            </aura:iteration>
+                        </div>
+                        
+                    </lightning:tab>
+                    
+                </lightning:tabset>
+            </div>
+        </div>
+    </div>
+        
+</aura:component>

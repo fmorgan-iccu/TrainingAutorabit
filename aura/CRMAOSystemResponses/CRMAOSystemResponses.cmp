@@ -1,0 +1,61 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <!-- Get Case Data! -->
+    <aura:attribute name="record" type="Object"
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object"
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String"
+                    description="An error message bound to force:recordData"/>
+    <aura:attribute name="systemInteractions" type="Array"
+                    description="An error message bound to force:recordData"/>
+
+    <!-- Component Specific Attributes -->
+    <aura:attribute name="systemName" type="string"
+                    description="The name of the system delivering the response"/>
+
+    <aura:attribute name="systemDecision" type="string"
+                    description="The decision reason delivered from the system"/>
+
+    <aura:attribute name="systemMessage" type="string"
+                    description="The message, if there is one, delivered by the system"/>
+
+    <force:recordData aura:id="record"
+                      fields="OwnerId, ContactId, Status, Priority,
+                              AvokaData__c, AvokaStatus__c, AvokaForm__c,
+                              AvokaTrackingCode__c, AvokaTransactionStatus__c, AvokaJob__c, AvokaApplicationInfoJSON__c,
+                              ContactPhone, Origin, Description, CaseNumber"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      recordUpdated="{!c.recordDidUpdate}"
+                      mode="VIEW"/>
+
+    <!-- Begin Component -->
+    <aura:if isTrue="{!v.recordError.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.recordError}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <div class="slds-card">
+        <div class="SystemResponses-Container">
+            <h2>System Responses</h2>
+            <p>Below are all of the systems that the user has interacted with. If you are looking for additional details,
+                you can expand each section to show more information.</p>
+            <p class="note"><em><b>Please Note:</b>  These are the responses that the system had when the application was sent through to it. An approve or accept means the system recieved the information, not necessarily that the application was approved.
+                To see an applications official decision please see the system of record.</em></p>
+
+            <!-- Beginning of system card -->
+            <aura:iteration items="{!v.systemInteractions}" var="interaction">
+                <c:CRMAOIndividualResponse responseData="{!interaction}" />
+            </aura:iteration>
+
+        </div>
+    </div>
+</aura:component>

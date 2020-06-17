@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="iconName" default="bell" type="String" description="the path for the icon in the static resource, this will be use in a SVG use tag" />
+    <aura:attribute name="iconSize" default="large" type="String" description="the class of this SVG tag, can be use for CSS purpose" />
+    <aura:attribute name="iconColor" default="green" type="String" description="the class of this SVG tag, can be use for CSS purpose" />
+    <div id="{!v.iconSize}" class="{!v.iconName}" style="{!'background-color: ' + v.iconColor + ';'}">
+        <img class="svg" src="{!$Resource.fontawesome + '/fontawesome/advanced-options/raw-svg/solid/' + v.iconName + '.svg'}"/>
+    </div>
+</aura:component>

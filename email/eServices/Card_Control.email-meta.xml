@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Card Control</name>
+    <style>none</style>
+    <subject>Card Control</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+We wanted to let you know of a new feature that ICCU is offering, Card Control! With this new feature, you will be able to freeze and unfreeze your cards as needed, set spending limits and approved retailers, and receive real-time notifications when your card is used
+
+To set this up, log into your ICCU app and open the menu. Here you can select the CardControl option. This will direct you out of the ICCU app to download the Card Control app. Once it is downloaded, you can access it from the ICCU app. Once you have it downloaded, you can upload your cards and set it up how you would like!
+
+If you need assistance setting this up, or have any questions, please let us know!
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- The API key for your tenant (from the ONE tenant admin security page) --></help>
+        <label><!-- API_Key --></label>
+        <name>thunderhead__api_key__c</name>
+    </fields>
+    <fields>
+        <help><!-- The API secret for your tenant (from the ONE tenant admin security page) --></help>
+        <label><!-- API Secret --></label>
+        <name>thunderhead__api_secret__c</name>
+    </fields>
+    <fields>
+        <help><!-- Thunderhead recommends creating a dedicated user for API requests. For example, create the user &apos;apiuser@tenant&apos;, with the email address of the user who will control the dedicated account. --></help>
+        <label><!-- API Username --></label>
+        <name>thunderhead__api_username__c</name>
+    </fields>
+    <fields>
+        <label><!-- Server --></label>
+        <name>thunderhead__server__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Key --></label>
+        <name>thunderhead__site_key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Touchpoint --></label>
+        <name>thunderhead__touchpoint__c</name>
+    </fields>
+</CustomObjectTranslation>

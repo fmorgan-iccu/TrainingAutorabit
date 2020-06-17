@@ -1,0 +1,50 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatDates}" />
+    
+    <!-- Defining Attributes -->
+    <aura:attribute name="AccountCard" type="Object"/>
+    <aura:attribute name="formattedCardNumber" type="String" />
+    <aura:attribute name="formattedExpirationDate" type="String" />
+    <aura:attribute name="isEditing" type="Boolean" default="false" />
+
+    <div style="border: 1px solid #999; padding: 20px; margin-bottom: 20px;">
+        <h2>{!v.displayName}</h2>
+        <b>{!v.AccountCard.displayName}</b><br />
+        <b>Card Number:</b> {!v.formattedCardNumber}<br />
+        <b>Expiration:</b> {!v.formattedExpirationDate}<br />
+        <b>Status:</b> {!v.AccountCard.status}<br />
+
+        <aura:if isTrue="{!v.isEditing == false}">
+            <lightning:button variant="brand" label="Edit" title="Edit" onclick="{!c.editCard}" />
+        </aura:if>
+
+        <aura:if isTrue="{!v.isEditing}">
+            <hr />
+
+            <b>New Status</b><br />
+            <lightning:select aura:id="ChangeStatusSelect" name="ChangeStatusSelect" label="Change Status" required="true">
+                <option value=""></option>
+                
+                <aura:iteration items="{!v.AccountCard.applicableStatuses}" var="option">
+                    <option value="{!option.code}">{!option.displayValue}</option>
+                </aura:iteration>
+            </lightning:select>
+            
+            <aura:if isTrue="{!v.AccountCard.applicableChangeReasons.length &gt; 0}">
+                <h4>Change Reason:</h4>
+                <lightning:select aura:id="ChangeReasonSelect" name="ChangeReasonSelect" label="Change Reason" required="true">
+                    <aura:iteration items="{!v.AccountCard.applicableChangeReasons}" var="option">
+                        <option value="{!option.code}">{!option.displayValue}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </aura:if>
+            
+            <lightning:textarea aura:id="ChangeReason" name="ChangeReason" label="" placeholder="Please enter a short description for the change reason." required="true" />
+            
+            <lightning:button label="Cancel" title="Cancel" onclick="{! c.cancelEditCard }"/>
+            <lightning:button variant="brand" label="Update" title="Brand action" onclick="{! c.updateCard }" />
+        </aura:if>
+    </div>
+
+</aura:component>

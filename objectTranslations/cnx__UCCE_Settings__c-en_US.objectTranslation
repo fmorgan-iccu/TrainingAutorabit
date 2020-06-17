@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- obsolete --></label>
+        <name>cnx__Connects_Customization_Pagename__c</name>
+    </fields>
+    <fields>
+        <label><!-- obsolete --></label>
+        <name>cnx__Gadget_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- obsolete --></label>
+        <name>cnx__Media_Service_URL__c</name>
+    </fields>
+</CustomObjectTranslation>

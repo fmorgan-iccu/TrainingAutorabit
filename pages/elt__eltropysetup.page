@@ -1,0 +1,151 @@
+<apex:page controller="elt.EltropySetupController"> 
+    <style>
+        .loginForm {
+            text-align: center;
+            width: 30%;
+            margin: 0 auto;
+            margin-top: 10px;
+            background: #1797C0;
+            border-radius: 10px;
+            padding: 40px;
+            border: 3px solid #fff;
+            -webkit-box-shadow: 0px 0px 39px -13px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 39px -13px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 39px -13px rgba(0,0,0,0.75);
+        }
+        #domainUrl, #emailId, #password {
+             border-radius: 4px;
+             border: 1px solid #1797C0;
+             padding: 10px;
+             margin: 5px 0px;
+             height: 20px;
+             width: 100%;
+             font-size: 12px;
+        }
+        .loginButton { 
+              background:  #31b7e0;
+              border: 2px solid #1797C0;
+              width: 30%;
+              height: 30px;
+              color: #fff;
+              font-size: 13px;
+              border: 0px;
+              text-align: center;
+              cursor: pointer
+        }
+        .loginButton:hover {
+            background: #4acef7;
+        }   
+        .formLabel {
+            color: white;
+            font-size: 12px;
+            padding-right: 10px;
+        }
+        .header {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .line {
+            border: 1px solid white;
+            width: 70%;
+            opacity: 0.5;
+        }
+        #message {
+            color: rgb(215, 216, 158);
+        }
+        .formFields {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .inputFields {
+            width:100%;
+        }
+        .labels {
+            float: left;
+            color: white;
+            padding-top: 5px;
+            padding-bottom:5px;
+            font-size: 12px;
+        }
+    </style>
+    <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/sha256.js')}"/>
+    <div class="loginForm">
+        <img src="{!URLFOR($Resource.eltropyforce, 'setup/img/eltropy_setup.png')}" width="180"/>
+        <br/><br/>
+        <p class="header">Connect with Eltropy</p><br/>
+        <div class="formFields">
+        <div class="inputFields">
+            <div class="labels">Domain</div>
+            <input type="text" id="domainUrl" placeholder="https://demo.eltropy.com" /><br/>
+            <div class="labels">Email</div>
+            <input type="text" id="emailId"/><br/>
+            <div class="labels">Password</div>
+            <input type="password" id="password" /><br/>
+        </div>
+        </div>
+        <br/><br/>
+        <button id="login" class="loginButton">Sign in</button>
+        <br/><br/>
+        <div id="message"></div>
+    </div>
+    
+    <script>
+        $("#login").click(function() {
+             $("#login").html("Signing in...")
+             var domainUrl = $("#domainUrl").val();
+             var authEndpoint = domainUrl + '/api/v2/sfdcapp/login';
+             var emailId = $("#emailId").val();
+             var password = $("#password").val();
+
+             $.ajax({
+              type: 'GET',
+              url: domainUrl + '/api/v2/sfdcapp/hashingSalt/get?emailId=' + emailId,
+              success: function(data) {
+                if(data.hashingSalt == null) {
+                  window.location = domainUrl + '/Auth/resetPassword?type=fresh';
+                }
+                 var Add = (data.hashingSalt + password);
+                 var Cyphertext = sha256(Add)
+                 var postData = {
+                 "emailId": emailId,
+                 "password": Cyphertext
+                };
+                $.ajax({
+                type: 'POST',
+                url: authEndpoint,
+                data: JSON.stringify(postData),
+                headers: {
+                  'El-Client'         :'sfdcsalesanalyzer-' + Date.now(),
+                },
+                success: function(data) { 
+                    Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.EltropySetupController.saveEltropySetup}',
+                     domainUrl, data.adminId, data.accessToken, data.domainId,
+                     function(result, event){
+                        if (event.status) {
+                            $("#message").html("Setup successful"); 
+                        } else {
+                            $("#message").html("Login error");
+                        }
+                     });                     
+                },
+                error: function(data) {
+                    $("#message").html(data.responseJSON && data.responseJSON.errorMsg ? data.responseJSON.errorMsg : "Login error");
+                },
+                contentType: "application/json"
+             })
+              },
+              error: function(data) {
+                    $("#message").html(data.responseJSON && data.responseJSON.errorMsg ? data.responseJSON.errorMsg : "Login error");
+                },
+             })
+             .always(function() {
+                 $("#login").html("Sign in")
+             });
+        });
+    </script>
+    
+</apex:page>

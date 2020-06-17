@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Web to Lead</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Campaign.Name</field>
+                <operation>equals</operation>
+                <value>ICCU - Business Information Request Form</value>
+            </criteriaItems>
+            <senderEmail>noreply@iccu.com</senderEmail>
+            <senderName>Idaho Central</senderName>
+            <template>unfiled$public/Business_Information_Request_Response</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Campaign.Name</field>
+                <operation>equals</operation>
+                <value>East Idaho State Fair 2017</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.ExistingMember__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </criteriaItems>
+            <senderEmail>noreply@iccu.com</senderEmail>
+            <senderName>Idaho Central</senderName>
+            <template>Business_Development/EISF_Confirmation2017</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Campaign.Name</field>
+                <operation>equals</operation>
+                <value>East Idaho State Fair 2017</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.ExistingMember__c</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </criteriaItems>
+            <senderEmail>noreply@iccu.com</senderEmail>
+            <senderName>Idaho Central</senderName>
+            <template>Business_Development/EISF_Confirmation_NonMember2017</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

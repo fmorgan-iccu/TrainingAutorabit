@@ -1,0 +1,5 @@
+Hello,
+
+The First Payment Amount is {!Opportunity.First_Payment_Amount__c}, and this was paid on {!Opportunity.First_Payment_Date__c}.
+
+Thanks

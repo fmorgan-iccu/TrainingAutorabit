@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="QuickLinksController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:attribute access="global" name="quickLinks" type="QuickLink__c"/>
+    
+    <!-- This attribute sets the default link to open in a new tab. -->
+    <aura:attribute name="openNewTab" type="String" default="_blank"/>
+    
+	<lightning:card class="left-col-component">
+        <aura:set attribute="title">
+        	Quick Links
+        </aura:set>
+        <aura:set attribute="footer">
+            <aura:iteration items="{!v.quickLinks}" var="quickLink">
+                <lightning:formattedUrl value="{!quickLink.URL__c}" target="{!v.openNewTab}" label="{!quickLink.Name}" />
+            </aura:iteration>
+        </aura:set>
+    </lightning:card>
+</aura:component>

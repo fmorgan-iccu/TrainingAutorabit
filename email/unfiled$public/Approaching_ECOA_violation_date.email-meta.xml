@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This is an email alert for FSC supervisors and managers when an opportunity open longer than 25 days</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Approaching ECOA violation date</name>
+    <style>none</style>
+    <subject>ECOA violation Alert</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

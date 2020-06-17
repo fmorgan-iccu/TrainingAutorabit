@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Balance --></label>
+        <name>PLNDR__Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deposit Type --></label>
+        <name>PLNDR__Deposit_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Assets --></help>
+        <label><!-- Average Assets --></label>
+        <name>PLNDR__FS_Average_Assets__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Equity --></help>
+        <label><!-- Average Equity --></label>
+        <name>PLNDR__FS_Average_Equity__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the average interest income divided by the average outstanding assets. --></help>
+        <label><!-- Average Yield --></label>
+        <name>PLNDR__FS_Average_Yield__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Expense --></help>
+        <label><!-- Interest Expense --></label>
+        <name>PLNDR__FS_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Income --></help>
+        <label><!-- Interest Income --></label>
+        <name>PLNDR__FS_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Average Balance --></help>
+        <label><!-- Loan Average Balance --></label>
+        <name>PLNDR__FS_Loan_Average_Balance__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Commitment --></help>
+        <label><!-- Loan Commitment --></label>
+        <name>PLNDR__FS_Loan_Commitment__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Gross Funding --></help>
+        <label><!-- Loan Gross Funding --></label>
+        <name>PLNDR__FS_Loan_Gross_Funding__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Loss Reserves --></help>
+        <label><!-- Loan Loss Reserves --></label>
+        <name>PLNDR__FS_Loan_Loss_Reserves__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Net Commitment --></label>
+        <name>PLNDR__FS_Loan_Net_Commitment__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Net Funding --></help>
+        <label><!-- Loan Net Funding --></label>
+        <name>PLNDR__FS_Loan_Net_Funding__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Income --></help>
+        <label><!-- Net Income --></label>
+        <name>PLNDR__FS_Net_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Interest Income --></help>
+        <label><!-- Net Interest Income --></label>
+        <name>PLNDR__FS_Net_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the Net Interest Margin - the Net Interest Income divided by the Average Outstanding Assets. --></help>
+        <label><!-- Net Interest Margin --></label>
+        <name>PLNDR__FS_Net_Interest_Margin__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Non Interest Expense --></help>
+        <label><!-- Non Interest Expense --></label>
+        <name>PLNDR__FS_Non_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Other Income --></help>
+        <label><!-- Other Income --></label>
+        <name>PLNDR__FS_Other_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Pre-Tax Income --></help>
+        <label><!-- Pre-Tax Income --></label>
+        <name>PLNDR__FS_Pre_Tax_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROA --></help>
+        <label><!-- ROA --></label>
+        <name>PLNDR__FS_ROA__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROE --></help>
+        <label><!-- ROE --></label>
+        <name>PLNDR__FS_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target Net Income --></help>
+        <label><!-- Target Net Income --></label>
+        <name>PLNDR__FS_Target_Net_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target ROA --></help>
+        <label><!-- Target ROA --></label>
+        <name>PLNDR__FS_Target_ROA__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target ROE --></help>
+        <label><!-- Target ROE --></label>
+        <name>PLNDR__FS_Target_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Taxes --></help>
+        <label><!-- Taxes --></label>
+        <name>PLNDR__FS_Taxes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Origination date for CDs. --></help>
+        <label><!-- Origination Date --></label>
+        <name>PLNDR__Origination_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PrecisionLender Last Updated --></label>
+        <name>PLNDR__PrecisionLender_Last_Updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- PrecisionLender Scenario --></label>
+        <name>PLNDR__PrecisionLender_Scenario__c</name>
+        <relationshipLabel><!-- Deposit Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Name --></label>
+        <name>PLNDR__Product_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate --></label>
+        <name>PLNDR__Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scenario Weight --></label>
+        <name>PLNDR__ScenarioWeight__c</name>
+    </fields>
+    <fields>
+        <help><!-- Value is in months. --></help>
+        <label><!-- Term --></label>
+        <name>PLNDR__Term__c</name>
+    </fields>
+    <layouts>
+        <layout>Deposit Account Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- PrecisionLender Deposit Data --></label>
+            <section>PrecisionLender Deposit Data</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

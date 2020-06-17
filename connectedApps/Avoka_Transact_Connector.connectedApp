@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canvasConfig>
+        <accessMethod>Post</accessMethod>
+        <canvasUrl>https://admin.iccu.avoka-transact.com/sfdc/servlet/SmartForm.html?formCode=AT4SF-canvas</canvasUrl>
+        <locations>Chatter</locations>
+        <locations>Visualforce</locations>
+        <locations>Aura</locations>
+        <locations>PageLayout</locations>
+        <samlInitiationMethod>None</samlInitiationMethod>
+    </canvasConfig>
+    <contactEmail>bethington@iccu.com</contactEmail>
+    <label>Avoka Transact Connector</label>
+    <oauthConfig>
+        <callbackUrl>https://admin.iccu.avoka-transact.com/sfdc/secure/account/home.htm</callbackUrl>
+        <isAdminApproved>false</isAdminApproved>
+        <scopes>Basic</scopes>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+    </oauthConfig>
+    <startUrl>https://admin.iccu.avoka-transact.com/sfdc/servlet/SmartForm.html?formCode=AT4SF-canvas</startUrl>
+</ConnectedApp>

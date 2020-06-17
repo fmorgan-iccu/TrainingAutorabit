@@ -1,0 +1,128 @@
+.THIS {
+    font-size: 16px;
+    color: #1A1A1A;
+}
+.THIS .modal-body.scrollable.slds-modal__content.slds-p-around--medium {
+    overflow-y: visible;
+    overflow: scroll;
+}
+
+.THIS .slds-modal__header {
+    background-color: t(iccuPrimaryGreen);
+    color: #fff;
+    border-bottom: none;
+}
+
+.THIS .SelectButton {
+    background-color: #fff;
+    border: 1px solid t(iccuPrimaryGreen);
+    color: t(iccuPrimaryGreen);
+}
+
+.THIS .SelectButton:hover, .THIS .SelectButton:focus {
+    background-color: t(iccuPrimaryGreen);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+
+.THIS .slds-modal__content {
+    height: 40em;
+}
+
+.THIS .slds-modal__container {
+    width: 100%;
+}
+
+.THIS .AvokaAppContainer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+.THIS .TitleContainer {
+    padding-bottom: 1em;
+}
+
+.THIS .ComboBoxContainer {
+    width: 50%;
+    margin-bottom: 2em;
+}
+
+.THIS #ChooseLabel {
+    font-weight: 600;
+}
+
+/* Product Selection */
+
+.THIS .ProductContainer {
+    margin-bottom: 2em;
+    border: 1px solid #f2f2f2;
+    border-radius: 0.25em;
+    padding: 1em;
+    transition: all 0.15s ease-in-out;
+}
+
+.THIS .ProductContainer:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.THIS .ProductContainer:active {
+    border: 1px solid t(iccuPrimaryGreen);
+    border-radius: 0.25em;
+    
+}
+
+.THIS .ProductContainer:focus {
+    border: 1px solid t(iccuPrimaryGreen);
+    border-radius: 0.25em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.THIS .ProductContainer:focus-within {
+    border: 1px solid t(iccuPrimaryGreen);
+    border-radius: 0.25em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.THIS #ProductTitle {
+    font-weight: 600;
+    font-size: 1.25em;
+}
+
+.THIS #ProductDescription {
+    margin-bottom: 1em;
+}
+
+.THIS h2 {
+    font-size: 1.5em;
+    font-weight: t(fontWeightBold);
+}
+
+.THIS .ProductContainerSelected {
+    border: 1px solid t(iccuPrimaryGreen)
+}
+
+
+/* Salesforce Overrides */
+.THIS .slds-show {
+    height: 600px;
+}
+
+.THIS .slds-button_inverse:hover {
+    color: t(iccuPrimaryGreen)
+}
+
+.THIS .slds-modal__footer {
+    border-top: none;
+    background-color: #fff;
+    padding-bottom: 1em;
+}
+
+.THIS input:hover {
+    cursor: pointer;
+}
+
+.THIS:focus {
+    outline: none;
+}

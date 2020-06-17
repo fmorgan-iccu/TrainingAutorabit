@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Application Url --></label>
+        <name>PLNDR__Application_Url__c</name>
+    </fields>
+    <fields>
+        <label><!-- ClientApiKey --></label>
+        <name>PLNDR__ClientApiKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- ClientId --></label>
+        <name>PLNDR__ClientId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship ID Source --></label>
+        <name>PLNDR__Relationship_External_ID_Source__c</name>
+    </fields>
+</CustomObjectTranslation>

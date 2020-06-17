@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Private_Client</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>This will allow all Private Client Managers and User the ability to edit each others opportunities</description>
+        <label>Private Client</label>
+        <sharedTo>
+            <group>Private_Client</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>Private_Client</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

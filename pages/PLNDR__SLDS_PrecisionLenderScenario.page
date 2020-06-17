@@ -1,0 +1,249 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="PLNDR__PrecisionLender_Scenario__c">
+    <apex:remoteObjects >
+        <apex:remoteObjectModel name="PLNDR__PrecisionLender_Scenario__c" jsShorthand="scenario"
+                                fields="Id,PLNDR__Scenario_Type__c,PLNDR__Is_Pipeline__c"></apex:remoteObjectModel>
+    </apex:remoteObjects>
+    <html xlmns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.PLNDR__SLDS0101, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+            <apex:includeScript value="{!$Resource.PLNDR__jQuery}"/>
+            <apex:includeScript value="{!URLFOR($Resource.PLNDR__PLResources)}"/>         
+        </head>
+        <body>
+            <div class="slds">        
+            <div class="slds-tabs--scoped">
+                    <ul class="slds-tabs--scoped__nav" role="tablist">
+                        <li class="slds-tabs__item slds-text-heading--label slds-active" title="Scenario Summary" role="presentation">
+                            <a href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1">Scenario Summary</a>
+                        </li>
+                        <li class="slds-tabs__item slds-text-heading--label" title="Financial Statement" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2">Financial Statement</a>
+                        </li>
+                    </ul>
+                <div id="tab-scoped-1" class="slds-tabs__content slds-show" role="tabpanel">
+                    <div id="scenarioOverview" class="slds-p-vertical--small">
+                        <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">                                      
+                        <tbody>
+						<tr class="slds-hint-parent">
+                        <td data-label="loan-balance">
+							<div class="slds-text-body--small">Scenario Name:</div>
+							<div class="slds-text-body--regular slds-truncate">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Name__c}</div>
+						</td>
+							<td data-label="ispipeline">
+                            <div class="slds-text-body--small">Is Pipeline:</div>
+                         	<div class="slds-form-element">
+  								<label class="slds-checkbox" for="is-pipeline">
+    								<input name="checkbox" type="checkbox" id="is-pipeline" disabled="disabled"/>
+    								<span class="slds-checkbox--faux"></span>
+    								<span class="slds-form-element__label"></span>
+  								</label>
+							</div>
+                        </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+						  <td data-label="scenario-type">
+							  <div class="slds-text-body--small">Scenario Type:</div>
+							  <div class="slds-text-body--regular">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Type__c}</div>
+						  </td>
+						  <td>
+							  <div id="competitor">
+                                  <div class="slds-text-body--small">Competitor Name:</div>
+							  	<div class="slds-text-body--regular" id="competitorName">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Competitor_Name__c}</div>
+							  </div>
+						  </td>
+						  </tr>
+						  <tr class="slds-hint-parent">
+                          		<td data-label="scenario-description">
+                              		<div class="slds-text-body--small">Scenario Description:</div>
+							  		<div class="slds-text-body--regular">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Description__c}</div>
+                          		</td>
+                              	<td>
+                              	</td>
+                          </tr>
+                          <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                          <tr class="slds-hint-parent">
+                          <td data-label="sc-loan-gr-funding">
+							<div class="slds-text-body--small">Loan Gross Funding:</div>
+							<div class="slds-text-body--regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Gross_Funding__c}</div>
+						  </td>
+					      <td data-label="sc-loan-commitment">
+							<div class="slds-text-body--small">Loan Commitment:</div>
+							<div class="slds-text-body--regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Commitment__c}</div>
+						</td>
+						</tr>
+						<tr class="slds-hint-parent">
+						<td data-label="sc-loan-net-funding">
+							<div class="slds-text-body--small">Loan Net Funding:</div>
+							<div class="slds-text-body--regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Net_Funding__c}</div>
+						</td>
+						<td data-label="sc-loan-avg-balance">
+							<div class="slds-text-body--small">Loan Average Balance:</div>
+						<div class="slds-text-body--regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Average_Balance__c}</div>
+						</td>
+					    </tr>
+					</tbody>
+				</table>
+                </div>
+                </div>
+                 <div id="tab-scoped-2" class="slds-tabs__content slds-hide" role="tabpanel">
+                        <div id="financialStatementDiv" class="slds-p-vertical--small">
+                         <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Interest_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Average Yield:</div>
+                                         <div class="slds-text-body--regular decimal-three">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Average_Yield__c}</div>
+                                    </td>                       
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                          
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Net_Interest_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Net Interest Margin:</div>
+                                         <div class="slds-text-body--regular decimal-three">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Net_Interest_Margin__c}</div>
+                                     </td>                           
+                                </tr>                               
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Non Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Non_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                        
+                                </tr>                                
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Loss_Reserves__c}</div>
+                                     </td>
+                                     <td></td>                        
+                                </tr>
+                                   <tr>
+                                    <td><div class="slds-text-body--small">Other Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Other_Income__c}</div>
+                                    </td>
+                                    <td></td>                        
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">
+                                         Pre-Tax Income:
+                                        </div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Pre_Tax_Income__c}</div>
+                                     </td>
+                                     <td></td>                        
+                                </tr> 
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Taxes:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Taxes__c}</div>
+                                    </td>
+                                     <td></td>                      
+                                </tr> 
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Net_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">ROA:</div>
+                                         <div class="slds-text-body--regular decimal">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_ROA__c}</div>
+                                     </td>                       
+                                </tr> 
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Target Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Target_Net_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Target ROA:</div>
+                                         <div class="slds-text-body--regular decimal">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Target_ROA__c}</div>
+                                     </td>                       
+                                 </tr> 
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Assets:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Average_Assets__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small">ROE:</div>
+                                         <div class="slds-text-body--regular decimal">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_ROE__c}</div>
+                                     </td>                           
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Equity:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Average_Equity__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Target ROE:</div>
+                                         <div class="slds-text-body--regular decimal">{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Target_ROE__c}</div>
+                                     </td>                           
+                                </tr>                                
+                                    
+                              </tbody>
+                            </table>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+        <script>
+        
+        $(document).ready(function(){		
+
+            //commercial loan account
+            retrieveScenario();          
+ 		});
+      //remote object model functions    
+        function retrieveScenario(){
+        var sc = new SObjectModel.scenario();
+		sc.retrieve( 
+    	{ 
+			where: { Id: {eq: '{!PLNDR__PrecisionLender_Scenario__c.Id}'} },       
+      		limit: 1 },  
+
+    function(err, records) { 
+        if (err) { 
+            alert(err); 
+        	} else { 
+            records.forEach(function(record){
+                		var scenarioType = record.get("PLNDR__Scenario_Type__c");
+              			var isPipeline = record.get("PLNDR__Is_Pipeline__c");
+                		$("#is-pipeline").attr("checked", isPipeline);
+                    	showCompetitiveScenarioDiv(scenarioType);                   
+                      }
+                    );
+        		} 
+    		} 
+		);
+    }
+    
+   
+    
+    //object model callbacks
+    function showCompetitiveScenarioDiv(scenarioType){
+        if(scenarioType === 'competitive'){
+            $("#competitor").show();            
+        }
+        else{
+            $("#competitor").hide();
+        }
+    }
+        
+       
+        </script>        
+    </html>
+</apex:page>

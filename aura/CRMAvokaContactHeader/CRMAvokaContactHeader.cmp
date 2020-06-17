@@ -1,0 +1,158 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <!-- Date formatting library -->
+    <ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatBirthday}" />
+
+    <!-- get the recordId -->
+    <aura:attribute name="recordId" type="String" />
+
+    <aura:attribute name="record" type="Object"
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object"
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String"
+                    description="An error message bound to force:recordData"/>
+    <aura:attribute name="dataJuice" type="String"/>
+
+    <aura:attribute name="formattedBirthday" type="String" />
+
+    <force:recordData aura:id="record"
+                      fields="Name, PreferredName__c, FirstName, MiddleName, LastName,
+                              Birthdate, CreditScore__c, TaxID__c,
+                              Phone, MobilePhone, Email,
+                              MailingCity, MailingState, MailingPostalCode, MailingStreet"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      recordUpdated="{!c.formatBirthday}"
+                      mode="VIEW"/>
+
+    <!-- if record error -->
+    <aura:if isTrue="{!v.recordError.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.recordError}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <c:CRMAlert alertState="info">
+        <aura:set attribute="alertMessage">
+            <p>
+                {!v.simpleRecord.Name} is not <em>currently</em> a member at ICCU.
+            </p>
+        </aura:set>
+    </c:CRMAlert>
+
+    <div class="slds-card"> <!-- Begin card -->
+        <!-- BEGIN CARD HEADER -->
+        <div class="slds-card__header slds-grid" style="{! 'background-image:url(' + $Resource.CRMMemberBackgroundAlt + ');'}">
+            <div class="MemberHeaderContainer">
+                <div class="MemberNameContainer">
+                    <aura:if isTrue="{! v.simpleRecord.PreferredName__c.length &gt; 0}">
+                        <lightning:icon iconName="utility:copy_to_clipboard" />
+                        <div class="memberName">
+                            <h1 class="MemberNameHeader">{!v.simpleRecord.PreferredName__c}&nbsp;{!v.simpleRecord.LastName}</h1>
+                            <h3 class="MemberLegalName">Legal Name: {!v.simpleRecord.FirstName}&nbsp;{!v.simpleRecord.MiddleName}&nbsp;{!v.simpleRecord.LastName}</h3>
+                        </div>
+                        <aura:set attribute="else">
+                            <lightning:icon iconName="utility:copy_to_clipboard" />
+                            <h1 class="MemberNameHeader">{!v.simpleRecord.FirstName}&nbsp;{!v.simpleRecord.MiddleName}&nbsp;{!v.simpleRecord.LastName}</h1>
+                        </aura:set>
+                    </aura:if>
+                </div><!-- END OF MemberNameContainer -->
+
+                <div class="MemberActions">
+                    <a href="{! 'mailto:' + v.simpleRecord.Email}">
+                        <lightning:button iconName="utility:email" variant="brand" label="Email Member"/>
+                    </a>
+                </div> <!-- END OF MemberActions -->
+            </div> <!-- END OF MemberHeaderContainer -->
+        </div>
+
+        <!-- BEGIN CARD BODY -->
+        <div class="slds-card__body slds-card__body_inner">
+
+            <h3 id="MemberInformation">Contact Information</h3>
+
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <!--
+                <lightning:layoutItem size="12" smallDeviceSize="5" mediumDeviceSize="5" largeDeviceSize="2">
+                    <img src="{!$Resource.DL}"/>
+                </lightning:layoutItem>
+				-->
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                   <!--
+TODO: Format Birthday -->
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Birthdate</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.formattedBirthday}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Address</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.MailingStreet}</p>
+                            <p>{!v.simpleRecord.MailingCity},&nbsp; {!v.simpleRecord.MailingState}&nbsp; {!v.simpleRecord.MailingPostalCode}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Credit Score</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.CreditScore__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>SSN</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.TaxID__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Phone</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem>
+                            <lightning:clickToDial value="{!v.simpleRecord.Phone}" recordId="{!v.recordId}" />
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Mobile</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem>
+                            <lightning:clickToDial value="{!v.simpleRecord.MobilePhone}" recordId="{!v.recordId}" />
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Email</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <lightning:formattedEmail value="{!v.simpleRecord.Email}" />
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div><!-- END CARD BODY -->
+    </div>
+</aura:component>

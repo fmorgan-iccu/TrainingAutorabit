@@ -1,0 +1,3 @@
+public interface IAccountOpeningApplicationPrefiller {
+	AccountOpeningApplicationPrefillResponse submitPrefilledApplication(AccountOpeningApplication application);
+}

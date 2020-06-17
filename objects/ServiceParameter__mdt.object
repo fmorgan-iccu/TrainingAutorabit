@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Parameters Used in Services</description>
+    <fields>
+        <fullName>Key__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Key</label>
+        <length>50</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Value</label>
+        <length>50</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Service Parameter</label>
+    <listViews>
+        <fullName>Parameters</fullName>
+        <columns>Key__c</columns>
+        <columns>Value__c</columns>
+        <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <columns>NamespacePrefix</columns>
+        <filterScope>Everything</filterScope>
+        <label>Parameters</label>
+    </listViews>
+    <pluralLabel>Service Parameters</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

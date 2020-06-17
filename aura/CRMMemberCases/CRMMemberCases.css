@@ -1,0 +1,53 @@
+.THIS {
+}/** Applications **/
+
+.THIS h2 {
+    font-size: t(xLargeText);
+    font-weight: bold;
+    padding-left: .5em;
+}
+.THIS h3 {
+    font-size: t(largeText);
+    font-weight: bold;
+    padding: 1.5em 0 1em;
+}
+.THIS {
+    padding: 2em;
+}
+.THIS .cCRMMemberCaseItem:not(:last-child):not(:empty) {
+    margin-bottom: 1em;
+}
+
+.THIS #CaseHeader {
+    display: flex;
+    flex: 1;
+}
+/**Icons and Colors**/
+.THIS .cFontawesomeIcon {
+    border-radius: .25rem;
+}
+.THIS .cFontawesomeIcon[style*="purple"] {
+    background-color: t(iconPurple) !important;
+    fill: t(iconFill);
+}
+
+
+/*complete*/
+.THIS .individual-status.complete {
+    background: t(iccuSuccess);
+}
+.THIS .individual-status.complete:before {
+    border-left: 10px solid t(iccuSuccess);
+}
+/*working*/
+.THIS .individual-status.working {
+    background: t(iccuNotification);
+}
+.THIS .individual-status.working:before {
+    border-left: 10px solid t(iccuNotification);
+}
+/*Working or Complete*/
+.THIS .individual-status.complete p,
+.THIS .individual-status.working p{
+    color: t(textOnColor);
+}

@@ -1,0 +1,13 @@
+.THIS {
+    height: 150px;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+.THIS h1 {
+    color: white;
+    font-size: t(h1HeadlineText);
+    padding-left: 1rem;
+}

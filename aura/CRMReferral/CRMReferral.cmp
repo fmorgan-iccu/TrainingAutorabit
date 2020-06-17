@@ -1,0 +1,102 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="MemberReferralController">
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="loanOfficers" type="Array" description="List of loan officers for selection"/>
+    <aura:attribute name="currentUserName" type="String" description="Name of the current user."/>
+    <aura:attribute name="orgId" type="String" description="ID of the current organization"/>
+    <aura:attribute name="orgURL" type="String" description="Web-to-lead URL for the current organization"/>
+    <aura:attribute name="leadRecordTypeID" type="String" description="The ID of the record type that should be used for creating new leads."/>
+    <aura:attribute name="referralTypeFieldId" type="String" description="The ID of the Referral Type field for the give environment."/>
+    
+    <!-- Card -->
+    <lightning:card title="MCC Referral">
+    	<!-- Begin Form -->
+                    
+                    <form action="{!v.orgURL}" method="POST">
+                        
+                        <input type="hidden" name="oid" value="{!v.orgId}" />
+                        <input type="hidden" name="lead_source" value="MCC Referral" />
+                                
+                        		<!-- Hide fields we want to assign info to -->
+                                <!--Referring Team Member-->
+                        		<input  id="00Ni000000EZ6LT" maxlength="50" name="00Ni000000EZ6LT" size="20" type="hidden"
+                                       value="{!v.currentUserName}"/>
+                        
+                        		<!--Record Type-->
+                                <select id="recordType" name="recordType" class="hide-me">
+                                    <option value="{!v.leadRecordTypeID}" selected="selected" class="hide-me">MCC Referral</option>
+                                </select>
+                                
+                        		<!-- End Hidden Fields -->
+                        		<div class="fields">
+                        			<label for="{!v.referralTypeFieldId}">Referral Type</label>
+                                    <select id="{!v.referralTypeFieldId}" name="{!v.referralTypeFieldId}" title="Referral Type">
+                                        <option value="Cross Sell" selected="selected">Cross Sell</option>
+                                        <option value="Member Request">Member Request</option>
+                                    </select>
+                                    
+                                    <label for="first_name">First Name</label>
+                                    <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"/>
+                                    
+                                    <label for="last_name">Last Name</label>
+                        			<input id="last_name" maxlength="80" name="last_name" size="20" type="text"/>
+                                    
+                                    Existing Member?
+                        			<input  id="00Ni000000I0IrJ" name="00Ni000000I0IrJ" type="checkbox" value="1" />
+                                    
+                                    <label for="phone">Preferred Phone</label>
+                                    <input  id="phone" maxlength="40" name="phone" size="20" type="text"/>
+                                    
+                                    <label for="email">Email</label>
+                                    <input  id="email" maxlength="80" name="email" size="20" type="text" />
+                                    
+                                    Language:
+                                    <select  id="00N1Y00000I4zg1" name="00N1Y00000I4zg1" title="Language">
+                                        <option value="">--None--</option>
+                                        <option value="English" selected="selected">English</option>
+                                        <option value="Spanish">Spanish</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    
+                                    Product:
+                                    <select  id="00N1Y00000I4zfc" name="00N1Y00000I4zfc" title="Product">
+                                        <option value="">--None--</option>
+                                        <option value="Auto">Auto</option>
+                                        <option value="Visa">Visa</option>
+                                        <option value="HELOC">HELOC</option>
+                                        <option value="Motorcycle">Motorcycle</option>
+                                        <option value="Mortgage">Mortgage</option>
+                                        <option value="PLOC">PLOC</option>
+                                        <option value="RV">RV</option>
+                                        <option value="Secured">Secured</option>
+                                        <option value="Signature Loan">Signature Loan</option>
+                                        <option value="Construction">Construction</option>
+                                    </select>
+                                    
+                                    Product Amount:
+                                    <input  id="00N1Y00000I50u9" name="00N1Y00000I50u9" size="20" type="text" />
+                                    
+                                    Loan Officer:
+                                    <select  id="00N1Y00000I52ow" name="00N1Y00000I52ow" title="Loan Officer">
+                                        <option value="">-None-</option>
+                                        <aura:iteration items="{!v.loanOfficers}" var="officer">
+                                            <option value="{!officer.Name}">{!officer.LastName}, {!officer.FirstName}</option>
+                                        </aura:iteration>
+                                    </select>
+                                    
+                                    Name of person you are speaking with (if not the primary member):
+                                    <input  id="00N1Y00000I55B0" maxlength="40" name="00N1Y00000I55B0" size="20" type="text" />
+                                    
+                                    Comments:
+                                    <textarea  id="00Ni000000EZD8l" name="00Ni000000EZD8l" rows="7" type="text" wrap="soft"></textarea>
+                                </div>
+                        		
+                        		<div class="slds-card__footer">
+                        			<input type="submit" name="submit" onclick="return false;" />
+                        		</div>      
+                                
+                     </form>
+    </lightning:card>
+</aura:component>

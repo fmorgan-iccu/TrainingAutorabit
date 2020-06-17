@@ -1,0 +1,182 @@
+.THIS .slds-grid--align-spread .slds-col,
+.THIS .slds-grid_align-spread .slds-col {
+    flex-grow: 1;
+}
+
+.THIS .actionsContainer.slds-align-middle.slds-col.slds-grid.slds-no-flex {
+    flex-grow: 0;
+}
+
+
+/**Layout Styling**/
+.THIS .layout-row-2 {
+    margin-top: t(spacingSmall);
+    margin-bottom: t(spacingSmall);
+}
+.THIS .layout-row-2__column-1 {
+    margin-right: t(spacingSmall);
+}
+.THIS .uiTabset--default .tabs__nav {
+    border-bottom: none;
+}
+
+
+/** Salesforce Overrides **/
+
+.THIS .slds-page-header {
+    background-color: t(iccuHeaderBackground);
+}
+
+.THIS .slds-page-header__detail-row {
+    padding: 1rem 1rem;
+}
+
+.THIS .forceHighlightsStencilDesktop .slds-page-header__detail-row {
+    margin: .95rem -1rem -1rem;
+    border: 1px solid #fff;
+}
+
+.THIS .entityNameTitle.slds-breadcrumb__item.slds-line-height--reset {
+    color: #fff;
+}
+
+.THIS .slds-page-header__title.slds-m-right--small.slds-truncate.slds-align-middle {
+    color: #fff;
+}
+
+.THIS .slds-tabs_card.slds-tabs_card .slds-card__body {
+    margin-bottom: 0px;
+}
+
+.THIS .slds-card__footer {
+    margin-top: 0px;
+    border-top: none;
+    background-color: rgb(243, 242, 242);
+}
+
+.THIS .slds-card__footer:hover {
+    background-color: rgb(238, 241, 246);
+}
+
+.THIS .flexipageComponent:not(:last-child):not(:empty) {
+    margin-bottom: 1.5rem;
+}
+
+/**Banner (Highlights component)**/
+.THIS header .slds-page-header .primaryFieldRow.slds-grid {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.THIS header .slds-page-header .primaryFieldRow.slds-grid > .actionsContainer {
+    padding-top: 0;
+    justify-content: flex-end;
+}
+
+/**Cards**/
+.THIS header.slds-card__header,
+.THIS .uiTabBar {
+    border-radius: .25rem .25rem 0 0;
+}
+
+/**Tab Component**/
+.THIS .slds-tabs_card,
+.THIS .slds-tabs_card.slds-tabs_card {
+    padding: 0;
+}
+
+.THIS .flexipageTabset>.uiTab.tabs__content {
+    padding: 1rem;
+}
+
+.THIS .uiTabBar {
+    padding: 0 1rem;
+    background-color: t(iccuHeaderBackground);
+}
+
+.THIS .uiTabBar li {
+    padding-top: 1rem;
+}
+
+.THIS .uiTabBar li.active:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.THIS .uiTabBar a {
+    color: t(iccuLightText);
+}
+
+.THIS .uiTabset--default .tabs__item.active>a:focus {
+    color: t(iccuLightText);
+}
+
+.THIS .uiTabset--default .tabs__item>a {
+    color: t(iccuLightText);
+    text-transform: capitalize;
+}
+
+.THIS .uiTabset--default .tabs__item>a:hover,
+.THIS .uiTabset--default .tabs__item>a:focus,
+.THIS .uiTabset--default .tabs__item>a[aria-selected=true]
+{
+    color: t(iccuLightText);
+    border-color: t(brightAccentGreen);
+    border-bottom-width: 3px;
+}
+
+.THIS .uiTabset--default .tabs__item>a:focus,
+.THIS .uiTabset--default .tabs__item>a[aria-selected=true]
+{
+    font-weight: t(fontWeightBold);
+}
+
+/**Elements Inside Tabs
+.THIS .slds-card.overview-within-tabs {
+    border: 1px solid #DDDDDD;
+    border-radius: .25rem;
+    padding: 0 .75rem;
+}**/
+
+/* Activity SLDS Component */
+.THIS .uiTabset--task .tabs__nav {
+    background-color: t(iccuPrimaryGreen);
+    border: none;
+}
+
+.THIS .uiTabset--task .tabs__item.active>a {
+    background-color: t(iccuPrimaryGreen);
+}
+.THIS .uiTabset--task .tabs__item.active>a:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+.THIS .uiTabset .uiTabset .tabs__item {
+    padding: 0;
+}
+.THIS .uiTabset .uiTabset .tabs__item>a[aria-selected=true] {
+    border: none;
+}
+.THIS .uiTabset .uiTabset .tabs__item>a:hover {
+    border: none;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+/** Opportunity Header Styling **/
+.THIS .forceHighlightsPanel .slds-page-header.slds-page-header_record-home {
+    margin-bottom: 1.5em;
+    background-image: url(/resource/1534437745000/FSCOpportunityHeaderBackground);
+    background-size: cover;
+}
+.THIS .forceHighlightsPanel .slds-page-header.slds-page-header_record-home .entityNameTitle {
+    display: none;
+}
+.THIS .forceHighlightsPanel .slds-page-header.slds-page-header_record-home h1 span{
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #fff;
+}
+.THIS header .slds-page-header .primaryFieldRow {
+    padding: 1rem 0;
+}
+
+.THIS .forceHighlightsStencilDesktop .fade-text:after {
+    background: transparent;
+}

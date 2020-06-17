@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Business Phone --></label>
+        <name>BusinessPhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Source --></label>
+        <name>CampaignSource__c</name>
+        <picklistValues>
+            <masterLabel>Experian</masterLabel>
+            <translation><!-- Experian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HARV</masterLabel>
+            <translation><!-- HARV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Loan Report</masterLabel>
+            <translation><!-- Home Loan Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IL Onboarding</masterLabel>
+            <translation><!-- IL Onboarding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MRA-Runoff</masterLabel>
+            <translation><!-- MRA-Runoff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OSC Lead</masterLabel>
+            <translation><!-- OSC Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral</masterLabel>
+            <translation><!-- Referral --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Use this to distinguish a Community outreach contact --></help>
+        <label><!-- Community Outreatch --></label>
+        <name>Community_Outreatch__c</name>
+    </fields>
+    <fields>
+        <help><!-- Semi-Annual Assigned Segment Description from Raddon Research --></help>
+        <label><!-- Consumer Segment --></label>
+        <name>ConsumerSegment__c</name>
+        <picklistValues>
+            <masterLabel>Credit Driven</masterLabel>
+            <translation><!-- Credit Driven --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fee Driven</masterLabel>
+            <translation><!-- Fee Driven --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low Income Depositor</masterLabel>
+            <translation><!-- Low Income Depositor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Middle Income Depositor</masterLabel>
+            <translation><!-- Middle Income Depositor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Middle Market</masterLabel>
+            <translation><!-- Middle Market --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unclassified</masterLabel>
+            <translation><!-- Unclassified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upscale</masterLabel>
+            <translation><!-- Upscale --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Credit Score Date --></label>
+        <name>CreditScoreDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- FICO --></help>
+        <label><!-- Credit Score --></label>
+        <name>CreditScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Branch Name --></label>
+        <name>DefaultBranchName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Branch --></label>
+        <name>DefaultBranch__c</name>
+    </fields>
+    <fields>
+        <help><!-- Member enrolled in eStatements (DNA Flag) - Delivery Flag tied to Share Account --></help>
+        <label><!-- Enrolled in eStatements --></label>
+        <name>EnrolledInEstatements__c</name>
+    </fields>
+    <fields>
+        <label><!-- Funding Notice --></label>
+        <name>Funding_Notice__c</name>
+    </fields>
+    <fields>
+        <label><!-- IL Marketing Promotions --></label>
+        <name>IL_Marketing_Promotions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identification Expiration Date --></label>
+        <name>IdentificationExpirationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identification Issue Date --></label>
+        <name>IdentificationIssueDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identification Issue State --></label>
+        <name>IdentificationIssueState__c</name>
+        <picklistValues>
+            <masterLabel>AA</masterLabel>
+            <translation><!-- AA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AE</masterLabel>
+            <translation><!-- AE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AK</masterLabel>
+            <translation><!-- AK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AL</masterLabel>
+            <translation><!-- AL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AP</masterLabel>
+            <translation><!-- AP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AR</masterLabel>
+            <translation><!-- AR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS</masterLabel>
+            <translation><!-- AS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation><!-- AZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA</masterLabel>
+            <translation><!-- CA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CM</masterLabel>
+            <translation><!-- CM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CO</masterLabel>
+            <translation><!-- CO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT</masterLabel>
+            <translation><!-- CT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CZ</masterLabel>
+            <translation><!-- CZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DC</masterLabel>
+            <translation><!-- DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DE</masterLabel>
+            <translation><!-- DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FL</masterLabel>
+            <translation><!-- FL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM</masterLabel>
+            <translation><!-- FM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GA</masterLabel>
+            <translation><!-- GA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GU</masterLabel>
+            <translation><!-- GU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HI</masterLabel>
+            <translation><!-- HI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IA</masterLabel>
+            <translation><!-- IA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID</masterLabel>
+            <translation><!-- ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IL</masterLabel>
+            <translation><!-- IL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KS</masterLabel>
+            <translation><!-- KS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KY</masterLabel>
+            <translation><!-- KY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA</masterLabel>
+            <translation><!-- LA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MA</masterLabel>
+            <translation><!-- MA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD</masterLabel>
+            <translation><!-- MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ME</masterLabel>
+            <translation><!-- ME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MH</masterLabel>
+            <translation><!-- MH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MI</masterLabel>
+            <translation><!-- MI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MN</masterLabel>
+            <translation><!-- MN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation><!-- MO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MP</masterLabel>
+            <translation><!-- MP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MT</masterLabel>
+            <translation><!-- MT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NB</masterLabel>
+            <translation><!-- NB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC</masterLabel>
+            <translation><!-- NC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ND</masterLabel>
+            <translation><!-- ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NE</masterLabel>
+            <translation><!-- NE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NH</masterLabel>
+            <translation><!-- NH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NJ</masterLabel>
+            <translation><!-- NJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NM</masterLabel>
+            <translation><!-- NM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NV</masterLabel>
+            <translation><!-- NV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NY</masterLabel>
+            <translation><!-- NY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OH</masterLabel>
+            <translation><!-- OH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OK</masterLabel>
+            <translation><!-- OK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OR</masterLabel>
+            <translation><!-- OR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PA</masterLabel>
+            <translation><!-- PA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PI</masterLabel>
+            <translation><!-- PI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PR</masterLabel>
+            <translation><!-- PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PW</masterLabel>
+            <translation><!-- PW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RI</masterLabel>
+            <translation><!-- RI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation><!-- SC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation><!-- SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TN</masterLabel>
+            <translation><!-- TN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TT</masterLabel>
+            <translation><!-- TT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TX</masterLabel>
+            <translation><!-- TX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UT</masterLabel>
+            <translation><!-- UT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation><!-- VA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VI</masterLabel>
+            <translation><!-- VI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VT</masterLabel>
+            <translation><!-- VT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WA</masterLabel>
+            <translation><!-- WA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WI</masterLabel>
+            <translation><!-- WI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WV</masterLabel>
+            <translation><!-- WV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WY</masterLabel>
+            <translation><!-- WY --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Identification Number --></label>
+        <name>IdentificationNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identification Type --></label>
+        <name>IdentificationType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Employee --></label>
+        <name>IsEmployee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Joint Account Count --></label>
+        <name>JointAccountCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Joint Account IDs --></label>
+        <name>JointAccountIDs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Marketing Promotions --></label>
+        <name>Marketing_Promotions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Member Group Field in DNA Core or Seg Code Description in Raddon --></help>
+        <label><!-- Member Group --></label>
+        <name>MemberGroup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Number --></label>
+        <name>MemberNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Membership Date --></label>
+        <name>MemberSince__c</name>
+    </fields>
+    <fields>
+        <help><!-- The membership type indicates the original type of share savings account associated with the DNA person. --></help>
+        <label><!-- Membership Type --></label>
+        <name>MembershipType__c</name>
+        <picklistValues>
+            <masterLabel>Commercial</masterLabel>
+            <translation><!-- Commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indirect</masterLabel>
+            <translation><!-- Indirect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Set to the 18 digit contact Id that this record should be merged into. --></help>
+        <label><!-- Merge Into Id --></label>
+        <name>MergeIntoId__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Name --></label>
+        <name>NewName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Most recent Net Promoter Score --></help>
+        <label><!-- NPS Status --></label>
+        <name>NpsStatus__c</name>
+        <picklistValues>
+            <masterLabel>Detractor</masterLabel>
+            <translation><!-- Detractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passive</masterLabel>
+            <translation><!-- Passive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promoter</masterLabel>
+            <translation><!-- Promoter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unclassified</masterLabel>
+            <translation><!-- Unclassified --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Online Agreement IDs --></label>
+        <name>OnlineAgreementIDs__c</name>
+    </fields>
+    <fields>
+        <help><!-- Currently enrolled in eBranch - Person Agreement (WWW) --></help>
+        <label><!-- Online Banking Enrolled --></label>
+        <name>OnlineBankingEnrolled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checked if the member has ever logged into the online banking system. --></help>
+        <label><!-- Online Banking Logged In --></label>
+        <name>OnlineBankingLoggedIn__c</name>
+    </fields>
+    <fields>
+        <help><!-- Active eBranch Users --></help>
+        <label><!-- Online Banking Status --></label>
+        <name>OnlineBankingStatus__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Locked</masterLabel>
+            <translation><!-- Locked --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Person Number --></label>
+        <name>PersonNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- PreferredName --></label>
+        <name>PreferredName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Interest --></label>
+        <name>ProductInterest__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rating --></label>
+        <name>Rating__c</name>
+        <picklistValues>
+            <masterLabel>Cold</masterLabel>
+            <translation><!-- Cold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hot</masterLabel>
+            <translation><!-- Hot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warm</masterLabel>
+            <translation><!-- Warm --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Record Type Name --></label>
+        <name>RecordTypeName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter a relationship score between 1-10. --></help>
+        <label><!-- Relationship Score --></label>
+        <name>RelationshipScore__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Owner --></label>
+        <name>SecondaryOwner__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Contacted</masterLabel>
+            <translation><!-- Contacted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dead</masterLabel>
+            <translation><!-- Dead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualified</masterLabel>
+            <translation><!-- Qualified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unqualified</masterLabel>
+            <translation><!-- Unqualified --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tax ID Owner Count --></label>
+        <name>TaxIDOwnerCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax ID --></label>
+        <name>TaxID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Verification of identification must be completed for all changes of address requested by phone.  Verification is completed by obtaining correct answers to no less than 2 identifying questions and 1 out of wallet question.  Check to indicate this was done. --></help>
+        <label><!-- Verified Identity - Phone --></label>
+        <name>VerifiedIdentityPhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- 18 Digit Contact ID --></label>
+        <name>X18DigitContactID__c</name>
+    </fields>
+    <layouts>
+        <layout>Admin Contact Layout</layout>
+        <sections>
+            <label><!-- Driver&apos;s License Information --></label>
+            <section>Driver&apos;s License Information</section>
+        </sections>
+        <sections>
+            <label><!-- Employment Information --></label>
+            <section>Employment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Loan Information --></label>
+            <section>Loan Information</section>
+        </sections>
+        <sections>
+            <label><!-- Owner Information --></label>
+            <section>Owner Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Business Contact Layout</layout>
+        <sections>
+            <label><!-- Communication Preferences --></label>
+            <section>Communication Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Joint Information --></label>
+            <section>Joint Information</section>
+        </sections>
+        <sections>
+            <label><!-- Loan Information --></label>
+            <section>Loan Information</section>
+        </sections>
+        <sections>
+            <label><!-- Owner Information --></label>
+            <section>Owner Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Interest --></label>
+            <section>Product Interest</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CRM Contact Layout</layout>
+        <sections>
+            <label><!-- Identification Information --></label>
+            <section>Identification Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact Layout</layout>
+        <sections>
+            <label><!-- Auto Information --></label>
+            <section>Auto Information</section>
+        </sections>
+        <sections>
+            <label><!-- Communication Preferences --></label>
+            <section>Communication Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Driver&apos;s License Infomation --></label>
+            <section>Driver&apos;s License Infomation</section>
+        </sections>
+        <sections>
+            <label><!-- IL Cross Sell Visa Pre-Approved --></label>
+            <section>IL Cross Sell Visa Pre-Approved</section>
+        </sections>
+        <sections>
+            <label><!-- Joint Information --></label>
+            <section>Joint Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Loan Information --></label>
+            <section>Loan Information</section>
+        </sections>
+        <sections>
+            <label><!-- Owner Information --></label>
+            <section>Owner Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Interest --></label>
+            <section>Product Interest</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FSC Contact Page Layout</layout>
+        <sections>
+            <label><!-- Identification Information --></label>
+            <section>Identification Information</section>
+        </sections>
+        <sections>
+            <label><!-- Owner Information --></label>
+            <section>Owner Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MRA Contact Page Layout</layout>
+        <sections>
+            <label><!-- Communication Preferences --></label>
+            <section>Communication Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Loan Information --></label>
+            <section>Loan Information</section>
+        </sections>
+        <sections>
+            <label><!-- Owner Information --></label>
+            <section>Owner Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- This contact has received donations from ICCU --></description>
+        <label><!-- Community --></label>
+        <name>Community</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Imported from DNA --></description>
+        <label><!-- DNA --></label>
+        <name>DNA</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- All records not currently assigned to record type for created experience --></description>
+        <label><!-- Default --></label>
+        <name>Default</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- You cannot change Contact Record Type. Request help from System Admin for more information. --></errorMessage>
+        <name>Lock_down_Record_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot modify the name --></errorMessage>
+        <name>Name_as_Read_Only</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A valid email is required to send Funding notices or Marketing promotions --></errorMessage>
+        <name>Valid_Email</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid Tax ID --></errorMessage>
+        <name>Valid_Tax_ID</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CallToPhoneButton --></label>
+        <name>cnx__CallToPhoneButton</name>
+    </webLinks>
+</CustomObjectTranslation>

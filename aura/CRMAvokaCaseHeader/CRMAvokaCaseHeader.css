@@ -1,0 +1,222 @@
+.THIS {
+    font-size: 16px;
+    
+}
+
+.THIS h3 {
+    font-weight: bold;
+}
+
+.THIS .slds-button--brand,
+.THIS .slds-button_brand {
+    border: 1px solid #FFF;
+    border-color: #FFF;
+    background-color: transparent; 
+    padding: .25em 1em;
+    margin-left: 1em;
+}
+
+.THIS .slds-button--brand:hover,
+.THIS .slds-button_brand:hover {
+    background-color: #FFF;
+    color: #1A1A1A;
+}
+
+
+.THIS .YearsofMembership {
+    margin-right: 1em;
+}
+
+.THIS .MailLink svg.slds-button__icon.slds-button__icon--left {
+    margin-right: 0;
+}
+
+/* Funded Styling */
+
+.THIS #FundedHeader {
+    flex: .55;
+    font-weight: 600;
+    margin-right: 2em;
+    border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+.THIS .failed {
+    color: red;
+}
+
+.THIS .FundedInfoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.THIS.crm-alert .alertMessage {
+    width: 100%;
+}
+
+.THIS .FundingAccount {
+    flex: 1;
+    justify-content: space-between;
+    display: flex;
+    font-size: 14px;
+}
+
+.THIS .FundingInfo {
+    flex: 1;
+    padding: 0 1em;
+}
+
+.THIS .FundingLabel {
+    font-weight: 600;
+}
+
+/* Contact Name Styling */
+.THIS .MemberNameHeader {
+    font-size: 1.5em;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.THIS .MemberLegalName {
+    color: #FFF;
+}
+
+.THIS .FundedInfoContainer {
+    color: #FFF;
+}
+
+.THIS .MemberHeaderContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.THIS .MemberNameContainer {
+    flex: 1;
+}
+.THIS .MemberNameContainer {
+    display: flex;
+    align-items: center;
+}
+.THIS .MemberNameContainer lightning-icon {
+    margin-right: 1rem;
+}
+.THIS .MemberNameContainer lightning-icon svg {
+    fill: white;
+}
+/*Card Body*/
+.THIS .slds-card__body.slds-card__body_inner {
+    display:none;
+}
+/*Contact Information*/
+.THIS #MemberInformation {
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #1a1a1a;
+    margin-top: .75em;
+    margin-left: .75em;
+}
+
+.THIS .slds-button-group .slds-button--icon-border {
+    background: white;
+}
+
+.THIS .slds-card__header {
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2em;
+    border-radius: .25rem .25rem 0 0;
+}
+
+.THIS .slds-card__body {
+    margin: 0;
+    padding: 1em;
+}
+
+.THIS .slds-p-horizontal_small {
+    padding-bottom: .5rem;
+    color: t(iccuDarkGreen);
+}
+
+.THIS .slds-icon-standard-reward {
+    background-color: transparent;
+}
+
+.THIS .slds-icon-standard-reward .slds-icon {
+    fill: t(iccuDarkGreen);   
+}
+
+.THIS .membership-badge {
+    background-color: white;
+    border-radius: t(iccuRounded);
+    padding: .2rem .5rem;
+}
+
+.THIS .slds-card__footer {
+    margin-top: 0;
+    text-align: left;
+}
+
+.THIS .bold {
+    font-weight: 600;
+}
+.THIS .member-info {
+    color: #1a1a1a;
+    margin-top: 0.5rem;
+    font-weight: normal;
+}
+.THIS .slds-text-heading--small .legalName {
+    font-size: t(smallText);
+    padding-top: .3rem;
+    padding-bottom: .25rem;
+    font-weight: normal;
+}
+.THIS .slds-text-heading--small {
+    font-weight: bold;
+    font-size: t(xLargeText);
+}
+.THIS .member-info .bold + div,
+.THIS .member-info .bold + div p {
+    text-align: right;
+} 
+/** Contact Buttons (Email and Call) **/
+.THIS a.contact-button {
+    border: 1px solid #FFF;
+    padding: .6em 1em;
+    border-radius: .25rem;
+    margin-right: .5em;
+    vertical-align: middle;
+}
+.THIS a.contact-button:hover, .THIS svg.slds-icon.slds-icon--x-small:hover {
+    background-color: #FFF;
+    color: #1A1A1A;
+    fill: #1A1A1A;
+}
+
+/** Error Handling **/
+.THIS.cCRMAlert.crm-alert {
+    margin-bottom: .5em;
+}
+
+/* Breakpoints */ 
+
+@media only screen and (max-width: 40em){
+    .THIS .FundingAccount {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 60em){
+    .THIS .FundingAccount {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 80em){
+    .THIS .FundingAccount {
+    	flex-direction: row;
+    }
+}

@@ -1,0 +1,101 @@
+<aura:tokens extends="force:base">
+    
+    <!-- <aura:token name="" value="" /> -->
+    <!-- 
+		Tokens that we need:
+			• Colors
+			• Font Sizes
+			• Spacing
+  	-->
+    
+    
+    <!-- CUSTOM ICCU STYLING BELOW -->
+    <aura:token name="greyBackgroundColor" value="#F2F2F2"/>
+    <aura:token name="iccuHeaderBackground" value="#1C8900"/>
+    <aura:token name="iccuLightText" value="white" />
+    <aura:token name="iccuDarkGreen" value="#006C18" />
+    
+    <aura:token name="iccuPill" value="5px"/>
+    <aura:token name="iccuRounded" value="10px"/>
+    
+    <aura:token name="iccuFlex" value="flex"/>
+    <aura:token name="iccuSpaceBetween" value="space-between"/>
+    
+    <!--
+	******************************
+	*********** COLORS ***********
+	******************************
+	-->
+    
+    <!-- Primary Colors -->
+    <aura:token name="iccuPrimaryGreen" value="#1C8900"/>
+    <aura:token name="iccuBrandGreen" value="#1C8900"/>
+    <aura:token name="iccuSecondaryGreen" value="#006C18"/>
+    <aura:token name="brightAccentGreen" value="#B1FF00"/>
+    <aura:token name="iccuDarkHover" value="#005413"/>
+    
+    <!-- Complimentary and Background Colors -->
+    <aura:token name="lightestGray" value="#F2F2F2"/>
+    <aura:token name="mediumGray" value="#7D7D7D"/>
+    <aura:token name="darkGray" value="#555759"/>
+    <aura:token name="darkestGray" value="#4A4A4A"/>
+    
+    <!-- State Colors -->
+    <aura:token name="iccuSuccess" value="#24b200"/>
+    <aura:token name="iccuNotification" value="#4a90e2"/>
+    <aura:token name="iccuError" value="#eb3d3d"/>
+    <aura:token name="iccuWarning" value="#f6c951"/>
+    
+    <!-- Icon Colors -->
+    <aura:token name="iconYellow" value="#FFC107"/>
+    <aura:token name="iconPurple" value="#9C27B0"/>
+    <aura:token name="iconBlue" value="#00BCD4"/>
+    <aura:token name="iconRed" value="#FF1C0B"/>
+    <aura:token name="iconTeal" value="#009688"/>
+    <aura:token name="iconGreen" value="#4CAF50"/>
+    <aura:token name="iconOrange" value="#FF7245"/>
+    <aura:token name="iconPink" value="#E91E63"/>
+    <aura:token name="iconIndigo" value="#3F51B5"/>
+    <aura:token name="iconLime" value="#CDDC39"/>
+    <aura:token name="iconFill" value="white"/>
+    <aura:token name="iconDeepRed" value="#951F2E"/>
+    
+    <!-- Buttons -->
+    <aura:token name="defaultButtonColor" value="#24B200"/>
+    <aura:token name="hoverButtonColor" value="#4F972B"/>
+    <aura:token name="ctaButtonColor" value="#F07418"/>
+    <aura:token name="disabledButtonColor" value="#E9EBED"/>
+    
+    <!-- Links -->
+    <aura:token name="linkColor" value="rgb(0, 112, 210)"/>
+    
+    <!-- Typography -->
+    <aura:token name="textOnColor" value="white"/>
+    <aura:token name="disabledButtonTextColor" value="#9B9B9B"/>
+    <aura:token name="bodyTextColor" value="#4A4A4A"/>
+    
+    <!--
+	******************************
+	********* TYPOGRAPHY *********
+	******************************
+	-->
+    
+    <!-- Text Sizes -->
+    <aura:token name="h1HeadlineText" value="4rem"/>
+    <aura:token name="x5LargeText" value="3rem"/>
+    <aura:token name="x4LargeText" value="2.5rem"/>
+    <aura:token name="x3LargeText" value="2rem"/>
+    <aura:token name="x2LargeText" value="1.5rem"/>
+    <aura:token name="xLargeText" value="1.25rem"/>
+    <aura:token name="largeText" value="1.125rem"/>
+    <aura:token name="mediumText" value="1rem"/>
+    <aura:token name="smallText" value=".875rem"/>
+    <aura:token name="xSmallText" value=".75rem"/>
+    <aura:token name="xxSmallText" value=".625rem"/>
+    
+    <!-- Font Families -->
+    <aura:token name="iccuFont" value="'proxima-nova','Salesforce Sans',Arial,sans-serif"/>
+    <aura:token name="fontAwesome" value="'Font Awesome 5 Solid'"/>
+    <aura:token name="fontAwesomeOutline" value="'Font Awesome 5 Regular'"/>
+    
+</aura:tokens>

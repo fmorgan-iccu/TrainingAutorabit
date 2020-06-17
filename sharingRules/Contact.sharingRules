@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CRM_contact</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>rule restrict CRM users to DNA record type contacts</description>
+        <label>CRM contact</label>
+        <sharedTo>
+            <group>CRM_user_group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DNA</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Default_user_contact</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>default user contact</description>
+        <label>Default user contact</label>
+        <sharedTo>
+            <group>default_user_group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Default</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

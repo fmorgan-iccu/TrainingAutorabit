@@ -1,0 +1,86 @@
+/* Card Styling */
+.debit {
+    padding: 1.5em; 
+    background-image: linear-gradient(-90deg, #006C18, #24B200);
+    width: 320px;
+    color: #fff;
+    transition: ease-in-out .25s all;
+    border-radius: 8px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+.frozen {
+    padding: 1.5em; 
+    background-image: linear-gradient(-270deg, #0197D4 0%, #0078A9 98%);
+    width: 320px;
+    color: #fff;
+    transition: ease-in-out .25s all;
+    border-radius: 8px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+.credit {
+    padding: 1.5em;
+    color: #fff;
+    background: #4A4A4A;
+    width: 320px;
+    background-image: none;
+    transition: ease-in-out .25s all;
+    border-radius: 8px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+.show-status {
+    background: #fff;
+    color: #000;
+    position: absolute;
+    padding: 0.5em 1em;
+    margin-left: -24px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.25);
+}
+
+.status-icon {
+    width: 1em;
+    margin-right: 1em;
+    fill: #24b200;
+}
+
+.show-status p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.fa-check {
+    color: #23B200;
+    margin-right: 0.5em;
+}
+
+.card-pan {
+    display: flex;
+    margin-top: 3.25em;
+}
+
+.card-pan p {
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+.card-label {
+    text-align: right;
+    font-size: 12px;
+}
+
+.card-holder {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5em;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 12px 0 rgba(36,178,0,0.45)
+}

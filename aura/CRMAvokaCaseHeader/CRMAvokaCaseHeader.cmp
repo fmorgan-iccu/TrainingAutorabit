@@ -1,0 +1,141 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="AvokaCaseController">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="record" type="Object" description="The record object to be displayed" />
+    <aura:attribute name="simpleRecord" type="Object" description="A simplified view record object to be displayed" />
+    <aura:attribute name="productName" type="String" description="Name of the product, if applicable" />
+    <aura:attribute name="newAccounts" type="Array" description="Array of funded accounts" />
+    <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData" />
+    <aura:attribute name="paymentType" type="String" description="Payment typed used to fund the account(s)." />
+    <aura:attribute name="wasSuccessfulTransaction" type="Boolean" description="Was the DNA Monetary Transaction Succesful?" />
+    <aura:attribute name="applicationIDs" type="Array" description="Array of funded accounts" />
+    <aura:attribute name="appLink" type="String" description="The link to the application to the Review Portal" />
+    <aura:attribute name="shouldShowFundingBanner" type="Boolean" description="Determine if the funding banner should be shown." default="false" />
+    <aura:attribute name="isFatalError" type="Boolean" description="Whether there was a fatal error." default="false" />
+
+    <!-- Attribute for abandoned applications -->
+    <aura:attribute name="abandonedApplication" type="Boolean" default="false"
+                    description="An error message displayed if an Avoka application has been abandoned."/>
+    
+    <force:recordData aura:id="record"
+                      fields="Subject, ProductName__c, ProductMajorCode__c, ProductMinorCode__c, AvokaStatus__c, AvokaApplicationInfoJSON__c, AvokaFormUrl__c, ParentId"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      recordUpdated="{!c.refreshData}"
+                      mode="VIEW"/>
+    
+    <!-- if record error -->
+    <aura:if isTrue="{!v.recordError.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.recordError}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+    
+    <!-- if case is associated with an abandoned application -->
+    <aura:if isTrue="{!v.abandonedApplication}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                	This application has been abandoned. No further action is needed.
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+    
+    <!-- if Fatal Error -->
+    <aura:if isTrue="{!v.isFatalError}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    There was an unknown fatal error during the application process.  Please reach out to the applicant to complete.
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <aura:if isTrue="{!v.shouldShowFundingBanner}"> 
+        <c:CRMAlert alertState="{!v.wasSuccessfulTransaction == true ? 'success' : 'error' }">
+            <aura:set attribute="alertMessage">
+                
+                <!-- newAccounts, if present -->
+                <div class="FundedInfoContainer">
+                    <aura:if isTrue="{!v.newAccounts}">
+	                    <aura:if isTrue="{!v.wasSuccessfulTransaction}">
+                        	<p id="FundedHeader">This application has been successfully funded!</p>
+                            <aura:set attribute="else">
+                                <p id="FundedHeader" class="failed">There was an error funding the account!</p>
+                            </aura:set>
+                        </aura:if>                      
+
+                        <aura:iteration items="{!v.newAccounts}" var="account">                            
+                            <!-- show payment info such as type, amount, etc. -->
+                            <div class="FundingAccount">
+                                <div class="FundingInfo">
+                                    <p class="FundingLabel">Payment Type</p>
+                                    <p>{!v.paymentType}</p>
+                                </div>
+                                <div class="FundingInfo">
+                                    <p class="FundingLabel">Account Number</p>
+                                    <p>{!account.accountNumber}</p>
+                                </div>
+                                <div class="FundingInfo">
+                                    <p class="FundingLabel">Deposit Amount</p>
+									<p><lightning:formattedNumber value="{!account.availableBalance}" style="currency" currencyCode="USD" minimumFractionDigits="2" maximumFractionDigits="2"/></p>
+                                </div>	
+                            </div>
+                        </aura:iteration>
+                    </aura:if>
+                </div><!-- END OF newAccounts -->
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <div class="slds-card"> <!-- Begin card -->
+        <!-- BEGIN CARD HEADER -->
+        <div class="slds-card__header slds-grid" style="{! 'background-image:url(' + $Resource.CRMCaseBackground + ');'}">
+            <div class="MemberHeaderContainer">
+                <div class="MemberNameContainer">
+                    <lightning:icon iconName="utility:case" variant="inverse"/>
+                    <div class="memberName">
+                        <h1 class="MemberNameHeader">{!v.simpleRecord.Subject}</h1>
+                        <h3 class="MemberLegalName">
+                            <aura:if isTrue="{!v.productName}">
+                            	{!v.productName}
+                                <aura:set attribute="else">
+                                    {!v.simpleRecord.ProductMajorCode__c} • {!v.simpleRecord.ProductMinorCode__c}
+                                </aura:set>
+                            </aura:if>
+                            <aura:iteration items="{!v.applicationIDs}" var="appID">
+                                <div class="">
+                                    <p class="FundingLabel">Application ID: {!appID}</p>
+                                </div>
+                            </aura:iteration>
+                        </h3>
+                    </div>
+                </div><!-- END OF MemberNameContainer -->
+
+                <div class="MemberActions">
+                    <aura:if isTrue="{! v.appLink != null }">
+                        <a href="{! v.appLink }" target="_new">
+                            <lightning:button label="Avoka App" variant="brand"/>
+                        </a>
+                    </aura:if>
+                </div> <!-- END OF MemberActions -->
+            </div> <!-- END OF MemberHeaderContainer -->
+        </div>
+
+        <!-- BEGIN CARD BODY -->
+        <div class="slds-card__body slds-card__body_inner">
+
+            <h3 id="MemberInformation">{!v.AvokaStatus__c}</h3>
+
+        </div><!-- END CARD BODY -->
+    </div>
+</aura:component>

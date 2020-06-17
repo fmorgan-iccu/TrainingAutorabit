@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Loan</fullName>
+        <default>true</default>
+        <label>Loan</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Deposits</fullName>
+        <default>false</default>
+        <label>Deposits</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Electronic Banking</fullName>
+        <default>false</default>
+        <label>Electronic Banking</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Event</fullName>
+        <default>false</default>
+        <label>Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Break Room Visit</fullName>
+        <default>false</default>
+        <label>Break Room Visit</label>
+    </standardValue>
+</StandardValueSet>

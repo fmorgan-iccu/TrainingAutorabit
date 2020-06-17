@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Skip a pay Complaints</name>
+    <style>none</style>
+    <subject>ICCU Skip a pay information</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+Thank you for your email. Yes, the interest is still earned throughout the time the payment is being skipped. Since the principal balance will not be going down, the interest earned each day will also not go down the next month as it typically would if you were to make a regular payment that month. This won&apos;t be a huge impact, however, since the daily interest goes down very slightly with each regular payment made
+
+We offer this twice a year to our members who have had good payment history as a way to allow them an opportunity to use the funds that they otherwise would have spent on their monthly payment for other expenses that come up, such as holidays and vacations. There is still interest earned throughout that time, as well as a processing fee of $29; however, many people still choose to use this as it can be very helpful to not have to worry about making a payment that month and not have it reflect on your credit report. If you would rather not use the Skip a Pay at this time, you are welcome to decline the offer.
+
+It has been our pleasure to help. If there is anything else we can do, please do not hesitate to contact us. We appreciate your membership. Have a wonderful day!
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

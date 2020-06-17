@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="NoteDetails" type="Object"/>
+    
+	<div class="individualNote">
+        <lightning:layout horizontalAlign="spread" class="note-title">
+            <lightning:layoutItem >
+                <p>{!v.NoteDetails.agent.name} - <a href="{!'mailto://' + v.NoteDetails.agent.email}">{!v.NoteDetails.agent.email}</a> - <lightning:formattedPhone value="{!v.NoteDetails.agent.phone}"/></p>
+            </lightning:layoutItem>
+            <lightning:layoutItem >
+                <p>{!v.NoteDetails.createdDate}</p>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <p>{!v.NoteDetails.title}</p>
+        <p>{!v.NoteDetails.text}</p>
+    </div>
+</aura:component>

@@ -1,0 +1,44 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+<aura:attribute name="searchText" type="String" default=""/>
+    <ltng:require styles="{!$Resource.cssWorkAround}"/>
+    
+    <div class="HubContainer">
+        <div class="HubHeader">
+			<h1>Avoka Application Hub</h1>            
+        </div>
+
+        <!-- Assigned, Opened, Saved, Submitted, Completed, Expired, Abandoned -->
+        
+        <!-- BEGIN OF FILTERED NAVIGATION -->
+        <lightning:tabset >
+            <lightning:tab label="All Applications">
+                <c.CRMAvokaTransactionList status="" />
+            </lightning:tab>
+            
+            <lightning:tab label="Opened">
+                <c.CRMAvokaTransactionList status="Opened" />
+            </lightning:tab>
+            
+            <lightning:tab label="Saved">
+                <c.CRMAvokaTransactionList status="Saved" />
+            </lightning:tab>
+            
+            <lightning:tab label="Submitted">
+                <c.CRMAvokaTransactionList status="Submitted" />
+            </lightning:tab>
+            
+            <lightning:tab label="Completed">
+                <c.CRMAvokaTransactionList status="Completed" />
+            </lightning:tab>
+            
+            <lightning:tab label="Expired">
+                <c.CRMAvokaTransactionList status="Expired" />
+            </lightning:tab>
+            
+            <lightning:tab label="Abandoned">
+                <c.CRMAvokaTransactionList status="Abandoned" />
+            </lightning:tab>
+            
+        </lightning:tabset> <!-- END OF FILTERED NAVIGATION -->
+    </div>
+</aura:component>

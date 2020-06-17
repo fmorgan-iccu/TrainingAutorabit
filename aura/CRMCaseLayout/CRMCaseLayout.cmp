@@ -1,0 +1,27 @@
+<aura:component implements="lightning:recordHomeTemplate" description="Top banner with a left sidebar and 
+                                                                       a tabbed left main section for case record page">
+    
+    <aura:attribute name="left" type="Aura.Component[]" />
+    <aura:attribute name="right" type="Aura.Component[]" />
+    <aura:attribute name="banner" type="Aura.Component[]" />
+    
+	<div>
+        <lightning:layout horizontalAlign="spread">
+            <lightning:layoutItem flexibility="grow" class="slds-m-large">
+                {!v.banner}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    
+    <div>
+        <lightning:layout horizontalAlign="spread" class="layout-row-2">
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '4' : '6' }"  class="slds-m-large layout-row-2__column-1 dnaAuth-layout-fix">
+                {!v.left}
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="grow">
+                {!v.right}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+	
+</aura:component>

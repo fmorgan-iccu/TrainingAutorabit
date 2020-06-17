@@ -1,0 +1,73 @@
+<template>
+
+    <div class="main-container slds-is-relative">
+
+        <div if:false={isLoaded}>
+            <c-crm-lwc-loading-spinner></c-crm-lwc-loading-spinner>
+        </div>
+
+        <c-crm-form-header form="Hot Card" membersname={contact.Name}>
+            <p>Select the card below that needs to be addressed. <em>Note: You can only manage one card at a time.  Credit cards are not shown when OFF.</em></p>
+        </c-crm-form-header>
+
+        <section class="content" style={contentContainer}>
+            <template if:true={showError}>
+                <c-crm-form-error>
+                    <p>{error}</p>
+                </c-crm-form-error>
+            </template>
+
+            <template if:true={showWarning}>
+                <c-crm-lwc-alert alert-type="warn">
+                    <p>{warning}</p>
+                </c-crm-lwc-alert>
+            </template>
+
+
+            <article>
+                <h2>Need to find a specific account?</h2>
+                <c-crm-account-lookup is-disabled={isDisabled} contact-id={contactid} onchange={handleAccountChange}></c-crm-account-lookup>
+            </article>
+
+            <c-crm-card-select group-by="status" onchange={handleCardSelect}></c-crm-card-select>
+
+            <div if:true={hasSelectedCard} class="card-actions">
+
+                <div class="card-status">
+                    <lightning-button variant="base" label="Deselect this card" onclick={cancelAction} class="slds-m-left_x-small deselect-button"></lightning-button>
+
+                    <span class="slds-pill">
+                        <span class="slds-pill__label">{currentStatusPill}</span>
+                    </span>
+                </div>
+
+                <h2>Card Actions</h2>
+                <div if:true={canChangeCard}>
+                    <lightning-combobox name="newStatus" label="New Status" value={selectedStatus} placeholder="New Status" options={applicableStatuses} onchange={statusDidChange} required></lightning-combobox>
+                    <div if:true={showChangeReasonOptions}>
+                        <lightning-combobox name="reasonCode" label="Reason" value={selectedReason} placeholder="Select Reason" options={changeReasonsOptions} onchange={reasonDidChange} required></lightning-combobox>
+                        <lightning-textarea name="reasonForChange" placeholder="Enter the reason here..." label="Reason For Decision" max-length="30" value={changeReasonText} onchange={reasonTextDidChange} required></lightning-textarea>
+                    </div>
+                </div>
+                <div if:false={canChangeCard}>
+                    <p>This card's status cannot be changed.</p>
+                </div>
+
+                <section if:true={showErrorOnSubmit}>
+                    <c-crm-form-error>
+                        <p>{errorOnSubmit}</p>
+                    </c-crm-form-error>
+                </section>
+
+                <div class="action-buttons flex">
+                    <!-- <lightning-button class="m-right" label="Cancel" onclick={cancelAction}></lightning-button> -->
+                    <lightning-button if:true={canChangeCard} label="Submit" variant="brand" onclick={handleSubmitForm}></lightning-button>
+                </div>
+            </div>
+
+
+        </section>
+
+    </div>
+
+</template>

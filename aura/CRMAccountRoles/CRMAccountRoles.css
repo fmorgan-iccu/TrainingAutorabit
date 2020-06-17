@@ -1,0 +1,38 @@
+.THIS {
+    font-size: 16px;
+}
+
+.THIS .RoleLabel {
+    background-color: t(iccuPrimaryGreen);
+    font-size: 0.75em;
+    font-weight: t(fontWeightBold);
+    color: #fff;
+    padding: .5em 1em;
+    margin-right: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+}
+
+.THIS h5 {
+    font-weight: t(fontWeightBold);
+    margin-bottom: 1em;
+}
+
+
+.THIS .OwnerNameContainer {
+    margin-top: 2em;
+}
+
+/**Role Button**/
+.THIS .slds-button,
+.THIS .slds-button.slds-button_brand {
+    background:transparent;
+    border: none;
+    color: t(linkColor);
+    padding-left: 0;
+    padding-right: 0;
+}
+.THIS .slds-button:hover,
+.THIS .slds-button.slds-button_brand:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <!-- 
+	COMPONENT OVERVIEW:
+	This is the out of the box loading spinner that
+	Salesforce provides - but it also loads the CRMLoadingSpinnerInfo
+	component, which you can pass in a string to display loading.
+	-->
+    <aura:attribute name="message" type="String" default="" />
+    
+    <!--
+	NOTES:
+	When passing a string to CRMLoadingSpinnerInfo, it will display "Loading " 
+	before the value you pass in
+	-->
+
+    <!-- Begin Component -->
+    <div class="container">      
+        <div class="slds-grid slds-is-relative">
+            <lightning:spinner variant="brand" size="large" class="CRMSpinner" />
+        </div>
+        <!-- Importing CRMLoadingSpinnerInfo component -->
+        <div>
+            <c.CRMLoadingSpinnerInfo SpinnerInfo="{!v.message}"/>
+        </div>    
+	</div><!-- End Component -->
+</aura:component>

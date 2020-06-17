@@ -1,0 +1,3 @@
+<design:component>
+	<design:attribute name="allowedToViewNotes" label="Can View Application Notes" description="Indicates that this component should display application notes.  NOTE: This must NOT be set to `true` for The MCC." />
+</design:component>

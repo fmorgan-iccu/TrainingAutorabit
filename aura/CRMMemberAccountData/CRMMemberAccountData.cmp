@@ -1,0 +1,80 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <!-- This component is being imported into the "CRMMemberAccounts" component -->
+
+    <!-- call this on page load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="showAccountDetails" type="boolean" default="false"/>
+    
+    <aura:attribute name="account" type="Map" default="{}" />
+    <aura:attribute name="currentBalance" type="String" />
+    <aura:attribute name="availableBalance" type="String" />
+    <aura:attribute name="contactId" type="String" />
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <ltng:require scripts="{!$Resource.NumeralJS}" afterScriptsLoaded="{!c.formatAmounts}" />
+
+    <!-- Start of repeating data section -->
+    <!-- onclick function will trigger account details modal opening -->
+    <div onclick="{!c.showAccountDetails}" class="{!v.account.isOverdrawn || v.account.isOverdue ? 'accountContainerOverdrawn' : 'accountContainer'}"> 
+        <lightning:layout horizontalAlign="space" multipleRows="true">
+            <!-- AccountInfoContainer is the class that has media query breakpoints applied, for a responsive layout -->
+            <div class="AccountInfoContainer">
+                <lightning:layoutItem >
+                    <div class="AccountInfoColumn">
+                        <aura:if isTrue="{!v.account.nickName}">
+                            <!-- This is the "preferred name" of the account -->
+                            <h5 class="AccountLabel">{!v.account.nickName}</h5>
+                            <p>{!v.account.name}</p>
+                            <p>{!v.account.id}</p>
+                            
+                            <aura:set attribute="else">
+                                <!-- This is the ICCU specific product name for the account -->
+                                <h5 class="AccountLabel">{!v.account.name}</h5>
+                                <p>{!v.account.id}</p>
+                            </aura:set>
+                        </aura:if>
+                    </div> <!-- end of container for account info -->
+                </lightning:layoutItem>
+            </div>
+            
+            <div class="AccountInfoContainer">
+                <lightning:layoutItem >
+                    <div class="AccountInfoColumn">
+                        <h5 class="AccountLabel">Account Number</h5>
+                        
+                        <!-- This is the ICCU specific account number-->
+                        <p>{!v.account.accountNumber}</p>
+                        
+                    </div> <!-- end of container for account info -->
+                </lightning:layoutItem>
+            </div>
+            
+            <div class="AccountInfoContainer">
+                <lightning:layoutItem >
+                    <div class="AccountInfoColumn">
+                        <div id="CurrentBalance">
+                            <h5 class="AccountLabel">Current Balance</h5>
+                            <!-- This is the current balance of the current account -->
+                            <p>{!v.currentBalance}</p>
+                        </div>
+                    </div>
+                </lightning:layoutItem>
+            </div>
+            
+            <div class="AccountInfoContainer">
+                <lightning:layoutItem >
+                    <div class="AccountInfoColumn">
+                        <h5 class="AccountLabel">Available Balance</h5>
+                        <!-- This is the available balance of the current account -->
+                        <p class="{!v.account.isOverdrawn || v.account.isOverdue ? 'overdrawnBalance' : ''}">{!v.availableBalance}</p>
+                        <div id="ViewAccountDetails">
+                        </div>
+                    </div>
+                </lightning:layoutItem>
+            </div>
+            
+        </lightning:layout>
+        
+    </div> <!-- End of repeating section -->
+</aura:component>

@@ -1,0 +1,188 @@
+.THIS,
+.THIS p,
+.THIS label,
+.THIS h1,
+.THIS a,
+.THIS h5{
+    color: t(darkestGray);
+}
+.THIS .main-login {
+    padding: 2em 1em 5em;
+}
+.THIS .main-login .heading-underline {
+    width: 80%;
+    padding: .2em 0;
+    border-bottom: 4px solid t(iccuPrimaryGreen);
+}
+.THIS .main-login .heading-underline h1 {
+    font-size: t(x4LargeText);
+    font-weight: 800;
+}
+.THIS .main-login .login-p {
+    font-size: t(xLargeText);
+}
+.THIS .login-info,
+.THIS .offline-info {
+    padding: 1em 0;   
+}
+.THIS .main-login form {
+    padding-top: .3em;
+}
+.THIS .login-label {
+    font-weight: 800;
+    font-size: t(mediumText);
+    text-transform: uppercase;
+}
+.THIS input[type=text], 
+.THIS input[type=password] {
+    width: 100%;
+    padding: .2em 0;
+    border-style: none;
+    border-bottom: 1px solid t(darkGray);
+    margin: .3em 0 2em;
+    font-size: t(mediumText);
+    border-radius: 0;
+}
+.THIS .remember-forgot {
+    font-size: t(xSmallText);
+    font-weight: 800;
+}
+.THIS .left-column {
+	height: 100%;
+    background-size: cover;
+}
+.THIS .background-image {
+    background: linear-gradient(rgba(0, 174, 0, .7), rgba(0, 61, 14, .7));
+    height: 100%;
+}
+.THIS .left-column img {
+    width: 60%;
+    padding: 50% 0 10%;
+    display: block;
+    margin: auto;
+}
+.THIS .login-quote {
+    color: white;
+    padding: 1em;
+    font-size: t(mediumText);
+}
+.THIS .remember-me label {
+    padding-left: .8em;
+}
+.THIS input[type=button],
+.THIS .login-button{
+    width: 100%;
+    border-radius: .25rem;
+    font-size: t(mediumText);
+}
+.THIS .login-button-secondary {
+    margin-bottom: 2.5em;
+    margin-top: 1em;
+    padding: .8em 0;
+    background-color: transparent;
+    border: 3px solid t(iccuSecondaryGreen);
+    color: t(iccuSecondaryGreen);
+}
+.THIS .login-button-secondary:hover {
+    background-color: t(iccuSecondaryGreen);
+    border: 3px solid t(iccuSecondaryGreen);
+    color: white;
+}
+.THIS .login-button {
+    padding: 1em 0;
+    border:none;
+    margin-top: 3.5em;
+    background-color: t(iccuSecondaryGreen);
+}
+.THIS input[type=submit]:hover,
+.THIS input[type=submit]:active,
+.THIS .login-button:hover,
+.THIS .login-button:active {
+    background-color: t(iccuDarkHover);
+}
+.THIS .question {
+    font-size: t(smallText);
+    font-style: italic;
+    padding-bottom: .7em;
+}
+.THIS .answer {
+    font-size: t(xSmallText);
+}
+.THIS .validation {
+    font-style:italic;
+    font-size: t(smallText);
+    color: t(iccuError);
+}
+.THIS .slds-modal__container {
+    width: 80%;
+    margin: auto;
+}
+.THIS h5 {
+    font-size: t(xLargeText);
+}
+.THIS .offline-info p {
+    font-size: t(smallText);
+    margin-left: 2em;
+    line-height: 1.8;
+    padding: 1em 0;
+}
+.THIS ul {
+    list-style: disc;
+    margin-left: 1.5em;
+}
+.THIS.dnaAuthContainer > p {
+    font-size: t(xLargeText);
+    padding: 0 0 1em;
+    font-weight: bold;
+}
+/**COMMENT THIS OUT TO DISPLAY DNA COMPONENT WHEN LOGGED IN**/
+.THIS.dnaAuthContainer.true {
+    display: none;
+}
+/** ^^ COMMENT THIS DECLARATION OUT TO DISPLAY COMPONENT WHEN LOGGED IN ^^**/
+.THIS {
+    padding: 1.5em;
+    background-color: white;
+    border-radius: .25rem;
+    border: 1px solid t(darkestGray);
+}
+.THIS > button {
+    width: 100%;
+    border: none;
+    font-size: t(mediumText);
+    padding: .3em 0;
+    font-weight: bold;
+}
+.THIS .slds-modal__header {
+    padding: 0;
+    border: none;
+}
+.THIS .slds-modal {
+    top: 4em;
+}
+/** LOGIN LOADING **/
+.THIS .login-loading {
+    position: absolute;
+    background: rgba(255, 255, 255,.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 3 * 2 - 2em);
+    height: calc(100% - 122px);
+    flex-direction: column;
+    z-index: auto;
+}
+.THIS .login-message {
+    margin-top: 40px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    z-index: 5;
+}
+.THIS .slds-is-relative {
+    z-index: 5;
+}
+@media screen and (min-height: 815px) {
+    .THIS .slds-modal__container {
+        height: auto;
+    }
+}

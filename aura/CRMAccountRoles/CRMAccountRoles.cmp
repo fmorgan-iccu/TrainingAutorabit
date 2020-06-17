@@ -1,0 +1,40 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="MemberAccountsController">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="account" type="Object" />
+
+    <lightning:layout horizontalAlign="spread" multipleRows="true">
+        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
+            <div>
+                <aura:iteration items="{!v.account.ownerGroups}" var="owner">
+                    <div class="slds-grid OwnerNameContainer">
+                        <span class="slds-m-right_x-small"><lightning:icon iconName="utility:people" size="x-small"/>
+                        </span>
+                        <h5>
+                            <aura:if isTrue="{!owner.contactId.length > 0 || owner.accountId.length > 0}">
+                                <aura:if isTrue="{!owner.isOrg}">
+                                    <lightning:button class="SelectButton" variant="brand" label="{!owner.fullName}" onclick="{!c.openEntity}" value="{!owner.accountId}" />
+                                </aura:if>
+                                <aura:if isTrue="{!owner.isPerson}">
+                                    <lightning:button class="SelectButton" variant="brand" label="{!owner.fullName}" onclick="{!c.openEntity}" value="{!owner.contactId}" />
+                                </aura:if>
+
+                                <aura:set attribute="else">
+                                    {!owner.fullName}
+                                </aura:set>
+                            </aura:if>
+                        </h5>
+                    </div>
+                    <div class="slds-grid slds-wrap RoleLabelContainer" >
+                        <aura:iteration items="{!owner.roles}" var="role">
+                            <div class="RoleLabel">
+                                <p>{!role}</p>
+                            </div>
+                        </aura:iteration>
+                    </div>	
+                </aura:iteration>
+            </div>
+        </lightning:layoutItem>  
+    </lightning:layout>
+</aura:component>

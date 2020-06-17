@@ -1,0 +1,26 @@
+<template>
+    <p class="label">
+        <template if:true={required}>
+            <abbr title="required" class="slds-required">*</abbr>
+        </template>
+        {label}
+    </p>
+
+    <div class={hasError}>
+        <input name="" disabled={isDisabled} list="stateSelection" class="stateInput slds-input" onchange={handleStateSelect} onblur={handleStateBlur}>
+        <datalist id="stateSelection" class="stateList">
+            <template for:each={stateOptions.data} for:item="state">
+                <option key={state.code}>{state.name}</option>
+            </template>
+        </datalist>
+    
+        <div style={multiSelectShowStyle}>
+            <!-- The pills array must mutate for this child component to properly re-render! -->
+            <lightning-pill-container items={pills} onitemremove={handleItemRemove}></lightning-pill-container>
+        </div>
+    
+        <div class="slds-form-element__help" if:true={showRequired}>
+            Select at least one
+        </div>
+    </div>
+</template>

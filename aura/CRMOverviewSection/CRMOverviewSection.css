@@ -1,0 +1,72 @@
+/**Layout**/
+.THIS > .slds-card__body {
+    display: flex;
+}
+.THIS .cOverview_card_tile {
+    width: 100%;
+    min-width:0;
+}
+.THIS.overview-within-tabs.slds-card {
+    border: 1px solid #DDDDDD;
+    border-radius: .25rem;
+    padding: 0 .75rem;
+}
+.THIS .slds-card+.slds-card {
+    margin-top: 0;
+}
+.THIS .cOverview_card_tile:nth-child(odd) {
+    padding-right: t(spacingXSmall);
+}
+.THIS .cOverview_card_tile:nth-child(even) {
+    padding-left: t(spacingXSmall);
+}
+
+/**General Display**/
+.THIS .slds-card__footer {
+    border-top: none;
+    text-align: right;
+    margin-top: 0;
+}
+
+/*.THIS .cColumnedText p:nth-child(1) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+
+.THIS .cColumnedText p:nth-child(2) {
+    white-space: nowrap;
+}
+
+/**Typography**/
+.THIS h2 {
+    font-weight: t(fontWeightBold);
+}
+.THIS .slds-card .slds-card h2 span {
+    font-size: .9rem;
+}
+
+/**Icons**/
+
+.THIS.flag-card > .slds-card__header span.slds-icon_container {
+    background-color: t(iconOrange);
+}
+.THIS.cases-card > .slds-card__header span.slds-icon_container,
+.THIS.notes-card > .slds-card__header span.slds-icon_container,
+.THIS.accounts-card > .slds-card__header span.slds-icon_container{
+    background-color: t(iccuPrimaryGreen);
+}
+.THIS span.slds-icon_container {
+    padding: .25rem;
+}
+.THIS > .slds-card__header span.slds-icon_container svg.slds-icon-text-default {
+    fill: t(iconFill);
+}
+.THIS .resolve svg {
+    fill: t(linkColor);
+}
+
+/**Accounts**/
+.THIS .cMember_accountData > div:nth-child(2) {
+    text-align: right;
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Member Insight</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Member Insights</value>
+    </caseValues>
+    <fields>
+        <label><!-- Member --></label>
+        <name>ContactID__c</name>
+        <relationshipLabel><!-- Member Insights --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Expiration Date --></label>
+        <name>ExpirationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Extra Details --></label>
+        <name>ExtraDetails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insight Type --></label>
+        <name>InsightType__c</name>
+        <picklistValues>
+            <masterLabel>Declined (Phone Password, eBranch, etc.)</masterLabel>
+            <translation><!-- Declined (Phone Password, eBranch, etc.) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fraud</masterLabel>
+            <translation><!-- Fraud --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gender</masterLabel>
+            <translation><!-- Gender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Military</masterLabel>
+            <translation><!-- Military --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Name Pronunciation</masterLabel>
+            <translation><!-- Name Pronunciation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Touch Tone Teller</masterLabel>
+            <translation><!-- Touch Tone Teller --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Member Insight Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

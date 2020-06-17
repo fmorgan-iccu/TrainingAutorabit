@@ -1,0 +1,148 @@
+<apex:page controller="CTIGadgetController" sidebar="false" showHeader="false" docType="html-5.0">
+    <apex:includeScript value="/support/console/42.0/integration.js"/>
+	<apex:includeScript value="{!URLFOR($Resource.cnx__CnxSfdcResources,'js/ConnectsIntegrationAPI.min.js')}"/>
+    
+    <script>
+    	// Wait for the Bucher + Suter Connects gadget is ready.
+    	ConnectsIntegrationAPI.waitReady(function () {
+            
+            // When the agent accepts the work item, lookup the contact in Salesforce and create a new case.
+            // The onWorkItemCreate was considered, but it would potentially create the case for the wrong user.
+            // Also, we considered using the onWorkItemConnect to create the case, but then the case wouldn't be
+            // shown in the case list and we would have to pop the case separately.
+            ConnectsIntegrationAPI.onWorkItemConnect = function(event) {
+                if (event.item.Direction == 'inbound') {
+                    var ani = event.item.Sender; // Inbound ANI (aka phone number)
+                    var lookup = event.item.PerVar3; // Value entered by the member in the IVR tree
+                	findInboundCallContact(ani, lookup);
+                }
+            };
+            
+            // Record the activity/task Id in the call data for future reference; in paticular, this Id is
+            // not available in the work item end event and the system needs to update the activity if it
+            // is not set.
+            ConnectsIntegrationAPI.onActivitySave = function(event) {
+                var updatedData = {};
+                updatedData.LocalVariables = [{ 'Key': 'callId', 'Value': event.recordId }];
+         		updateWorkItem(updatedData);
+            }
+            
+            // During the "wrap-up", ensure that the activity is linked to the identified contact.
+            ConnectsIntegrationAPI.onWorkItemEnd = function(event) {
+                if (event.item.Direction == 'inbound') {
+                    var callId = getGadgetLocalVariable(event.item, 'callId');
+                    var contactId = getGadgetLocalVariable(event.item, 'contactId');
+                    updateActivityWithCustomerId(callId, contactId);
+                }
+            };
+        });
+    
+    	// Allows for popping any record in Salesforce (e.g. Contact, Case)
+    	function doScreenPop(recordId) {
+            // Prevent popping for an invalid value.
+            if (typeof recordId === 'undefined' || recordId === null || recordId === '') return;
+            
+            ConnectsIntegrationAPI.screenPop(recordId, function(response) {
+                if (!response.success) {
+               		ConnectsIntegrationAPI.showError('USER','ScreenPop failed ', response.error);
+                }
+            });
+        }
+
+   		function updatePhoneGadget(contactId, contactName, userId, userName) {
+            // Don't update the gadget if a record Id wasn't found.
+            if (contactId === '' && userId === '') return;
+            
+            // Always do the contact screen pop first to ensure the record is loaded as fast as possible.
+            if (contactId !== '') doScreenPop(contactId);
+            
+            // Update the phone gadget with the the member's or employee's name for display.
+            var updatedData = {};
+            if (contactId !== '') updatedData.PerVar10 = '{k:Contact;v:' + contactName + '}';
+            else if (userId !== '') updatedData.PerVar10 = '{k:Employee;v:' + userName + '}';
+            
+            // Update the gadget local variables to have the contact Id.
+            if (contactId !== '') updatedData.LocalVariables = [{ 'Key': 'contactId', 'Value': contactId }];
+            
+            updateWorkItem(updatedData);
+        }
+
+    	// Helper function that will check for the primary call and update the work item data only if B+S gadget didn't
+    	// find a member.
+    	function updateWorkItem(updatedData) {
+            var channelType = ConnectsIntegrationAPI.WORKITEM.TYPE.VOICE;
+            var workItem = ConnectsIntegrationAPI.getFirstWorkItem(channelType);
+            if (workItem && JSON.stringify(workItem.CrmData.SearchResult.returnValue) === JSON.stringify({})) {
+                ConnectsIntegrationAPI.updateWorkItemData(channelType, workItem.Id, updatedData, function (response) {
+                    if (!response.success) {
+                    	ConnectsIntegrationAPI.showError('USER','Member ID failed ', response.error);
+                    }
+                });
+            }
+        }
+    
+    	/* function setGadgetLocalVariable(workItem, key, value) {
+            var existingObj = getGadgetLocalVariableObj(workItem, key);
+            if (existingObj != null) {
+                existingObj.Value = value;
+            } else {
+                
+            }
+        } */
+    
+    	function getGadgetLocalVariable(workItem, key) {
+            var value = null;
+            workItem.LocalVariables.forEach(function(el) {
+                if (el.Key === key) {
+                    value = el.Value;
+                }
+            });
+            return value;
+        }
+    
+    	/* function getGadgetLocalVariableObj(workItem, key) {
+            var obj = null;
+            workItem.LocalVariables.foreach(function(el) {
+                if (el.Key === key) {
+                    obj = el;
+                }
+            });
+            return obj;
+        } */
+    </script>
+    
+    <apex:form >
+        <apex:outputPanel id="contacts">
+            <script>
+            	if ('{!errorMessage}' !== '') {
+                    // If an error occurred, show it using the standard B+S error API
+                    ConnectsIntegrationAPI.showError('Error', 'Lookup', '{!errorMessage}');
+                } else {
+                    // Show the member identification in the phone gadget and pop the record.
+                    updatePhoneGadget('{!contactId}', '{!contactName}', '{!userId}', '{!userName}');
+                }
+            </script>
+            <!-- Enable this block to see the potential matches for the information entered.
+			<apex:pageBlock mode="edit" rendered="{!contacts.size>0}">
+                <apex:pageBlockTable value="{!contacts}" var="contact">
+                    <apex:column >
+                        <a href="#" onclick="doScreenPop('{!contact.Id}');"><apex:outputField value="{!contact.Name}"/></a>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlock> -->
+        </apex:outputPanel>
+        
+        <apex:actionFunction name="findInboundCallContact" action="{!findInboundCallContact}" rerender="contacts">
+            <apex:param name="ani" assignTo="{!ani}" value="" />
+            <apex:param name="lookup" assignTo="{!lookup}" value="" />
+        </apex:actionFunction>
+        
+       	<!-- The parameters for updateActivityWithCustomerId were not working without this. -->
+        <apex:outputPanel id="dummy"></apex:outputPanel>
+        
+        <apex:actionFunction name="updateActivityWithCustomerId" action="{!updateActivityWithCustomerId}" rerender="dummy">
+            <apex:param name="callId" assignTo="{!callId}" value="" />
+            <apex:param name="contactId" assignTo="{!contactId}" value="" />
+        </apex:actionFunction>
+    </apex:form>
+</apex:page>

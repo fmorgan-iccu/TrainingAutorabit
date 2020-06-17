@@ -1,0 +1,51 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	<!-- attributes and data needed for member insight object -->
+    <aura:attribute name="newInsight" type="Object" 
+                    description="The insight object to be created"/>
+    <aura:attribute name="simpleNewInsight" type="Object" 
+                    description="A simplified view record object to be created"/>
+    <aura:attribute name="newInsightError" type="String" 
+                    description="An error message bound to force:recordData"/>
+    <!-- Insight data needed to create insight -->
+    <force:recordData aura:id="insightRecordCreator"
+                      layoutType="FULL"
+                      targetRecord="{!v.newInsight}"
+                      targetFields="{!v.simpleNewInsight}"
+                      targetError="{!v.newInsightError}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Display the new Insight Form -->
+    <div class="createInsight">
+    	<lightning:card iconName="action:newInsight" title="Add Insight">
+        	<div class="slds-p-horizontal--small">
+                <!-- TODO (Wayne) - get the current contact we are on and assign it to ContactID__c by deault so
+									the user doesn't have to pick a member -->
+                <lightning:input class="hidden" aura:id="insightField" label="Member" value="{!v.simpleNewInsight.ContactID__c}"/>
+                <!-- TODO (Wayne) - iterate through the picklist values for InsightType__c -->
+                <lightning:select name="select" label="Insight Type" required="true" messageWhenValueMissing="Did you forget to select an insight type?">
+                    <option value="">-- None --</option>
+                    <aura:iteration items="{!v.simpleNewInsight.InsightType__c}" var="type">
+                        <option value="{!type}" text="{!type}"></option>
+                    </aura:iteration>
+                </lightning:select>
+                <lightning:input aura:id="insightField" label="Title" required="true" 
+                                 value="{!v.simpleNewInsight.Name}" 
+                                 messageWhenValueMissing="Did you forget to put in a title?"/>
+                <lightning:input aura:id="insightField" label="Expiration Date" type="date" 
+                                 value="{!v.simpleNewInsight.ExpirationDate__c}"/>
+                <lightning:textArea aura:id="insightField" label="Extra Details" maxlength="255"
+                                    value="{!v.simpleNewInsight.ExtraDetails__c}"/>
+
+                <br/>
+                <lightning:button label="Add Insight" variant="brand" onclick="{!c.handleSaveInsight}"/>
+            </div>
+        </lightning:card>
+        <!-- Display Lightning Data Service Errors -->
+        <aura:if isTrue="{!not(empty(v.newInsightError))}">
+        	<div class="addInsightError">
+            	{!v.insightError)
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

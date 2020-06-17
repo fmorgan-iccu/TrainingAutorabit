@@ -1,0 +1,172 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" standardController="Contact">
+
+    <!-- Load the interaction for the contact using the contact Id as the subscriberkey -->
+    <!-- <thunderhead:one_sdk customerKeyName="sfdccontactkey" customerKey="{!Contact.id}"/> -->
+    <thunderhead:one_sdk customerKeyName="sfdccontactkey" customerKey="0031Y00005CHNMkQAP"/>
+    <apex:slds />
+    <apex:stylesheet value="{!URLFOR($Resource.newFontAwesome,'/fontawesome-free-5.8.2-web/css/all.css')}"/>
+
+    <style>
+        body {
+            margin: 0;
+            font-size: 16px;
+            font-family: 'Salesforce Sans', Arial, Helvetica, sans-serif;
+            }
+        h4 {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        .fas {
+            margin-right: 0.5em;
+            color: #fff;
+            min-width: 32px;
+            text-align: center;
+            background: #1c8900;
+            padding: 0.5em 0.25em;
+            border-radius: 0.25em;
+        }
+
+        .not-interested:hover {
+            background-color: #EB3D3D;
+        }
+
+        .not-interested:focus {
+            background-color: #EB3D3D;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            max-width: 1200px;
+        }
+
+        .container-fluid {
+            padding: 1em;
+        }
+
+        p {
+            margin-top: -0.25em;
+            line-height: 1.5;
+            margin-bottom: 1em;
+        }
+
+        .header {
+            display: flex;
+        }
+
+        .main-header {
+            padding: 1em;
+            color: #fff;
+            background-color: #1c8900;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .main-header h4 {
+            font-weight: normal;
+        }
+
+        .actions {
+            display: flex;
+        }
+
+        button {
+            width: 120px;
+            padding: 0.5em;
+            background: #fff;
+            margin-right: 2em;
+            border-radius: 0.25em;
+            font-size: 12px;
+        }
+
+            button:hover,:focus {
+            background: #1c8900;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .card {
+            padding: 1em;
+        }
+
+        .flex  {
+            flex: 1;
+            margin-right: 2em; 
+        }
+
+        @media (max-width: 768px){
+        .container {
+            flex-direction: column;
+        }
+        
+        h2 {
+            font-size: 16px;
+        }
+        
+        .header.headline {
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 14px;    
+        }
+    }
+    </style>
+
+    <div class="main-header">
+        <h4>Next Best Offer</h4>
+    </div>
+    <div class="container-fluid">
+
+        <!--
+            one-notification-shade: Container for global message display.
+            Can be placed anywhere in the markup.
+        -->
+        <one-notification-shade></one-notification-shade>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+
+                    <!-- <div class="panel-body" style="height: 450px; overflow: hidden; overflow-y: auto;"> -->
+                    <div class="panel-body">
+                        <!--
+                            one-interaction: Container for retrieving optimizations for a given interaction.
+                            attributes:
+                                path: (required) The path to the interaction.
+                            exposed data:
+                                oneInteraction.optimizations
+                        -->
+                        <one-interaction path="/nba">
+                            <div ng-repeat="optimization in oneInteraction.optimizations" class="container" ng-cloak="true">
+
+                                <div ng-repeat="action in optimization.data.actions" class="flex" style="padding-bottom:15px;">
+                                    <!-- This is the content that is coming from Interaction Studio -->
+                                    <div id="" ng-bind-html="action.asset.content"></div>
+                                     <!-- Below are the actions -->
+                                    <div class="actions">
+                                        <button type="button"
+                                            class="btn btn-sm"
+                                            ng-class="{ true: 'btn-primary', false: 'btn-link' }[response.sentiment === 'positive']"
+                                            ng-repeat="response in action.asset.responses | orderBy: '-sentiment'"
+                                            ng-bind="(response.label || response.sentiment) | uppercase"
+                                            ng-click="action.sent = true"
+                                            ng-disabled="action.sent"
+                                            one-interaction-response="response">
+                                            <!--
+                                                one-interaction-response: onClick event binder for sending interaction responses to ONE.
+                                                Requires a response object to be passed to it.
+                                            -->
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </one-interaction>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</apex:page>

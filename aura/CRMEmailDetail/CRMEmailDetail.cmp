@@ -1,0 +1,25 @@
+<aura:component >
+    <!--
+	This component is designed to be used within the CRMMCCMemberDetails for any information that is in email format.
+	It is designed to switch between a read display and an editable display by setting 'editable' to true or false.
+	-->
+
+    <!-- Attributes -->
+    <aura:attribute name="editing" type="Boolean" default="false"/>
+    <aura:attribute name="editable" type="Boolean" default="true"/>
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="email" type="String"/>
+    <aura:attribute name="emailRequired" type="Boolean"/>
+    <aura:attribute name="isValid" type="Boolean" default="true"/>
+
+    <div class="field">
+        <aura:if isTrue="{!v.editing &amp;&amp; v.editable}">
+            <lightning:input type="email" name="email" aura:id="email" label="{!v.label}" value="{#v.email}" onblur="{!c.onChangeField}" required="{!v.emailRequired}"/>
+
+            <aura:set attribute="else">
+                <label>{!v.label}</label>
+                <p><lightning:formattedEmail value="{!v.email}" /></p>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>
