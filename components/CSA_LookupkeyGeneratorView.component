@@ -1,0 +1,128 @@
+<apex:component allowDML="true" layout="none" controller="CSA_LookupkeyGeneratorController">
+    <apex:includeScript value="{!URLFOR($Resource.nFORCE__chosenJS, 'chosen.jquery.min.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.nFORCE__chosenJS, 'chosen.min.css')}" />
+    <style type="text/css">
+        .table-wrapper {
+            max-height: 500px;
+            min-height: 400px;
+            overflow: auto;
+        }
+
+        .chosen-container {
+            margin-bottom: 25px;
+        }
+
+        .slds-select_container:after {
+            bottom: 35px !important;
+        }
+    </style>
+    <apex:form id="theform">
+        <apex:actionstatus id="retrieve_records" onstart="retrieve_records(true)" onstop="retrieve_records(false)" />
+        <apex:actionstatus id="generate_keys" onstart="generate_keys(true)" onstop="generate_keys(false)" />
+        <div class="force messages success" id="successMessage" />
+        <div class="force messages error" id="errorMessage" />
+
+        <div class="row">
+            <div class="col-xs-10">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                            <apex:selectList value="{!object_api}" html-data-placeholder="Select an Object...." styleClass="slds-select chosen-select" size="1">
+                                <apex:selectOptions value="{!availbleObjects}" />
+                                <apex:actionSupport action="{!findRecords}" event="onchange" status="retrieve_records" reRender="theform"/>
+                            </apex:selectList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-2">
+                <div class="slds-hide" id="build-key-button">
+                    <apex:commandButton styleClass="btn btn-primary" value="Build All Keys" action="{!buildAllKeys}" reRender="theform" status="generate_keys"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                <thead>
+                <tr class="slds-text-title--caps">
+                    <th scope="col">
+                        <div class="slds-truncate">Object Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">Id</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">Actions</div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!records}" var="record">
+                        <tr class="record">
+                            <th scope="row">
+                                <div class="slds-truncate">{!object_api}</div>
+                            </th>
+                            <td data-label="Id">
+                                <div class="slds-truncate">{!record['Id']}</div>
+                            </td>
+                            <td data-label="Name">
+                                <div class="slds-truncate">{!record['Name']}</div>
+                            </td>
+                            <td data-label="Actions">
+                                <apex:commandLink action="{!buildKey}" value="Build Key" rerender="theform" status="generate_keys">
+                                    <apex:param name="record_id" value="{!record.Id}" assignTo="{!record_id}"/>
+                                </apex:commandLink>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                    <tr class="no-records slds-hide">
+                        <th class="slds-text-align--center" colspan="4">
+                            No Records Found For Selected Object Please Search Again
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            jQuery(function() {
+                if('{!errorMessage}' != '') {
+                    jQuery('#errorMessage').append('<label style="cursor: default; padding:15px;" class="alert alert-danger">{!errorMessage}</label>');
+                    setTimeout(function() {
+                        jQuery(".alert-danger").remove();
+                    },10000);
+                }
+                jQuery(".chosen-select").chosen();
+
+                if(jQuery('.slds-table').children('tbody').children("tr:not('.no-records')").length == 0) {
+                    jQuery('.no-records').removeClass('slds-hide');
+                    jQuery('#build-key-button').addClass('slds-hide');
+
+                } else {
+                    jQuery('#build-key-button').removeClass('slds-hide');
+                    jQuery('.no-records').addClass('slds-hide');
+                }
+            });
+
+            function generate_keys(val) {
+                if(val) {
+                    jQuery('#slds-loading-generate').removeClass('slds-hide');
+                } else {
+                    jQuery('#slds-loading-generate').addClass('slds-hide');
+                }
+            }
+
+            function retrieve_records(val) {
+                if(val) {
+                    jQuery('#slds-loading-records').removeClass('slds-hide');
+                } else {
+                    jQuery('#slds-loading-records').addClass('slds-hide');
+                }
+            }
+        </script>
+    </apex:form>
+</apex:component>

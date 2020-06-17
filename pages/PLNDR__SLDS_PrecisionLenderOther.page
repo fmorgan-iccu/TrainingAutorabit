@@ -1,0 +1,164 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="PLNDR__Other_Fee_Based_Account__c">
+    <html xlmns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.PLNDR__SLDS0101, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+            <apex:includeScript value="{!$Resource.PLNDR__jQuery}"/>
+            <apex:includeScript value="{!URLFOR($Resource.PLNDR__PLResources)}"/>         
+        </head>
+        <body>
+             <div class="slds">
+                  <div class="slds-tabs--scoped">
+                      <ul class="slds-tabs--scoped__nav" role="tablist">
+                        <li class="slds-tabs__item slds-text-heading--label slds-active" title="PrecisionLender Pricing Details" role="presentation">
+                            <a href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1">PrecisionLender Pricing Details</a>
+                        </li>
+                        <li class="slds-tabs__item slds-text-heading--label" title="Financial Statement" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2">Financial Statement</a>
+                        </li>
+                      </ul>
+                      
+                       <div id="tab-scoped-1" class="slds-tabs__content slds-show" role="tabpanel">
+                    		<div id="otherAccountOverview" class="slds-p-vertical--small">
+                                <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                    <tbody>
+                                      <tr>
+                                    	<td>
+                                            <div class="slds-text-body--small">Product Name:</div>
+                                        	<div class="slds-text-body-regular">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__Product_Name__c}</div>
+                                    	</td>
+                                     	<td>
+                                         	<div class="slds-text-body--small">Description:</div>
+                                         	<div class="slds-text-body--regular">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__Description__c}</div>
+                                     	</td>                         
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                            <div class="slds-text-body--small">Balance:</div>
+                                        	<div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__Balance__c}</div>
+                                        </td>
+                                     	<td></td>  
+                                      </tr>                                  
+                                    </tbody>
+                                </table>
+                           </div>
+                      </div>
+                      
+                      <div id="tab-scoped-2" class="slds-tabs__content slds-hide" role="tabpanel">
+                        <div id="financialStatementDiv" class="slds-p-vertical--small">
+                         <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                             <tbody>
+                                <tr>
+                                   <td>
+                                       <div class="slds-text-body--small">Interest Income:</div>
+                                       <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Interest_Income__c}</div>
+                                   </td>
+                                    <td>
+                                       <div class="slds-text-body--small">Average Yield:</div>
+                                       <div class="slds-text-body--regular decimal-three">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Average_Yield__c}</div>
+                                    </td>                         
+                                </tr>
+                                <tr>
+                                   <td>
+                                       <div class="slds-text-body--small">Interest Expense:</div>
+                                       <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Interest_Expense__c}</div>
+                                   </td>
+                                   <td></td>  
+                                </tr>
+                                 <tr>
+                                   <td>
+                                       <div class="slds-text-body--small">Net Interest Income:</div>
+                                       <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Net_Interest_Income__c}</div>
+                                   </td>
+                                    <td>
+                                       <div class="slds-text-body--small">Net Interest Margin:</div>
+                                       <div class="slds-text-body--regular decimal-three">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Net_Interest_Margin__c}</div>
+                                    </td>                         
+                                </tr>
+                                 <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                 <tr>
+                                     <td>
+                                         <div class="slds-text-body--small">Non Interest Expense:</div>
+                                         <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Non_Interest_Expense__c}</div>
+                                     </td>
+                                     <td></td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                         <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Loan_Loss_Reserves__c}</div>
+                                     </td>
+                                     <td></td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <div class="slds-text-body--small">Other Income:</div>
+                                         <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Other_Income__c}</div>
+                                     </td>
+                                     <td></td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <div class="slds-text-body--small">Pre-Tax Income:</div>
+                                         <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Pre_Tax_Income__c}</div>
+                                     </td>
+                                     <td></td>
+                                 </tr>
+                                 <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                   <tr>
+                                     <td>
+                                         <div class="slds-text-body--small">Taxes:</div>
+                                         <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Taxes__c}</div>
+                                     </td>
+                                     <td></td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <div class="slds-text-body--small">Net Income:</div>
+                                         <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Net_Income__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small">ROA:</div>
+                                       <div class="slds-text-body--regular decimal">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_ROA__c}</div>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <div class="slds-text-body--small">Target Net Income:</div>
+                                         <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Target_Net_Income__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Target ROA:</div>
+                                       <div class="slds-text-body--regular decimal">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Target_ROA__c}</div>
+                                     </td>
+                                 </tr>
+                                 <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                 <tr>
+                                   <td>
+                                       <div class="slds-text-body--small">Average Assets:</div>
+                                       <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Average_Assets__c}</div>
+                                   </td>
+                                    <td>
+                                       <div class="slds-text-body--small">ROE:</div>
+                                       <div class="slds-text-body--regular decimal">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_ROE__c}</div>
+                                    </td>                         
+                                </tr>
+                                 <tr>
+                                   <td>
+                                       <div class="slds-text-body--small">Average Equity:</div>
+                                       <div class="slds-text-body-regular currency">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Average_Equity__c}</div>
+                                   </td>
+                                    <td>
+                                       <div class="slds-text-body--small">Target ROE:</div>
+                                         <div class="slds-text-body-regular decimal">{!PLNDR__Other_Fee_Based_Account__c.PLNDR__FS_Target_ROE__c}</div>
+                                    </td>                         
+                                </tr>
+                                
+                             </tbody>
+                         </table>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,65 @@
+<apex:page controller="ATBK.SummaryController"
+	extensions="nFORCE.RemoteActionController"
+	lightningStylesheets="true"
+	title="{!$Label[configurations['titleLabel']]}"
+	docType="html-5.0"
+	applyHtmlTag="false"
+	showHeader="false">
+	<apex:slds />
+	<c:SummaryIncludes />
+	<div id="summary" class="slds-scope">
+		<c:PushTopicListener elementToAttachTo="summary" topic="ATBKStatusUpdate" />
+		<c:SummaryPartial />
+		<c:RelatedStatusesPartial />
+		<c:CollapsibleSectionPartial />
+		<summary
+			action="{!configurations['action']}"
+			close-icon-url="{!URLFOR($Resource.nFORCE__SLDS0122,'/assets/icons/utility/close_60.png')}"
+			close-label="{!$Label.Close}"
+			context-object-id="{!configurations['contextId']}"
+			continue-book-to-core-label="{!$Label.Booking_Summary_Continue_Booking}"
+			continue-label="{!$Label.Booking_Summary_Continue}"
+			context-package-id="{!configurations['contextPackageId']}"
+			death-star-default-path="{!URLFOR($Resource.Common,'/assets/images/BookToCore_Default.svg')}"
+			death-star-error-path="{!URLFOR($Resource.Common,'/assets/images/BookToCore_Error.svg')}"
+			death-star-pending-path="{!URLFOR($Resource.Common,'/assets/images/BookToCore_Pending.svg')}"
+			death-star-success-path="{!URLFOR($Resource.Common,'/assets/images/BookToCore_Success.svg')}"
+			default-text="{!$Label[configurations['defaultText']]}"
+			details-header="{!$Label[configurations['detailsHeader']]}"
+			error-text="{!$Label[configurations['errorText']]}"
+			failed-status="{!$Label[configurations['failedStatus']]}"
+			finish-label="{!$Label.Booking_Summary_Finish}"
+			internal-error-text="{!$Label[configurations['internalErrorText']]}"
+			next-href="{!nextHrefUrl}"
+			next-secondary-href="{!configurations['nextSecondaryHrefUrl']}"
+			next-tertiary-href="{!configurations['nextTertiaryHrefUrl']}"
+			partial-success-status="{!$Label[configurations['partialSuccessStatus']]}"
+			partial-success-text="{!$Label[configurations['partialSuccessText']]}"
+			pending-status="{!$Label[configurations['pendingStatus']]}"
+			pending-text="{!$Label[configurations['pendingText']]}"
+			product-header="{!$Label[configurations['productHeader']]}"
+			ready-status="{!$Label[configurations['readyStatus']]}"
+			related-error-path="{!URLFOR($Resource.Common, '/assets/images/SummaryDetails_Error.svg')}"
+			related-partial-path="{!URLFOR($Resource.Common, '/assets/images/SummaryDetails_Partial.svg')}"
+			related-success-path="{!URLFOR($Resource.Common, '/assets/images/SummaryDetails_Success.svg')}"
+			related-account-number-header="{!$Label[configurations['relatedObjectTabAccountNumber']]}"
+			related-item-name-header="{!$Label[configurations['relatedObjectTabItemName']]}"
+			related-date-time-header="{!$Label[configurations['relatedObjectTabDateAndTime']]}"
+			related-status-header="{!$Label[configurations['relatedObjectTabStatus']]}"
+			related-details-header="{!$Label[configurations['relatedObjectTabDetails']]}"
+			remote-action="{!$RemoteAction.RemoteActionController.invoke}"
+			remote-fetch-status="ATBK.BaseUIController.FetchStatus"
+			remote-fetch-statuses="ATBK.BaseUIController.FetchStatuses"
+			remote-fetch-detail-statuses="ATBK.SummaryController.FetchStatusDetails"
+			remote-update-session-context-id="ATBK.BaseUIController.UpdateSessionContextId"
+			session-id="{!configurations['sessionId']}"
+			status-header="{!$Label[configurations['statusHeader']]}"
+			success-status="{!$Label[configurations['successStatus']]}"
+			success-text="{!$Label[configurations['successText']]}"
+			timestamp-header="{!$Label[configurations['timestampHeader']]}"
+			timeout-error-text="{!$Label[configurations['timeoutErrorText']]}"
+			timed-out-status="{!$Label[configurations['timedOutStatus']]}"
+			title-label="{!$Label[configurations['titleLabel']]}"
+		></summary>
+	</div>
+</apex:page>

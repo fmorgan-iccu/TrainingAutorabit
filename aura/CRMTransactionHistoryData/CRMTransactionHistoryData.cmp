@@ -1,0 +1,103 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <!-- call this on page load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	
+    <!-- Date formatting library -->
+    <ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatDates}" />
+    <ltng:require scripts="{!$Resource.NumeralJS}" afterScriptsLoaded="{!c.formatNumbers}" />
+    
+    <!-- 
+	COMPONENT OVERVIEW:
+	This is a singular transaction that is used within
+	the CRMMemberTransactionHistory component.
+
+    ATTRIBUTES:
+	This component accepts the following attributes:
+        • "TransactDescription": The title or description of the transaction. 
+        • "TransactCredit": The amount of credits applied.
+        • "TransactDebit" : The amount that has been withdrawn from the account.
+        • "TransactBalance" : The current balance of the account
+        • "TransactType" : The type of transaction (i.e. Point of Sale, Transfer, Deposit, etc.)
+        • "TransactPostDate" : The posting date. Format is mm/dd/yyyy
+        • "TransactEffectDate" : The effective date. Format is mm/dd/yyyy
+        • "TransactID" : The transactional id related to that transaction item. 
+    -->
+            
+	<!-- Defining attributes -->
+    <aura:attribute name="Transaction" type="Object"/>
+    <aura:attribute name="postDate" type="String"/>
+    <aura:attribute name="effectiveDate" type="String"/>
+    <aura:attribute name="amount" type="String" />
+    <aura:attribute name="balance" type="String" />
+
+    <!-- This is the content of the transaction -->
+    <div>
+        <div aria-expanded="false" class="BorderTop" onclick="{!c.sectionOne}" aura:id="toggleActiveColor" id="transactLayerOne">
+            <div class="iconContainer">
+                <lightning:icon class="slds-show" iconName="utility:chevronright" size="x-small" aura:id="articleOne"/>
+                <lightning:icon class="slds-hide" iconName="utility:chevrondown" size="x-small" aura:id="articleOne"/>
+            </div>
+            
+            <lightning:layout horizontalAlign="space" multipleRows="true"> 
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="4">  
+
+                    <h3 class="TransactionHeader">Description</h3>
+                    <p id="TransactionDescription">
+                        <!-- Some transactions, like deposits or withdrawls, don't have an external description -->
+                    	<aura:if isTrue="{!v.Transaction.externalDescription.length > 0}">
+                            {!v.Transaction.externalDescription}
+
+                            <aura:set attribute="else">
+                                {!v.Transaction.description} - {!v.Transaction.internalDescription}
+                            </aura:set>
+                        </aura:if>
+                        <aura:if isTrue="{!v.Transaction.checkNumber.length &gt; 0}">
+                            - #{!v.Transaction.checkNumber}
+                        </aura:if>
+                    </p>
+                    <p id="PostDate">{!v.postDate}</p>
+                </lightning:layoutItem> 
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="2">            
+                    <h3 class="TransactionHeader">Credits</h3>
+                    <aura:if isTrue="{!v.Transaction.isCredit}">
+                        <p id="CreditAmount">{!v.amount}</p>
+                    </aura:if>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="2">            
+                    <h3 class="TransactionHeader">Debits</h3>
+                    <aura:if isTrue="{!v.Transaction.isCredit == false}">
+                        <p id="DebitAmount">{!v.amount}</p>
+                    </aura:if>
+                </lightning:layoutItem>   
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="2">            
+                    <h3 class="TransactionHeader">Balance</h3>
+                    <p>{!v.balance}</p>
+                </lightning:layoutItem>   
+            </lightning:layout>
+        </div>
+            
+        <div aria-hidden="true" class="slds-hide" aura:id="articleOne" id="transactLayerTwo">
+            <lightning:layout horizontalAlign="space" multipleRows="true">
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="4">            
+                    <h3 class="TransactionHeader">Transaction Type</h3>
+                    <p>{!v.Transaction.description}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="2">            
+                    <h3 class="TransactionHeader">Posting Date</h3>
+                    <p>{!v.postDate}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="2">            
+                    <h3 class="TransactionHeader">Effective Date</h3>
+                    <p>{!v.effectiveDate}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="2">            
+                    <h3 class="TransactionHeader">Transaction ID</h3>
+                    <p>{!v.Transaction.transactionNumber}</p>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+        
+    </div>
+    
+</aura:component>

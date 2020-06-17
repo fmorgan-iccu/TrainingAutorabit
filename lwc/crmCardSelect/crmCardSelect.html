@@ -1,0 +1,20 @@
+<template>
+    <div if:true={showNoCardsToDisplay}>
+        <p>No cards were found</p>
+    </div>
+    <div if:true={showSelectedCard}>
+        <c-crm-card-display card={selectedCard} ondeselected={handleDeselectCard} selected></c-crm-card-display>
+    </div>
+    <template for:each={cardGroups} for:item='cardGroup' if:false={showSelectedCard}>
+        <article key={cardGroup.label} class="active-cards">
+            <h2 if:true={showGroupLabel}>{cardGroup.label}</h2>
+            <div class="flex">
+                <template for:each={cardGroup.cards} for:item='card'>
+                    <div class="flex-item" key={card.uniqueId} style={card.visibility}>
+                        <c-crm-card-display card={card} onselected={handleSelectCard}></c-crm-card-display>
+                    </div>
+                </template>
+            </div>
+        </article>
+    </template>
+</template>

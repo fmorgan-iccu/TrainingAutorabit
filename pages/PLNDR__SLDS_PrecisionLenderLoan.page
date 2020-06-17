@@ -1,0 +1,413 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="PLNDR__Commercial_Loan_Account__c">
+    <apex:remoteObjects >
+        <apex:remoteObjectModel name="PLNDR__Commercial_Loan_Account__c" jsShorthand="loan" fields="Id,PLNDR__Prepayment_Option__c,PLNDR__Payment_Type__c,PLNDR__Rate_Type__c,PLNDR__Is_Renewal_Loan__c"></apex:remoteObjectModel>
+    </apex:remoteObjects>
+    <html xlmns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.PLNDR__SLDS0101, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+            <apex:includeScript value="{!$Resource.PLNDR__jQuery}"/>
+            <apex:includeScript value="{!URLFOR($Resource.PLNDR__PLResources)}"/>
+        </head>
+        <body>
+            <div class="slds">
+                <div class="slds-tabs--scoped">
+                    <ul class="slds-tabs--scoped__nav" role="tablist">
+                        <li class="slds-tabs__item slds-text-heading--label slds-active" title="PrecisionLender Pricing Details" role="presentation">
+                            <a href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1">PrecisionLender Pricing Details</a>
+                        </li>
+                        <li class="slds-tabs__item slds-text-heading--label" title="Commercial Loan Account Metrics" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2">Commercial Loan Account Metrics</a>
+                        </li>
+                            <li class="slds-tabs__item slds-text-heading--label" title="Financial Statement" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-3">Financial Statement</a>
+                        </li>
+                    </ul>
+                    
+                    <div id="tab-scoped-1" class="slds-tabs__content slds-show" role="tabpanel"> 
+                        <div id="pricing-details" class="slds-p-vertical--small"> 
+                            <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="slds-text-body--small">Product Name:</div>
+                                            <div class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Product_Name__c}</div>
+                                        </td>
+                                     <td></td> 
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Amount:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Amount__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Initial Fees:</div>
+                                         <div class="slds-text-body--regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Initial_Fees__c}</div>
+                                     </td>                           
+                                    </tr>
+                                      <tr>
+                                        <td>
+                                            <div class="slds-text-body--small">Initial Rate:</div>
+                                            <div class="slds-text-body-regular decimal-three">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Initial_Rate__c}</div>
+                                        </td>
+                                     <td></td>
+                                    </tr>
+                                      <tr>
+                                        <td>
+                                            <div class="slds-text-body--small">Payment Type:</div>
+                                            <div id="paymentTypeValue" class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Payment_Type__c}</div>
+                                        </td>
+                                     <td></td>  
+                                    </tr>
+                                     <tr>
+                                    <td><div class="slds-text-body--small">Interest Options:</div>
+                                        <div class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Interest_Options__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Risk Rating:</div>
+                                         <div class="slds-text-body--regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Risk_Rating__c}</div>
+                                     </td>                         
+                                    </tr>
+                                       <tr>
+                                        <td>
+                                            <div class="slds-text-body--small">Maturity:</div>
+                                            <div class="slds-text-body-regular number">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Maturity__c}</div>
+                                        </td>
+                                        <td>
+                                            <apex:outputText rendered="{! PLNDR__Commercial_Loan_Account__c.Facility_Risk_Rating__c != '' }">
+                                                <div class="slds-text-body--small">Facility Risk Rating:</div>
+                                                <div class="slds-text-body--regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Facility_Risk_Rating__c}</div>
+                                            </apex:outputText>
+                                        </td>
+                                    </tr>
+                                    <apex:outputText rendered="{! PLNDR__Commercial_Loan_Account__c.Collateral__c != '' || PLNDR__Commercial_Loan_Account__c.Guarantees__c != '' }">
+                                        <tr>
+                                            <td>
+                                                <apex:outputText rendered="{! PLNDR__Commercial_Loan_Account__c.Collateral__c != '' }">
+                                                    <div class="slds-text-body--small">Collateral:</div>
+                                                    <div class="slds-text-body--regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Collateral__c}</div>
+                                                </apex:outputText>
+                                            </td>
+                                            <td>
+                                                <apex:outputText rendered="{! PLNDR__Commercial_Loan_Account__c.Guarantees__c != '' }">
+                                                    <div class="slds-text-body--small">Guarantees:</div>
+                                                    <div class="slds-text-body--regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Guarantees__c}</div>
+                                                </apex:outputText>
+                                            </td>
+                                        </tr>
+                                    </apex:outputText>
+                                    <tr>
+                                        <td>    
+                                            <div id="amortization">
+                                           <div class="slds-text-body--small">Amortization:</div>
+                                           <div class="slds-text-body-regular number">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Amortization__c}</div>  
+                                                </div>
+                                        </td>
+                                        <td>
+                                            <div id="amortization-notes">
+                                             <div class="slds-text-body--small">Amortization Notes:</div>
+                                            <div class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Amortization_Notes__c}</div>
+                                            </div>
+                                        </td>                                        
+                                    </tr>
+                                        
+                                    <tr>
+                                        <td>
+                                            <div class="slds-text-body--small">Rate Type:</div>
+                                            <div id="rate-type" class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Rate_Type__c}</div>
+                                        </td>
+                                        <td>
+                                            <div id="prepayment-option">
+                                                <div class="slds-text-body--small">Prepayment Option:</div>
+                                                <div id="prepayment" class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Prepayment_Option__c}</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="index">
+                                                <div class="slds-text-body--small">Index:</div>
+                                                <div class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Index__c}</div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="spread">
+                                                <div class="slds-text-body--small">Spread:</div>
+                                                <div class="slds-text-body-regular decimal-three">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Spread__c}</div>
+                                            </div>
+                                        </td>
+                                       <td data-label="isrenewal">
+                                      <div class="slds-text-body--small">Is Renewal Loan:</div>
+                                      <div>
+                                          <label class="slds-checkbox" for="is-renewal">
+                                              <input name="checkbox" type="checkbox" id="is-renewal" disabled="disabled"/>
+                                              <span class="slds-checkbox--faux"></span>
+                                              <span class="slds-form-element__label slds-assistive-text"></span>
+                                          </label>
+                                     </div>
+                                    </td>                                       
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="caps-floors">
+                                                <div class="slds-text-body--small">Caps and Floors:</div>
+                                                <div class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Caps_Floors_Summary__c}</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-text-body--small">Tax Exempt Status:</div>
+                                            <div class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Tax_Exempt_Status__c}</div>
+                                        </td> 
+                                    </tr>
+                                      <tr>
+                                        <td>
+                                            <div id="fixed-period">
+                                                <div class="slds-text-body--small">Fixed Period:</div>
+                                                <div class="slds-text-body-regular">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Fixed_Period__c}</div>
+                                            </div>
+                                        </td>
+                                        <td></td> 
+                                    </tr>
+                                      <tr>
+                                        <td>
+                                            <div id="adjustment-frequency">
+                                                <div class="slds-text-body--small">Adjustment Frequency:</div>
+                                                <div class="slds-text-body-regular number">{!PLNDR__Commercial_Loan_Account__c.PLNDR__Adjustment_Frequency__c}</div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                     <div id="tab-scoped-2" class="slds-tabs__content slds-hide" role="tabpanel">
+                         <div id="account-metrics" class="slds-p-vertical--small">
+                             <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                 <tbody>
+                                    <tr>
+                                    <td><div class="slds-text-body--small">Loan Gross Funding:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Gross_Funding__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Loan Commitment:</div>
+                                         <div class="slds-text-body--regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Commitment__c}</div>
+                                     </td>                           
+                                    </tr>
+                                      <tr>
+                                          <div class="slds-text-body--small">Loan Net Commitment:</div>
+                                          <div class="slds-text-body--regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Net_Commitment__c}</div>
+                                     </tr>
+                                    <tr>
+                                    <td><div class="slds-text-body--small">Loan Net Funding:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Net_Funding__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Loan Average Balance:</div>
+                                         <div class="slds-text-body--regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Average_Balance__c}</div>
+                                     </td>                           
+                                    </tr>
+                                    
+                                 </tbody>
+                             </table>
+                         </div>
+                    </div>
+                    <div id="tab-scoped-3" class="slds-tabs__content slds-hide" role="tabpanel">
+                        <div id="financial-statement" class="slds-p-vertical--small">
+                            <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                    <tr>
+                                    <td><div class="slds-text-body--small">Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Interest_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Average Yield:</div>
+                                         <div class="slds-text-body--regular decimal-three">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Average_Yield__c}</div>
+                                     </td>                           
+                                    </tr>
+                                    <tr>
+                                    <td><div class="slds-text-body--small">Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                           
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Net_Interest_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Net Interest Margin:</div>
+                                         <div class="slds-text-body--regular decimal-three">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Net_Interest_Margin__c}</div>
+                                     </td>                           
+                                    </tr>
+                                    <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                    
+                                    <tr>
+                                    <td><div class="slds-text-body--small">Non Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Non_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                          
+                                    </tr> 
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Loss_Reserves__c}</div>
+                                    </td>
+                                     <td></td>                           
+                                    </tr>
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Other Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Other_Income__c}</div>
+                                    </td>
+                                     <td></td>                           
+                                    </tr>
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Pre Tax Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Pre_Tax_Income__c}</div>
+                                    </td>
+                                     <td></td>                           
+                                    </tr>
+                                    <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Taxes:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Taxes__c}</div>
+                                    </td>
+                                     <td></td>                          
+                                    </tr>
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Net_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">ROA:</div>
+                                         <div class="slds-text-body--regular decimal">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_ROA__c}</div>
+                                     </td>                          
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Target Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Target_Net_Income__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Target ROA:</div>
+                                         <div class="slds-text-body--regular decimal">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Target_ROA__c}</div>
+                                     </td>                          
+                                    </tr>
+                                    <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Assets:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Average_Assets__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">ROE:</div>
+                                         <div class="slds-text-body--regular decimal">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_ROE__c}</div>
+                                     </td>                          
+                                    </tr>
+                                      <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Equity:</div>
+                                        <div class="slds-text-body-regular currency">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Average_Equity__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Target ROE:</div>
+                                        <div class="slds-text-body-regular decimal">{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Target_ROE__c}</div>
+                                     </td>                           
+                                    </tr>                                                                      
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </body>
+        <script>
+        $(document).ready(function(){       
+
+            //commercial loan account
+            retrieveCommercialLoanAccount();          
+        });
+          
+    
+        function retrieveCommercialLoanAccount(){
+            var cla = new SObjectModel.loan();
+            cla.retrieve( 
+                { 
+                    where: { Id: {eq: '{!PLNDR__Commercial_Loan_Account__c.Id}'} }, limit: 1 },  
+
+            function(err, records) { 
+                        if (err) { 
+                            alert(err); 
+                        } else { 
+                        records.forEach(function(record){
+                                var prepaymentOption = record.get("PLNDR__Prepayment_Option__c");
+                                var paymentType = record.get("PLNDR__Payment_Type__c");
+                                var rateType = record.get("PLNDR__Rate_Type__c");
+                                var isRenewal = record.get("PLNDR__Is_Renewal_Loan__c");
+                                $("#is-renewal").attr("checked", isRenewal);
+                    
+                                showPrePaymentOption(prepaymentOption);
+                                showAmortizationDetails(paymentType);
+                                showRateTypeDependentValues(rateType);
+                            }
+                        );
+                    } 
+                } 
+            );
+        }
+
+        
+        
+        function showPrePaymentOption(prepaymentOption){
+         if(prepaymentOption != ''){
+            $("#prepayment-option").show();
+        }
+        else{
+            $("#prepayment-option").hide();
+        }
+    }
+    
+    function showAmortizationDetails(paymentType){
+        if(paymentType === 'Amortizing'){
+            $("#amortization").show();
+            $("#amortization-notes").show();
+        }
+        else{
+             $("#amortization").hide();
+            $("#amortization-notes").hide();
+        }
+    }
+    
+    function showRateTypeDependentValues(rateType){
+        if( rateType != 'Fixed'){
+            $("#index").show();
+            $("#spread").show();
+            $("#caps-floors").show();
+        }
+        else{
+            $("#index").hide();
+            $("#spread").hide();
+            $("#caps-floors").hide();
+        }
+        
+        if(rateType === 'Adjustable'){
+            $("#fixed-period").show();
+            $("#adjustment-frequency").show();
+        }
+        else{
+            $("#fixed-period").hide();
+            $("#adjustment-frequency").hide();
+        }
+        
+    }
+        
+        </script>
+    </html>
+</apex:page>

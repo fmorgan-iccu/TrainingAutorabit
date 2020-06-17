@@ -1,0 +1,87 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="Account">
+    <html xlmns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.PLNDR__SLDS0101, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+            <apex:includeScript value="{!$Resource.PLNDR__jQuery}"/>
+            <apex:includeScript value="{!URLFOR($Resource.PLNDR__PLResources)}"/>
+        </head>
+        <body>
+            <div class="slds">
+                <div class="slds-tabs--scoped">
+                    <ul class="slds-tabs--scoped__nav" role="tablist">
+                        <li class="slds-tabs__item slds-text-heading--label slds-active" title="Balance Sheet" role="presentation">
+                            <a href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1">Balance Sheet</a>
+                        </li>
+                    </ul>
+                                     <div id="tab-scoped-1" class="slds-tabs__content slds-show" role="tabpanel">  
+                        <div class="slds-text-body--small slds-box">
+                           <p>
+                            <label class="slds-text-body--small">PrecisionLender Relationship:  </label><label class="slds-text-body--regular slds-p-left--large">{!account.PL_Relationship__c}</label>
+                           </p>             
+                      	</div>
+                            <div id="balance-sheet" class="slds-p-vertical--small">                              
+								<table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">                               
+                                    <tbody>
+                                        <tr class="slds-box slds-theme--shade">
+                                            <td><h3 class="slds-section-title--divider">Current Balance Sheet and Fee Accounts</h3></td>
+                                            <td><h3 class="slds-section-title--divider">Strategic Net Income Rank</h3></td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="loan-balance">
+                                                <div class="slds-text-body--small">Loan Balance:</div>
+                                                <div class="slds-text-body--regular currency">{!account.Current_Loan_Balance__c}</div>
+                                            </td>
+                                            <td data-label="percentile">
+                                                <div class="slds-text-body--small">Percentile:</div>
+                                                <div>{!account.Percentile_Text__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="deposit-balance">
+                                                <div class="slds-text-body--small">Deposit Balance:</div>
+                                                <div class="slds-text-body--regular currency">{!account.Current_Deposit_Balance__c}</div>
+                                            </td>
+                                            <td data-label="regional-percentile">
+                                                <div class="slds-text-body--small">Regional Percentile:</div>
+                                                <div>{!account.Regional_Percentile_Text__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="other-income">
+                                                <div class="slds-text-body--small">Other Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.Current_Other_Income__c}</div>
+                                            </td>
+                                            <td data-label="owner-percentile">
+                                                <div class="slds-text-body--small">Owner Percentile:</div>
+                                                <div>{!account.Owner_Percentile_Text__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="other-income">
+                                                <div class="slds-text-body--small">Total Loan Commitment:</div>
+                                                <div class="slds-text-body--regular currency">{!account.Total_Loan_Commitment__c}</div>
+                                            </td> 
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="last-updated">
+                                                <div class="slds-text-body--small">PrecisionLender Last Updated:</div>
+                                                <div class="slds-text-body--regular dateFormat">{!account.PrecisionLender_Last_Updated__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>                                
+                            </div>
+                            <div>
+                         		<p class="slds-text-body--small slds-box slds-theme--shade">
+                                	Note: These values may represent the rolled-up values for multiple lower-level relationships.
+                         		</p>                                 
+                     		</div>
+                        </div>
+                </div>
+                
+            </div>
+        </body>
+    </html>
+</apex:page>

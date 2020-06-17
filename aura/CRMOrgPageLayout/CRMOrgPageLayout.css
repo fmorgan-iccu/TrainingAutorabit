@@ -1,0 +1,109 @@
+/**Layout Styling**/
+.THIS .layout-row-2 {
+    margin-top: t(spacingSmall);
+    margin-bottom: t(spacingSmall);
+}
+.THIS .layout-row-2__column-1 {
+    margin-right: t(spacingSmall);
+}
+.THIS .uiTabset--default .tabs__nav {
+    border-bottom: none;
+}
+.THIS .dnaAuth-layout-fix .flexipageComponent:not(:last-child):not(:empty) {
+    margin-bottom: 0;
+}
+
+.THIS .dnaAuth-layout-fix .left-col-component {
+    margin-bottom: .75rem;
+}
+/*Winter '19 Fix*/
+.THIS .slds-grid--align-spread .slds-col,
+.THIS .slds-grid_align-spread .slds-col {
+    flex-grow: 1;
+}
+/**Cards**/
+.THIS header.slds-card__header,
+.THIS .uiTabBar {
+    border-radius: .25rem .25rem 0 0;
+}
+
+/**Tab Component**/
+.THIS .slds-tabs_card,
+.THIS .slds-tabs_card.slds-tabs_card {
+    padding: 0;
+}
+
+.THIS .flexipageTabset>.uiTab.tabs__content {
+    padding: 1rem;
+}
+
+.THIS .uiTabBar {
+    padding: 0 1rem;
+    background-color: t(iccuHeaderBackground);
+}
+
+.THIS .uiTabBar li {
+    padding-top: 1rem;
+}
+
+.THIS .uiTabBar li.active:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.THIS .uiTabBar a {
+    color: t(iccuLightText);
+}
+
+.THIS .uiTabset--default .tabs__item.active>a:focus {
+    color: t(iccuLightText);
+}
+
+.THIS .uiTabset--default .tabs__item>a {
+    color: t(iccuLightText);
+    text-transform: capitalize;
+}
+
+.THIS .uiTabset--default .tabs__item>a:hover,
+.THIS .uiTabset--default .tabs__item>a:focus,
+.THIS .uiTabset--default .tabs__item>a[aria-selected=true]
+{
+    color: t(iccuLightText);
+    border-color: t(brightAccentGreen);
+    border-bottom-width: 3px;
+}
+
+.THIS .uiTabset--default .tabs__item>a:focus,
+.THIS .uiTabset--default .tabs__item>a[aria-selected=true]
+{
+    font-weight: t(fontWeightBold);
+}
+
+/**Elements Inside Tabs
+.THIS .slds-card.overview-within-tabs {
+    border: 1px solid #DDDDDD;
+    border-radius: .25rem;
+    padding: 0 .75rem;
+}**/
+
+/* Activity SLDS Component */
+.THIS .uiTabset--task .tabs__nav {
+    background-color: t(iccuPrimaryGreen);
+    border: none;
+}
+
+.THIS .uiTabset--task .tabs__item.active>a {
+    background-color: t(iccuPrimaryGreen);
+}
+.THIS .uiTabset--task .tabs__item.active>a:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+.THIS .uiTabset .uiTabset .tabs__item {
+    padding: 0;
+}
+.THIS .uiTabset .uiTabset .tabs__item>a[aria-selected=true] {
+    border: none;
+}
+.THIS .uiTabset .uiTabset .tabs__item>a:hover {
+    border: none;
+    background-color: rgba(0, 0, 0, .1);
+}

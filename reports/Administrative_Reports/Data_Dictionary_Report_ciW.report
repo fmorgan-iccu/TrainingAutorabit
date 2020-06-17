@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ndd__Dictionary__c$Name</field>
+    </columns>
+    <columns>
+        <field>ndd__Dictionary__c$ndd__Object_Name__c</field>
+    </columns>
+    <columns>
+        <field>ndd__Dictionary__c$ndd__API_Name__c</field>
+    </columns>
+    <columns>
+        <field>ndd__Dictionary__c$ndd__Object_API_Name__c</field>
+    </columns>
+    <columns>
+        <field>ndd__Dictionary__c$ndd__Description__c</field>
+    </columns>
+    <columns>
+        <field>ndd__Dictionary__c$ndd__Type__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Data Dictionary Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Data_Dictionary__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>ndd__Dictionary__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

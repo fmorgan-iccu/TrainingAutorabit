@@ -1,0 +1,19 @@
+.flex {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 0 1 auto;
+}
+
+article {
+    margin-bottom: 2em;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 24px;
+    font-size: 1.5em;
+}

@@ -1,0 +1,140 @@
+<template>
+
+    <!-- Main Container for the Travel Form -->
+    <div class="main-container slds-is-relative">
+
+        <div if:false={isLoaded}>
+            <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+        </div>
+    
+        <div if:true={isSaving}>
+            <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+        </div>
+
+        <!-- Travel Form Header -->
+        <c-crm-form-header
+            form="Travel Form"
+            membersname={contact.Name}>
+            <p>Filling out the information below will submit a travel notification to CO-OP, allowing the member to travel without possible disruptions to their card(s).</p>
+        </c-crm-form-header>
+
+        <div if:true={complete}>
+            <div class="success-message">
+                You have successfully updated this member's travel plans.
+            </div>
+        </div>
+
+        <div if:false={complete}>
+            <!-- Travel Form Content -->
+            <section class="content" style={contentContainer}>
+
+                <template if:true={showError}>
+                    <c-crm-form-error>
+                        <p>{error}</p>
+                    </c-crm-form-error>
+                </template>
+
+                <template if:true={showWarning}>
+                    <c-crm-lwc-alert alert-type="warn">
+                        <p>{warning}</p>
+                    </c-crm-lwc-alert>
+                </template>
+
+                <!-- Who is Traveling Section -->
+                <article class="contact-traveling">
+                    <h2>Who is Traveling?</h2>
+
+                    <!-- Contact Card -->
+                    <div class="contact">
+                        <div class="contact-header">
+                            <h3 slot="title">
+                                <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>
+                                {contact.FirstName} {contact.LastName}
+                            </h3>
+                        </div>
+                        <!-- Contact Info -->
+                        <div class="contact-info">
+                            <div class="email">
+                                <p class="label">Email</p>
+                                <p class="value">{contact.Email}</p>
+                            </div>
+                            <div class="phone">
+                                <p class="label">Phone</p>
+                                <p class="value">{contact.Phone}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- Cards Associated with the Contact -->
+                <article class="cards">
+                    <h2>{contact.FirstName} {contact.LastName}'s Cards</h2>
+
+                    <c-crm-card-select></c-crm-card-select>
+                </article>
+
+                <!-- Travel Information -->
+                <article class="traveling-info">
+                    <h2>Travel Information</h2>
+
+                    <!--
+                    This is where the user defines where the member is traveling.
+                    This is also where we conditionally would show States and/or Countries depending on the user's choice
+                    -->
+                    <form action="">
+                        <div class="form-info-section">
+                            <lightning-radio-group
+                                name="travelOptons"
+                                label="Traveling within the United States or International?"
+                                options={travelOptions}
+                                value={travelOption}
+                                required
+                                type="radio"
+                                onchange={handleTravelChange}
+                                disabled={isDisabled}>
+                            </lightning-radio-group>
+                        </div>
+
+                        <div class="flex form-info-section">
+                            <lightning-input disabled={isDisabled} class="departure flex-1 date-input m-right" type="date" name="departure" label="Enter the departure date" onchange={handleDateChange} required></lightning-input>
+                            <lightning-input disabled={isDisabled} class="return flex-1 date-input m-left" type="date" name="return" label="Enter the return date" onchange={handleDateChange} required></lightning-input>
+                        </div>
+
+                        <!-- State Selection -->
+                        <div class="form-info-section">
+
+                            <!-- 
+                                See the below documentation on why using kebab-case to reference a Javascript property
+                                https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.js_props_public -->
+                            <c-crm-state-select label="Enter the state(s) the member will be traveling to" multiselect required is-disabled={isDisabled}></c-crm-state-select>
+                        </div>
+
+                        <!-- Country Selection.  Shown if the selected travel option is international -->
+                        <div class="form-info-section" style={showCountry}>
+                            <c-crm-country-select label="Enter all of the country(s) the member will be traveling to" multiselect is-disabled={isDisabled}></c-crm-country-select>
+                        </div>
+
+                        <!-- Reason for Traveling -->
+                        <div class="form-info-section">
+                            <lightning-textarea disabled={isDisabled} class="note" label="Enter the reason for traveling"></lightning-textarea>
+                        </div>
+                    </form>
+
+                </article>
+
+                <section if:true={showErrorOnSubmit}>
+                    <c-crm-form-error>
+                        <p>{errorOnSubmit}</p>
+                    </c-crm-form-error>
+                </section>
+
+                <div class="action-buttons flex">
+                    <!-- <lightning-button class="m-right" label="Cancel"></lightning-button> -->
+                    <lightning-button label="Submit" variant="brand" onclick={handleSubmitForm}></lightning-button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</template>

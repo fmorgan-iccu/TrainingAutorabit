@@ -1,0 +1,117 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+   	<!-- 
+	COMPONENT OVERVIEW:
+	This is the singular case that is used within
+	the CRMMemberCases component and anywhere else
+	a single application needs to be displayed. 
+    -->
+    
+    <!--
+        Record type ID's
+        Complaint case in UIDev: 0121h0000004bQRAAY
+        Complaint case in ICCUQA: 0124F0000001Gi1QAE
+        Complaint case in production: 0121Y000000txtjQAA
+        Avoka case ID: 0121Y000001YZpPQAW
+        TODO: After the refresh from production, replace the logic so it only refers to one Id.
+    -->
+    
+    <!-- Defining Attributes -->
+    <aura:attribute name="Case" type="Object"/>
+    
+    <!-- Begin Component -->
+    <div class="case-item">
+        <!-- TODO: Remove the hard-coded record type ID for Avoka cases -->
+        <aura:if isTrue="{!v.Case.RecordTypeId == '0121Y000001YZpPQAW'}">
+            <div class="avoka case-label">
+                <lightning:icon iconName="utility:copy" alternativeText="avoka account opening icon"/>
+            </div>
+        </aura:if>
+        <!-- TODO: Remove the hard-coded record type ID for Complaint cases -->
+        <!-- TODO: New Icon -->
+        <aura:if isTrue="{!v.Case.RecordTypeId == '0121h0000004bQRAAY' || v.Case.RecordTypeId == '0124F0000001Gi1QAE' || v.Case.RecordTypeId == '0121Y000000txtjQAA'}">
+            <div class="complaint case-label">
+                    <lightning:icon src="{! $Resource.complaintCaseIcon + '#complaintIcon'}" alternativeText="complaint case icon" />
+            </div>
+        </aura:if>
+        <!-- TODO: Remove the hard-coded record type ID for Complaint & Avoka cases -->
+        <aura:if isTrue="{!v.Case.RecordTypeId != '0121h0000004bQRAAY' &amp;&amp; v.Case.RecordTypeId != '0121Y000001YZpPQAW' &amp;&amp; v.Case.RecordTypeId != '0124F0000001Gi1QAE' &amp;&amp; v.Case.RecordTypeId != '0121Y000000txtjQAA'}">
+            <div class="mcc case-label">
+                <lightning:icon iconName="utility:questions_and_answers" alternativeText="call center agent icon"/>
+            </div>
+        </aura:if>
+        <div class="case-info">
+            <lightning:layout horizontalAlign="spread">
+                
+                <lightning:layoutItem >
+                    <lightning:button value="{!v.Case.Id}" onclick="{!c.openCase}">
+                        <!-- If avoka case -->
+                        <aura:if isTrue="{!v.Case.RecordTypeId == '0121Y000001YZpPQAW'}">
+                            <aura:if isTrue="{!v.Case.Subject}">
+                                {!v.Case.Subject}
+                                <aura:if isTrue="{!v.Case.ProductName__c}">
+                                    - {!v.Case.ProductName__c}
+                                </aura:if>
+                                <aura:set attribute="else">
+                                    Account Opening Case
+                                </aura:set>
+                            </aura:if>
+                        </aura:if>
+                        <!-- If complaint case -->
+                        <aura:if isTrue="{!v.Case.RecordTypeId == '0121h0000004bQRAAY' || v.Case.RecordTypeId == '0124F0000001Gi1QAE' || v.Case.RecordTypeId == '0121Y000000txtjQAA'}">
+                            <aura:if isTrue="{!v.Case.Subject}">
+                                {!v.Case.Subject}
+                                <aura:set attribute="else">
+                                    Complaint Case
+                                </aura:set>
+                            </aura:if>
+                        </aura:if>
+                        <!-- If MCC case -->
+                        <aura:if isTrue="{!v.Case.RecordTypeId != '0121h0000004bQRAAY' &amp;&amp; v.Case.RecordTypeId != '0121Y000001YZpPQAW' &amp;&amp; v.Case.RecordTypeId != '0124F0000001Gi1QAE' &amp;&amp; v.Case.RecordTypeId != '0121Y000000txtjQAA'}">
+                            <aura:if isTrue="{!v.Case.MCCClass__c}">
+                                {!v.Case.MCCClass__c}
+                                <aura:set attribute="else">
+                                    Unclassified MCC Case
+                                </aura:set>
+                            </aura:if>
+                            <aura:if isTrue="{!v.Case.MCCSubclass__c}">
+                                - {!v.Case.MCCSubclass__c}
+                            </aura:if>
+                        </aura:if>
+                        
+                    </lightning:button>
+                </lightning:layoutItem>
+                <lightning:layoutitem >
+                    <p>{!v.Case.CaseNumber}</p>
+                </lightning:layoutitem>
+            </lightning:layout>
+                
+            <lightning:layout horizontalAlign="spread">
+                <lightning:layoutItem >
+                    <p>Priority: {!v.Case.Priority}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem >
+                    <p>Status: <span class="{!'status-'+v.Case.Status}">{!v.Case.Status}</span></p>
+                </lightning:layoutItem>
+            </lightning:layout>
+                      
+            <lightning:layout horizontalAlign="spread">
+                <lightning:layoutItem >
+                    <p>Case Owner: {!v.Case.Owner.Name}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem >
+                    <p>Date Opened: {!v.Case.formattedCreatedDate}</p>
+                </lightning:layoutItem>
+            </lightning:layout>
+            
+            <aura:if isTrue="{!v.Case.RecordTypeId != '0121Y000001YZpPQAW'}">
+                <lightning:layout horizontalAlign="spread">
+                    <lightning:layoutItem >
+                        <p>Member Sentiment: <img id="MemberEmoji" src="{!$Resource.Emojis + '/' + v.Case.emoji + '.png'}" /></p>
+                    </lightning:layoutItem>
+                </lightning:layout> 
+            </aura:if>
+        </div> 
+    </div>
+    
+</aura:component>

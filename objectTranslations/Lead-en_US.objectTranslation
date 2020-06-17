@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mailing Address</value>
+        </caseValues>
+        <name>address_lead</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mailing City</value>
+        </caseValues>
+        <name>city_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mailing Country</value>
+        </caseValues>
+        <name>country_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Campaign Source</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Campaign Sources</value>
+        </caseValues>
+        <name>lead_source</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mailing State/Province Code</value>
+        </caseValues>
+        <name>state_code_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mailing State/Province</value>
+        </caseValues>
+        <name>state_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mailing Street</value>
+        </caseValues>
+        <name>street_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mailing Zip/Postal Code</value>
+        </caseValues>
+        <name>zip_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+</CustomObjectTranslation>

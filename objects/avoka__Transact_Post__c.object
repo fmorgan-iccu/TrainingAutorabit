@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Defines a request to push a form out to a known or anonymous user in Avoka Transact</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>avoka__Address__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Physical address associated with the task.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Physical address associated with the task.</inlineHelpText>
+        <label>Address</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Allow_Claim_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The flag controlling whether the task is claimable exclusively by a single user (optional, only possible if the task is assigned to group(s)).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The flag controlling whether the task is claimable exclusively by a single user (optional, only possible if the task is assigned to group(s)).</inlineHelpText>
+        <label>Allow Claim Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>avoka__Assign_Group__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The user to assign the task to (must be specified if group is not).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The user to assign the task to (must be specified if group is not).</inlineHelpText>
+        <label>Assign Group</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Assign_User__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The user to assign the task to (must be specified if group is not).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The user to assign the task to (must be specified if group is not).</inlineHelpText>
+        <label>Assign User</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Batch_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Where a number of requests are sent together, this field can be used to group post request into a batch.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Where a number of requests are sent together, this field can be used to group post request into a batch.</inlineHelpText>
+        <label>Batch Code</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Expiry_Timestamp__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date and time that the task will expire (optional: needs to be in the future).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Date and time that the task will expire (optional: needs to be in the future).</inlineHelpText>
+        <label>Expiry Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>avoka__Form_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique form identifier in Avoka Transact.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique form identifier in Avoka Transact.</inlineHelpText>
+        <label>Form Code</label>
+        <length>20</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Latitude__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The latitude component of the geolocation information associated with the task (optional; can range from -90 to 90).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The latitude component of the geolocation information associated with the task (optional; can range from -90 to 90).</inlineHelpText>
+        <label>Latitude</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Linked_Sobject_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Provide an Sobject Id for the SalesForce object to be associated with this submission in Avoka Transact.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide an Sobject Id for the SalesForce object to be associated with this submission in Avoka Transact.</inlineHelpText>
+        <label>Linked Sobject Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Longitude__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The longitude component of the geolocation information associated with the task (optional; can range from -180 to 180).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The longitude component of the geolocation information associated with the task (optional; can range from -180 to 180).</inlineHelpText>
+        <label>Longitude</label>
+        <precision>11</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Personal_Message__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Personal message to include in notification email (optional).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Personal message to include in notification email (optional).</inlineHelpText>
+        <label>Personal Message</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>avoka__Portal_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Identifies the portal where anonymous assignments will be linked.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the portal where anonymous assignments will be linked.</inlineHelpText>
+        <label>Portal Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Prefill_Sobject_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specify the SObject Id of the object you wish to use for prefill and the prefill XML will automatically be generated for that object.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the SObject Id of the object you wish to use for prefill and the prefill XML will automatically be generated for that object.</inlineHelpText>
+        <label>Prefill Sobject Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Prefill_Xml__c</fullName>
+        <deprecated>false</deprecated>
+        <description>XML data to prefill into the form (data will be mapped in Avoka Transact).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>XML data to prefill into the form (data will be mapped in Avoka Transact).</inlineHelpText>
+        <label>Prefill Xml</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <fields>
+        <fullName>avoka__Processed_Timestamp__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date and time when the processing occurred.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date and time when the processing occurred.</inlineHelpText>
+        <label>Processed Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>avoka__Processing_Message__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Provides any message relevant to the processing.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Provides any message relevant to the processing.</inlineHelpText>
+        <label>Processing Message</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>avoka__Processing_Response__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The data returned from Avoka Transact in the processing response.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The data returned from Avoka Transact in the processing response.</inlineHelpText>
+        <label>Processing Response</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>avoka__Processing_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Current status of the processing of this post request with Avoka Transact.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Current status of the processing of this post request with Avoka Transact.</inlineHelpText>
+        <label>Processing Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ready</fullName>
+                    <color>#DDDDDD</color>
+                    <default>true</default>
+                    <label>Ready</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <color>#FFCC33</color>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <color>#FF0000</color>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <color>#33FF33</color>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>avoka__Recipient_Email__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The email address for anonymous recipients, not used if Assign User or Assign Group is provided.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The email address for anonymous recipients, not used if Assign User or Assign Group is provided.</inlineHelpText>
+        <label>Recipient Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Scheduled_Timestamp__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date and time when the task is scheduled to be done, for calendar integration (optional).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Date and time when the task is scheduled to be done, for calendar integration (optional).</inlineHelpText>
+        <label>Scheduled Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>avoka__Send_Email_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Flag to instruct Avoka Transact whether to send a notification email to the recipient.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag to instruct Avoka Transact whether to send a notification email to the recipient.</inlineHelpText>
+        <label>Send Email Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>avoka__Sequence__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The sequence number that can be set to number tasks that are part of a set (optional).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The sequence number that can be set to number tasks that are part of a set (optional).</inlineHelpText>
+        <label>Sequence</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Submission_Data__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Submission data from a prior submission that will be used to create the new task.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Submission data from a prior submission that will be used to create the new task.</inlineHelpText>
+        <label>Submission Data</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <fields>
+        <fullName>avoka__Submission_Key__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Unique key for the task in Avoka Transact (populated after successful task creation).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>Unique key for the task in Avoka Transact (populated after successful task creation).</inlineHelpText>
+        <label>Submission Key</label>
+        <length>60</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Submission_URL__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Provides a link to the submission record created in Avoka Transact.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Provides a link to the submission record created in Avoka Transact.</inlineHelpText>
+        <label>Submission URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>avoka__Task_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Descriptive text relating to the task to give the user additional context.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Descriptive text relating to the task to give the user additional context.</inlineHelpText>
+        <label>Task Description</label>
+        <length>2000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>avoka__Task_Title__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Short display title for the user (relevant in scenarios where the task will appear in a list).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Short display title for the user (relevant in scenarios where the task will appear in a list).</inlineHelpText>
+        <label>Task Title</label>
+        <length>100</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__Tracking_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique reference code for the task in Avoka Transact (populated after successful task creation).</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique reference code for the task in Avoka Transact (populated after successful task creation).</inlineHelpText>
+        <label>Tracking Code</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avoka__User_Deletable_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Instructs Avoka Transact whether to allow the assigned user to delete the task.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Instructs Avoka Transact whether to allow the assigned user to delete the task.</inlineHelpText>
+        <label>User Deletable Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Post Request</label>
+    <listViews>
+        <fullName>avoka__All</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>avoka__Tracking_Code__c</columns>
+        <columns>avoka__Form_Code__c</columns>
+        <columns>avoka__Assign_User__c</columns>
+        <columns>avoka__Processing_Status__c</columns>
+        <columns>avoka__Processing_Message__c</columns>
+        <columns>avoka__Processed_Timestamp__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>P-{0000}</displayFormat>
+        <label>Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Post Log</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>avoka__Tracking_Code__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>avoka__Form_Code__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>avoka__Assign_User__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>avoka__Processing_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>avoka__Processing_Message__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>avoka__Processed_Timestamp__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>avoka__Tracking_Code__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>avoka__Form_Code__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATED_DATE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>avoka__Tracking_Code__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>avoka__Form_Code__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>avoka__Tracking_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>avoka__Form_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>avoka__Assign_User__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>avoka__Processing_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>avoka__Processing_Message__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>avoka__Processed_Timestamp__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>avoka__Process_Post_Request</fullName>
+        <availability>online</availability>
+        <description>Run the post request processor to call out to Avoka Transact and create the new task</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Process Request</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)}
+try{
+    var result = sforce.apex.execute(&quot;avoka.TransactAPI&quot;, &quot;processPostRequest&quot;, {postId : window.sfdcPage.entityId});
+    alert(result);
+    window.location.reload();
+} 
+catch(err) { 
+    txt=&quot;There was an error on this page.\n\n&quot;; 
+    txt+=&quot;Error message: &quot; + err.message + &quot;\n\n&quot;; 
+    txt+=&quot;Error description: &quot; + err.description + &quot;\n\n&quot;; 
+    txt+=&quot;Click OK to continue.\n\n&quot;; 
+    alert(txt); 
+    throw err;
+}</url>
+    </webLinks>
+</CustomObject>

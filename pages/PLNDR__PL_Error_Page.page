@@ -1,0 +1,6 @@
+<apex:page Controller="PLNDR.ErrorPageController" title="PrecisionLender Salesforce Connector Error" showHeader="false">
+    <apex:sectionHeader title="PrecisionLender Salesforce Connector Error"/>
+    We're sorry, the Salesforce Connector ran into the following error:
+    
+    <apex:pageMessages id="showmsg" escape="false"></apex:pageMessages>
+</apex:page>

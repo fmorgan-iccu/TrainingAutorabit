@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Conditions</fullName>
+        <description>UI/Credit Memo</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Condition_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Condition_Detail__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Condition_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Conditions</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Credit_Memo_PP_Conditions</fullName>
+        <description>Credit Memo</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Condition_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Condition_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Credit Memo PP Conditions</label>
+    </fieldSets>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Condition_Detail__c</fullName>
+        <externalId>false</externalId>
+        <label>Condition Detail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1st Position Construction Deed of Trust</fullName>
+                    <default>false</default>
+                    <label>1st Position Construction Deed of Trust</label>
+                </value>
+                <value>
+                    <fullName>1st Position Deed of Trust</fullName>
+                    <default>false</default>
+                    <label>1st Position Deed of Trust</label>
+                </value>
+                <value>
+                    <fullName>1st Position DOT - Property to be taken as an Abundance of Caution</fullName>
+                    <default>false</default>
+                    <label>1st Position DOT - Property to be taken as an Abundance of Caution</label>
+                </value>
+                <value>
+                    <fullName>1st position UCC Filing on A/R, Inventory &amp; All business assets</fullName>
+                    <default>false</default>
+                    <label>1st position UCC Filing on A/R, Inventory &amp; All business assets</label>
+                </value>
+                <value>
+                    <fullName>1st position UCC Filing on Fixtures</fullName>
+                    <default>false</default>
+                    <label>1st position UCC Filing on Fixtures</label>
+                </value>
+                <value>
+                    <fullName>2nd Position Deed of Trust</fullName>
+                    <default>false</default>
+                    <label>2nd Position Deed of Trust</label>
+                </value>
+                <value>
+                    <fullName>2nd Position DOT- Property to be taken as an Abundance of Caution</fullName>
+                    <default>false</default>
+                    <label>2nd Position DOT- Property to be taken as an Abundance of Caution</label>
+                </value>
+                <value>
+                    <fullName>3rd Position Deed of Trust</fullName>
+                    <default>false</default>
+                    <label>3rd Position Deed of Trust</label>
+                </value>
+                <value>
+                    <fullName>3rd Position DOT- Property to be taken as an Abundance of Caution</fullName>
+                    <default>false</default>
+                    <label>3rd Position DOT- Property to be taken as an Abundance of Caution</label>
+                </value>
+                <value>
+                    <fullName>4th Position Deed of Trust</fullName>
+                    <default>false</default>
+                    <label>4th Position Deed of Trust</label>
+                </value>
+                <value>
+                    <fullName>4th Position DOT- Property to be taken as an Abundance of Caution</fullName>
+                    <default>false</default>
+                    <label>4th Position DOT- Property to be taken as an Abundance of Caution</label>
+                </value>
+                <value>
+                    <fullName>UCC filing to detail out any asset with a value &gt; $5,000 to include item, make, model, serial number and value.</fullName>
+                    <default>false</default>
+                    <label>UCC filing to detail out any asset with a value &gt; $5,000 to include item, make, model, serial number and value.</label>
+                </value>
+                <value>
+                    <fullName>All tax returns to be reconciled to IRS Transcripts</fullName>
+                    <default>false</default>
+                    <label>All tax returns to be reconciled to IRS Transcripts</label>
+                </value>
+                <value>
+                    <fullName>Assignment of existing appraisal</fullName>
+                    <default>false</default>
+                    <label>Assignment of existing appraisal</label>
+                </value>
+                <value>
+                    <fullName>Assignment of Rents / Leases</fullName>
+                    <default>false</default>
+                    <label>Assignment of Rents / Leases</label>
+                </value>
+                <value>
+                    <fullName>Borrower cash injection to be tracked and verified with cleared checks and invoices</fullName>
+                    <default>false</default>
+                    <label>Borrower cash injection to be tracked and verified with cleared checks and invoices</label>
+                </value>
+                <value>
+                    <fullName>Borrower cash injection to be utilized prior to any loan proceeds</fullName>
+                    <default>false</default>
+                    <label>Borrower cash injection to be utilized prior to any loan proceeds</label>
+                </value>
+                <value>
+                    <fullName>Borrower to establish membership</fullName>
+                    <default>false</default>
+                    <label>Borrower to establish membership</label>
+                </value>
+                <value>
+                    <fullName>Borrower to register with Secretary of State</fullName>
+                    <default>false</default>
+                    <label>Borrower to register with Secretary of State</label>
+                </value>
+                <value>
+                    <fullName>Collection(s) Paid and Explanation Provided</fullName>
+                    <default>false</default>
+                    <label>Collection(s) Paid and Explanation Provided</label>
+                </value>
+                <value>
+                    <fullName>Complete Inventory listing with values</fullName>
+                    <default>false</default>
+                    <label>Complete Inventory listing with values</label>
+                </value>
+                <value>
+                    <fullName>Construction budget to be reviewed by Commercial Construction Portfolio Analyst</fullName>
+                    <default>false</default>
+                    <label>Construction budget to be reviewed by Commercial Construction Portfolio Analyst</label>
+                </value>
+                <value>
+                    <fullName>Construction budget to be reviewed by qualified 3rd party</fullName>
+                    <default>false</default>
+                    <label>Construction budget to be reviewed by qualified 3rd party</label>
+                </value>
+                <value>
+                    <fullName>Copies of Leases / Rent Roll</fullName>
+                    <default>false</default>
+                    <label>Copies of Leases / Rent Roll</label>
+                </value>
+                <value>
+                    <fullName>Excess funds to be deposited into ICCU savings and a hold placed on funds.</fullName>
+                    <default>false</default>
+                    <label>Excess funds to be deposited into ICCU savings and a hold placed on funds.</label>
+                </value>
+                <value>
+                    <fullName>Executed Construction Contract</fullName>
+                    <default>false</default>
+                    <label>Executed Construction Contract</label>
+                </value>
+                <value>
+                    <fullName>Executed Purchase &amp; Sale Agreement</fullName>
+                    <default>false</default>
+                    <label>Executed Purchase &amp; Sale Agreement</label>
+                </value>
+                <value>
+                    <fullName>Final valuation to be completed by the appraiser</fullName>
+                    <default>false</default>
+                    <label>Final valuation to be completed by the appraiser</label>
+                </value>
+                <value>
+                    <fullName>ICCU to control disbursement of funds</fullName>
+                    <default>false</default>
+                    <label>ICCU to control disbursement of funds</label>
+                </value>
+                <value>
+                    <fullName>ICCU to monitor payoff</fullName>
+                    <default>false</default>
+                    <label>ICCU to monitor payoff</label>
+                </value>
+                <value>
+                    <fullName>ICCU to be listed as lienholder on Vehicle</fullName>
+                    <default>false</default>
+                    <label>ICCU to be listed as lienholder on Vehicle</label>
+                </value>
+                <value>
+                    <fullName>Judgment or Lien Paid and Explanation Provided</fullName>
+                    <default>false</default>
+                    <label>Judgment or Lien Paid and Explanation Provided</label>
+                </value>
+                <value>
+                    <fullName>Lease Transfer Documentation</fullName>
+                    <default>false</default>
+                    <label>Lease Transfer Documentation</label>
+                </value>
+                <value>
+                    <fullName>Life Insurance Policy to be received; policy to be assigned to ICCU</fullName>
+                    <default>false</default>
+                    <label>Life Insurance Policy to be received; policy to be assigned to ICCU</label>
+                </value>
+                <value>
+                    <fullName>Loan officer to complete a site visit</fullName>
+                    <default>false</default>
+                    <label>Loan officer to complete a site visit</label>
+                </value>
+                <value>
+                    <fullName>Loan to be cross collateralized</fullName>
+                    <default>false</default>
+                    <label>Loan to be cross collateralized</label>
+                </value>
+                <value>
+                    <fullName>Loan to be cross defaulted</fullName>
+                    <default>false</default>
+                    <label>Loan to be cross defaulted</label>
+                </value>
+                <value>
+                    <fullName>Operating accounts to be funded</fullName>
+                    <default>false</default>
+                    <label>Operating accounts to be funded</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Payoff Statement</fullName>
+                    <default>false</default>
+                    <label>Payoff Statement</label>
+                </value>
+                <value>
+                    <fullName>Proof of Equity Injection</fullName>
+                    <default>false</default>
+                    <label>Proof of Equity Injection</label>
+                </value>
+                <value>
+                    <fullName>Proof of Equity Injection to meet SBA requirements</fullName>
+                    <default>false</default>
+                    <label>Proof of Equity Injection to meet SBA requirements</label>
+                </value>
+                <value>
+                    <fullName>Proof of Insurance (Equipment, Vehicle, etc.) Provided</fullName>
+                    <default>false</default>
+                    <label>Proof of Insurance (Equipment, Vehicle, etc.) Provided</label>
+                </value>
+                <value>
+                    <fullName>Purchase Money Security Interest UCC Filing</fullName>
+                    <default>false</default>
+                    <label>Purchase Money Security Interest UCC Filing</label>
+                </value>
+                <value>
+                    <fullName>Receipt &amp; Review of Debt Schedule</fullName>
+                    <default>false</default>
+                    <label>Receipt &amp; Review of Debt Schedule</label>
+                </value>
+                <value>
+                    <fullName>Receipt &amp; Review of proof of income</fullName>
+                    <default>false</default>
+                    <label>Receipt &amp; Review of proof of income</label>
+                </value>
+                <value>
+                    <fullName>Receipt &amp; Review of Schedule of Real Estate Owned</fullName>
+                    <default>false</default>
+                    <label>Receipt &amp; Review of Schedule of Real Estate Owned</label>
+                </value>
+                <value>
+                    <fullName>Receipt &amp; Review of Updated Personal Financial Statement(s)</fullName>
+                    <default>false</default>
+                    <label>Receipt &amp; Review of Updated Personal Financial Statement(s)</label>
+                </value>
+                <value>
+                    <fullName>Receipt and Review of equipment listing</fullName>
+                    <default>false</default>
+                    <label>Receipt and Review of equipment listing</label>
+                </value>
+                <value>
+                    <fullName>Receipt and Review of financial statements</fullName>
+                    <default>false</default>
+                    <label>Receipt and Review of financial statements</label>
+                </value>
+                <value>
+                    <fullName>Receipt and Review of franchise agreement</fullName>
+                    <default>false</default>
+                    <label>Receipt and Review of franchise agreement</label>
+                </value>
+                <value>
+                    <fullName>Receipt and Review of ProForma</fullName>
+                    <default>false</default>
+                    <label>Receipt and Review of ProForma</label>
+                </value>
+                <value>
+                    <fullName>Receipt and review of satisfactory draw schedule</fullName>
+                    <default>false</default>
+                    <label>Receipt and review of satisfactory draw schedule</label>
+                </value>
+                <value>
+                    <fullName>Receipt of Business Licenses and certificates required to operate</fullName>
+                    <default>false</default>
+                    <label>Receipt of Business Licenses and certificates required to operate</label>
+                </value>
+                <value>
+                    <fullName>Receipt of Certificate of Occupancy</fullName>
+                    <default>false</default>
+                    <label>Receipt of Certificate of Occupancy</label>
+                </value>
+                <value>
+                    <fullName>Receipt of Company Bylaws</fullName>
+                    <default>false</default>
+                    <label>Receipt of Company Bylaws</label>
+                </value>
+                <value>
+                    <fullName>Receipt of current architect license</fullName>
+                    <default>false</default>
+                    <label>Receipt of current architect license</label>
+                </value>
+                <value>
+                    <fullName>Receipt of current general contractor license</fullName>
+                    <default>false</default>
+                    <label>Receipt of current general contractor license</label>
+                </value>
+                <value>
+                    <fullName>Receipt of executed Landlord Release</fullName>
+                    <default>false</default>
+                    <label>Receipt of executed Landlord Release</label>
+                </value>
+                <value>
+                    <fullName>Receipt of Operating Agreement(s)</fullName>
+                    <default>false</default>
+                    <label>Receipt of Operating Agreement(s)</label>
+                </value>
+                <value>
+                    <fullName>Receipt of Partnership Agreement(s)</fullName>
+                    <default>false</default>
+                    <label>Receipt of Partnership Agreement(s)</label>
+                </value>
+                <value>
+                    <fullName>Satisfactory Appraisal</fullName>
+                    <default>false</default>
+                    <label>Satisfactory Appraisal</label>
+                </value>
+                <value>
+                    <fullName>Satisfactory Appraisal Review</fullName>
+                    <default>false</default>
+                    <label>Satisfactory Appraisal Review</label>
+                </value>
+                <value>
+                    <fullName>Satisfactory Environmental Report</fullName>
+                    <default>false</default>
+                    <label>Satisfactory Environmental Report</label>
+                </value>
+                <value>
+                    <fullName>Satisfactory Flood Insurance Coverage</fullName>
+                    <default>false</default>
+                    <label>Satisfactory Flood Insurance Coverage</label>
+                </value>
+                <value>
+                    <fullName>Satisfactory Hazard Insurance</fullName>
+                    <default>false</default>
+                    <label>Satisfactory Hazard Insurance</label>
+                </value>
+                <value>
+                    <fullName>Satisfactory Title Policy</fullName>
+                    <default>false</default>
+                    <label>Satisfactory Title Policy</label>
+                </value>
+                <value>
+                    <fullName>SBA Approval &amp; Authorization</fullName>
+                    <default>false</default>
+                    <label>SBA Approval &amp; Authorization</label>
+                </value>
+                <value>
+                    <fullName>SBA Approval on Appraisal</fullName>
+                    <default>false</default>
+                    <label>SBA Approval on Appraisal</label>
+                </value>
+                <value>
+                    <fullName>SBA Approval on Environmental</fullName>
+                    <default>false</default>
+                    <label>SBA Approval on Environmental</label>
+                </value>
+                <value>
+                    <fullName>Subordination Agreement</fullName>
+                    <default>false</default>
+                    <label>Subordination Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination of UCC filing</fullName>
+                    <default>false</default>
+                    <label>Termination of UCC filing</label>
+                </value>
+                <value>
+                    <fullName>Verification of liquidity</fullName>
+                    <default>false</default>
+                    <label>Verification of liquidity</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Condition_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Condition Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Satisfied</fullName>
+                    <default>false</default>
+                    <label>Satisfied</label>
+                </value>
+                <value>
+                    <fullName>Under Review</fullName>
+                    <default>false</default>
+                    <label>Under Review</label>
+                </value>
+                <value>
+                    <fullName>Not Satisfied</fullName>
+                    <default>false</default>
+                    <label>Not Satisfied</label>
+                </value>
+                <value>
+                    <fullName>Waived</fullName>
+                    <default>false</default>
+                    <label>Waived</label>
+                </value>
+                <value>
+                    <fullName>No Longer Required</fullName>
+                    <default>false</default>
+                    <label>No Longer Required</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Condition_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Condition Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>At Closing</fullName>
+                    <default>false</default>
+                    <label>At Closing</label>
+                </value>
+                <value>
+                    <fullName>Prior to Closing</fullName>
+                    <default>false</default>
+                    <label>Prior to Closing</label>
+                </value>
+                <value>
+                    <fullName>Post Closing</fullName>
+                    <default>false</default>
+                    <label>Post Closing</label>
+                </value>
+                <value>
+                    <fullName>Pre-Funding</fullName>
+                    <default>false</default>
+                    <label>Pre-Funding</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Loan__c</fullName>
+        <externalId>false</externalId>
+        <label>Loan</label>
+        <referenceTo>LLC_BI__Loan__c</referenceTo>
+        <relationshipLabel>Conditions</relationshipLabel>
+        <relationshipName>Conditions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Condition</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <encryptionScheme>None</encryptionScheme>
+        <label>Condition Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Conditions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>

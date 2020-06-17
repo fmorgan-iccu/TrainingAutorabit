@@ -1,0 +1,76 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="MemberInsightsController">
+    <!--
+		COMPONENT OVERVIEW:
+		This is the member insights widget.
+		For each individual insight, use the CRMInsightItem component
+
+		This component does not take any attributes but is ready to be
+		dragged and dropped onto a member contact page
+	-->
+
+    <!-- call this on page load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<!-- listen for contact refresh -->
+   	<aura:handler event="c:ContactRefresh" action="{!c.handleContactRefresh}"/>
+
+ 	<!-- get the recordId -->
+    <aura:attribute name="recordId" type="String" />
+
+	<!-- var for our contact -->
+    <aura:attribute name="insightContact" type="Contact"/>
+
+	<!-- var for insight items to display -->
+    <aura:attribute name="insightAccountItems" type="Array"/>
+    <aura:attribute name="insightGeneralItems" type="Array"/>
+    <aura:attribute name="insightCustomItems" type="Array" />
+
+    <ltng:require scripts="{!$Resource.MomentJS}" />
+
+	<lightning:card class="left-col-component">
+    	<aura:set attribute="title">
+        	Member Insights
+        </aura:set>
+        <aura:set attribute="actions">
+            <lightning:button label="Refresh" variant="brand" onclick="{!c.updateCustomInsights}"/>
+            <ui:button label="+ Add" press="{!c.createInsight}"/>
+        </aura:set>
+        <aura:set attribute="footer">
+            <h2 class="insight-section-header"><span>Account Insights</span></h2>
+            <aura:iteration items="{!v.insightAccountItems}" var="item">
+                <c:CRMInsightItem icon="{!item.icon}"
+                                  title="{!item.title}"
+                                  info="{!item.value}"
+                                  color="{!item.color}"
+                                  fa="{!item.usesFA}"
+                                  isLoading="{!item.isLoading}" />
+            </aura:iteration>
+
+            <!-- Only show General Insights if we have some -->
+            <aura:if isTrue="{!v.insightGeneralItems.length &gt; 0 || v.insightCustomItems.length &gt; 0}">
+                <h2 class="insight-section-header"><span>General Insights</span></h2>
+
+                <aura:iteration items="{!v.insightGeneralItems}" var="item">
+                    <c:CRMInsightItem icon="{!item.icon}"
+                                      title="{!item.title}"
+                                      info="{!item.value}"
+                                      color="{!item.color}"
+                                      fa="{!item.usesFA}"
+                                      isLoading="{!item.isLoading}"
+                                      insightId="{!item.id}"/>
+                </aura:iteration>
+                <aura:iteration items="{!v.insightCustomItems}" var="item">
+                    <c:CRMInsightItem icon="{!item.icon}"
+                                      title="{!item.title}"
+                                      info="{!item.value}"
+                                      color="{!item.color}"
+                                      fa="{!item.usesFA}"
+                                      isLoading="{!item.isLoading}"
+                                      extendedDetail="{!item.extendedDetail}"
+                                      insightId="{!item.id}" />
+                </aura:iteration>
+            </aura:if>
+
+        </aura:set>
+    </lightning:card>
+</aura:component>

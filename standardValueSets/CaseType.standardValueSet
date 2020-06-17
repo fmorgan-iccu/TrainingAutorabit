@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Problem</fullName>
+        <default>false</default>
+        <label>Problem</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Feature Request</fullName>
+        <default>false</default>
+        <label>Feature Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Question</fullName>
+        <default>false</default>
+        <label>Question</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Department of Finance</fullName>
+        <default>false</default>
+        <label>Department of Finance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Better Business Bureau</fullName>
+        <default>false</default>
+        <label>Better Business Bureau</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Media - Facebook</fullName>
+        <default>false</default>
+        <label>Social Media - Facebook</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Media - Twitter</fullName>
+        <default>false</default>
+        <label>Social Media - Twitter</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Media - Instagram</fullName>
+        <default>false</default>
+        <label>Social Media - Instagram</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Media - Google/Yelp</fullName>
+        <default>false</default>
+        <label>Social Media - Google/Yelp</label>
+    </standardValue>
+    <standardValue>
+        <fullName>App Reviews - Apple</fullName>
+        <default>false</default>
+        <label>App Reviews - Apple</label>
+    </standardValue>
+    <standardValue>
+        <fullName>App Reviews - Google Play/Android</fullName>
+        <default>false</default>
+        <label>App Reviews - Google Play/Android</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Letters Mailed to Kent/Board/Customer Service</fullName>
+        <default>false</default>
+        <label>Letters Mailed to Kent/Board/Customer Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MCC Escalations past Escalations Team in MCC</fullName>
+        <default>false</default>
+        <label>MCC Escalations past Escalations Team in MCC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Branch Escalations past Branch Management Team</fullName>
+        <default>false</default>
+        <label>Branch Escalations past Branch Management Team</label>
+    </standardValue>
+</StandardValueSet>

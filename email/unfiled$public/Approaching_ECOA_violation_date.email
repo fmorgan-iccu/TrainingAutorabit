@@ -1,0 +1,3 @@
+The {!Opportunity.Name} opportunity is approaching it's ECOA violation date. Please follow up with your team member {!Opportunity.OwnerFullName} and close {!Opportunity.Name} with in the next five days.
+
+click on the link here to open the opportunity {!Opportunity.Link}

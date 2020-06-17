@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Outbound_Letterhead</letterhead>
+    <name>NEW REQUEST FROM MEMBER</name>
+    <style>freeForm</style>
+    <subject>Re: Recent ICCU Request</subject>
+    <textOnly>Hello {!Case.Contact},
+
+
+We will need to speak with you first to properly verify your identity to provide further information, as this is a new request. You can reach us at 1-800-456-5067 or chat in via eBranch.
+
+
+We apologize for the inconvenience. We appreciate your membership. Have a wonderful day.
+
+
+Thank you,
+
+
+{!Opportunity.OwnerFullName}
+
+Idaho Central Credit Union
+
+P.O. Box 2469
+
+Pocatello, ID 83206
+
+d: (208) 239-3000 | f: (208) 239-3055</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

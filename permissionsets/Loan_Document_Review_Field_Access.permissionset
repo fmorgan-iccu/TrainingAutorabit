@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Provides access to the following fields:
+1. &quot;1st Level Review Complete&quot; 
+2. &quot;2nd Level Review Complete&quot;
+3. &quot;Loan Doc Review Completed&quot;</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LLC_BI__Loan__c.Loan_Doc_Review_Completed_C__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LLC_BI__Loan__c.X1st_Level_Review_Complete_C__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LLC_BI__Loan__c.X2nd_Level_Review_Complete_C__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Loan Document Review Field Access</label>
+</PermissionSet>

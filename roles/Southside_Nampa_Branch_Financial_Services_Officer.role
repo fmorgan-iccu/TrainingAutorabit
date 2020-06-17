@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Southside Nampa Branch Financial Services Officer</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Southside Nampa Branch Financial Services Officer</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Southside_Nampa_Branch_Manager</parentRole>
+</Role>

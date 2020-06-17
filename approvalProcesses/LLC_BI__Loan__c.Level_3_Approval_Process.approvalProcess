@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <type>allInternalUsers</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Owner</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Approval_No_Email_Queue</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>Step 1</label>
+        <name>Step_1</name>
+    </approvalStep>
+    <description>AND(
+LLC_BI__Is_Review_Ready__c,
+ISBLANK(LLC_BI__Product_Package__r.Level_1_Underwriter__c ),
+ISBLANK(LLC_BI__Product_Package__r.Level_2_Underwriter_Manager__c),
+NOT(ISBLANK(LLC_BI__Product_Package__r.Level_3_Underwriter__c)),
+ISBLANK(LLC_BI__Product_Package__r.Level_4_Underwriter__c),
+LLC_BI__Product_Package__r.Send_to_Loan_Committee__c = false
+)</description>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <formula>AND(
+  LLC_BI__Is_Review_Ready__c,
+  ISBLANK(LLC_BI__Product_Package__r.Level_1_Underwriter__c ),
+ISBLANK(LLC_BI__Product_Package__r.Level_2_Underwriter_Manager__c),
+NOT(ISBLANK(LLC_BI__Product_Package__r.Level_3_Underwriter__c)),
+ISBLANK(LLC_BI__Product_Package__r.Level_4_Underwriter__c),
+LLC_BI__Product_Package__r.Send_to_Loan_Committee__c = false
+)</formula>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Set_Stage_to_Processing</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Set_Status_to_Open</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Set_Status_to_Rejected</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Set_Loan_Stage_to_Approval</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Set_Status_to_Under_Review</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Level 3 Approval Process</label>
+    <recallActions>
+        <action>
+            <name>Set_Status_to_Recalled</name>
+            <type>FieldUpdate</type>
+        </action>
+    </recallActions>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

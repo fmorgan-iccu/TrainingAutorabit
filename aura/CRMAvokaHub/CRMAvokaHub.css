@@ -1,0 +1,92 @@
+.THIS {
+    font-size: t(mediumText);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.THIS h1 {
+    font-size: t(x3LargeText);
+    font-weight: 600;
+    color: #fff;
+}
+
+.THIS h2 {
+    font-size: t(x2LargeText);
+    font-weight: 600;
+    color: t(darkestGray);
+}
+
+.THIS .SearchContainer {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.THIS .HubHeader {
+    margin-top: 2em;
+    padding: 2em;
+    background-image: linear-gradient(90deg, #00AE00 0%, #006C18 100%);
+}
+
+.THIS.HubContainer {
+    width: 80%;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+/*Salesforce Overrides*/
+
+.THIS .slds-input-has-icon.slds-input-has-icon--right {
+    width: 65%;
+}
+
+.THIS .slds-tabs--default__link {
+    color: #1a1a1a;
+}
+
+.THIS .slds-tabs--default__item:active {
+    background-color: rgba(36, 178, 0, 0.1);
+}
+
+.THIS .slds-tabs--default__item:focus {
+    background-color: rgba(36, 178, 0, 0.1);
+}
+
+.THIS .slds-tabs--default__item.slds-has-focus {
+    background-color: #fff;
+}
+
+.THIS .slds-tabs_default__nav, .THIS .slds-tabs--default__nav {
+    background-color: #F2F2F2;
+	border-bottom: 2px solid #F2F2F2;
+}
+
+.THIS .slds-tabs_default__link:hover {
+    color: t(iccuPrimaryGreen);
+}
+
+.THIS .slds-tabs_default__link:active {
+    color: t(iccuPrimaryGreen);
+}
+
+.THIS .slds-tabs_default__link:focus {
+    color: #1a1a1a;    
+}
+
+.THIS .slds-tabs_default, .THIS .slds-tabs--default {
+    margin: 0 auto;
+    border: 1px solid #F2F2F2;
+    border-radius: 0.5em;
+}
+
+.THIS .slds-tabs_default__item, .THIS .slds-tabs--default__item {
+    padding: .5em 1.75rem;
+    letter-spacing: 0;
+    color: #1A1A1A;
+}
+
+.THIS .slds-tabs_default__content {
+    padding: 2em;
+}
+
+.THIS .slds-form-element.slds-lookup {
+    flex: 1;
+}

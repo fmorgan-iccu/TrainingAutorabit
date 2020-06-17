@@ -1,0 +1,70 @@
+/** Card Formatting **/
+.THIS .slds-card__body {
+    padding: .75rem 1rem 0
+}
+.THIS header > div {
+    padding-top: 1.5em;
+}
+/** Typography **/
+.THIS header h2 span {
+    font-size: t(x2LargeText);
+    font-weight: bold;
+}
+.THIS p,
+.THIS h4 {
+    font-size: t(mediumText);
+    line-height: 1.8;
+}
+.THIS h4 {
+    font-size: t(largeText);
+    font-weight: bold;
+    padding-bottom: .3em;
+}
+
+/** Buttons **/
+.THIS .actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 4em 0 3em;
+}
+.THIS .actions .action-button {
+    padding: 1em;
+    border-radius: 5px;
+}
+.THIS .actions p {
+    color: t(iccuBrandGreen);
+    text-transform: uppercase;
+    text-align: center;
+}
+.THIS .actions .action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Button Hover */
+.THIS .actions .action-button:hover {
+    background: t(iccuBrandGreen);
+    cursor: pointer;
+    text-decoration: none;
+}
+.THIS .actions .action-button:hover p {
+    color: white;
+    text-decoration: none;
+}
+
+/** Icons **/
+.THIS lightning-icon {
+    background: transparent;
+}
+.THIS lightning-icon svg {
+    fill: t(iccuBrandGreen);
+}
+.THIS .action-button.idea lightning-icon {
+    padding: 8px;
+}
+
+/* Icons Hover */
+.THIS .actions .action-button:hover lightning-icon svg {
+	fill: white;
+}

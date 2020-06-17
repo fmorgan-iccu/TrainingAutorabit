@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Benton Branch MSS Supervisor</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Benton Branch MSS Supervisor</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Benton_Branch_Manager</parentRole>
+</Role>

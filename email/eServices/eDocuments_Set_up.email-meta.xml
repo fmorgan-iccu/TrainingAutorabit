@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>eDocuments Set up</name>
+    <style>none</style>
+    <subject>eDocument Set up</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+It appears you have not set up your eDocuments widget yet, and this is why you are unable to find your statements. To set these up, you will first want to log into the full site and then click your name in the top, right-hand corner and go to “Settings.” Once in settings you will have multiple options. One of the options on the top is “Widgets.” Once there, you will be able to see all of the ones you have added, and at the bottom you will see the ones that you have not added at this time but are available for you. The last one is “eDocuments.” To the right-hand side, select “Add.” Once you have completed this, go back to your Dashboard.  Under “More” on the left-hand screen, you will now have eDocuments available to choose.
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

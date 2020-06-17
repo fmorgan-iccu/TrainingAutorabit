@@ -1,0 +1,105 @@
+<aura:component controller="AuthController">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:handler event="c:CCMLogin" action="{!c.handleCcmLogin}"/>
+    <aura:handler event="c:CCMLogout" action="{!c.handleCcmLogout}"/>
+
+    <aura:registerEvent name="ccmLogin" type="c:CCMLogin" />
+    <aura:registerEvent name="ccmLogout" type="c:CCMLogout" />
+
+    <!-- Form attributes -->
+    <aura:attribute name="username" type="String" default="" access="private" />
+    <aura:attribute name="password" type="String" default="" access="private" />
+    <aura:attribute name="cashBox" type="String" default="" access="public" />
+
+    <!-- State attributes -->
+    <aura:attribute name="allowCcmLogin" type="Boolean" default="false" access="public" />
+    <aura:attribute name="class" type="String" default="" access="public" />
+    <aura:attribute name="containerBackground" type="String" access="private" />
+    <aura:attribute name="errorMessage" type="String" default="" access="private" />
+    <aura:attribute name="hideAfterLogin" type="Boolean" default="false" access="public" />
+    <aura:attribute name="isAuthenticating" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isAuthedCcm" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" access="private" />
+    <aura:attribute name="loginContainerClass" type="String" default="containerNotAuthed" access="private" />
+    <aura:attribute name="showLogin" type="Boolean" default="true" access="public" />
+
+    <!-- Public methods for parent access -->
+    <aura:method name="getIsAuthenticated" access="public" />
+    <aura:method name="hideLogin" access="public" />
+    <aura:method name="processLogin" access="public" />
+    <aura:method name="processLogout" access="public" />
+    <aura:method name="resetIsAuthedCcm" access="public" />
+    <aura:method name="updateState" access="public" />
+
+    <div class="{!v.loginContainerClass + ' slds-is-relative ' + v.class}" style="{!v.containerBackground}">
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner variant="brand" size="large" class="CRMSpinner" />
+        </aura:if>
+
+        <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+            <div class="validation-container">
+                <h2 class="error-headline">
+                    <lightning:icon size="small" iconName="utility:error" alternativeText="Error Occurred" />
+                    Oops!
+                </h2>
+                <p class="validation">{!v.errorMessage}</p>
+            </div>
+        </aura:if>
+
+        <div class="{! 'main-container authenticated' + v.isAuthedCcm}">
+            <div class="login-header">
+                <h2 class="login-title">
+                    <aura:if isTrue="{!not(v.showLogin)}">
+                        <aura:if isTrue="{!v.isAuthedCcm}">
+                            <lightning:icon src="{!$Resource.checkBoxIcon + '#check-square-solid'}" size="small" alternateText="Fully Logged In"/>
+                            <aura:set attribute="else">
+                                    <lightning:icon src="{!$Resource.circleXIcon + '#times-circle-solid'}" size="small" alternateText="Not Logged In"/>
+                            </aura:set>
+                        </aura:if>
+                    </aura:if>
+                    CCM
+                </h2>
+
+                <aura:if isTrue="{!not(v.isAuthedCcm)}">
+                    <aura:if isTrue="{!v.showLogin}">
+                        <p>Please login using your CCM credentials.</p>
+                    </aura:if>
+                </aura:if>
+            </div>
+
+            <aura:if isTrue="{!v.showLogin}">
+                <div class="login-container">
+                    <lightning:input value="{!v.username}" aura:id="ccmUsername" id="ccmUsername" name="ccmUsername" class="impravata-ccm-username" type="text" placeholder="Username"/>
+                    <span onkeypress="{!c.handlePasswordKeyPress}">
+                        <lightning:input aura:id="ccmPassword" id="ccmPassword" name="ccmPassword" class="impravata-ccm-password" type="password" placeholder="Password"/>
+                    </span>
+
+                    <button class="login-button slds-button--brand" onclick="{!c.processLogin}">Login</button>
+
+                    <div class="collapse-login">
+                        <p><a href="#" onclick="{!c.hideLogin}">Collapse Login</a></p>
+                    </div>
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!not(v.showLogin)}">
+                <div class="login-container">
+                    <aura:if isTrue="{!v.isAuthedCcm}">
+                        <div class="fully-loggedin">
+                            <p>Fully Logged In</p>
+                        </div>
+                        <aura:set attribute="else">
+                            <div class="show-login">
+                                    <p><a href="#" onclick="{!c.showLogin}">Get Logged In</a></p>
+                            </div>
+                        </aura:set>
+                    </aura:if>          
+                </div>
+            </aura:if>
+        </div>
+
+        <!-- State: {!v.isAuthedCcm}, {!v.showLogin} -->
+    </div>
+</aura:component>

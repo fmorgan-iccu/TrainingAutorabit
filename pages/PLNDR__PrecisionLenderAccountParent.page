@@ -1,0 +1,45 @@
+<apex:page standardController="Account" showHeader="false" >
+    <apex:stylesheet value="{$Resource.PLStyles}" />
+     <apex:tabPanel title="PrecisionLender Entity Details" switchType="client" selectedTab="tab1" id="AccountTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+    <apex:tab label="Balance Sheet" name="tab1" id="tab1">
+    <apex:pageBlock >
+        <apex:pageBlockSection title="PrecisionLender Account Details" collapsible="false" columns="2" showHeader="false">
+                    <apex:outputField value="{!account.PLNDR__PL_Relationship__c}" label="PrecisionLender Relationship" styleClass="AlignOptFilld" />
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:pageBlockSection collapsible="false" columns="1" showHeader="true" title="Current Balance Sheet & Fee Accounts">
+                        <apex:outputField value="{!account.PLNDR__Current_Loan_Balance__c}" label="Loan Balance"/>
+                        <apex:outputField value="{!account.PLNDR__Current_Deposit_Balance__c}" label="Deposit Balance"/>
+                        <apex:outputField value="{!account.PLNDR__Current_Other_Income__c}" label="Other Income"/>
+                        <apex:outputField value="{!account.PLNDR__Total_Loan_Commitment__c}" label="Total Loan Commitment" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection collapsible="false" columns="1" showHeader="true" title="Strategic Net Income Rank">
+                        <apex:outputField value="{!account.PLNDR__Percentile_Text__c}" label="Percentile"/>                    
+                        <apex:outputField value="{!account.PLNDR__Regional_Percentile_Text__c}" label="Regional Percentile"/>                    
+                        <apex:outputField value="{!account.PLNDR__Owner_Percentile_Text__c}" label="Owner Percentile"/>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection collapsible="false" columns="1" showHeader="true" title="Total Relationship Strategic Statement">
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_Strategic_ROA__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_Strategic_ROE__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_Strategic_Target_ROA__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_Strategic_Target_ROE__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_Strategic_Net_Income__c}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection collapsible="false" columns="1" showHeader="true" title="Total Relationship FTP Statement">
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_FTP_ROA__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_FTP_ROE__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_FTP_Target_ROA__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_FTP_Target_ROE__c}" />
+                        <apex:outputField value="{!account.PLNDR__Total_Relationship_FTP_Net_Income__c}" />
+                    </apex:pageBlockSection>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputField value="{!account.PLNDR__PrecisionLender_Last_Updated__c}"/>
+                </apex:pageBlockSection>
+        <div>
+            <p class="information">
+         Note: These values may represent the rolled-up values for multiple entity-level relationships.
+     </p>  
+    </div>
+    </apex:pageBlock>
+         </apex:tab>
+           </apex:tabPanel>
+</apex:page>

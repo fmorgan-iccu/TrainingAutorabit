@@ -1,0 +1,48 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Get Case Data! -->
+    <aura:attribute name="record" type="Object" description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData"/>
+    <aura:attribute name="systemInteractions" type="Array" description="An error message bound to force:recordData"/>
+
+    <!-- Component Specific Attributes -->
+    <aura:attribute name="reports" type="Array" description="The list of reports to display."/>
+
+    <force:recordData aura:id="record"
+                      fields="AvokaApplicationInfoJSON__c"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      recordUpdated="{!c.recordDidUpdate}"
+                      mode="VIEW"/>
+
+    <!-- Begin Component -->
+    <div class="slds-card">
+        <div class="SystemResponses-Container">
+
+            <aura:if isTrue="{!v.recordError.length &gt; 0}">
+                <c:CRMAlert alertState="error">
+                    <aura:set attribute="alertMessage">
+                        <p>
+                            {!v.recordError}
+                        </p>
+                    </aura:set>
+                </c:CRMAlert>
+            </aura:if>
+
+            <aura:if isTrue="{!v.reports.length &gt; 0}">
+                <aura:iteration items="{!v.reports}" var="report">
+                    <c:CRMAOReportSummary report="{!report}" />
+                </aura:iteration>
+                
+                <aura:set attribute="else">
+                	<p>No reports present.</p>
+                </aura:set>
+            </aura:if>
+
+        </div>
+    </div>
+</aura:component>

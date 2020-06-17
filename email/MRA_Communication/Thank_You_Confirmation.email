@@ -1,0 +1,6 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[Hello {!Opportunity.Name},<br><br>Your recent transaction has been completed! Thank you again for your continued patronage. Please feel free to contact me with any of your financial needs.<br><br>Should you have any questions regarding your existing accounts, please contact our <i>Member Contact Center </i>toll free at <b>1-800-456-5067</b>.<br><br>Sincerely,<br><br><b>{!Opportunity.OwnerFullName}</b><br><font size="2">Idaho Central Credit Union<br><i>{!Opportunity.OwnerTitle}</i><br>d: {!Opportunity.OwnerPhone}<br>{!Opportunity.OwnerEmail}</font><br>]]></td>
+</tr>
+</table>

@@ -1,0 +1,5 @@
+The {!Opportunity.Name} opportunity has been in the assigned state and has not been updated in the last 12 hours. Please follow up with team member {!Opportunity.OwnerFullName} to successfully close this loan.
+
+Open this link {!Opportunity.Link} in chrome to look in to the opportunity. 
+
+This is a test

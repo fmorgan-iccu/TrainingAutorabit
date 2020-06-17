@@ -1,0 +1,22 @@
+<aura:component implements="lightning:recordHomeTemplate" description="Banner and 1 column">
+
+    <aura:attribute name="column" type="Aura.Component[]" />
+	<aura:attribute name="banner" type="Aura.Component[]" />
+    
+    <div>
+        <lightning:layout horizontalAlign="spread">
+            <lightning:layoutItem flexibility="grow" class="slds-m-large">
+                {!v.banner}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    
+    <div>
+        <lightning:layout horizontalAlign="spread" class="layout-row-2">
+            <lightning:layoutItem flexibility="grow" class="slds-m-large">
+                {!v.column}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+</aura:component>

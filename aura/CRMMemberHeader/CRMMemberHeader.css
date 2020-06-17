@@ -1,0 +1,222 @@
+.THIS {
+    font-size: 16px;
+}
+
+.THIS .header-ghost-buttons {
+    border: 1px solid #FFF;
+    border-color: #FFF;
+    background-color: transparent; 
+    padding: .25em 1em;
+    margin-left: 1em;
+    color: #fff;
+}
+
+.THIS .header-ghost-buttons:hover {
+    background-color: #FFF;
+    color: #1A1A1A;
+}
+
+
+.THIS .YearsofMembership {
+    margin-right: 1em;
+}
+
+.THIS .MailLink svg.slds-button__icon.slds-button__icon--left {
+    margin-right: 0;
+}
+
+.THIS h3 {
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #1A1A1A;
+    margin-top: .75em;
+    margin-left: .75em;
+}
+
+/* Edit detail styling */
+.THIS .editSection {
+    padding-left: 1rem;
+  	padding-right: 1rem;
+}
+
+.THIS .editSection hr {
+    margin-bottom: 1rem;
+}
+
+.THIS h3.editDetails {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.THIS .memberEditBrandLink {
+    padding: 0;
+    text-align: center;
+    border: none;
+    color: t(iccuPrimaryGreen);
+    font-size: 1.1em;
+    text-decoration: underline;
+    margin-right: .2em;
+}
+
+.THIS .memberEditBrandLink:disabled {
+	color: t(mediumGray);
+}
+
+.THIS .memberEditBrandLink:hover {
+	background: transparent;
+}
+
+.THIS .member-edit-info > .slds-size_6-of-12:nth-child(1) {
+    padding-right: 1em;
+}
+
+.THIS .member-edit-info > .slds-size_6-of-12:nth-child(2) {
+    padding-left: 1em;
+}
+
+/* Member Name Styling */
+.THIS .MemberNameHeader {
+    font-size: 1.5em;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.THIS .MemberLegalName {
+    color: #FFF;
+}
+
+.THIS .MemberHeaderContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.THIS .MemberNameContainer {
+    flex: 1;
+}
+
+.THIS #MemberInformation {
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #1a1a1a;
+    margin-top: .75em;
+    margin-left: .75em;
+    display: inline-block;
+}
+
+.THIS #MemberInformation + .slds-icon_container {
+    margin-left: 1em;
+}
+
+.THIS #MemberInformation + .slds-icon_container svg {
+    fill: #1c8900;
+}
+
+.THIS .editing-true #MemberInformation + .slds-icon_container svg,
+.THIS .authenticated-false #MemberInformation + .slds-icon_container svg {
+    fill: t(mediumGray);
+}
+
+.THIS .slds-button-group .slds-button--icon-border {
+    background: white;
+}
+
+.THIS .slds-card__header {
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2em;
+    border-radius: .25rem .25rem 0 0;
+}
+
+.THIS .slds-card__body {
+    margin: 0;
+    padding: 1em;
+}
+
+.THIS .slds-p-horizontal_small {
+    padding-bottom: .5rem;
+    color: t(iccuDarkGreen);
+}
+
+.THIS .slds-icon-standard-reward {
+    background-color: transparent;
+}
+
+.THIS .slds-icon-standard-reward .slds-icon {
+    fill: t(iccuDarkGreen);   
+}
+
+.THIS .membership-badge {
+    background-color: white;
+    border-radius: t(iccuRounded);
+    padding: .2rem .5rem;
+}
+
+.THIS .slds-card__footer {
+    margin-top: 0;
+    text-align: left;
+}
+
+.THIS .bold {
+    font-weight: 600;
+}
+.THIS .member-info {
+    color: #1a1a1a;
+    margin-top: 0.5rem;
+    font-weight: normal;
+}
+.THIS .slds-text-heading--small .legalName {
+    font-size: t(smallText);
+    padding-top: .3rem;
+    padding-bottom: .25rem;
+    font-weight: normal;
+}
+.THIS .slds-text-heading--small {
+    font-weight: bold;
+    font-size: t(xLargeText);
+}
+.THIS .member-info .bold + div,
+.THIS .member-info .bold + div p {
+    text-align: right;
+} 
+.THIS .memberEditContainer {
+    padding: 0 1em;
+}
+.THIS .edit-actions {
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+.THIS .addressDisabled {
+    background: #DAE4ED;
+    border-left: 10px solid #2485E5;
+    padding: 1em 1em;
+    margin: 0 1em 1em 0;
+}
+.THIS .addressDisabled p {
+    margin: 0;
+}
+/** Contact Buttons (Email and Call) **/
+.THIS a.contact-button {
+    border: 1px solid #FFF;
+    padding: .6em 1em;
+    border-radius: .25rem;
+    margin-right: .5em;
+    vertical-align: middle;
+}
+.THIS a.contact-button:hover, .THIS svg.slds-icon.slds-icon--x-small:hover {
+    background-color: #FFF;
+    color: #1A1A1A;
+    fill: #1A1A1A;
+}
+
+/** Error Handling **/
+.THIS.cCRMAlert.crm-alert {
+    margin-bottom: .5em;
+}
+
+.THIS .cCRMAlert + .cCRMAlert {
+    margin-top: 1em;
+}

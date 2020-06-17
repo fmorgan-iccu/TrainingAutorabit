@@ -1,0 +1,16 @@
+<apex:page controller="ATBK.AutomatedBookingController"
+	lightningStyleSheets="true"
+	title="{!$Label[configurations['titleLabel']]}"
+	docType="html-5.0"
+	applyHtmlTag="false"
+	showHeader="false">
+	<apex:include pageName="nFORCE__Error_Message_Handler" />
+	<apex:slds />
+	<c:AutomatedBookingConfiguration />
+	<c:AutomatedBookingIncludes />
+	<div id="automatedBooking" class="slds-scope">
+		<c:PushTopicListener elementToAttachTo="automatedBooking" topic="ATBKStatusUpdate" />
+		<c:AutomatedBookingPartial />
+		<atbk></atbk>
+	</div>
+</apex:page>

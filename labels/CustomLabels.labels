@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>LG_Config_Finish</fullName>
+        <categories>LookupKey Generator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LG Config Finish</shortDescription>
+        <value>Finish</value>
+    </labels>
+    <labels>
+        <fullName>LG_Config_Install</fullName>
+        <categories>LookupKey Generator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LG Config Install</shortDescription>
+        <value>Install</value>
+    </labels>
+    <labels>
+        <fullName>LG_Config_Instructions</fullName>
+        <categories>LookupKey Generator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LG Config Instructions</shortDescription>
+        <value>Click install to create a route and route group in the nCino Administration Page for the Lookupkey Generator</value>
+    </labels>
+    <labels>
+        <fullName>LG_Config_Success_Install</fullName>
+        <categories>LookupKey Generator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LG Config Success Install</shortDescription>
+        <value>Successfully Installed!</value>
+    </labels>
+    <labels>
+        <fullName>LG_Config_Success_Uninstall</fullName>
+        <categories>LookupKey Generator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LG Config Success Uninstall</shortDescription>
+        <value>Successfully Uninstalled!</value>
+    </labels>
+    <labels>
+        <fullName>LG_Config_Title</fullName>
+        <categories>LookupKey Generator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LG Config Title</shortDescription>
+        <value>Lookup Key Generator Configuration</value>
+    </labels>
+    <labels>
+        <fullName>LG_Config_Uninstall</fullName>
+        <categories>LookupKey Generator</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LG Config Uninstall</shortDescription>
+        <value>Uninstall</value>
+    </labels>
+    <labels>
+        <fullName>NewLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Line for Formula</shortDescription>
+        <value>-
+-</value>
+    </labels>
+</CustomLabels>

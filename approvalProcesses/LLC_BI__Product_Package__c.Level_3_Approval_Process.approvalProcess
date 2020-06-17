@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <type>allInternalUsers</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Owner</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Level_3_Underwriter__c</name>
+                <type>relatedUserField</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>Step 1</label>
+        <name>Step_1</name>
+    </approvalStep>
+    <description>AND(
+    Ready_for_Submission__c = &quot;Yes&quot;,
+    ISBLANK(Level_1_Underwriter__c),
+    ISBLANK(Level_2_Underwriter_Manager__c),
+    NOT(ISBLANK(Level_3_Underwriter__c)),
+    ISBLANK(Level_4_Underwriter__c),
+    Send_to_Loan_Committee__c = false
+)</description>
+    <emailTemplate>LLC_BI__Bankr_Templates/Product_Package_Submitted_for_Approval</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <formula>AND(
+    Ready_for_Submission__c = &quot;Yes&quot;,
+    ISBLANK(Level_1_Underwriter__c),
+    ISBLANK(Level_2_Underwriter_Manager__c),
+    NOT(ISBLANK(Level_3_Underwriter__c)),
+    ISBLANK(Level_4_Underwriter__c),
+    Send_to_Loan_Committee__c = false
+)</formula>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>LLC_BI__Product_Package_Status_Approved</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>LLC_BI__Product_Package_Status_Rejected</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>LLC_BI__Product_Package_Status_In_Review</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Level 3 Approval Process</label>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

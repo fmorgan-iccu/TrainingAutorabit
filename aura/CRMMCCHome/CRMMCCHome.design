@@ -1,0 +1,9 @@
+<design:component label="MCC Home Page">
+    <flexipage:template >
+                       
+        <flexipage:region name="left" defaultWidth="SMALL" />
+                   
+        <flexipage:region name="right" defaultWidth="LARGE" />
+        
+    </flexipage:template>
+</design:component>

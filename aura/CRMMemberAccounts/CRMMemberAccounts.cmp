@@ -1,0 +1,46 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="MemberAccountsController">
+    <!-- listen for system of record login -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+    
+    <!-- Attributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="accounts" type="Object"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="LoadOrgAccounts" type="Boolean" default="false" />
+
+    <div>
+       	<aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+            <c:CRMAlert alertState="error">
+                <aura:set attribute="alertMessage">
+                    <p>
+                        {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.fetchMemberAccounts}" />
+                    </p>
+                </aura:set>
+            </c:CRMAlert>
+        </aura:if>
+        
+        <aura:if isTrue="{!v.isLoading}">
+            <c:CRMLoadingSpinner message="Accounts..." />
+        </aura:if>
+        
+        <aura:if isTrue="{!v.accounts.length == 0}">
+            <p>No member accounts.</p>
+        </aura:if>
+        
+        <div class="fullWidth">
+            <aura:iteration items="{!v.accounts}" var="accountGroup">
+                
+                <div class="slds-grid" id="AccountGroupName">
+                    <c:fontawesomeIcon iconName="{!accountGroup.icon}" iconColor="{!accountGroup.iconColor}"/>
+                    <h3 id="AccountGroup">{!accountGroup.name}</h3>
+                </div>
+
+                <aura:iteration items="{!accountGroup.accounts}" var="account">
+                    <c.CRMMemberAccountData account="{!account}" contactId="{!v.recordId}" />
+                </aura:iteration>
+            </aura:iteration>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,77 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="OpenProductApplicationsController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="transaction" type="Object" />
+    <aura:attribute name="lastUpdatedDate" type="String" />
+    <aura:attribute name="caseId" type="String" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="errorMessage" type="String" />
+    
+    <ltng:require scripts="{!$Resource.NumeralJS}" afterScriptsLoaded="{!c.formatNumbers}" />
+    <ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatDates}" />
+    
+    <div class="ApplicationContainer">
+        <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+            <c:CRMAlert alertState="error">
+                <aura:set attribute="alertMessage">
+                    <p>{!v.errorMessage}</p>
+                </aura:set>
+            </c:CRMAlert>
+        </aura:if>
+        
+        <div id="ApplicationHeader">
+            <div id="LoanProduct">
+                
+                <aura:if isTrue="{!v.transaction.product.displayName.length &gt; 0}">
+                    <c:fontawesomeIcon iconName="{!v.transaction.product.icon}" iconColor="#800080"/>
+                    <aura:set attribute="else">
+                        <c:fontawesomeIcon iconName="question" iconColor="#800080"/>
+                    </aura:set>
+                </aura:if>
+                
+                <h3>
+                    <aura:if isTrue="{!v.transaction.product.displayName.length &gt; 0}">
+                        {!v.transaction.product.displayName}
+                        <aura:set attribute="else">
+                            Unknown Product
+                        </aura:set>
+                    </aura:if>
+                </h3>
+
+            </div>
+            <aura:if isTrue="{!v.caseId}">
+                <lightning:button value="{!v.caseId}" onclick="{!c.viewCase}">View Case</lightning:button>
+                <aura:set attribute="else">
+                    <lightning:button variant="brand" onclick="{!c.createCase}">Create Case</lightning:button>
+                </aura:set>
+            </aura:if>
+            
+            <a href="{!v.transaction.formURL}">Open Form</a>
+            <!--<a>Send Link</a>
+            <a>View Receipt</a>-->
+        </div>
+        <div id="ApplicationInfo">
+			<div class="InfoContainer">
+                <h4 class="InfoLabel">Form Name</h4>
+                <p>{!v.transaction.formName}</p>
+            </div>
+            <div class="InfoContainer">
+                <h4 class="InfoLabel">Status</h4>
+                <p id="StatusOpened">{!v.transaction.formStatus}</p>
+            </div>
+            <div class="InfoContainer">
+                <h4 class="InfoLabel">Customer Reference Code</h4>
+                <p id="ReferenceCode">{!v.transaction.trackingCode}</p>
+            </div>
+            <div class="InfoContainer">
+                <h4 class="InfoLabel">Last Updated</h4>
+                <p>{!v.lastUpdatedDate}</p>
+            </div>
+            <div class="InfoContainer">
+                <h4 class="InfoLabel">Contact Email</h4>
+                <p><a href="{! 'mailto:' + v.transaction.contactEmail}">{!v.transaction.contactEmail}</a></p>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

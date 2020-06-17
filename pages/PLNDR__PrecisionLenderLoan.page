@@ -1,0 +1,125 @@
+<apex:page standardController="PLNDR__Commercial_Loan_Account__c" showHeader="false">
+<apex:stylesheet value="{$Resource.PLStyles}" />
+
+
+            <apex:pageBlock >
+                <apex:pageBlockSection title="PrecisionLender Pricing Details" collapsible="false" columns="2" showHeader="true">
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Product_Name__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Amount__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Initial_Fees__c}"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Initial_Rate__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Payment_Type__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Interest_Options__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Risk_Rating__c}"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Maturity__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Facility_Risk_Rating__c}" rendered="{! !ISBLANK(Commercial_Loan_Account__c.Facility_Risk_Rating__c) }"/>
+                    <apex:outputText value="&nbsp;" escape="false"  rendered="{! ISBLANK(Commercial_Loan_Account__c.Facility_Risk_Rating__c) }"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Collateral__c}" rendered="{! !ISBLANK(Commercial_Loan_Account__c.Collateral__c) }"/>
+                    <apex:outputText value="&nbsp;" escape="false"  rendered="{! ISBLANK(Commercial_Loan_Account__c.Collateral__c) && !ISBLANK(Commercial_Loan_Account__c.Guarantees__c) }"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Guarantees__c}" rendered="{! !ISBLANK(Commercial_Loan_Account__c.Guarantees__c) }"/>
+                    <apex:outputText value="&nbsp;" escape="false"  rendered="{! ISBLANK(Commercial_Loan_Account__c.Guarantees__c) && !ISBLANK(Commercial_Loan_Account__c.Collateral__c) }"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Amortization__c}" rendered="{! Commercial_Loan_Account__c.Payment_Type__c = "Amortizing" }" />
+                        <apex:outputText value="&nbsp;" escape="false"  rendered="{! Commercial_Loan_Account__c.Payment_Type__c != "Amortizing" }"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Amortization_Notes__c}" rendered="{! Commercial_Loan_Account__c.Payment_Type__c = "Amortizing" }" />
+                        <apex:outputText value="&nbsp;" escape="false"  rendered="{! Commercial_Loan_Account__c.Payment_Type__c != "Amortizing" }"/>
+
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Rate_Type__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Prepayment_Option__c}" rendered="{! !ISBLANK(Commercial_Loan_Account__c.Prepayment_Option__c) }"/>
+                        <apex:outputText value="&nbsp;" escape="false"  rendered="{! ISBLANK(Commercial_Loan_Account__c.Prepayment_Option__c) }"/>                    
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Index__c}" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c != "Fixed" }"/>
+                        <apex:outputText value="&nbsp;" escape="false" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c = "Fixed" }"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Spread__c}" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c != "Fixed" }"/>
+                        <apex:outputText value="&nbsp;" escape="false" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c = "Fixed" }"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Is_Renewal_Loan__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Caps_Floors_Summary__c}" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c != "Fixed" }"/>
+                        <apex:outputText value="&nbsp;" escape="false" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c = "Fixed" }"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Tax_Exempt_Status__c}"/>
+
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Fixed_Period__c}" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c = "Adjustable" }"/>
+                        <apex:outputText value="&nbsp;" escape="false" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c != "Adjustable" }"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__Adjustment_Frequency__c}" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c = "Adjustable" }"/>
+                        <apex:outputText value="&nbsp;" escape="false" rendered="{!  Commercial_Loan_Account__c.Rate_Type__c != "Adjustable" }"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>                    
+                                        
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection title="Commercial Loan Account Metrics" collapsible="false" columns="2" showHeader="true">
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Gross_Funding__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Commitment__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Net_Commitment__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Net_Funding__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Average_Balance__c}"/>                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__CalculatedEffectiveLoanToValue__c}"/> 
+                </apex:pageBlockSection>
+
+
+                <apex:pageBlockSection title="Financial Statement" collapsible="false" columns="2" showHeader="true">
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Interest_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Average_Yield__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Interest_Expense__c}" html-sss="border-bottom:solid 1px"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Net_Interest_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Net_Interest_Margin__c}"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Non_Interest_Expense__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Loan_Loss_Reserves__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Other_Income__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Pre_Tax_Income__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Taxes__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Net_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_ROA__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Target_Net_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Target_ROA__c}"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Average_Assets__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_ROE__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Average_Equity__c}"/>
+                    <apex:outputField value="{!PLNDR__Commercial_Loan_Account__c.PLNDR__FS_Target_ROE__c}"/> 
+                    
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+
+</apex:page>

@@ -1,0 +1,528 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="Opportunity">
+    <html xlmns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.PLNDR__SLDS0101, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+            <apex:includeScript value="{!$Resource.PLNDR__jQuery}"/>
+            <apex:includeScript value="{!URLFOR($Resource.PLNDR__PLResources)}"/>
+        </head>
+      
+        <body>
+            <div class="slds">               
+                <div class="slds-tabs--scoped">
+                    <ul class="slds-tabs--scoped__nav" role="tablist">
+                        <li class="slds-tabs__item slds-text-heading--label slds-active" title="Opportunity Summary" role="presentation">
+                            <a href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1">Opportunity Summary</a>
+                        </li>
+                        <li class="slds-tabs__item slds-text-heading--label" title="Financial Statement" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2">Financial Statement</a>
+                        </li>
+                        <li class="slds-tabs__item slds-text-heading--label" title="All Loans" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-3">All Loans</a>
+                        </li>
+                        <li class="slds-tabs__item slds-text-heading--label" title="All Deposits" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-4">All Deposits</a>
+                        </li>
+                        <li class="slds-tabs__item slds-text-heading--label" title="All Others" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-5">All Others</a>
+                        </li>
+                    </ul>
+                    <div id="tab-scoped-1" class="slds-tabs__content slds-show" role="tabpanel">
+                        <div id="opportunityOverview" class="slds-p-vertical--small">
+                            <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Loan Commitment:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Loan_Commitment__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">ROA:</div>
+                                         <div class="slds-text-body--regular decimal">{!opportunity.FS_ROA__c}</div>
+                                    </td>                       
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Loan Net Commitment:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Loan_Net_Commitment__c}</div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">ROE:</div>
+                                         <div class="slds-text-body--regular decimal">{!opportunity.FS_ROE__c}</div>
+                                    </td>                           
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Loan Gross Funding:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Loan_Gross_Funding__c}</div>
+                                   </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Target ROE:</div>
+                                         <div class="slds-text-body--regular decimal">{!opportunity.FS_Target_ROE__c}</div>
+                                     </td>                           
+                                 </tr>                               
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Loan Balance:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Loan_Average_Balance__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>                                
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Other Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Other_Income__c}</div>
+                                     </td>
+                                     <td></td>                       
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Loan Initial Fees:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loan_Initial_Fees__c}</div>
+                                    </td>
+                                     <td></td>                       
+                                  </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">PrecisionLender Last Updated:</div>
+                                        <div class="slds-text-body-regular dateFormat">{!opportunity.PrecisionLender_Last_Updated__c}</div>
+                                    </td>
+                                    <td></td>                         
+                                </tr>
+                              </tbody>
+                            </table>                   
+                        </div>
+                    </div>
+                    <div id="tab-scoped-2" class="slds-tabs__content slds-hide" role="tabpanel">
+                        <div id="financialStatementDiv" class="slds-p-vertical--small">
+                         <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Interest_Income__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Average Yield:</div>
+                                         <div class="slds-text-body--regular decimal-three">{!opportunity.FS_Average_Yield__c}</div>
+                                    </td>                
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Net_Interest_Income__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small">Net Interest Margin:</div>
+                                         <div class="slds-text-body--regular decimal-three">{!opportunity.FS_Net_Interest_Margin__c}</div>
+                                     </td>                       
+                                </tr>                               
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Non Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Non_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>                                
+                                 <tr>
+                                    <td><div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Loan_Loss_Reserves__c}</div>
+                                     </td>
+                                     <td></td>                      
+                                </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Other Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Other_Income__c}</div>
+                                       </td>
+                                     <td></td>
+                                  </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Pre-Tax Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Pre_Tax_Income__c}</div>
+                                       </td>
+                                     <td></td>                       
+                                </tr> 
+                                     <tr>
+                                       <td>
+                                        <div class="slds-text-body--small">Taxes:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Taxes__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                          <td>
+                                        <div class="slds-text-body--small">Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Net_Income__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Assets:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Average_Assets__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                        <div class="slds-text-body--small">ROA:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.FS_ROA__c}
+                                        </div>
+                                    </td>                          
+                                </tr>
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Equity:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.FS_Average_Equity__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                        <div class="slds-text-body--small">ROE:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.FS_ROE__c}
+                                        </div>
+                                    </td>                         
+                                </tr>
+                                    <tr>
+                                    <td></td>
+                                     <td>
+                                        <div class="slds-text-body--small">Target ROE:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.FS_Target_ROE__c}
+                                        </div>
+                                    </td>                           
+                                </tr>
+                                    
+                              </tbody>
+                            </table>                          
+                        </div>
+                    </div>
+                    <!--tab all loans begin-->
+                    <div id="tab-scoped-3" class="slds-tabs__content slds-hide" role="tabpanel">
+                        <div id="loansFinancialStatementDiv" class="slds-p-vertical--small">
+                         <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Interest_Income__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small"></div>
+                                         <div class="slds-text-body--regular decimal-three"></div>
+                                    </td>                
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Net_Interest_Income__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small"></div>
+                                         <div class="slds-text-body--regular decimal-three"></div>
+                                     </td>                       
+                                </tr>                               
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Non Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Non_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>                                
+                                 <tr>
+                                    <td><div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Loan_Loss_Reserves__c}</div>
+                                     </td>
+                                     <td></td>                      
+                                </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Other Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Other_Income__c}</div>
+                                       </td>
+                                     <td></td>
+                                  </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Pre-Tax Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Pre_Tax_Income__c}</div>
+                                       </td>
+                                     <td></td>                       
+                                </tr> 
+                                     <tr>
+                                       <td>
+                                        <div class="slds-text-body--small">Taxes:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Taxes__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                          <td>
+                                        <div class="slds-text-body--small">Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Net_Income__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Assets:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Average_Assets__c}
+                                        </div>
+                                    </td>
+                                     <td></td>                          
+                                </tr>
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Equity:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Loans_FS_Average_Equity__c}
+                                        </div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>
+                              </tbody>
+                            </table>                          
+                        </div>
+                    </div>
+                    <!--tab all loans end-->
+                    <!--tab all deposits begin-->
+                    <div id="tab-scoped-4" class="slds-tabs__content slds-hide" role="tabpanel">
+                        <div id="depositsFinancialStatementDiv" class="slds-p-vertical--small">
+                         <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Interest_Income__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small"></div>
+                                         <div class="slds-text-body--regular decimal-three"></div>
+                                    </td>                
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Net_Interest_Income__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small"></div>
+                                         <div class="slds-text-body--regular decimal-three"></div>
+                                     </td>                       
+                                </tr>                               
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Non Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Non_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>                                
+                                 <tr>
+                                    <td><div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Loan_Loss_Reserves__c}</div>
+                                     </td>
+                                     <td></td>                      
+                                </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Other Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Other_Income__c}</div>
+                                       </td>
+                                     <td></td>
+                                  </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Pre-Tax Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Pre_Tax_Income__c}</div>
+                                       </td>
+                                     <td></td>                       
+                                </tr> 
+                                     <tr>
+                                       <td>
+                                        <div class="slds-text-body--small">Taxes:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Taxes__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                          <td>
+                                        <div class="slds-text-body--small">Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Net_Income__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Assets:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Average_Assets__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                        <div class="slds-text-body--small">ROA:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.Deposits_FS_ROA__c}
+                                        </div>
+                                    </td>                          
+                                </tr>
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Equity:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Deposits_FS_Average_Equity__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                        <div class="slds-text-body--small">ROE:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.Deposits_FS_ROE__c}
+                                        </div>
+                                    </td>                         
+                                </tr>
+                                    <tr>
+                                    <td></td>
+                                     <td>
+                                        <div class="slds-text-body--small">Target ROE:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.Deposits_FS_Target_ROE__c}
+                                        </div>
+                                    </td>                           
+                                </tr>
+                                    
+                              </tbody>
+                            </table>                          
+                        </div>
+                    </div>
+                    <!--tab all deposits end-->
+                    <!--tab all others begin-->
+                    <div id="tab-scoped-5" class="slds-tabs__content slds-hide" role="tabpanel">
+                        <div id="othersFinancialStatementDiv" class="slds-p-vertical--small">
+                         <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Interest_Income__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                         <div class="slds-text-body--small"></div>
+                                         <div class="slds-text-body--regular decimal-three"></div>
+                                    </td>                
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Net Interest Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Net_Interest_Income__c}</div>
+                                     </td>
+                                     <td>
+                                         <div class="slds-text-body--small"></div>
+                                         <div class="slds-text-body--regular decimal-three"></div>
+                                     </td>                       
+                                </tr>                               
+                                <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Non Interest Expense:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Non_Interest_Expense__c}</div>
+                                    </td>
+                                     <td></td>                         
+                                </tr>                                
+                                 <tr>
+                                    <td><div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Loan_Loss_Reserves__c}</div>
+                                     </td>
+                                     <td></td>                      
+                                </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Other Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Other_Income__c}</div>
+                                       </td>
+                                     <td></td>
+                                  </tr>
+                                   <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Pre-Tax Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Pre_Tax_Income__c}</div>
+                                       </td>
+                                     <td></td>                       
+                                </tr> 
+                                     <tr>
+                                       <td>
+                                        <div class="slds-text-body--small">Taxes:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Taxes__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                          <td>
+                                        <div class="slds-text-body--small">Net Income:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Net_Income__c}</div>
+                                       </td>
+                                     <td></td>                         
+                                </tr> 
+                                     <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Assets:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Average_Assets__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                        <div class="slds-text-body--small">ROA:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.Others_FS_ROA__c}
+                                        </div>
+                                    </td>                          
+                                </tr>
+                                    <tr>
+                                    <td>
+                                        <div class="slds-text-body--small">Average Equity:</div>
+                                        <div class="slds-text-body-regular currency">{!opportunity.Others_FS_Average_Equity__c}
+                                        </div>
+                                    </td>
+                                     <td>
+                                        <div class="slds-text-body--small">ROE:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.Others_FS_ROE__c}
+                                        </div>
+                                    </td>                         
+                                </tr>
+                                    <tr>
+                                    <td></td>
+                                     <td>
+                                        <div class="slds-text-body--small">Target ROE:</div>
+                                        <div class="slds-text-body-regular decimal">{!opportunity.Others_FS_Target_ROE__c}
+                                        </div>
+                                    </td>                           
+                                </tr>
+                                    
+                              </tbody>
+                            </table>                          
+                        </div>
+                    </div>
+                    <!--tab all others end-->
+                </div>
+            </div>
+        </body>   
+    </html>     
+</apex:page>

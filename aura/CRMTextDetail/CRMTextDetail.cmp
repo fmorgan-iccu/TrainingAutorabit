@@ -1,0 +1,39 @@
+<aura:component>
+    <!--
+	This component is designed to be used within the CRMMCCMemberDetails for any information that is in plain text or link format.
+	It is designed to switch between a read display and an editable display by setting 'editable' to true or false.
+	Links editing is not currently supported.
+	-->
+
+    <!-- Attributes -->
+    <aura:attribute name="editing" type="Boolean" Default="false" />
+    <aura:attribute name="editable" type="Boolean" Default="false"/>
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="data" type="String"/>
+    <aura:attribute name="link" type="String"/>
+    <aura:attribute name="error" type="String"/>
+    
+    <div class="field">
+        <aura:if isTrue="{!v.editing &amp;&amp; v.editable}">
+            
+            <aura:if isTrue="{!v.error.length &gt; 0}">
+            	<p class="error">{!v.error}</p>
+            </aura:if>
+            
+            <lightning:input label="{!v.label}" 
+                             value="{#v.data}" />
+
+            <aura:set attribute="else">
+                <label>{!v.label}</label>
+                
+                <aura:if isTrue="{!v.link}">
+                	<a href="{!v.link}"><p>{!v.data}</p></a>
+                    
+                    <aura:set attribute="else">
+                    	<p>{!v.data}</p>
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

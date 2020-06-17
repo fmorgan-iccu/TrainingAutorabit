@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial"><span style="font-size: 12pt;">Hello {!Case.Contact},</span></font><br><br><font face="arial"><span style="font-size: 12pt;">Thank you for choosing Idaho Central Credit Union! I attempted to contact you regarding your recent transaction to gather some follow-up information. Would you please call me back at your earliest convenience?</span></font><br><br><font face="arial"><span style="font-size: 12pt;">Thank you again for your membership!</span></font><br><br><font face="arial"><span style="font-size: 12pt;">Sincerely,</span></font><br><font face="arial">{!Case.OwnerFullName}</font><br><font size="2" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Idaho Central Credit Union</font><br><font face="arial"><i>{!Case.OwnerTitle}</i></font><br><font style=""><font face="arial"><span style="font-size: 12pt;">d:&nbsp;</span>{!Case.OwnerPhone}</font><br><font face="arial">{!Case.OwnerEmail}</font><br></font><br><br>]]></td>
+</tr>
+</table>

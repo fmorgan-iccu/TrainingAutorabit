@@ -1,0 +1,20 @@
+<aura:component >
+    
+    <!-- Setup Attributes -->
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="action" type="Object"/>
+    <aura:attribute name="content" type="Object"/>
+ 
+        <div class="slds-modal__content">
+            <div class="question-context">
+                <h3>{!v.title}</h3>  
+            </div>
+            <div class="content">
+                {!v.content}
+            </div>
+        </div>
+        <div class="slds-modal__footer">
+            {!v.action}
+        </div>  
+    
+</aura:component>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Track Trigger Handlers Added to the Pipeline to ensure no Triggers are overwritten</description>
+    <fields>
+        <fullName>nCSA_FRAME__Class_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API Name of your Trigger Handler Class. ex: csaLoanTriggerHandler</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Class Name</label>
+        <length>100</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__Object_API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API Name of the Object Context that this trigger should fire under</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Object API Name</label>
+        <length>100</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__csaDataInstaller__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Link to the CSA Data Installer Record for easy reference</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>csaDataInstaller</label>
+        <referenceTo>nCSA_FRAME__csaDataInstaller__mdt</referenceTo>
+        <relationshipLabel>csaTriggers</relationshipLabel>
+        <relationshipName>csaTriggers</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__isActive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines if a TriggerHandler should be added to the pipeline or not</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Should this Trigger be added to the pipeline</inlineHelpText>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__isAfterDelete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines a TriggerHandler to fire in the after delete event context</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Run Trigger Handler in after delete event context</inlineHelpText>
+        <label>After Delete</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__isAfterInsert__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines a TriggerHandler to fire in the after insert event context</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>After Insert</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__isAfterUpdate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines a TriggerHandler to fire in the after update event context</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Run Trigger Handler in after update event context</inlineHelpText>
+        <label>After Update</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__isBeforeDelete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines a TriggerHandler to fire in the before delete event context</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Run Trigger Handler in before delete event context</inlineHelpText>
+        <label>Before Delete</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__isBeforeInsert__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines a TriggerHandler to fire in the before insert event context</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Run Trigger Handler in before insert event context</inlineHelpText>
+        <label>Before Insert</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>nCSA_FRAME__isBeforeUpdate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines a TriggerHandler to fire in the before update event context</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Run Trigger Handler in before update event context</inlineHelpText>
+        <label>Before Update</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>csaTrigger</label>
+    <pluralLabel>csaTriggers</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

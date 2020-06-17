@@ -1,0 +1,33 @@
+<aura:component>
+	<!--
+	This component is designed to be used within the CRMMCCMemberDetails for any information that is in phone format.
+	It is designed to switch between a read display and an editable display by setting 'editable' to true or false.
+	-->
+
+	<!-- Attributes -->
+	<aura:attribute name="editing" type="Boolean" default="false" />
+	<aura:attribute name="editable" type="Boolean" default="true" />
+	<aura:attribute name="phone" type="String" />
+	<aura:attribute name="mobilePhone" type="String" />
+	<aura:attribute name="isValid" type="Boolean" default="true" />
+
+	<div class="field">
+		<aura:if isTrue="{!v.editing &amp;&amp; v.editable}">
+			<lightning:input type="tel" name="phone" aura:id="phone" label="Home Phone" value="{!v.phone}"
+				placeholder="(999) 999-9999 Ext: 999" onblur="{!c.onChangeField}" />
+			<lightning:input type="tel" name="mobilePhone" aura:id="mobilePhone" label="Mobile Phone"
+				value="{!v.mobilePhone}" placeholder="(999) 999-9999 Ext: 999" onblur="{!c.onChangeField}" />
+
+			<aura:set attribute="else">
+				<label>Home Phone (format)</label>
+				<p>
+					<lightning:formattedPhone value="{!v.phone}" />
+				</p>
+				<label>Mobile Phone</label>
+				<p>
+					<lightning:formattedPhone value="{!v.mobilePhone}" />
+				</p>
+			</aura:set>
+		</aura:if>
+	</div>
+</aura:component>

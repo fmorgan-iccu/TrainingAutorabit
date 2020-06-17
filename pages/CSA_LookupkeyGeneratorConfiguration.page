@@ -1,0 +1,67 @@
+<apex:page controller="CSA_LookupkeyGeneratorConfigController">
+    <nFORCE:Includes enablebootstrap3="true" enablefontawesome="true" enablebs3namespace="true" />
+    <nFORCE:Include_Design_System flavor="vf" />
+    <nFORCE:Include_Design_System flavor="bs3" />
+
+    <div class="force slds">
+        <apex:form id="theform">
+            <div class="force messages success" id="successMessage" />
+            <div class="force messages error" id="errorMessage" />
+            <br/>
+            <apex:actionstatus id="loading" onstart="loading(true)" onstop="loading(false)" />
+            <div class="slds-card">
+                <div class="slds-card__header">
+                    <div class="slds-media__body">
+                        <h2 class="slds-text-heading--small slds-truncate">
+                            <apex:outputtext value="{!$Label.LG_Config_Title}" />
+                        </h2>
+                    </div>
+                </div>
+                <div class="slds-card__body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="padding:0px 25px;">
+                                <apex:outputtext value="{!$Label.LG_Config_Instructions}" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <apex:commandbutton value="{!$Label.LG_Config_Install}" styleclass="btn btn-primary" action="{!install}"
+                                                    rerender="theform" rendered="{!!isInstalled}" status="loading" />
+                                <apex:commandbutton value="{!$Label.LG_Config_Uninstall}" styleclass="btn btn-primary" action="{!uninstall}"
+                                                    rerender="theform" rendered="{!isInstalled}" status="loading" />
+                                <apex:commandbutton value="{!$Label.LG_Config_Finish}" styleclass="btn btn-secondary" action="{!finish}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                jQuery(function() {
+                    if('{!successMessage}' != '') {
+                        jQuery('#successMessage').append('<label style="cursor: default; padding:15px;" class="alert alert-success">{!successMessage}</label>');
+                        setTimeout(function() {
+                            jQuery(".alert-success").remove();
+                        },5000);
+                    }
+
+                    if('{!errorMessage}' != '') {
+                        jQuery('#errorMessage').append('<label style="cursor: default; padding:15px;" class="alert alert-danger">{!errorMessage}</label>');
+                        setTimeout(function() {
+                           jQuery(".alert-danger").remove();
+                        },10000);
+                    }
+                });
+
+                function loading(val) {
+                    if(val) {
+                        jQuery('#loading-modal').modal('show');
+                    } else {
+                        jQuery('#loading-modal').modal('hide');
+                    }
+                }
+            </script>
+        </apex:form>
+    </div>
+</apex:page>

@@ -1,0 +1,86 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="MemberCasesController" >
+    <!-- 
+	COMPONENT OVERVIEW:
+	This is the applications view for the applications tab for both the 
+	MCC and FSC. The CrmMemberApplication component is used to dispay the single
+	applications within sections. 
+	-->
+    
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Attributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="openCases" type="Object" />
+    <aura:attribute name="closedCases" type="Object" />
+    <aura:attribute name="isLoading" type="Boolean" />
+    <aura:attribute name="openOpportunities" type="Object" />
+    <!--NOTE: This is defaulted to `false`.  The component must be configured to be `true` if you want opportunities to show up. -->
+    <aura:attribute name="canViewOpportunities" type="Boolean" Default="false" />
+    <aura:attribute name="daysAgo" type="String" default="90" description="The default number of days to go back and display cases." />
+    
+    <!-- Begin Component -->
+    <div class="cases-container">
+        <div class="cases-header">
+            <div class="slds-grid">
+                <div id="CaseHeader">
+                    <aura:if isTrue="{!v.canViewOpportunities}">
+                        <c:fontawesomeIcon iconName="th-list" iconColor="#F6C951"/>
+                        <h2>Related Information</h2>
+                        <aura:set attribute="else">
+                            <c:fontawesomeIcon iconName="suitcase" iconColor="#00BCD4"/>
+                            <h2>Cases</h2>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <div>
+                    <lightning:button label="Refresh" variant="brand" onclick="{!c.refreshCases}"/>
+                    <lightning:button label="New Case" variant="brand" onclick="{!c.createCase}"/>
+                </div>
+            </div>
+        </div>
+        
+        <section class="current-cases">
+            <h3>Current Cases</h3>
+            
+            <aura:if isTrue="{!v.openCases.length == 0}">
+                <p>No current cases.</p>
+            </aura:if>
+            
+            <aura:iteration items="{!v.openCases}" var="case">
+                <c:CRMMemberCaseItem Case="{!case}" />
+            </aura:iteration>
+        </section>
+        
+        <aura:if isTrue="{!v.canViewOpportunities}">
+            <section class="current-opportunities">
+                <h3>Opportunities</h3>
+
+                <aura:if isTrue="{!v.openOpportunities.length == 0}">
+                    <p>No current opportunities.</p>
+                </aura:if>
+                
+                <aura:iteration items="{!v.openOpportunities}" var="opportunity">
+                    <c:CRMOpportunityItem Opportunity="{!opportunity}" />
+                </aura:iteration>
+            </section>
+        </aura:if>
+                
+        <section class="closed-cases">
+            <h3>Closed Cases</h3>
+            
+            <aura:if isTrue="{!v.closedCases.length == 0}">
+                <p>No closed cases in past {!v.daysAgo} days.</p>
+            </aura:if>
+            
+            <aura:iteration items="{!v.closedCases}" var="case">
+                <c:CRMMemberCaseItem Case="{!case}" />
+            </aura:iteration>
+        </section>
+        
+    </div><!-- End Component Container -->
+    
+    
+    
+    
+</aura:component>

@@ -1,0 +1,80 @@
+<template>
+        <div class="main-container slds-is-relative">
+
+            <div if:false={isLoaded}>
+                <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+            </div>
+
+            <c-crm-form-header
+                form={formName}
+                membersname={member.fullName}>
+                <p>Filling out the form below will submit a title release form to onBase on your behalf. When submiting this form please ask yourself the following questions: Is {member.firstName} selling to a private party? Is a name change required on the title?</p>
+                <ul>
+                    <li>If {member.firstName} is selling to a private party it would be in {member.firstName}'s best interest to complete and return the Release of Liability form to the DMV.</li>
+                    <li>This form does not change the name on the title. Any name changes will need to be requested at the DMV once the title is received.</li>
+                </ul>
+            </c-crm-form-header>
+            <section class="content">
+
+                <template if:true={hasError}>
+                    <c-crm-form-error>
+                        <p>{error}</p>
+                    </c-crm-form-error>
+                </template>
+    
+                <article>
+                    <h2>Which auto loan is this for?</h2>
+
+                    <c-crm-account-lookup is-disabled={isDisabled} contact-id={contactid} onchange={handleAccountChange}></c-crm-account-lookup>
+    
+                    <h2>Company Information</h2>
+                    <p>If one of the account owner’s below is the gaurantor please click their name and Helix will pre-fill the members information for you.</p>
+                    
+                    <div class="contacts">
+                        <!-- TODO: prefill company information when selected -->
+                        <!-- TODO: add the ability to select and unselect (there is a class called selected)-->
+                        <template for:each={contacts} for:item="contact">
+                            <div class="contact" key={contact.Id}>
+                                <div>
+                                    <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>
+                                </div>
+                                <h4 class="title">{contact.Name}</h4>
+                            </div>
+                        </template>
+                    </div>
+    
+                    <div class="form-row">
+                        <lightning-input disabled={isDisabled} name="company name" label="Company Name" value=""></lightning-input>
+                        <lightning-input disabled={isDisabled} name="street address" label="Street Address" value="" required></lightning-input>
+                    </div>
+                    <div class="form-row">
+                        <lightning-input disabled={isDisabled} name="city" label="City" value="" required></lightning-input>
+                        <lightning-input disabled={isDisabled} name="state" label="State" value="" required></lightning-input>
+                        <lightning-input disabled={isDisabled} name="zipcode" label="Zipcode" value="" required></lightning-input>
+                    </div>
+                </article>
+    
+                <article>
+                    <h2>Auto Information</h2>
+                    <div class="form-row">
+                        <lightning-input disabled={isDisabled} name="vin" label="VIN" required></lightning-input>
+                        <lightning-input disabled={isDisabled} name="make" label="Make" required></lightning-input>
+                    </div>
+                    <div class="form-row">
+                        <lightning-input disabled={isDisabled} name="model" label="Model" required></lightning-input>
+                        <lightning-input disabled={isDisabled} name="year" label="Year" required></lightning-input>
+                    </div>
+                    <div class="form-row">
+                        <lightning-input disabled={isDisabled} name="payoff amount" label="Payoff Amount" class="half" required></lightning-input>  
+                    </div>   
+                </article>
+    
+                <div class="action-buttons flex">
+                        <!-- <lightning-button label="Cancel"></lightning-button> -->
+                        <lightning-button label="Submit" variant="brand"></lightning-button>
+                </div>
+    
+            </section>
+        </div>
+    
+</template>

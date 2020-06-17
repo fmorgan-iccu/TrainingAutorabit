@@ -1,0 +1,38 @@
+<apex:page id="CoreSpecific"
+	controller="ATBK.CoreSpecificController"
+	lightningStylesheets="true"
+	title="{!$Label[configurations['titleLabel']]}"
+	docType="html-5.0"
+	applyHtmlTag="false"
+	showHeader="false">
+	<apex:slds />
+	<c:CoreSpecificIncludes />
+	<div class="slds-scope">
+		<div id="coreSpecific">
+			<c:CoreSpecificPartial />
+			<core-specific
+				sub-title-label="{!$Label[configurations['subTitleLabel']]}"
+				questionnaire-available= "{!configurations['shouldRender']}"
+				title-label="{!$Label[configurations['titleLabel']]}"
+				button-label="{!$Label[configurations['continueButtonLabel']]}"
+				context-id="{!contextObjectId}"
+				current-context-id="{!configurations['contextId']}"
+				next-tertiary-href="{!configurations['nextTertiaryHrefUrl']}"
+			></core-specific>
+		</div>
+		<div class="screen-section-group">
+			<apex:outputPanel rendered="{!configurations['shouldRender']}">
+				<div class="content-heading corespecific"></div>
+				<div>
+					<apex:include pageName="LLC_BI__Questionnaire_App" />
+
+					<c:QuestionnaireConfiguration nextHref="{!configurations['reviewSubmitPageHref']}"
+						groupId="{!configurations['questionnaireId']}"
+						questionnaireType="{!configurations['questionnaireType']}"
+						contextOwnerId="{!configurations['contextOwnerId']}"
+						contextObjectId="{!contextObjectId}" />
+				</div>
+			</apex:outputPanel>
+		</div>
+	</div>
+</apex:page>

@@ -1,0 +1,12 @@
+<design:component label="CRM Case Layout">
+    <flexipage:template >
+        <!-- The default width for the "left" region is "MEDIUM". In tablets,  the width is "SMALL" -->
+        
+        <flexipage:region name="banner" defaultWidth="LARGE" />
+                       
+        <flexipage:region name="left" defaultWidth="SMALL" />
+                   
+        <flexipage:region name="right" defaultWidth="LARGE" />
+        
+    </flexipage:template>
+</design:component>

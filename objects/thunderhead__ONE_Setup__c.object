@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>thunderhead__api_key__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API key for your tenant (from the ONE tenant admin security page)</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The API key for your tenant (from the ONE tenant admin security page)</inlineHelpText>
+        <label>API_Key</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>thunderhead__api_secret__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API secret for your tenant (from the ONE tenant admin security page)</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The API secret for your tenant (from the ONE tenant admin security page)</inlineHelpText>
+        <label>API Secret</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>thunderhead__api_username__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The username used to make requests to one</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Thunderhead recommends creating a dedicated user for API requests. For example, create the user &apos;apiuser@tenant&apos;, with the email address of the user who will control the dedicated account.</inlineHelpText>
+        <label>API Username</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>thunderhead__server__c</fullName>
+        <defaultValue>&quot;https://eu2.thunderhead.com&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Server</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>thunderhead__site_key__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Site Key</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>thunderhead__touchpoint__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Touchpoint</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>ONE_Setup</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,285 @@
+/* Applying Base Styling */
+.THIS {
+    font-size: 16px;
+    padding: 2em;
+    margin-bottom: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.THIS ::placeholder {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+/* Styling the Validation Container */
+.THIS .validation-container {
+    background: #fff;
+    border-left: 4px solid #EB3D3D;
+    border-radius: 4px;
+    padding: 1em;
+    margin-bottom: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling the Inputs */
+.THIS .uiInput--input .input, 
+.THIS .uiInput--input.input {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.THIS .slds-button_icon-bare, 
+.THIS .slds-button--icon-bare {
+    color: #fff;
+}
+
+.THIS .slds-input {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.THIS .slds-icon-text-default {
+    fill: #BC3030;
+    vertical-align: top;
+}
+
+.THIS .error-headline {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #BC3030;
+}
+
+/* Login Header Styling */
+.THIS .login-header {
+    color: #fff;
+    padding-right: 2em;
+}
+
+.THIS .login-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.THIS .login-title .slds-icon_container {
+    padding-right: .5em;
+}
+
+.THIS .login-container {
+    flex: 1;
+}
+.THIS .main-container.showLogintrue {
+    display: block;
+}
+.THIS .main-container.showLoginfalse {
+    display: flex;
+}
+
+.THIS .impravata-dna-password {
+    margin-bottom: 1em;
+}
+
+.THIS .full-login-input {
+    margin-bottom: 1em;
+    width: 100%;
+}
+.THIS .full-login-input:last-child {
+    margin-bottom: 3em;
+}
+.THIS .full-login-input .slds-form-element {
+    display: flex;
+}
+
+.THIS #login-checkbox {
+    margin-bottom: 1em;
+}
+
+.THIS .slds-checkbox .slds-form-element__label {
+    font-size: 16px;
+    color: #fff;
+}
+
+.THIS label.slds-form-element__label {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.THIS .full-login-input .slds-form-element lightning-datepicker {
+    width: 100%;
+}
+
+.THIS .full-login-input .slds-form-element__label {
+    width: 35%;
+}
+
+.THIS .full-login-input .slds-form-element__control {
+    width: 65%;
+}
+
+.THIS.containerNotAuthed {
+    background-size: cover;
+    background-position: center 40%;
+    border-radius: 8px;
+}
+.THIS.containerPartiallyAuthed {
+    background-image: linear-gradient(90deg, #0197D4 0%, #0078A9 98%);
+    background-size: cover;
+    background-position: center 40%;
+    border-radius: 8px;
+}
+.THIS.containerFullyAuthed {
+    background-image: linear-gradient(90deg, #00AE00 0%, #006C18 100%);
+    background-size: cover;
+    background-position: center 40%;
+    border-radius: 8px;
+}
+.THIS.containerHidden {
+    display: none;
+    background-color: white;
+}
+.THIS > img.authIcon {
+    width: 2em;
+    color: white;
+}
+.THIS .login-details {
+    text-align: right;
+    color: white;
+    padding-top: 1em;
+    flex: 1;
+    clear: both;
+}
+.THIS .login-details a {
+    color: white;
+    text-decoration: underline;
+}
+.THIS .login-details a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.THIS .slds-spinner_container {
+    border-radius: 8px;
+}
+
+/*Buttons*/
+.THIS .login-button{
+    border-radius: .25rem;
+    font-size: t(mediumText);
+    background-color: white;
+    border: 1px solid #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    padding: .3em 0;
+}
+.THIS input[type=submit]:hover,
+.THIS input[type=submit]:active,
+.THIS .login-button:hover,
+.THIS .login-button:active {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.THIS.containerNotAuthed .login-button {
+    color: #F26222;
+}
+.THIS.containerPartiallyAuthed .login-button {
+    color: #14399C;
+}
+
+.THIS .full-login.showFullLoginfalse {
+    display: none;
+}
+.THIS .full-login.showFullLogintrue {
+    display: block;
+}
+.THIS .full-login.showFullLogintrue.wideDisplaytrue {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.THIS.wideDisplaytrue .main-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*Wide Display Media Queries*/
+@media (min-width: 850px) { 
+    .THIS.wideDisplaytrue .full-login .full-login-input:nth-child(odd) {
+        padding-right: 1em;
+    }
+    .THIS.wideDisplaytrue .full-login .full-login-input {
+        flex: none;
+        width: 50%;
+    }
+    .THIS.wideDisplaytrue .login-button {
+        width: auto;
+        padding: .5em 8em;
+        float: right;
+    }
+ }
+ @media (max-width: 2150px) { 
+    .THIS.wideDisplaytrue .full-login-input .slds-form-element__label {
+        width: 45%;
+    }
+    .THIS.wideDisplaytrue .full-login-input .slds-form-element__control {
+        width: 55%;
+    }
+ }
+ @media (max-width: 1880px) { 
+    .THIS.wideDisplaytrue .full-login-input .slds-form-element__label {
+        width: 45%;
+    }
+    .THIS.wideDisplaytrue .full-login-input .slds-form-element__control {
+        width: 55%;
+    }
+    .THIS.wideDisplaytrue .full-login .full-login-input:nth-child(odd) {
+        padding-right: 0;
+    }
+    .THIS.wideDisplaytrue .full-login .full-login-input {
+        flex: none;
+        width: 100%;
+    }
+ }
+ @media (max-width: 750px) { 
+    .THIS.wideDisplaytrue .main-container .login-header {
+        width: 100%;
+    }
+    .THIS.wideDisplaytrue .main-container .login-container {
+        width: 100%;
+    }
+ }
+
+ /* Side Bar Media Queries*/
+ @media (max-width: 1700px) {
+    .THIS .full-login-input .slds-form-element {
+        flex-wrap: wrap;
+    }
+    .THIS .full-login-input .slds-form-element__label {
+        width: 35%;
+    }
+    .THIS .full-login-input .slds-form-element__control {
+        width: 65%;
+    }
+ }
+ @media (max-width: 1250px) {
+    .THIS .full-login-input .slds-form-element {
+        flex-wrap: wrap;
+    }
+    .THIS .full-login-input .slds-form-element__label {
+        width: 45%;
+    }
+    .THIS .full-login-input .slds-form-element__control {
+        width: 55%;
+    }
+ }
+ @media (max-width: 1070px) {
+    .THIS .full-login-input .slds-form-element {
+        flex-wrap: wrap;
+    }
+    .THIS .full-login-input .slds-form-element__label {
+        width: 100%;
+    }
+    .THIS .full-login-input .slds-form-element__control {
+        width: 100%;
+    }
+ }

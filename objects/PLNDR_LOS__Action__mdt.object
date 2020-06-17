@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>PLNDR_LOS__Action_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Action Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Price in PrecisionLender</fullName>
+                    <default>true</default>
+                    <label>Price in PrecisionLender</label>
+                </value>
+                <value>
+                    <fullName>Update Loan</fullName>
+                    <default>false</default>
+                    <label>Update Loan</label>
+                </value>
+                <value>
+                    <fullName>Update Deposit</fullName>
+                    <default>false</default>
+                    <label>Update Deposit</label>
+                </value>
+                <value>
+                    <fullName>Update Other</fullName>
+                    <default>false</default>
+                    <label>Update Other</label>
+                </value>
+                <value>
+                    <fullName>Update Opportunity</fullName>
+                    <default>false</default>
+                    <label>Update Opportunity</label>
+                </value>
+                <value>
+                    <fullName>Find Pricing Scenarios</fullName>
+                    <default>false</default>
+                    <label>Find Pricing Scenarios</label>
+                </value>
+                <value>
+                    <fullName>Renew in PrecisionLender</fullName>
+                    <default>false</default>
+                    <label>Renew in PrecisionLender</label>
+                </value>
+                <value>
+                    <fullName>Map Renewal</fullName>
+                    <default>false</default>
+                    <label>Map Renewal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PLNDR_LOS__Object__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Object</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Actions</relationshipLabel>
+        <relationshipName>Actions</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <label>Action</label>
+    <pluralLabel>Actions</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

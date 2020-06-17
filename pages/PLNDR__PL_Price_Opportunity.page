@@ -1,0 +1,2 @@
+<apex:page standardController="Opportunity" extensions="PLNDR.PriceInPrecisionLenderController" action="{!PriceOpportunity}">    
+</apex:page>

@@ -1,0 +1,30 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Hello {!Opportunity.Contact_First_Name__c},<o:p></o:p></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Thank you for your online application for membership with
+Idaho Central Credit Union.&nbsp; ICCU uses the ChexSystem score when determining
+membership eligibility.&nbsp; A ChexSystem score is similar to a credit score,
+but for checking and savings accounts.<span style="mso-spacerun:yes">&nbsp; </span>Unfortunately
+you do not qualify for membership at this time due to a low ChexSystems
+Qualifile score, as well as &lt;Reason Code&gt; reported by &lt;Reporting
+Institution&gt;.&nbsp; You will also receive a notification in the mail letting
+you know of the decision on your application.&nbsp; Thank you again for your
+application, and we do apologize that you were unable to qualify.&nbsp; If you
+have questions, please feel free to contact us at 1-800-456-5067 using
+reference number &lt;CollabJob&gt;.<o:p></o:p></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; text-indent: 0.5in;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Thank you,<o:p></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"></p><p class="MsoNormal" style=""><font color="#54575a" face="Cambria, serif"><b>{!Opportunity.OwnerFullName}</b></font></p>
+
+<p class="MsoNormal"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">Idaho
+Central Credit Union<o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">P.O.
+Box 2469<o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">Pocatello,
+ID 83206<o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">d:
+(208) 239-3000 <b>|</b> f: (208) 239-3055<o:p></o:p></span></p><p class="MsoNormal"><br></p><p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"></p>]]></td>
+</tr>
+</table>

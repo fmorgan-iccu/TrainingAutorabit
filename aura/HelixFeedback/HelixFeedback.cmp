@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes" >
+    
+    <aura:attribute name="field1" type="String"/>
+    
+    <lightning:card title="Make Helix Better">
+        <p>We want Helix to be a tool that you love. Help us improve it by submitting an idea or a bug. </p>
+        <div class="actions">
+            <a href="https://idea.iccu.com/#!/app/createIdea/" class="action-button idea" target="_blank">
+                <lightning:icon iconName="utility:light_bulb" size="medium" />
+                <p>Submit an Idea</p>
+            </a>
+            <a href="https://msc-webhelpdesk.iccu.com/helpdesk/WebObjects/Helpdesk.woa/wa/TicketActions/view" class="action-button bug" target="_new">
+                <lightning:icon iconName="custom:custom34" size="large" />
+                <p>Report a Bug</p>
+            </a>
+        </div>
+        <h4>What is the difference between an idea and a bug?</h4>
+        <p>An idea is a new feature you would like to see. If it includes new functionality, it means you want a certain 
+            part of Helix to work differently than it does now. A bug is something that should be working but isn’t. 
+            It’s something that needs to be fixed, not added.</p>
+    </lightning:card>
+    
+</aura:component>

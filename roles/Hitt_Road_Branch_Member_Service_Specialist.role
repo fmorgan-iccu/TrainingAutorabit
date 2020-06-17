@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Hitt Road Branch Member Service Specialist</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Hitt Road Branch Member Service Specialist</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Hitt_Road_Branch_Manager</parentRole>
+</Role>

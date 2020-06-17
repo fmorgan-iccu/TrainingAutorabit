@@ -1,0 +1,169 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-1 {
+    flex: 1;
+}
+/* 
+p {
+    font-size: 16px;
+} */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+
+article {
+    margin-bottom: 2em;
+}
+
+.main-container {
+    background: #fff;
+    border-radius: 4px;
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+}
+
+/* Header Stylng */
+.header {
+    background-image: linear-gradient(90deg, #006C18, #24B200);
+    color: #fff;
+    text-align: center;
+    padding: 3em;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Main Content Styling */
+.content {
+    padding: 3em;
+}
+
+.card-maintenance-frozen {
+    border: 1px solid #0197D4;
+    border-radius: 4px;
+}
+
+.card-maintenance-cancel {
+    border: 1px solid #EB3D3D;
+    border-radius: 4px;
+}
+
+.container {
+    padding: 2.5em;
+}
+
+.card-maintenance-header-frozen {
+    background: #0197D4;
+    color: #fff;
+    padding: 1em 1.5em;
+    font-weight: 600;
+}
+.card-maintenance-header-cancel {
+    background: #EB3D3D;
+    color: #fff;
+    padding: 1em 1.5em;
+    font-weight: 600;
+}
+
+svg {
+    width: 16px;
+    margin-right: 0.5em;
+    fill: #fff;
+}
+
+label {
+    display: block;
+    font-size: 0.75em;
+}
+
+.deselect-button {
+    margin-right: 2em;
+}
+
+.card-actions {
+    margin-bottom: 2em;
+}
+
+.freeze-card {
+    background: #fff;
+    border: 1px solid #0197D4;
+    font-weight: 600;
+    padding: 0.5em 4em;
+    margin-right: 2em;
+}
+
+.freeze-card:hover,
+.freeze-card:focus,
+.freeze-card:active {
+    background: #0197D4;
+    color: #fff;
+}
+
+.cancel-card {
+    background: #fff;
+    border: 1px solid #EB3D3D;
+    font-weight: 600;
+    padding: 0.5em 4em;
+}
+
+.cancel-card:hover,
+.cancel-card:focus,
+.cancel-card:active {
+    background: #EB3D3D;
+    border: 1px solid #EB3D3D;
+    color: #fff;
+}
+
+input {
+    width: 100%;
+}
+
+.reason {
+    margin-bottom: 2em;
+}
+
+.m-right {
+    margin-right: 1em;
+}
+
+.m-left {
+    margin-left: 1em;
+}
+
+.action-buttons {
+    justify-content: flex-end;
+    margin: 2em 0;
+}
+
+.slds-pill {
+    padding: 0 1em;
+    background: #1c8900;
+    color: #fff;
+}
+
+.card-status {
+    margin-bottom: 2em;
+}

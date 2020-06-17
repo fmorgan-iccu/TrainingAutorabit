@@ -1,0 +1,112 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="MemberApplicationsController">
+    <!-- 
+    COMPONENT OVERVIEW:
+    This is the applications view for the applications tab for both the 
+    MCC and FSC. The CrmMemberApplication component is used to dispay the single
+    applications within sections.
+    -->
+
+    <!-- Event Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+
+    <!-- Attributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="submittedApplications" type="Object"/>
+    <aura:attribute name="completedApplications" type="Object"/>
+    <aura:attribute name="fundedApplications" type="Object"/>
+    <aura:attribute name="showApplicationDetails" type="Boolean" default="false" />
+    <aura:attribute name="submittedApplicationsErrorMessage" type="String" default="" />
+    <aura:attribute name="noSubmittedApplicationsMessage" type="String" default="" />
+    <aura:attribute name="noCompletedApplicationsMessage" type="String" default="" />
+    <aura:attribute name="noFundedApplicationsMessage" type="String" default="" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+
+    <!-- Begin Component -->
+    <div class="applications-container">
+        <div class="applications-header">
+            <lightning:layout >
+                <c:fontawesomeIcon iconName="file-alt" iconColor="purple"/>
+                <h2>Applications</h2>
+            </lightning:layout>
+        </div>
+        
+        <aura:if isTrue="{!v.isLoading}">
+            <c:CRMLoadingSpinner message="Applications from CRIF Action &amp; Encompass" />
+        </aura:if>
+        
+        <aura:if isTrue="{!v.submittedApplicationsErrorMessage.length &gt; 0}">
+            <c:CRMAlert alertState="error">
+                <aura:set attribute="alertMessage">
+                    <p>
+                        {!v.submittedApplicationsErrorMessage} <lightning:button label="Try Again" onclick="{!c.fetchOpenApplications}" />
+                    </p>
+                </aura:set>
+            </c:CRMAlert>
+        </aura:if>
+        
+        <section class="submitted-applications">
+            <h3>Submitted Applications</h3>
+            
+            <!-- Message if there are no applications -->
+            {!v.noSubmittedApplicationsMessage}
+
+            <aura:iteration items="{!v.submittedApplications}" var="application">
+                <c:CrmMemberApplication Application="{!application}" 
+                                        DetailedView="{!v.showApplicationDetails}"/>
+            </aura:iteration>
+        </section>
+        
+        <section class="submitted-applications">
+            <h3>Completed and Unfunded Applications</h3>
+
+            {!v.noCompletedApplicationsMessage}
+            
+            <aura:iteration items="{!v.completedApplications}" var="application">
+                <c:CrmMemberApplication Application="{!application}" 
+                                        DetailedView="{!v.showApplicationDetails}"/>
+            </aura:iteration>
+        </section>
+        
+        <section class="submitted-applications">
+            <h3>Funded Applications</h3>
+
+            {!v.noFundedApplicationsMessage}
+            
+            <aura:iteration items="{!v.fundedApplications}" var="application">
+                <c:CrmMemberApplication Application="{!application}" 
+                                        DetailedView="{!v.showApplicationDetails}"/>
+            </aura:iteration>
+        </section>
+        
+        <!--
+        <section class="unsubmitted-applications">
+            <h3>Unsubmitted Applications (Avoka)</h3>
+            <c:CrmMemberApplication ApplicationLink="#"
+                                    ApplicationType="Free Checking"
+                                    ApplicationNumber="7238947"
+                                    LoanOfficer="Jordan Smith" 
+                                    LoExtension="1234"
+                                    ApplicationStatus="In Progress"/>
+        </section>
+        
+        <section class="closed-applications">
+            <h3>Closed Applications</h3>
+            <c:CrmMemberApplication ApplicationLink="#"
+                                    ApplicationType="Rewards Visa Card"
+                                    ApplicationNumber="7238947"
+                                    LoanOfficer="Jordan Smith" 
+                                    LoExtension="1234"
+                                    ApplicationStatus="Denied"
+                                    DateCompleted="March 6th 2018"/>
+            <c:CrmMemberApplication ApplicationLink="#"
+                                    ApplicationType="New Membership"
+                                    ApplicationNumber="7238947"
+                                    LoanOfficer="Jordan Smith" 
+                                    LoExtension="1234"
+                                    ApplicationStatus="Funded"
+                                    DateCompleted="March 5th 2018"/>
+        </section>
+        -->
+    </div><!-- End Component Container -->
+</aura:component>

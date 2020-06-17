@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Outbound_Letterhead</letterhead>
+    <name>Failed-Unable to Process Online</name>
+    <style>freeForm</style>
+    <subject>Your Recent Application with ICCU</subject>
+    <textOnly>Hello {!Opportunity.Contact_First_Name__c},
+
+
+Thank you for applying online for membership with Idaho Central Credit Union. Unfortunately there was an error processing your online membership application. We ask that you re-apply on ICCU.com by selecting the “Join Now” option on the top left-hand side of our home page. We can also complete a membership application in your local branch if that is more convenient for you. If you have questions, please feel free to contact us at 1-800-456-5067 using reference number &lt;CollabJob&gt;.
+
+
+Thank you,
+
+
+{!Case.OwnerFullName}
+
+Idaho Central Credit Union
+
+P.O. Box 2469
+
+Pocatello, ID 83206
+
+d: (208) 239-3000 | f: (208) 239-3055</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

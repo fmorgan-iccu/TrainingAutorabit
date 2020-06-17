@@ -1,0 +1,118 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="AccountOpeningPrefillController" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- <aura:attribute name="recordId" type="String" /> -->
+    <aura:attribute name="contactName" type="String" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="enableSubmit" type="Boolean" default="false" />
+    <aura:attribute name="errorMessage" type="String"/>
+    
+    <aura:attribute name="record" type="Object" 
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" 
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" 
+                    description="An error message bound to force:recordData"/>
+
+    <aura:attribute name="categories" type="Array" /> <!-- Property for storing all of the retreived categories -->
+    <aura:attribute name="categoryValues" type="Array" /> <!-- Property for the models needed for the combobox -->
+    <aura:attribute name="allProducts" type="Array" /> <!-- Property for storing all of the retrieved products -->
+    <aura:attribute name="filteredProducts" type="Array" /> <!-- Property for products based on selected category -->
+    <aura:attribute name="selectedProduct" type="Object"/> <!-- Property for the product selected by the user. -->
+    <aura:attribute name="prefillURL" type="String" /> <!-- Property for the prefill URL received after submitting. -->
+    
+    <force:recordData aura:id="record"
+                      fields="Name"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      mode="VIEW"/>
+
+    <!-- The below attributes and lightning:overlay are for triggering the modal popup. -->
+    <aura:attribute name="actions" type="Aura.Component[]"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+                <c:CRMAlert alertState="error">
+                    <aura:set attribute="alertMessage">
+                        <p>
+                            {!v.errorMessage}
+                        </p>
+                    </aura:set>
+                </c:CRMAlert>
+            </aura:if>
+            
+            <div class="slds-modal__header">
+                <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                    X
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                    New Member Application for {!v.simpleRecord.Name}
+                </h2>
+            </div>
+            
+            <div class="slds-modal__content">
+                
+                <div class="AvokaAppContainer">
+                    <aura:if isTrue="{!v.isLoading}">
+                        <c:CRMLoadingSpinner message="" />
+                    </aura:if>
+
+                    <aura:if isTrue="{!v.prefillURL == null &amp;&amp; v.isLoading == false}">
+                        <div class="TitleContainer">
+                            <h2>Choose a product</h2>
+                            <p>Below is a list of accounts that you can open online. You can also filter by account types, such as checking, savings, etc. </p>
+                        </div>
+                        <h5 id="ChooseLabel">Filter by</h5>
+                        
+                        <!-- Dropdown menu selecting the category -->
+                        <div class="ComboBoxContainer">
+                            
+                            <lightning:combobox aura:id="selectItem" 
+                                                name="status"
+                                                label="Product Selection"
+                                                placeholder="Choose a Product"
+                                                value="new"
+                                                onchange="{!c.selectCategory}"
+                                                options="{!v.categoryValues}" />
+                        </div>
+                        
+                        <hr/>
+                        
+                        <!-- Product Information -->
+                        <aura:iteration items="{!v.filteredProducts}" var="product">
+                            <div class="ProductContainer">
+                                <h3 id="ProductTitle">{!product.displayName}</h3>
+                                <p id="ProductDescription">{!product.description}</p>                            
+                                <lightning:button class="SelectButton" variant="brand" label="Select" onclick="{!c.selectProduct}" value="{!product.id}" />
+                                
+                                <!-- <aura:if isTrue="{!v.enableSubmit}">
+                                    <lightning:button class="UnselectButton" label="Unselect" onclick="{c.}"/>
+                                </aura:if> -->
+                            </div>
+                        </aura:iteration>
+
+                    </aura:if>
+                    <aura:if isTrue="{!v.prefillURL.length > 0}">
+                        <h2>Click the link below to start the application</h2>
+                        <h4><a href="{!v.prefillURL}" target="_new">Start Application</a></h4>
+                    </aura:if>
+                                   
+                </div> <!-- End of AvokaAppContainer -->
+            </div><!-- End of slds-modal__content -->
+            
+            <!-- Begin footer element for buttons -->
+            <aura:if isTrue="{!v.prefillURL == null &amp;&amp; v.isLoading == false}">
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="inverse" label="Cancel" onclick="{!c.closeModal}" />
+                    <lightning:button variant="brand" label="Submit" onclick="{!c.submitNewApp}" disabled="{!v.enableSubmit == false}" />
+                </footer> <!-- End footer element -->
+            </aura:if>
+        </div>
+    </div>
+	
+</aura:component>

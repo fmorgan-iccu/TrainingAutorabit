@@ -1,0 +1,63 @@
+<apex:page controller="ndd.DictionaryCommsController" action="{!init}" sidebar="false">
+    <apex:form id="form" >
+        <apex:sectionHeader title="{!$Label.ndd__dictionary_page_title}"/>
+        <apex:pageMessages id="messages"/>
+        <apex:pageBlock title="{!$Label.ndd__dictionary_page_subtitle}">
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="{!$Label.ndd__dictionary_preview_button}" action="{!previewDictionaryRecords}" />
+                <apex:commandButton value="{!$Label.ndd__dictionary_update_button}" action="{!updateDictionary}" />
+                <apex:commandButton value="{!$Label.ndd__dictionary_clear_records_button}" action="{!clearDictionaryRecords}" />
+                <apex:commandButton value="{!$Label.ndd__dictionary_cancel_button}" action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ndd__dictionary_custom_objects}" />
+                    <apex:selectList size="12" value="{!selectedCustomObjects}" multiselect="true" >
+                        <apex:selectOptions value="{!sourceCustomObjects}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>   
+
+        <apex:pageBlock title="{!$Label.ndd__dictionary_preview_section_title}" rendered="{!isPreviewMode}">
+			<apex:pageBlockTable value="{!listEntries}" var="item" >
+				<apex:column value="{!item.ndd__Information_Available__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_record_available}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Object_Name__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_object_label}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Object_API_Name__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_object_api_label}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Label__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_label}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__API_Name__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_api_name}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Description__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_description}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Type_Description__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_type_description}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Inline_Help_Text__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_inline_help_text}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Type__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_type}</apex:facet>
+				</apex:column>			    
+				<apex:column value="{!item.ndd__Length__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_length}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Precision__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_precision}</apex:facet>
+				</apex:column>
+				<apex:column value="{!item.ndd__Scale__c}" >
+					<apex:facet name="header">{!$Label.ndd__dictionary_item_scale}</apex:facet>
+				</apex:column>
+			</apex:pageBlockTable>
+        </apex:pageBlock>   
+	</apex:form>
+</apex:page>

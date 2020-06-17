@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>DNA Applications Analyst</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>DNA Applications Analyst</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Information_Technology_Manager</parentRole>
+</Role>

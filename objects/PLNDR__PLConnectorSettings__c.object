@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Deprecated</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>PLNDR__Application_Url__c</fullName>
+        <deprecated>false</deprecated>
+        <description>PrecisionLender instance URL</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Application Url</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>PLNDR__ClientApiKey__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>ClientApiKey</label>
+        <length>36</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PLNDR__ClientId__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>ClientId</label>
+        <length>36</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PLNDR__Relationship_External_ID_Source__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the Account field that corresponds to the Id for Relationships in the Relationship Awareness feed.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Relationship ID Source</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>PrecisionLender Connector</label>
+    <visibility>Public</visibility>
+</CustomObject>

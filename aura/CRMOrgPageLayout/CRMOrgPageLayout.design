@@ -1,0 +1,10 @@
+<design:component label="Account Page Layout">
+    <flexipage:template >
+        <!-- The default width for the "left" region is "MEDIUM". In tablets,  the width is "SMALL" -->
+        
+        <flexipage:region name="banner" defaultWidth="LARGE" />
+                   
+        <flexipage:region name="column" defaultWidth="LARGE" />
+        
+    </flexipage:template>
+</design:component>

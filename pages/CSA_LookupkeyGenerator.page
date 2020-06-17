@@ -1,0 +1,34 @@
+<apex:page >
+    <apex:composition template="nFORCE__Template_Heading">
+        <apex:define name="left">
+            <div>LookupKey Generator</div>
+            <div>Generator helps fill out all lookupkeys on all config objects in nCino.</div>
+        </apex:define>
+        <apex:define name="right">
+            <div>v1.0</div>
+        </apex:define>
+    </apex:composition>
+    <apex:composition template="nFORCE__Template_View_1_Column">
+        <apex:define name="column-content">
+            <apex:composition template="nFORCE__Template_View_Container">
+                <apex:define name="content">
+                    <div class="col-xs-12">
+                        <style type="text/css">
+                            .slds-loading-text {
+                                transform: rotate(270deg);
+                                width: 225px;
+                                margin-top: -35px;
+                                margin-left: -50px;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                        </style>
+                        <c:CSA_LookupkeyGeneratorView />
+                        <c:CSA_GeneratingKeysLoading />
+                        <c:CSA_RetrievingRecordsLoading />
+                    </div>
+                </apex:define>
+            </apex:composition>
+        </apex:define>
+    </apex:composition>
+</apex:page>

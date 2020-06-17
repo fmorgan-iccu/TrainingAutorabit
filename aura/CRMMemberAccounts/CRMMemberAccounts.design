@@ -1,0 +1,3 @@
+<design:component>
+	<design:attribute name="LoadOrgAccounts" label="Load Org Accounts" description="Indicates that this component should attempt to load Organization accounts, instead of member accounts." />
+</design:component>

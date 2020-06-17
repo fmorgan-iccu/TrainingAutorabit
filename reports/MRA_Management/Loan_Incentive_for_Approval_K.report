@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 350000 , 0.001 ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 500000 , 0.0025 ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 600000 , 0.003 ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 700000 , 0.00325 ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 800000 , 0.004 ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 900000 , 0.00425 ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 1000000 , 0.0045 ,
+0.00475 )))))))</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Multiplier for Incentive Amount</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>ROLLUP_DESCRIPTION</downGroupingContext>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Margin</masterLabel>
+        <scale>5</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 350000 , 0.001 * AMOUNT:SUM ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 500000 , 0.0025 * AMOUNT:SUM ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 600000 , 0.003 * AMOUNT:SUM ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 700000 , 0.00325 * AMOUNT:SUM ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 800000 , 0.004 * AMOUNT:SUM ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 900000 , 0.00425 * AMOUNT:SUM ,
+IF( PARENTGROUPVAL( AMOUNT:SUM, FULL_NAME ) &lt; 1000000 , 0.0045 * AMOUNT:SUM ,
+0.00475 * AMOUNT:SUM )))))))</calculatedFormula>
+        <datatype>currency</datatype>
+        <description>= Amount x Margin</description>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>ROLLUP_DESCRIPTION</downGroupingContext>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Incentive Amount</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 350000 , 0.001 * Opportunity.Loan_Incentive_Amount__c:SUM,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 500000 , 0.0025 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 600000 , 0.003 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 700000 , 0.00325 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 800000 , 0.004 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 900000 , 0.00425 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 1000000 , 0.00475 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+0.00475 * Opportunity.Loan_Incentive_Amount__c:SUM )))))))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Loan Incentive - With Out Mortgage</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Opportunity.Mortgage_Power_of_One__c:SUM = 0, 0,
+IF(Opportunity.Mortgage_Power_of_One__c:SUM &lt; 2, 100,
+IF(Opportunity.Mortgage_Power_of_One__c:SUM &lt; 3, 100,
+IF(Opportunity.Mortgage_Power_of_One__c:SUM &lt; 4, 125,
+Opportunity.Mortgage_Power_of_One__c:SUM * 175))))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA4</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Mortgage Incentive</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>(
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 350000 , 0.001 * Opportunity.Loan_Incentive_Amount__c:SUM,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 500000 , 0.0025 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 600000 , 0.003 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 700000 , 0.00325 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 800000 , 0.004 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 900000 , 0.00425 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+IF( Opportunity.Loan_Incentive_Amount__c:SUM &lt; 1000000 , 0.0045 * Opportunity.Loan_Incentive_Amount__c:SUM ,
+0.00475 * Opportunity.Loan_Incentive_Amount__c:SUM )))))))
+)
++
+(
+IF(Opportunity.Mortgage_Power_of_One__c:SUM = 0, 0,
+IF(Opportunity.Mortgage_Power_of_One__c:SUM &lt; 3, 100,
+IF(Opportunity.Mortgage_Power_of_One__c:SUM &lt; 4, 100,
+Opportunity.Mortgage_Power_of_One__c:SUM * 175))))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA5</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Loan Incentive With Mortgage Incentive</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <aggregate>Sum</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>AMOUNT</column>
+        </chartSummaries>
+        <chartType>HorizontalBarGrouped</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>FULL_NAME</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_BOTTOM</location>
+        <secondaryGroupingColumn>ROLLUP_DESCRIPTION</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>CLOSE_DATE</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Product__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AMOUNT</field>
+    </columns>
+    <description>Shows at MRA home page and the Incentives include Mortgage</description>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity.Opportunity_Owner_Role__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Member Relationship Agent,MRA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Product__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Auto,Visa,Visa Increase,HELOC,Mortgage,Motorcycle,PLOC,RV,Signature Loan,Small RV,MRA Checking Incentive,MRA GAP Incentive,MRA Visa Incentive,MRA Loan Count Incentive,MRA HELOC Incentive,GAP Volume</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>MRA - Complete,Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>MRA - Decline,MRA - Member Decline,BR - Deposit Lost,BR - Withdrawn,BL - Closed,BL - Lost,BL - Withdrawn,BL - Declined,BD - Cancelled,FSC - Declined,FSC - Member Decline,FSC - NFA,Closed,Declined,Member Rejected,No Further Action</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FULL_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ROLLUP_DESCRIPTION</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>My Loan Incentive for Approval</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>CLOSE_DATE</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CLOSE_DATE</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
+    </timeFrameFilter>
+</Report>

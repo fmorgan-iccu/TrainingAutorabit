@@ -1,0 +1,26 @@
+<template>
+    <p class="label">
+        <template if:true={required}>
+            <abbr title="required" class="slds-required">*</abbr>
+        </template>
+        {label}
+    </p>
+
+    <div class={hasError}>
+        <input name="" disabled={isDisabled} list="countrySelection" class="countryInput slds-input" onchange={handleCountrySelect} onblur={handleCountryBlur}>
+        <datalist id="countrySelection" class="countryList">
+            <template for:each={countryOptions.data} for:item="country">
+                <option key={country.charCode3}>{country.name}</option>
+            </template>
+        </datalist>
+    
+        <div style={multiSelectShowStyle}>
+            <!-- The pills array must mutate for this child component to properly re-render! -->
+            <lightning-pill-container items={pills} onitemremove={handleItemRemove}></lightning-pill-container>
+        </div>
+    
+        <div class="slds-form-element__help" if:true={showRequired}>
+            Select at least one
+        </div>
+    </div>
+</template>

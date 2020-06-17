@@ -1,0 +1,131 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <!-- **********************************************************************************
+		This component displays an individual insight within the member insights component.
+        
+		This component accepts the following attributes:
+			• "icon" (string) the icon name
+			• "title" (string) the title next to the icon
+			• "info" (string) displays to the right of the title
+			• "details" (string) displays below the title - used sparingly
+			• "inactive" (boolean) when true will turn the info and icon to a greyed out inactive color scheme
+			• "fa" (boolean) when true will allow use of a font awesome icon instead of salesforce icon
+			• "isLoading" (boolean) when true displays a loading insight placeholder
+			• "extendedDetail" (string) use instead of info if the insight has lotsa info
+			• "color" (string) will only work if the following colors are entered:
+				• "iccu" (iccu branded green)
+				• yellow
+                • purple
+                • blue
+                • red
+                • teal
+                • green
+                • orange
+                • pink
+                • indigo
+                • lime
+		All boolean attributes are set to false by default.
+		No other attributes have default values.
+	************************************************************************************** -->
+    
+    <aura:attribute name="insightId" type="String"/>
+    
+    <!-- Setting Attributes -->
+    <aura:attribute name="icon" type="String"/>
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="info" type="String"/>
+    <aura:attribute name="details" type="String"/> 
+    <aura:attribute name="inactive" type="Boolean" default="false"/>
+    <aura:attribute name="fa" type="Boolean" default="false"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="color" type="String"/>
+    <aura:attribute name="extendedDetail" type="String"/>
+    
+    <!-- Attributes to be set by controller -->
+    <aura:attribute name="ViewNotes" type="boolean" default="false"/>
+    <aura:attribute name="NotesClosed" type="boolean" default="false"/>
+    
+    <!-- Begin Component Markup -->
+    <!-- is the component loading? -->
+    <aura:if isTrue="{!v.isLoading}">
+        <div class="container">
+                <!-- Row 1 -->
+                <div class="{!'main-row-1 ' + v.inactive}">
+                    <div class="icon-column">
+                        
+						<div class="{!'spinner-container ' + v.color}">
+                            <lightning:spinner variant="brand" size="small" class="CRMInsightSpinner" />
+                        </div>
+
+                    </div> <!--icon-column -->
+                    <div class="text-column">
+                       <div class="text-row-1">
+                            <h5 class="title loading">Loading {!v.title}</h5>
+                       </div> <!-- text-row-1 -->
+                    </div> <!-- text-column -->
+                </div>
+                
+            </div>
+        
+        <!-- is not loading -->
+        <aura:set attribute="else">
+            <div class="container">
+                <!-- Row 1 -->
+                <div class="{!'main-row-1 ' + v.inactive}">
+                    <div class="icon-column">
+                        
+                        <!-- salesforce icon or font awesome icon -->
+                        <aura:if isTrue="{!v.fa}">
+                            <c:fontawesomeIcon iconName="{!v.icon}" iconColor="{!v.color}"/>
+                            <aura:set attribute="else">
+                                <lightning:icon iconName="{!v.icon}" variant="inverse" alternativeText="" size="small" class="{!v.color}"/>
+                            </aura:set>
+                        </aura:if>  
+                        
+                    </div> <!--icon-column -->
+                    <div class="text-column">
+                       <div class="text-row-1">
+                            <h5 class="title">{!v.title}</h5>
+                           <aura:if isTrue="{!v.extendedDetail}">
+                               <p class="info">
+                                   <lightning:button value="{!v.insightId}" onclick="{!c.openInsight}" class="editInsight">Edit</lightning:button> |
+                                   <aura:if isTrue="{!v.ViewNotes}">
+                                        <a class="hideDetails" onclick="{!c.showLess}">
+                                            Hide Detail
+                                        </a>
+                                       <aura:set attribute="else">
+                                            <a class="viewDetails" onclick="{!c.showMore}">
+                                                Show Detail
+                                            </a>
+                                       </aura:set>
+                                    </aura:if>
+                                </p>
+                               <aura:set attribute="else">
+                                   <p class="info">{!v.info}</p>
+                                   <aura:if isTrue="{!v.insightId.length &gt; 0}">
+                                       <lightning:button value="{!v.insightId}" onclick="{!c.openInsight}" class="editInsight">Edit</lightning:button>
+                                   </aura:if>
+                               </aura:set>
+                           </aura:if>
+                       </div> <!-- text-row-1 -->
+                       <div class="text-row-2">
+                           <p>{!v.details}</p>
+                       </div> <!-- text-row-2 -->
+                    </div> <!-- text-column -->
+                </div>
+                <!-- end main-row-1 -->
+                
+                <!-- Main Row 2
+					 For Extended Deets -->
+                <aura:if isTrue="{!v.extendedDetail}">
+                    <div class="{! 'main-row-2 open-' + v.ViewNotes + ' close-' + v.NotesClosed }">
+                        <p>{!v.extendedDetail}</p>
+                    </div> 
+                </aura:if>
+                <!-- end main-row-2 -->
+                
+            </div> 
+        </aura:set>
+    </aura:if>
+    <!-- End Container-->
+    
+</aura:component>

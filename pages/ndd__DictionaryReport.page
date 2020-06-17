@@ -1,0 +1,47 @@
+<apex:page showHeader="false" sidebar="false" controller="ndd.DictionaryReportController" renderAs="pdf" applyHtmlTag="false">
+<html>
+<head>
+	<apex:stylesheet value="{!URLFOR($Resource.ndd__pdfStyle)}"/>
+</head>
+
+<h1>{!$Label.ndd__data_dictionary_header}</h1>
+<body>
+	<table id="packageTable">
+		<tr>
+			<th><b>{!$ObjectType.ndd__Installed_Package__c.fields.ndd__Namespace_Prefix__c.Label}</b></th>
+			<th><b>{!$ObjectType.ndd__Installed_Package__c.fields.ndd__Version_Number__c.Label}</b></th>
+		</tr>
+		<apex:repeat value="{!installedPackageEntries}" var="installedPackage">
+		<tr>
+			<td><apex:outputField value="{!installedPackage.ndd__Namespace_Prefix__c}" /></td>
+			<td><apex:outputField value="{!installedPackage.ndd__Version_Number__c}" /></td>
+		</tr>
+		</apex:repeat>
+		<tr class='underline'><td colspan='2'></td><td></td></tr>
+	</table>
+
+	<apex:repeat value="{!dictionaryByObjectAPIName}" var="key">
+		<table>
+		<apex:variable var="previousObject" value="" />
+
+		<apex:repeat value="{!dictionaryByObjectAPIName[key]}" var="entry">
+			<apex:outputPanel rendered="{!previousObject != entry.Object_Name__c}">
+				<tr><th><b>{!$Label.ndd__object} {!entry.Object_Name__c}</b></th><th><b>{!$Label.ndd__object_api_name} {!key}</b></th></tr>
+			</apex:outputPanel>
+			<apex:variable var="previousObject" value="{!entry.Object_Name__c}" />
+			<apex:repeat value="{!$ObjectType.ndd__Dictionary__c.FieldSets.ndd__Report_Fields}" var="f">
+				<apex:outputPanel rendered="{!entry[f.fieldPath] != ''}">
+				<tr>
+					<td class='leftColumn'>{!f.label}</td>
+					<td><apex:outputField value="{!entry[f.fieldPath]}" /></td>
+				</tr>
+				</apex:outputPanel>
+			</apex:repeat>
+			<tr class='underline'><td colspan='2'></td><td></td></tr>
+		</apex:repeat>
+		</table>
+		<div class="page-break"></div>
+	</apex:repeat>
+</body>
+</html>
+</apex:page>

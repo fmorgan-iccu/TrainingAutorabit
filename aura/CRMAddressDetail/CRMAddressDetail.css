@@ -1,0 +1,48 @@
+.THIS.field {
+    margin-bottom: 1.5rem;
+    /* padding: 1rem; */
+}
+.THIS.field label {
+    font-weight: bold;
+    padding-bottom: .5rem;
+    font-size: 1rem;
+    color: rgb(62, 62, 60);
+}
+.THIS.field p {
+    margin-top: .5rem;
+}
+.THIS.field p.error {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    color: t(iccuError);
+}
+.THIS.field p.error {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    color: t(iccuError);
+}
+.THIS.field .slds-form-element__control {
+    margin-right: 1em;
+}
+/* .THIS .slds-form-element__label {
+    margin-bottom: .325rem;
+    margin-top: .75rem;
+} */
+
+/*Field Sizing*/
+.THIS .form {
+    display: flex;
+    flex-wrap: wrap;
+}
+.THIS .addressLine,
+.THIS .verification {
+    width: 100%;
+}
+.THIS .city,
+.THIS .zipcode {
+    width: 50%;
+}
+.THIS .state,
+.THIS .country {
+    width: 50%;
+}

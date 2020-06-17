@@ -1,0 +1,38 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial">Hello {!CASE(FIND("-", Opportunity.Name), 0, null, LEFT(Opportunity.Name, FIND("-", Opportunity.Name) - 2))},</font>]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;background:white">My name
+is {!Opportunity.OwnerFullName},&nbsp;I am a Loan Officer at Idaho Central
+Credit Union and I’m emailing you in regards to the loan inquiry that you
+requested. I just left you a voicemail but I wanted to send you an email in
+case this was a more convenient way for you to communicate with me.&nbsp;</span><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;color:black"><br>
+<br>
+<span style="background:white">I have some questions about the information you
+entered in your application and I’d like to go over the application process
+with you. I would greatly appreciate it if you could get back to me at your
+earliest convenience. You can do this by contacting me at one of the numbers
+below, or by simply replying to this email.&nbsp;</span><br>
+<br>
+<span style="background:white">I look forward to hearing from you. Thank you
+and have a nice day!&nbsp;</span><br>
+<br>
+<span style="background:white">Thanks again!</span></span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif;
+mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;background:white">{!Opportunity.OwnerFirstName}</span><span style="font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:
+&quot;Times New Roman&quot;;color:black"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><br></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font face="arial">Treasure Valley – 208-846-7000</font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font face="arial">Magic Valley – 208-733-4777</font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font face="arial">Eastern Idaho – 208-478-3300</font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font face="arial">North Idaho – 208-667-7722</font></p>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[]]></td>
+</tr>
+</table>

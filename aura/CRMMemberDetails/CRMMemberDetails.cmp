@@ -1,0 +1,28 @@
+<aura:component >
+    <!--
+	This component shows the details for a member.
+	It's built for the 'details' tab within the member (contact) page
+	-->
+    
+    <!-- Begin Component Markup -->
+    <lightning:layout class="details-header">
+    	<lightning:layoutItem >
+            <c:fontawesomeIcon iconName="list-alt" iconColor="pink"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem >
+        	<h1>Person Details</h1>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+    <div class="member-information">
+    	<lightning:layout >
+            <lightning:layoutItem >
+            	<lightning:icon iconName="utility:chevrondown" size="xx-small"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem >
+            	<p>Member Information</p>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+</aura:component>

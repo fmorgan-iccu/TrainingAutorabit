@@ -1,0 +1,48 @@
+.THIS {
+    margin-bottom: 2em;
+}
+.THIS .fields {
+    padding: .5em 2em 1.5em 2em;
+}
+.THIS [class*='slds-text-heading'] {
+    font-weight: bold;
+}
+.THIS input:not([type=submit]),
+.THIS textarea,
+.THIS select {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: .8em;
+    border: 1px solid #DDDDDD;
+    padding: .3rem .2rem;
+}
+.THIS select {
+    background: white;
+}
+.THIS,
+.THIS label {
+    color: t(darkestGray)
+}
+/*Checkbox*/
+.THIS form input[type="checkbox"] {
+    width: auto;
+}
+/*Submit*/
+.THIS input[type="submit"] {
+    border-radius: 4px;
+    border: none;
+    color: white;
+    background: t(iccuPrimaryGreen);
+    padding: .6em 1em;
+}
+.THIS input[type="submit"]:hover {
+    background: t(iccuSecondaryGreen);
+}
+.THIS .slds-card__footer {
+    text-align: right;
+}
+/*Hidden Field*/
+.THIS .hide-me {
+    display: none;
+}

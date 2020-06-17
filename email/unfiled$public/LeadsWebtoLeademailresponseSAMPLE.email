@@ -1,0 +1,5 @@
+Dear {!Lead.Name},  
+
+Thank you for your interest in {!Organization.Name}.  We will be contacting you shortly regarding your business information request.    
+
+Sincerely,  The Green Team at {!Organization.Name}

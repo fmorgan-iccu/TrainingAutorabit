@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Debit stop pay</name>
+    <style>none</style>
+    <subject>Payment request</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+Thank you for your email. We&apos;re sorry to hear that! Unfortunately, we are not able to stop just one merchant from processing on your card. In order to stop them from being able to process again, we would need to shut down the card completely and get you a new card. As long as you do not provide them with the updated card information, they would not be able to continue to process transactions.
+
+If you would like us to proceed, please just let us know how you would like to receive your new card. We can either mail you a new card, or you can stop by any ICCU branch and have one printed instantly.
+
+It has been our pleasure to help. If there is anything else we can do, please do not hesitate to contact us. We appreciate your membership. Have a wonderful day!
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

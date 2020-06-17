@@ -1,0 +1,94 @@
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="container" width="600">
+	<tbody>
+		<tr>
+			<td>
+			<table bgcolor="#ffffff" cellpadding="0" cellspacing="0" class="tb_properties border_style" style="background-color:#FFFFFF;" width="100%">
+				<tbody>
+					<tr>
+						<td align="center" class="header" valign="top">
+						<table cellpadding="0" cellspacing="0" class="stylingblock-content-wrapper" style="margin: 0px; min-width: 100%;" width="100%">
+							<tbody>
+								<tr>
+									<td class="stylingblock-content-wrapper camarker-inner" style="padding: 0px 10px;">&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table cellpadding="0" cellspacing="0" class="stylingblock-content-wrapper" style="margin: 0px; min-width: 100%;" width="100%">
+							<tbody>
+								<tr>
+									<td class="stylingblock-content-wrapper camarker-inner" style="padding: 15px 0px 10px;">
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td align="left"><a href="https://" title="Visit iccu.com"><img alt="Visit iccu.com" height="auto" src="http://image.email.iccu.com/lib/fe9815707165027873/m/4/7b2d297b-40da-4fc0-8170-95d995f02078.png" style="display: block; height: auto; width: 100%; padding: 0px; text-align: center;" width="100%" /> </a></td>
+												<td align="right" style="font-family:Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">&nbsp;</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table cellpadding="0" cellspacing="0" class="stylingblock-content-wrapper" style="margin: 0px; min-width: 100%;" width="100%">
+							<tbody>
+								<tr>
+									<td class="stylingblock-content-wrapper camarker-inner" style="padding: 16px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:16px;"><b>Subject</b></span></span>
+
+									<p><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;">Hello </span>{{{Recipient.FirstName}}}<span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;">,</span></p>
+									<span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;"> </span>
+
+									<p>&nbsp;</p>
+									<span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;"> </span>
+
+									<p><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;">Sincerely,</span></p>
+									<span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;"> <span> </span></span>
+
+									<p><span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;"><span>Idaho Central Credit Union</span></span></p>
+									<span style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;"><span> </span> </span> &nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table cellpadding="0" cellspacing="0" class="stylingblock-content-wrapper" style="background-color: rgb(36, 178, 0); margin: 0px; min-width: 100%;" width="100%">
+							<tbody>
+								<tr>
+									<td class="stylingblock-content-wrapper camarker-inner" style="padding: 0px;">
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td align="center"><img height="76" src="http://image.email.iccu.com/lib/fe9815707165027873/m/5/4d7d9727-36e0-4bde-9341-89a08a5118e3.png" style="display: block; height: auto; width: 100%; padding: 0px; text-align: center;" width="600" /></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table cellpadding="0" cellspacing="0" class="stylingblock-content-wrapper" style="margin: 0px; min-width: 100%;" width="100%">
+							<tbody>
+								<tr>
+									<td class="stylingblock-content-wrapper camarker-inner" style="padding: 0px 10px;"><br />
+									&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="text-align: center;"><span style="color:#808080;"><span style="font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;">This email was sent to:&nbsp;</span> <b style="color: rgb(119, 119, 119); font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;">{{{Recipient.Email}}}</b><br />
+<br />
+<span style="font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;">This email was sent by: {{{Organization.Name}}}</span><br style="color: rgb(119, 119, 119); font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;" />
+<span style="font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;">{{{Organization.Street}}}</span><br style="color: rgb(119, 119, 119); font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;" />
+<span style="font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;">{{{Organization.City}}}, {{{Organization.State}}} {{{Organization.PostalCode}}}</span><br style="color: rgb(119, 119, 119); font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;" />
+<span style="font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;">{{{Organization.Country}}}<br />
+<br />
+We respect your right to privacy -&nbsp; </span> </span> <a href="https://www.iccu.com/online-policy" style="color: rgb(0, 0, 255); font-family: verdana; font-size: x-small; line-height: 16px; text-align: -webkit-center;" title="View Privacy Policy"> <span style="color:#808080;"> <u>view our policy</u> </span> </a></div>

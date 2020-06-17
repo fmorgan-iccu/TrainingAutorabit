@@ -1,0 +1,85 @@
+<apex:page standardController="Account" extensions="elt.EltropyForceController" showHeader="false" sidebar="false" standardStylesheets="false">
+  <html>
+    <head>
+      <title>Eltropy Sales Analyser</title>
+      
+      <!-- Static Resources -->
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/jquery.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/moment.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/momentTimezone.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/d3.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/d3Tip.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/underscore.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/angular.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/phoneNumberUtil.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/angularRoute.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/typeaheadBundle.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/bootstrapTagsinput.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/ng-tags-input.min.js')}"/>
+
+      <apex:stylesheet value="{!URLFOR($Resource.elt__eltropystatic, 'css/font-awesome.css')}"/>
+      <!-- End Static Resources -->
+
+      <apex:stylesheet value="{!URLFOR($Resource.elt__eltropyforce, 'widget/css/style.css')}"/> 
+
+    </head>
+    <body id="eltropySA">
+      <div ng-app='App'>
+        <div ng-view="eltropy"></div>
+          <script type="text/ng-template" id="rtaTemplate">
+            <apex:form id="formId">
+              <apex:inputTextarea id="rtaId" richText="true" styleClass="desc"/>
+            </apex:form>
+          </script>
+      </div>
+      <script type="text/javascript">
+        var leadEmail     = "ContactEmail";
+        var accountEmails = [];
+        var leadName      = "ContactName";
+        var baseUser      = {};
+        var accountUsers  = [];
+        var symetraModuleName = "";
+        var symetraAlignmentState = "";
+        var primaryAffiliationAccountName = "";
+        var affiliationAccountNames = [];
+
+        var accountContacts = {!accountContacts},
+            accountOpportunities = {!accountOpportunities};
+
+        var editorSelectorString = "iframe[title$=', {!$Component.formId.rtaId}']";
+
+        var domainUrl   = "{!HTMLENCODE(apiCredentials.elt__Domain_Url__c)}";
+        var adminId     = "{!HTMLENCODE(apiCredentials.elt__Admin_Id__c)}";
+        var domainId     = "{!HTMLENCODE(apiCredentials.elt__Domain_Id__c)}";
+        var accessToken = "{!HTMLENCODE(apiCredentials.elt__Access_Token__c)}";
+
+        var user  = {
+                      "firstName"   : "{!HTMLENCODE($User.FirstName)}",
+                      "lastName"    : "{!HTMLENCODE($User.LastName)}",
+                      "fullName"    : "{!HTMLENCODE($User.FirstName)} {!HTMLENCODE($User.LastName)}",
+                      "email"       : "{!HTMLENCODE($User.Email)}",
+                      "mobilePhone" : "{!HTMLENCODE($User.MobilePhone)}",
+                      "countryCode" : "{!HTMLENCODE($User.Country)}"
+                    };
+
+        var loggedInUser  = {
+                              "name"        : "{!HTMLENCODE(loggedInUserInfo.name)}",
+                              "title"       : "{!HTMLENCODE(loggedInUserInfo.title)}",
+                              "orgName"     : "{!HTMLENCODE(loggedInUserOrgName)}",
+                              "phone"       : "{!HTMLENCODE(loggedInUserInfo.phone)}",
+                              "email"       : "{!HTMLENCODE(loggedInUserInfo.Email)}",
+                              "mobilePhone" : "{!HTMLENCODE(loggedInUserInfo.MobilePhone)}"
+                            };
+
+        var activePersonType = 'Contact';
+        var accountTabMode   = true;
+        var assetBaseUrl = "{!URLFOR($Resource.elt__eltropyforce)}";
+        // var messageAudioUrl = "{!URLFOR($Resource.elt__eltropystatic, 'audio/messageNotification.m4a')}";
+      </script>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropyforce, 'widget/js/graphUtils.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropyforce, 'widget/js/utils.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropyforce, 'widget/js/app.js')}"/>
+    </body>
+  </html>
+
+</apex:page>

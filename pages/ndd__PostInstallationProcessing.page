@@ -1,0 +1,20 @@
+<apex:page controller="ndd.DictionaryPostInstallController" sidebar="false">
+    <apex:form id="form" >
+        <apex:sectionHeader title="{!$Label.ndd__dictionary_postinstall_page_title}"
+        	subtitle="{!$Label.ndd__dictionary_postinstall_page_subtitle}" />
+        <apex:pageMessages id="messages"/>
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+            	<apex:commandButton value="{!$Label.ndd__dictionary_configuration_installation_button}" action="{!performInstall}" rendered="{!isInstalled==false}" />
+            	<apex:commandButton value="{!$Label.ndd__dictionary_configuration_uninstallation_button}" action="{!performUninstall}" rendered="{!isInstalled==true}" />
+            	<apex:commandButton value="{!$Label.ndd__dictionary_finish_installation_button}" action="{!finishInstallation}" />
+            </apex:pageBlockButtons>
+		<apex:outputPanel >This page installs or removes the configuration settings for the Dictionary Generator.</apex:outputPanel>
+        </apex:pageBlock>
+	</apex:form>
+	
+	<!-- Included to package help label. Do not remove -->
+	<apex:outputPanel rendered="false">
+		<apex:outputText value="{!$Label.ndd__dictionary_generator_help}"/>
+	</apex:outputPanel>
+</apex:page>

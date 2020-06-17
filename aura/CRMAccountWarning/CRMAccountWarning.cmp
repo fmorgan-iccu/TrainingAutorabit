@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <!--
+	COMPONENT OVERVIEW:	
+	This component is meant to display above the member header IF there is an important
+	warning on the members account. Most likely a lockout flag.
+	
+	ATTRIBUTES:
+	This component accepts the following attributes:
+		• 'isDisplayed' (boolean) - Determines whether or not to display this component. 
+									Default is false.
+		• 'message' (string) - The message to display. 
+
+	EXAMPLE USAGE:
+ 	<c:CRMAccountWarning isDisplayed="true"
+						 message="Account Lockout - Please Transfer this member to member assistance."/>
+	-->
+    
+    <!-- Set Attributes -->
+    <aura:attribute name="isDisplayed"
+                    type="boolean" 
+                    default="false" />
+    <aura:attribute name="message"
+                    type="string" />
+    
+    <!-- Component Code -->
+	<div class="{!'warning-banner display-' + v.isDisplayed}">
+    	<p>{!v.message}</p>
+    </div>
+</aura:component>

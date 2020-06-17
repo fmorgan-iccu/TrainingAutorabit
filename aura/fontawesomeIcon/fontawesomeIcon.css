@@ -1,0 +1,23 @@
+.THIS {
+    padding: t(spacingXxSmall);
+    border-radius: t(borderRadiusSmall);
+    height: t(squareIconUtilityLarge);
+    width: t(squareIconUtilityLarge);
+    display: flex;
+    justify-content: space-evenly;
+}
+.THIS#small {
+    padding: t(spacingXxSmall);
+    border-radius: t(borderRadiusSmall);
+    height: t(squareIconUtilitySmall);
+    width: t(squareIconUtilitySmall);
+}
+.THIS#medium {
+    padding: t(spacingXxSmall);
+    border-radius: t(borderRadiusSmall);
+    height: t(squareIconUtilityMedium);
+    width: t(squareIconUtilityMedium);
+}
+.THIS img {
+    filter: invert(100%);
+}

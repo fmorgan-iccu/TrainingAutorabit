@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="canViewOpportunities" label="Can View Opportunities" description="Indicates that this component should attempt to load opportunities.  NOTE: This must NOT be set to true for roles that are not contractually allowed to view opportunities." />
+	<design:attribute name="daysAgo" label="Closed Case Visibility Days" default="90" description="Indicates how many days in the past that closed cases are visible." />
+</design:component>

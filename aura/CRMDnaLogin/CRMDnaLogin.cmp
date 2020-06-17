@@ -1,0 +1,139 @@
+<aura:component controller="AuthController">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleCoreLogin}"/>
+    <aura:handler event="c:DNACoreLogout" action="{!c.handleCoreLogout}"/>
+    <aura:handler event="c:DNABusinessServicesLogin" action="{!c.handleBusinessServicesLogin}"/>
+    <aura:handler event="c:DNABusinessServicesLogout" action="{!c.handleBusinessServicesLogout}"/>
+
+    <aura:registerEvent name="dnaCoreLogin" type="c:DNACoreLogin" />
+    <aura:registerEvent name="dnaCoreLogout" type="c:DNACoreLogout" />
+    <aura:registerEvent name="dnaBusinessServicesLogin" type="c:DNABusinessServicesLogin" />
+    <aura:registerEvent name="dnaBusinessServicesLogout" type="c:DNABusinessServicesLogout" />
+
+    <!-- Form attributes -->
+    <aura:attribute name="username" type="String" default="" access="private" />
+    <aura:attribute name="password" type="String" default="" access="private" />
+    <aura:attribute name="cashBox" type="String" default="" access="public" />
+    <aura:attribute name="postingDate" type="String" default="" access="private" />
+    <aura:attribute name="effectiveDate" type="String" default="" access="private" />
+    <aura:attribute name="networkNodeName" type="String" default="" access="public" />
+
+    <!-- State attributes -->
+    <aura:attribute name="allowFullLogin" type="Boolean" default="false" access="private" />
+    <aura:attribute name="class" type="String" access="public" />
+    <aura:attribute name="containerBackground" type="String" access="private" />
+    <aura:attribute name="errorMessage" type="String" default="" access="private" />
+    <aura:attribute name="hideAfterLogin" type="Boolean" default="false" access="public" />
+    <aura:attribute name="isAuthenticating" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isAuthedCore" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isAuthedBusinessServices" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isFullyLoggedIn" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isNotLoggedIn" type="Boolean" default="true" access="private" />
+    <aura:attribute name="isPartiallyLoggedIn" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" access="private" />
+    <aura:attribute name="loginContainerClass" type="String" default="containerNotAuthed" access="private" />
+    <aura:attribute name="showLogin" type="Boolean" default="true" access="public" />
+    <aura:attribute name="showFullLogin" type="Boolean" default="false" access="private" />
+
+    <!-- Public methods for parent access -->
+    <aura:method name="getIsAuthenticated" access="public" />
+    <aura:method name="processLogin" access="public" />
+    <aura:method name="processLogout" access="public" />
+    <aura:method name="resetIsAuthedCore" access="public" />
+    <aura:method name="resetIsAuthedBusinessServices" access="public" />
+    <aura:method name="updateState" access="public" />
+
+    <div class="{!v.loginContainerClass + ' slds-is-relative ' + v.class}" style="{!v.containerBackground}">
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner variant="brand" size="large" class="CRMSpinner" />
+        </aura:if>
+        
+        <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+            <div class="validation-container">
+                <h2 class="error-headline">
+                    <lightning:icon size="small" iconName="utility:error" alternativeText="Error Occurred" />
+                    Oops!
+                </h2>
+                <p class="validation">{!v.errorMessage}</p>
+            </div>
+        </aura:if>
+
+        <div class="{! 'main-container showLogin' + v.showLogin}">
+                
+            <div class="login-header">
+                <h2 class="login-title">
+                    <aura:if isTrue="{!v.isFullyLoggedIn}">
+                        <lightning:icon src="{!$Resource.checkBoxIcon + '#check-square-solid'}" size="small" alternateText="Fully Logged In"/>
+                    </aura:if>
+                    <aura:if isTrue="{!v.isPartiallyLoggedIn}">
+                        <lightning:icon src="{!$Resource.unlockIcon + '#lock-open-solid'}" size="small" alternateText="Partially Logged In"/>
+                    </aura:if>
+                    <aura:if isTrue="{v.isNotLoggedIn}">
+                        <lightning:icon src="{!$Resource.circleXIcon + '#times-circle-solid'}" size="small" alternateText="Not Logged In"/>
+                    </aura:if>
+                    DNA
+                </h2>
+                <aura:if isTrue="{!v.showLogin}">
+                    <p>Please login using your DNA credentials.</p>
+                </aura:if>
+            </div>
+            
+            <div class="login-container">
+                <aura:if isTrue="{!v.showLogin}">
+                    <div class="login-form">
+                        <lightning:input value="{!v.username}" aura:id="dnaUsername" id="dnaUsername" name="dnaUsername" class="impravata-dna-username" type="text" placeholder="Username"/>
+                        <span onkeypress="{!c.handlePasswordKeyPress}">
+                            <lightning:input aura:id="dnaPassword" id="dnaPassword" name="dnaPassword" class="impravata-dna-password" type="password" placeholder="Password"/>
+                        </span>
+
+                        <!-- Show Full DNA Login -->
+                        <aura:if isTrue="{!v.allowFullLogin}">
+                            <div id="login-checkbox">
+                                <lightning:input label="Show Full Login" type="checkbox" aura:id="showFullLogin" checked="{!v.showFullLogin}"/>
+                            </div>
+                        </aura:if>
+                        
+                        <div class="{! 'full-login showFullLogin' + v.showFullLogin + ' ' + v.class}">
+                            <div id="cashBox" class="full-login-input">
+                                <lightning:input label="Cash Box" aura:id="cashBox" placeholder="Enter your DNA cash box number" value="{!v.cashBox}"/>
+                            </div>
+                            <div id="networkNodeName" class="full-login-input">
+                                <lightning:input label="Machine Name" aura:id="networkNodeName" placeholder="Enter your machine name (mscmcc9999)" value="{!v.networkNodeName}" />
+                            </div>
+                            <div id="postingDate" class="full-login-input">
+                                <lightning:input label="Posting Date" type="date" dateStyle="short" aura:id="postingDate" name="postingDate" value="{!v.postingDate}" />
+                            </div>
+                            <div id="effectiveDate" class="full-login-input">
+                                <lightning:input label="Effective Date" type="date" dateStyle="short" aura:id="effectiveDate" name="effectiveDate" value="{!v.effectiveDate}" />
+                            </div>
+                        </div>
+                        
+                        <button class="login-button slds-button--brand" onclick="{!c.processLogin}">Login</button>
+                    </div>
+                </aura:if>
+
+                <div class="login-details">
+                    <aura:if isTrue="{!not(v.showLogin)}">
+                        <aura:if isTrue="{!v.isFullyLoggedIn}">
+                            Fully Logged In
+                        </aura:if>
+                        <aura:if isTrue="{!v.isPartiallyLoggedIn}">
+                            <p>Partially Logged In</p>
+                            <p><a href="#" onclick="{!c.showLogin}">Get Logged In</a></p>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isNotLoggedIn}">
+                            <p><a href="#" onclick="{!c.showLogin}">Get Logged In</a></p>
+                        </aura:if>
+                    </aura:if>
+                    <aura:if isTrue="{!v.showLogin}">
+                        <p><a href="#" onclick="{!c.hideLogin}">Collapse Login</a></p>
+                    </aura:if>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</aura:component>

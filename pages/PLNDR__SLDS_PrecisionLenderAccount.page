@@ -1,0 +1,307 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="Account">
+        <html xlmns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.PLNDR__SLDS0101, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+            <apex:includeScript value="{!$Resource.PLNDR__jQuery}"/>
+            <apex:includeScript value="{!URLFOR($Resource.PLNDR__PLResources)}"/>
+        </head>
+            <body>
+                <div class="slds">                     
+                    <div class="slds-tabs--scoped">
+                        <ul class="slds-tabs--scoped__nav" role="tablist">
+                        <!--<li class="slds-tabs__item slds-text-heading--label slds-active" title="Balance Sheet" role="presentation">
+                            <a href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1">Balance Sheet</a>
+                        </li>-->
+                        <li class="slds-tabs__item slds-text-heading--label slds-active" title="Strategic Income Statement" role="presentation">
+                            <a href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-2">Strategic Income Statement</a>
+                        </li>
+                            <li class="slds-tabs__item slds-text-heading--label" title="FTP Income Statement" role="presentation">
+                            <a href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-3">FTP Income Statement</a>
+                        </li>
+                    </ul>
+                        <!--<div id="tab-scoped-1" class="slds-tabs__content slds-show" role="tabpanel">  
+                        <div class="slds-text-body--small slds-box">
+                           <p>
+                            <label class="slds-text-body--small">PrecisionLender Relationship:  </label><label class="slds-text-body--regular slds-p-left--large">{!account.PL_Relationship__c}</label>
+                           </p>             
+                      	</div>
+                            <div id="balance-sheet" class="slds-p-vertical--small">                              
+								<table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">                               
+                                    <tbody>
+                                        <tr class="slds-box slds-theme--shade">
+                                            <td><h3 class="slds-section-title--divider">Current Balance Sheet and Fee Accounts</h3></td>
+                                            <td><h3 class="slds-section-title--divider">Strategic Net Income Rank</h3></td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="loan-balance">
+                                                <div class="slds-text-body--small">Loan Balance:</div>
+                                                <div class="slds-text-body--regular currency">{!account.Current_Loan_Balance__c}</div>
+                                            </td>
+                                            <td data-label="percentile">
+                                                <div class="slds-text-body--small">Percentile:</div>
+                                                <div>{!account.Percentile_Text__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="deposit-balance">
+                                                <div class="slds-text-body--small">Deposit Balance:</div>
+                                                <div class="slds-text-body--regular currency">{!account.Current_Deposit_Balance__c}</div>
+                                            </td>
+                                            <td data-label="regional-percentile">
+                                                <div class="slds-text-body--small">Regional Percentile:</div>
+                                                <div>{!account.Regional_Percentile_Text__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="other-income">
+                                                <div class="slds-text-body--small">Other Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.Current_Other_Income__c}</div>
+                                            </td>
+                                            <td data-label="owner-percentile">
+                                                <div class="slds-text-body--small">Owner Percentile:</div>
+                                                <div>{!account.Owner_Percentile_Text__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="last-updated">
+                                                <div class="slds-text-body--small">PrecisionLender Last Updated:</div>
+                                                <div class="slds-text-body--regular dateFormat">{!account.PrecisionLender_Last_Updated__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>                                
+                            </div>
+                            <div>
+                         		<p class="slds-text-body--small slds-box slds-theme--shade">
+                                	Note: These values may represent the rolled-up values for multiple lower-level relationships.
+                         		</p>                                 
+                     		</div>
+                        </div>-->
+                        <div id="tab-scoped-2" class="slds-tabs__content slds-show" role="tabpanel">
+                            <div id="strategic-income" class="slds-p-vertical--small"> 
+                                <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                    <tbody>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="interest-income">
+                                                <div class="slds-text-body--small">Interest Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Interest_Income__c}</div>
+                                            </td>
+                                            <td data-label="average-yield">
+                                                <div class="slds-text-body--small">Average Yield:</div>
+                                                <div class="decimal-three">{!account.FS_Average_Yield__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="interest-expense">
+                                                <div class="slds-text-body--small">Interest Expense:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Interest_Expense__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="net-interest-income">
+                                                <div class="slds-text-body--small">Net Interest Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Net_Interest_Income__c}</div>
+                                            </td>
+                                            <td data-label="net-interest-margin">
+                                                <div class="slds-text-body--small">Net Interest Margin:</div>
+                                                <div class="decimal-three">{!account.FS_Net_Interest_Margin__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="non-interest-expense">
+                                                <div class="slds-text-body--small">Non Interest Expense:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Non_Interest_Expense__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="loan-loss-reserves">
+                                                <div class="slds-text-body--small">Loan Loss Reserves:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Loan_Loss_Reserves__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="other-income">
+                                                <div class="slds-text-body--small">Other Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Other_Income__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="pre-tax-income">
+                                                <div class="slds-text-body--small">Pre-Tax Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Pre_Tax_Income__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="taxes">
+                                                <div class="slds-text-body--small">Taxes:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Taxes__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="net-income">
+                                                <div class="slds-text-body--small">Net Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Net_Income__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="average-assets">
+                                                <div class="slds-text-body--small">Average Assets:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Average_Assets__c}</div>
+                                            </td>
+                                            <td data-label="roa">
+                                                <div class="slds-text-body--small">ROA:</div>
+                                                <div class="decimal">{!account.FS_ROA__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td data-label="average-equity">
+                                                <div class="slds-text-body--small">Average Equity:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FS_Average_Equity__c}</div>
+                                            </td>
+                                            <td data-label="roe">
+                                                <div class="slds-text-body--small">ROE:</div>
+                                                <div class="decimal">{!account.FS_ROE__c}</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="slds-hint-parent">
+                                            <td></td>
+                                            <td data-label="target-roe">
+                                                <div class="slds-text-body--small">Target ROE:</div>
+                                                <div class="decimal">{!account.FS_Target_ROE__c}</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                         		<p class="slds-text-body--small slds-box slds-theme--shade">
+                                	Note: These values represent the entity level Relationship values.
+                         		</p>                                 
+                     		</div>
+                        </div>
+                        <div id="tab-scoped-3" class="slds-tabs__content slds-hide" role="tabpanel"> 
+                            <div id="ftp-income" class="slds-p-vertical--small"> 
+                                <table class="slds-table slds-table--bordered slds-max-medium-table--stacked slds-no-row-hover">
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-interest-income">
+                                                <div class="slds-text-body--small">FTP Interest Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Interest_Income__c}</div>
+                                            </td>
+                                            <td data-label="ftp-average-yield">
+                                                <div class="slds-text-body--small">FTP Average Yield:</div>
+                                                <div class="decimal-three">{!account.FTPFS_Average_Yield__c}</div>
+                                            </td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-interest-expense">
+                                                <div class="slds-text-body--small">FTP Interest Expense:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Interest_Expense__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-net-interest-income">
+                                                <div class="slds-text-body--small">FTP Net Interest Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Net_Interest_Income__c}</div>
+                                            </td>
+                                            <td data-label="ftp-net-interest-margin">
+                                                <div class="slds-text-body--small">FTP Net Interest Margin:</div>
+                                                <div class="decimal-three">{!account.FTPFS_Net_Interest_Margin__c}</div>
+                                            </td>
+                                        </tr>
+                                    <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-non-interest-expense">
+                                                <div class="slds-text-body--small">FTP Non Interest Expense:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Non_Interest_Expense__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-loan-loss-reserves">
+                                                <div class="slds-text-body--small">FTP Loan Loss Reserves:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Loan_Loss_Reserves__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-other-income">
+                                                <div class="slds-text-body--small">FTP Other Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Other_Income__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-pre-tax-income">
+                                                <div class="slds-text-body--small">FTP Pre-Tax Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Pre_Tax_Income__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-taxes">
+                                                <div class="slds-text-body--small">FTP Taxes:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Taxes__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-net-income">
+                                                <div class="slds-text-body--small">FTP Net Income:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Net_Income__c}</div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    <tr class="slds-box slds-theme--shade"><td></td><td></td></tr>
+                                     <tr class="slds-hint-parent">
+                                            <td data-label="ftp-average-assets">
+                                                <div class="slds-text-body--small">FTP Average Assets:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Average_Assets__c}</div>
+                                            </td>
+                                            <td data-label="ftp-roa">
+                                                <div class="slds-text-body--small">FTP ROA:</div>
+                                                <div class="decimal">{!account.FTPFS_ROA__c}</div>
+                                            </td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td data-label="ftp-average-equity">
+                                                <div class="slds-text-body--small">FTP Average Equity:</div>
+                                                <div class="slds-text-body--regular currency">{!account.FTPFS_Average_Equity__c}</div>
+                                            </td>
+                                            <td data-label="ftp-roe">
+                                                <div class="slds-text-body--small">FTP ROE:</div>
+                                                <div class="decimal">{!account.FTPFS_ROE__c}</div>
+                                            </td>
+                                        </tr>
+                                    <tr class="slds-hint-parent">
+                                            <td></td>
+                                            <td data-label="ftp-target-roe">
+                                                <div class="slds-text-body--small">FTP Target ROE:</div>
+                                                <div class="decimal">{!account.FTPFS_ROE__c}</div>
+                                            </td>
+                                        </tr>
+                                </table>
+                            </div>
+                            <div>
+                         		<p class="slds-text-body--small slds-box slds-theme--shade">
+                                	Note: These values represent the entity level Relationship values.
+                         		</p>                                 
+                     		</div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+    </html>
+</apex:page>

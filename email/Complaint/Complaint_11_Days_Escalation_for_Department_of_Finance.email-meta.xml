@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When complaint type is Department of Finance and the Complaint open 11 days ago</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Business_Information_Request_Email</letterhead>
+    <name>Complaint 11 Days Escalation for Department of Finance</name>
+    <style>freeForm</style>
+    <subject>Complaint Case</subject>
+    <textOnly>Hello,
+
+
+
+There is a {!Case.Type} complaint case still open for 11 days. You can access the case here to view the details.
+
+
+Link to Case:
+
+https://iccu.lightning.force.com/lightning/r/Case/{!Case.Id}/view</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

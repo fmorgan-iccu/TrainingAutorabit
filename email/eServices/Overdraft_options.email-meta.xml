@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Overdraft options</name>
+    <style>none</style>
+    <subject>ICCU’s Overdraft Options</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+Thank you for your email. Absolutely! There are 6 options you can choose from for overdraft protection:
+
+1. Overdraft with Point of Sale:  We will try to honor all transactions on your account. If you overdraw your account we will temporarily cover the amount. A $20.79 fee is assessed for each transaction that results in a negative balance
+
+2. Overdraft without Point of Sale: In the event that there are no funds in your account, your card will decline. Check and ACH transactions will clear and a $20.79 fee is assessed for each check or ACH transaction
+
+3. Overdraft Savings Transfer: With this program, funds will automatically pull from your Share Savings account to cover transactions and you will be charged $2.50 rather than the regular Overdraft Fee of $20.79.* If there are not adequate funds in the checking account OR Share Savings account, all ACH, Check, and everyday debit card and ATM transactions will be declined.
+
+4. Overdraft Savings Transfer, Overdraft with Point of Sale: We will try to honor all transactions on your account. If you overdraw your account, funds will automatically pull from your Share Savings account to cover transactions and you will be charged $2.50 rather than the regular Overdraft Fee of $20.79.*
+
+5. Overdraft Savings Transfer, Overdraft without Point of Sale: In the event that there are no funds in your account, your card will decline. Check and ACH transactions will clear and funds will automatically pull from your Share Savings account to cover transactions and you will be charged $2.50 rather than the regular Overdraft Fee of $20.79.*
+
+6. Overdraft Opt Out: All transactions will decline, including check/ACH. Any rejected Check or ACH transactions will result in a $29.79 Insufficient Funds Charge.
+
+*In accordance with Federal Regulation D, all US Savings Accounts are limited on the number of free withdrawals monthly. Once you pass the 6 free withdrawals, overdraft will no longer pull from the savings and a $20.79 fee is assessed for each debit card transaction that results in a negative balance; a $29.79 is assessed for each ACH transaction or Check that is rejected.
+
+If you would like to update your overdraft protection, please just let us know which option you would prefer and a good email address we can send the documentation to for your electronic signature.
+
+It has been our pleasure to help. If there is anything else we can do, please do not hesitate to contact us. We appreciate your membership. Have a wonderful day!
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

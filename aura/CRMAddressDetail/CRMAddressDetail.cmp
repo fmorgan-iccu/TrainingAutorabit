@@ -1,0 +1,61 @@
+<aura:component controller="AddressDetailController">
+    <!--
+    This component is designed to be used within the CRMMCCMemberDetails for any information that is in address format.
+    It is designed to switch between a read display and an editable display by setting 'editable' to true or false.
+    -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- Attributes -->
+    <aura:attribute name="editing" type="Boolean" default="false" access="public" />
+    <aura:attribute name="editable" type="Boolean" default="true" access="public" />
+    <aura:attribute name="countryOptions" type="List" access="private" />
+    <aura:attribute name="stateOptions" type="List" access="private" />
+    <aura:attribute name="isValid" type="Boolean" default="true" access="public" />
+    <aura:attribute name="isAddressChanged" type="Boolean" default="true" access="public" />
+
+    <aura:attribute name="line1" type="String" default="" access="public" />
+    <aura:attribute name="line2" type="String" default="" access="public" />
+    <aura:attribute name="city" type="String" default="" access="public" />
+    <aura:attribute name="state" type="String" default="" access="public" />
+    <aura:attribute name="postalCode" type="String" default="" access="public" />
+    <aura:attribute name="country" type="String" default="" access="public" />
+    <aura:attribute name="unitedStates" type="Boolean" default="true" access="private" />
+    <aura:attribute name="disabled" type="Boolean" default="false" access="public" />
+
+    <aura:handler name="change" value="{!v.value}" action="{!c.onChange}" />
+
+    <div class="field">
+        <aura:if isTrue="{!v.editing &amp;&amp; v.editable}">
+            <div class="form">
+                <lightning:input label="Address Line 1" name="line1" aura:id="line1" value="{#v.line1}" class="addressLine" maxlength="40" required="true" onblur="{!c.onChangeLine1}" disabled="{!v.disabled}"/>
+                <lightning:input label="Address Line 2" name="line2" aura:id="line2" value="{#v.line2}" class="addressLine" maxlength="40" onblur="{!c.onChangeField}" disabled="{!v.disabled}"/>
+                <lightning:input label="Zipcode" name="postalCode" aura:id="postalCode" value="{!v.postalCode}" class="zipcode" required="true" onblur="{!c.onChangePostalCode}" disabled="{!v.disabled}"/>
+                <lightning:input label="City" name="city" aura:id="city" value="{!v.city}" class="city" maxlength="30" required="true" onblur="{!c.onChangeField}" disabled="{!v.disabled}"/>
+                <aura:if isTrue="{!v.unitedStates}">
+                    <lightning:select aura:id="stateSelect" name="state" label="State" required="true" class="state" onchange="{!c.onChangeState}" disabled="{!v.disabled}">
+                        <aura:iteration items="{!v.stateOptions}" var="item">
+                            <option text="{!item.name}" value="{!item.code}" selected="{!item.code==v.state}"/>
+                        </aura:iteration>
+                    </lightning:select>
+                    <aura:set attribute="else">
+                        <lightning:input aura:id="stateText" name="state" label="Region" value="{!v.state}" class="state" required="true" onblur="{!c.onChangeField}" disabled="{!v.disabled}"/>
+                    </aura:set>
+                </aura:if>
+                <lightning:select name="country" aura:id="country" label="Country" required="true" class="country" onchange="{!c.onChangeCountry}" disabled="{!v.disabled}">
+                    <aura:iteration items="{!v.countryOptions}" var="item">
+                        <option text="{!item.name}" value="{!item.code}" selected="{!item.code==v.country}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+
+            <aura:set attribute="else">
+                <lightning:formattedAddress
+                    street="{!v.line1 + '\n' + v.line2}"
+                    city="{!v.city}"
+                    country="{!v.country}"
+                    province="{!v.state}"
+                    postalCode="{!v.postalCode}" />
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

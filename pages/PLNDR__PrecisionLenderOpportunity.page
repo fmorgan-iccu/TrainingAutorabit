@@ -1,0 +1,330 @@
+<apex:page standardController="Opportunity" showHeader="false">
+<apex:stylesheet value="{$Resource.PLStyles}" />
+
+  <!-- Define Tab panel .css styles -->
+    <style>
+    .activeTab {background-color: #f1f1f1; color:black; background-image:none}
+    .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+    </style>
+
+ <apex:tabPanel switchType="client" selectedTab="tab1" id="AccountTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+        <apex:tab label="Opportunity Summary" name="tab1" id="tab1">
+            <apex:pageBlock >
+                <apex:pageBlockSection collapsible="false" columns="2" showHeader="false">                                    
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Loan_Commitment__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_ROA__c}"/>                    
+                    
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Loan_Net_Commitment__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_ROE__c}"/>
+                                        
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Loan_Gross_Funding__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Target_ROE__c}"/>
+                    
+                    
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Loan_Net_Funding__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                   
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Loan_Average_Balance__c}"/>                             
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>                   
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                   
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Deposit_Average_Balance__c}"/>                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>                   
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Other_Income__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                                        
+                    <apex:outputField value="{!opportunity.PLNDR__Loan_Initial_Fees__c}"/> 
+                    <apex:outputText value="&nbsp;" escape="false"/>                                 
+                   
+                    <apex:outputText value="&nbsp;" escape="false"/>                   
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                       
+                    <apex:outputField value="{!opportunity.PLNDR__PrecisionLender_Last_Updated__c}"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:tab>
+
+        <apex:tab label="Financial Statement" name="tab2" id="tab2">
+            <apex:pageBlock >
+                <apex:pageBlockSection title="Opportunity Strategic Financial Statement" collapsible="false" columns="2" showHeader="false">
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Interest_Income__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Average_Yield__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Interest_Expense__c}" html-sss="border-bottom:solid 1px"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Net_Interest_Income__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Net_Interest_Margin__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Non_Interest_Expense__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Loan_Loss_Reserves__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Other_Income__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Pre_Tax_Income__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Taxes__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Net_Income__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Average_Assets__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_ROA__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Average_Equity__c}"/>
+                    <apex:outputField value="{!opportunity.PLNDR__FS_ROE__c}"/>
+                    <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!opportunity.PLNDR__FS_Target_ROE__c}"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:tab>
+		<apex:tab label="All Loans" name="tab3" id="tab3">
+            <apex:pageBlock >
+                <apex:pageBlockSection title="Opportunity Strategic All Loans Financial Statement" collapsible="false" columns="2" showHeader="false">
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Interest_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Interest Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Interest_Income__c}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:outputText value="&nbsp;" escape="false"/>  
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Interest_Expense__c.InlineHelpText}">
+                        <apex:outputLabel value="Interest Expense"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Interest_Expense__c}" html-sss="border-bottom:solid 1px"/>                    
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Net_Interest_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Net Interest Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Net_Interest_Income__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/> 
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Non_Interest_Expense__c.InlineHelpText}">
+                        <apex:outputLabel value="Non Interest Expense"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Non_Interest_Expense__c}"/>                    
+                    </apex:pageBlockSectionItem>                    
+					<apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Loan_Loss_Reserves__c.InlineHelpText}">
+                        <apex:outputLabel value="Loan Loss Reserves"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Loan_Loss_Reserves__c}"/>
+                    </apex:pageBlockSectionItem>                    
+					<apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Other_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Other Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Other_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Pre_Tax_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Pre Tax Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Pre_Tax_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Taxes__c.InlineHelpText}">
+                        <apex:outputLabel value="Taxes"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Taxes__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Net_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Net Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Net_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Average_Assets__c.InlineHelpText}">
+                        <apex:outputLabel value="Average Assets"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Average_Assets__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    <apex:pageBlockSectionItem />                   										                    
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Loans_FS_Average_Equity__c.InlineHelpText}">
+                        <apex:outputLabel value="Average Equity"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Loans_FS_Average_Equity__c}"/>
+                    </apex:pageBlockSectionItem> 
+					              										                                                                                                   
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:tab>
+     	<apex:tab label="All Deposits" name="tab4" id="tab4">
+            <apex:pageBlock >
+                <apex:pageBlockSection title="Opportunity Strategic All Deposits Financial Statement" collapsible="false" columns="2" showHeader="false">
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Interest_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Interest Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Interest_Income__c}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:outputText value="&nbsp;" escape="false"/>  
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Interest_Expense__c.InlineHelpText}">
+                        <apex:outputLabel value="Interest Expense"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Interest_Expense__c}" html-sss="border-bottom:solid 1px"/>                    
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Net_Interest_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Net Interest Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Net_Interest_Income__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/> 
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Non_Interest_Expense__c.InlineHelpText}">
+                        <apex:outputLabel value="Non Interest Expense"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Non_Interest_Expense__c}"/>                    
+                    </apex:pageBlockSectionItem>                    
+					<apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Loan_Loss_Reserves__c.InlineHelpText}">
+                        <apex:outputLabel value="Loan Loss Reserves"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Loan_Loss_Reserves__c}"/>
+                    </apex:pageBlockSectionItem>                    
+					<apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Other_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Other Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Other_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Pre_Tax_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Pre Tax Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Pre_Tax_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Taxes__c.InlineHelpText}">
+                        <apex:outputLabel value="Taxes"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Taxes__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Net_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Net Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Net_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Average_Assets__c.InlineHelpText}">
+                        <apex:outputLabel value="Average Assets"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Average_Assets__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_ROA__c.InlineHelpText}">
+                        <apex:outputLabel value="ROA"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_ROA__c}"/>
+                    </apex:pageBlockSectionItem>                    										                    
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Average_Equity__c.InlineHelpText}">
+                        <apex:outputLabel value="Average Equity"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Average_Equity__c}"/>
+                    </apex:pageBlockSectionItem>                    										                    
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_ROE__c.InlineHelpText}">
+                        <apex:outputLabel value="ROE"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_ROE__c}"/>
+                    </apex:pageBlockSectionItem>                    										                                                                               
+                    <apex:pageBlockSectionItem />
+					<apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Deposits_FS_Target_ROE__c.InlineHelpText}">
+                        <apex:outputLabel value="Target ROE"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Deposits_FS_Target_ROE__c}"/>
+                    </apex:pageBlockSectionItem>                    										                                                                                                   
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:tab>
+     	<apex:tab label="All Others" name="tab5" id="tab5">
+            <apex:pageBlock >
+                <apex:pageBlockSection title="Opportunity Strategic All Others Financial Statement" collapsible="false" columns="2" showHeader="false">
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Interest_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Interest Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Interest_Income__c}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:outputText value="&nbsp;" escape="false"/>  
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Interest_Expense__c.InlineHelpText}">
+                        <apex:outputLabel value="Interest Expense"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Interest_Expense__c}" html-sss="border-bottom:solid 1px"/>                    
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Net_Interest_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Net Interest Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Net_Interest_Income__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/> 
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Non_Interest_Expense__c.InlineHelpText}">
+                        <apex:outputLabel value="Non Interest Expense"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Non_Interest_Expense__c}"/>                    
+                    </apex:pageBlockSectionItem>                    
+					<apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Loan_Loss_Reserves__c.InlineHelpText}">
+                        <apex:outputLabel value="Loan Loss Reserves"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Loan_Loss_Reserves__c}"/>
+                    </apex:pageBlockSectionItem>                    
+					<apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Other_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Other Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Other_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Pre_Tax_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Pre Tax Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Pre_Tax_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Taxes__c.InlineHelpText}">
+                        <apex:outputLabel value="Taxes"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Taxes__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Net_Income__c.InlineHelpText}">
+                        <apex:outputLabel value="Net Income"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Net_Income__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem />
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Average_Assets__c.InlineHelpText}">
+                        <apex:outputLabel value="Average Assets"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Average_Assets__c}"/>
+                    </apex:pageBlockSectionItem>                    										
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_ROA__c.InlineHelpText}">
+                        <apex:outputLabel value="ROA"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_ROA__c}"/>
+                    </apex:pageBlockSectionItem>                    										                    
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Average_Equity__c.InlineHelpText}">
+                        <apex:outputLabel value="Average Equity"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Average_Equity__c}"/>
+                    </apex:pageBlockSectionItem>                    										                    
+                    <apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_ROE__c.InlineHelpText}">
+                        <apex:outputLabel value="ROE"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_ROE__c}"/>
+                    </apex:pageBlockSectionItem>                    										                                                                               
+                    <apex:pageBlockSectionItem />
+					<apex:pageBlockSectionItem helpText="{!$ObjectType.Opportunity.fields.PLNDR__Others_FS_Target_ROE__c.InlineHelpText}">
+                        <apex:outputLabel value="Target ROE"/>
+                        <apex:outputField value="{!opportunity.PLNDR__Others_FS_Target_ROE__c}"/>
+                    </apex:pageBlockSectionItem>                    										                                                                                                   
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:tab>
+    </apex:tabPanel>
+
+
+</apex:page>

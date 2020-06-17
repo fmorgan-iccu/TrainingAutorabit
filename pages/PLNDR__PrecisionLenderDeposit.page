@@ -1,0 +1,66 @@
+<apex:page standardController="PLNDR__Deposit_Account__c" showHeader="false">
+<apex:stylesheet value="{$Resource.PLStyles}" />
+
+
+            <apex:pageBlock >
+                <apex:pageBlockSection title="PrecisionLender Pricing Details" collapsible="false" columns="2" showHeader="true">
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__Product_Name__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__Deposit_Type__c}"/>
+
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__Balance__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__Origination_Date__c}"/>
+
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__Rate__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__Term__c}"/>
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection title="Financial Statement" collapsible="false" columns="2" showHeader="true">
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Interest_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Average_Yield__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Interest_Expense__c}" html-sss="border-bottom:solid 1px"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Net_Interest_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Net_Interest_Margin__c}"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Non_Interest_Expense__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Loan_Loss_Reserves__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Other_Income__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Pre_Tax_Income__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Taxes__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Net_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_ROA__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Target_Net_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Target_ROA__c}"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Average_Assets__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_ROE__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Average_Equity__c}"/>
+                    <apex:outputField value="{!PLNDR__Deposit_Account__c.PLNDR__FS_Target_ROE__c}"/>
+                    
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>VSC User</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>VSC</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Virtual_Service_Center_Manager</parentRole>
+</Role>

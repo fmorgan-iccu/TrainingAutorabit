@@ -1,0 +1,197 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AuthController">
+      <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	  
+      <!-- Create Event -->
+      <aura:registerEvent name="notifySystemOfRecordLogin" type="c:DNACoreLogin"/>
+      
+      <!-- listen for system of record login -->
+   	  <aura:handler event="c:RequireSystemOfRecordLogin" action="{!c.handleRequireSystemOfRecordLogin}"/>
+
+
+      <aura:attribute name="openLogin" type="boolean" default="false"/>
+      <aura:attribute name="openOffline" type="boolean" default="false"/>
+      <aura:attribute name="username" type="String" />
+      <aura:attribute name="password" type="String" />
+      <aura:attribute name="errorMessage" type="String" />
+      <aura:attribute name="isAuthenticated" type="boolean" default="false" />
+      <aura:attribute name="offlineMode" type="boolean" default="false" />
+      <aura:attribute name="useOfflineMode" type="boolean" default="false" />
+      <aura:attribute name="loadingMessage" type="String" default="Logging You In!" />
+      <aura:attribute name="isLoading" type="boolean" default="false" />
+ 
+        <div class="{! 'left-col-component dnaAuthContainer ' + v.isAuthenticated}" onkeyup="{!c.formPress}">
+           <aura:if isTrue="{!v.isAuthenticated}"> 
+            <p>You're logged into DNA!</p>
+            <button class="slds-button slds-button--brand" onclick="{!c.processLogout}">DNA Logout!</button>	
+            
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.offlineMode}"> 
+                        <p>You're currently in offline mode. When DNA is back online, please login for real-time data.</p>
+                        <button class="slds-button slds-button--brand" onclick="{!c.openLogin}">DNA Login</button>
+                        
+                        <aura:set attribute="else">
+                            <p>You're not authenticated with DNA, please login for real-time data.</p>
+                            <button class="slds-button slds-button--brand" onclick="{!c.openLogin}">DNA Login</button>
+                        </aura:set>
+                        
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.openLogin}">
+                
+                <!--
+                    ********************************
+                    ****** Normal Login Modal ******
+                    ********************************
+                    --> 
+                <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open" >
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__header">
+                            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                                X
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                        </div>  
+                        <div class="slds-modal__content">
+                            <lightning:layout horizontalAlign="spread">
+                                <lightning:layoutItem size="4">
+                                    <div class="left-column" style="{! 'background-image:url(' + $Resource.dnaAuthBackground + ');'}">
+                                        <div class="background-image">
+                                            <img alt="ICCU logo" src="{!$Resource.iccuLogoWhite}"/>
+                                            <p class="login-quote">“Happiness is not something you postpone for the future; 
+                                                it is something you design for the present.”</p>
+                                        </div>
+                                    </div>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem size="8" class="main-login">
+                                    <aura:if isTrue="{!v.isLoading}">
+                                        <div class="login-loading">
+                                            <div class="slds-is-relative">
+                                                <div role="status" class="slds-spinner slds-spinner_brand slds-spinner_medium">
+                                                    <span class="slds-assistive-text">Loading</span>
+                                                    <div class="slds-spinner__dot-a"></div>
+                                                    <div class="slds-spinner__dot-b"></div>
+                                                </div>
+                                            </div>
+                                            <h3 class="login-message">{!v.loadingMessage}</h3>
+                                        </div>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.useOfflineMode}">
+                                        <div class="heading-underline">
+                                            <h1>Are You Sure?</h1>  
+                                        </div>
+                                        <div class="login-info">
+                                            <p class="login-p">By continuing in offline mode you only have access to old member data. 
+                                                In order to help members better you should login to DNA to get live data.</p>
+                                        </div>
+                                        <input type="button" value="Never mind, I Want to Login" class="login-button slds-button--brand" onclick="{!c.backToLogin}"/>
+                                        <input type="button" value="I Don't Need Updated Data" class="login-button-secondary slds-button--brand" onclick="{!c.closeModal}"/>
+                                        <p>Note: You will still be able to access and lookup members, but the information about the
+                                            member will not be updated without DNA. This makes it hard to help members because the 
+                                            things you see about them may be old and even incorrect.</p>
+                                        
+                                        <aura:set attribute="else">
+                                            <div class="heading-underline">
+                                                <h1>Login to DNA</h1>  
+                                            </div>
+                                            <div class="login-info">
+                                                <p class="login-p">Login to the CRM using your DNA credentials below.</p>
+                                                <p class="validation">{!v.errorMessage}</p>
+                                            </div>
+                                            <form>
+                                                <!--Enter Username-->
+                                                <div id="ImpravataUsername">
+                                                    <p class="login-label">Enter DNA Username</p>
+                                                    <ui:inputText aura:id="username" placeholder="Enter your DNA username here"/>
+                                                </div>
+                                                
+                                                <!--Enter Password-->
+                                                <div id="ImpravataPassword">
+                                                    <p class="login-label">Enter DNA Password</p>
+                                                    <ui:inputSecret keyup="{!c.submitForm}" aura:id="password" placeholder="Enter your DNA password here"/>
+                                                </div>
+                                                
+                                                <!--Login Button - for now just closes the modal
+                                                    TODO: Actually login to DNA-->
+                                                <div class="ImpravataLogin">
+                                                    <input type="button" value="Login" class="login-button slds-button--brand" onclick="{!c.processLogin}" id="ImpravataLogin"/>
+                                                </div>
+                                                <input type="button" value="Use Offline Mode" class="login-button-secondary slds-button--brand" onclick="{!c.optedOffline}"/>
+                                            </form>
+                                            <div class="log-in-question">
+                                                <h5 class="question">I just logged in, why do I need to log in again?</h5>
+                                                <p class="answer">You just logged into Salesforce, now you need to login to DNA so salesforce can get member 
+                                                    data from DNA. If you don’t login to both, the applications won’t be able to communicate information to 
+                                                    each other.</p>
+                                            </div>
+                                        </aura:set>
+                                    </aura:if>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop--open"></div>
+                <!--***** Login Modal End *****-->
+            </aura:if>
+            
+            <aura:if isTrue="{!v.openOffline}">
+                
+                <!--
+                        *********************************
+                        ******* DNA Offline Modal *******
+                        *********************************
+                        --> 
+                <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__header">
+                            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                                X
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                        </div> 
+                        <div class="slds-modal__content">
+                            <lightning:layout horizontalAlign="spread">
+                                <lightning:layoutItem size="4">
+                                    <div class="left-column" style="{! 'background-image:url(' + $Resource.dnaAuthBackground + ');'}">
+                                        <div class="background-image">
+                                            <img alt="ICCU logo" src="{!$Resource.iccuLogoWhite}"/>
+                                            <p class="login-quote">“Happiness is not something you postpone for the future; 
+                                                it is something you design for the present.”</p>
+                                        </div>
+                                    </div>
+                                </lightning:layoutItem>
+                                <lightning:layoutItem size="8" class="main-login">
+                                    <div class="heading-underline">
+                                        <h1>DNA Unavailable</h1>  
+                                    </div>
+                                    <div class="offline-info">
+                                        <h5>We are unable to connect to DNA. This can be for a number of reasons including:</h5>
+                                        <p>
+                                            <ul>
+                                                <li>DNA is down</li>
+                                                <li>Network Failure</li>
+                                            </ul>
+                                        </p>
+                                        <h5>But we have good news!</h5>
+                                        <p>You can continue to use CRM in offline mode. However, please be aware that you will 
+                                            only have access to old DNA data. When we can connect to DNA you’ll see a pop-up 
+                                            prompting you to login like normal.</p>
+                                        <p>Please note: nothing on this screen will change. You will still be able to lookup and 
+                                            view member profiles, but the information displayed will not be new and updated.</p>
+                                    </div>
+                                    <lightning:button label="Continue in Offline Mode" class="login-button slds-button--brand" onclick="{!c.closeModal}" />
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop--open"></div>
+                <!--***** Offline Modal End *****-->  
+            </aura:if>
+        </div>
+
+</aura:component>

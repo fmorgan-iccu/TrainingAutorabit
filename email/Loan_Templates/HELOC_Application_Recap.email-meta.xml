@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Outbound_Letterhead</letterhead>
+    <name>HELOC Application Recap</name>
+    <style>freeForm</style>
+    <subject>HELOC Application Recap</subject>
+    <textOnly>Hello {!CASE(FIND(&quot;-&quot;, Opportunity.Name), 0, null, LEFT(Opportunity.Name, FIND(&quot;-&quot;, Opportunity.Name) - 2))},
+
+Thank you very much for choosing Idaho Central Credit Union for your new Home Equity Line of Credit (HELOC)! Here is a quick summary of the terms we have discussed during our application. If you have any questions or concerns, please feel more than welcome to contact me with the information below. As the loan progresses, I will update you as soon as possible about any changes. **Please remember that the interest rates and limit are subject to change pending the credit scores used and determination of the home’s value.
+
+· Estimated interest rate: X.XX%
+
+· Rate is variable and based upon the prime rate market
+
+· Requested limit: $X.XX
+
+· Due date is always the 25th with a 15-day grace period
+
+· Term: loan is available to draw from for 10 years, with interest only monthly payments required.
+
+· If there is a leftover balance at the end of the draw period it is then considered a balloon payment; if payment in full is not received or a refinance is not qualified, then the loan would be considered to be in default
+
+· If the loan is closed within 3 years, there is an early closure penalty of $350.00
+
+· When the loan is closed, the member is responsible for the reconveyance fee charged by the title company (currently $78).
+
+· Once loan documents are signed, all are subject to a 3-business day right of rescission. Home Equity Line of Credit will not fund until this period has expired.
+
+· How you can access your HELOC: checks, visa card, come into a branch for cash or transfer to another one of your account with ICCU’s eBranch online banking!
+
+· Requested items from member for ICCU to pay off on your behalf
+
+· Documents still needed from you
+
+· You have elected to {!Opportunity.Life_insurance__c} Life Insurance and {!Opportunity.Disability_Insurance__c} Disability Insurance
+
+If your application receives a final approval we can schedule an arrival time for your signing at a branch near you. The arrival needs to be scheduled Monday – Friday between 9am and 5pm, or Saturday between 9am and 10:30am.
+
+Please be aware that once you arrive at the Branch there may be a wait time of up to 1 hour for a Financial Services Officer to become available to assist you depending on the day and volume of traffic in the branch.Scheduling arrival times Monday - Friday between 9am and 11am is highly recommended for the most efficient service.Once a Financial Services Officer is available, the signing process will take 30-45 minutes.
+
+Here is a history of the Prime Rate: **max your interest rate can go up to is 18%
+
+
+Let me know if you have any questions or concerns.
+
+
+Thank you,
+
+{!Opportunity.OwnerFullName}
+
+{!Opportunity.OwnerTitle}
+
+1(800)456-5067
+
+Helping members achieve financial success.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

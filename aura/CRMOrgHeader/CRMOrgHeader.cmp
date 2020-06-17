@@ -1,0 +1,125 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="AccountController">
+    <!-- call this on page load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- register event to fire on contact refresh   -->
+    <aura:registerEvent name="notifyAccountRefresh" type="c:AccountRefresh"/>
+    
+    <!-- register event to fire on when auth is required for system of record   -->
+    <aura:registerEvent name="notifyRequireSystemOfRecordLogin" type="c:RequireSystemOfRecordLogin"/>    
+    
+    <!-- listen for system of record login -->
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+    
+    <!-- get the recordId -->
+    <aura:attribute name="recordId" type="String" />
+    
+    <!-- var for our contact -->    
+    <aura:attribute name="headerAccount" type="Account"/>
+    <aura:attribute name="errorMessage" type="String" />
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.errorMessage}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+    
+    <div class="slds-card">
+        <!-- BEGIN CARD HEADER -->	
+        <div class="slds-card__header slds-grid" style="{! 'background-image:url(' + $Resource.CRMOrgBackground + ');'}">
+            <div class="MemberHeaderContainer">
+                <div class="MemberNameContainer">
+                    <div class="OrgName">
+  						<lightning:icon iconName="utility:company" variant="inverse"/>
+                    	<h1 class="MemberNameHeader">{!v.headerAccount.Name}</h1>
+                    </div>
+                </div><!-- END OF MemberNameContainer -->
+
+                <div class="MemberActions">
+                    <a href="{! 'mailto:' + v.headerAccount.Email__c}">
+                        <span class="MailLink"><lightning:button iconName="utility:email" variant="brand"/></span>
+                    </a>
+                </div> <!-- END OF MemberActions -->
+            </div> <!-- END OF MemberHeaderContainer --> 
+        </div>
+        
+        <!-- BEGIN CARD BODY -->
+        <div class="slds-card__body slds-card__body_inner">
+            
+            <h3 id="MemberInformation">Business Information</h3>
+            
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Address</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.headerAccount.ShippingStreet}</p>
+                            <p>{!v.headerAccount.ShippingCity},&nbsp; {!v.headerAccount.ShippingState}	&nbsp; {!v.headerAccount.ShippingPostalCode}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>                    
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Biz Number</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.headerAccount.OrganizationNumber__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Biz Type</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.headerAccount.OrganizationType__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Tax ID</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.headerAccount.OrganizationTaxID__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Member Number</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.headerAccount.MemberNumber__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Main Phone</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <lightning:formattedPhone value="{!v.headerAccount.Phone}"/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Email</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <lightning:formattedEmail value="{!v.headerAccount.Email__c}" />
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div><!-- END CARD BODY -->
+    </div>
+</aura:component>

@@ -1,0 +1,15 @@
+.THIS {
+    padding: 1em;
+    color: t(darkestGray);
+}
+.THIS .content {
+    padding: 2em;
+}
+.THIS .question-context {
+    padding: .5em 1em;
+    margin: 1em;
+    font-size: t(largeText);
+    font-weight: 200;
+    background-color: t(lightestGray);
+    color: t(darkestGray);
+}

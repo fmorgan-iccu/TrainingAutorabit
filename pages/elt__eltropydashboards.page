@@ -1,0 +1,74 @@
+<apex:page controller="elt.EltropyDashboardController" sidebar="false">
+  <html>
+    <head>
+      <title>Eltropy Messenger</title>
+      <apex:includeScript value="{!URLFOR($Resource.elt__eltropystatic, 'js/jquery.js')}"/>
+      <style>
+        .foundation-data-attribute-namespace {
+          font-family: false;
+        }
+        #eltropySA .messenger-iframe {
+          height: 90vh;
+          width: 100%;
+          border: 1px solid rgb(223, 226, 227);
+          border-radius: 4px;
+        }
+
+      </style>
+    </head>
+    <body>
+      <div id="eltropySA">
+        <iframe class="messenger-iframe" name='targetFrame' allowfullscreen='true'></iframe>
+      </div>
+      <script>
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            var domainUrl = "{!HTMLENCODE(apiCredentials.Domain_Url__c)}";
+            var requestObj = {!accounts};
+
+            var adminId     = "{!HTMLENCODE(apiCredentials.Admin_Id__c)}";
+            var accessToken = "{!HTMLENCODE(apiCredentials.Access_Token__c)}";
+            var loggedInEmail = "{!HTMLENCODE($User.Email)}";
+            var loggedInFullName = "{!HTMLENCODE($User.FirstName)} {!HTMLENCODE($User.LastName)}";
+
+            var userRegisteredUrl = domainUrl + '/api/v2/sfdcapp/user/registered?email=' + loggedInEmail + '&firstLastName=' + loggedInFullName;
+            var exchangeTokenEndpoint = domainUrl + '/salesforceAppApi/exchangeToken?apiToken=' + accessToken + '&messengerEmailId=' + loggedInEmail;
+
+            $.ajax({
+              type: 'GET',
+              url: userRegisteredUrl,
+              contentType: "application/json",
+              headers: {
+                'El-Client':'sfdcsalesanalyzer-' + Date.now(),
+                'USER-ID' : adminId,
+                'ELTROPY-API-TOKEN': accessToken
+              },
+              success: function(data) {
+                $.ajax({
+                  type: 'GET',
+                  url: exchangeTokenEndpoint,
+                  contentType: "application/json",
+                  headers: {
+                    'El-Client':'sfdcsalesanalyzer-' + Date.now(),
+                  },
+                  success: function(data) {
+                    //Constructing the messenger URL
+                    var messengerUrl = domainUrl + '/messages/?logout=N&showShareDocument=Y&apiToken=' + data.accessToken;
+                    console.log("Messenger URL: " + messengerUrl);
+                    //Setting the iframe with messenger URL
+                    window.open(messengerUrl,"targetFrame");
+                  },
+                  error: function(data) {
+                    console.log(data);
+                  }
+                });
+              },
+              error: function(data) {
+                console.log(data);
+              }
+            });
+        });
+      </script>
+    </body>
+  </html>
+</apex:page>

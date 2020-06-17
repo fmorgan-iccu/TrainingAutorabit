@@ -1,0 +1,38 @@
+<aura:component controller="OpenProductApplicationsController">
+    <aura:attribute name="status" type="String" />
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="transactionGroups" type="Object" />
+    <aura:attribute name="isLoading" type="Boolean" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- End Attributes and Handlers -->
+
+    <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.fetchTransactions}" />
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <aura:if isTrue="{!v.isLoading}">
+        <c:CRMLoadingSpinner message="{!v.status + ' Transactions...'}" />
+    </aura:if>
+    
+    <aura:if isTrue="{!v.isLoading == false}">
+        <aura:if isTrue="{!v.errorMessage.length == 0}">
+	        <lightning:button variant="brand" label="Refresh" onclick="{!c.fetchTransactions}" />
+        </aura:if>
+
+        <aura:iteration items="{!v.transactionGroups}" var="group">
+            <h2>{!group.title} Applications</h2>
+            <p>Below are a list of applications.</p>
+            <aura:iteration items="{!group.transactions}" var="transaction">
+                <c.CRMAvokaApplication transaction="{!transaction}" />
+            </aura:iteration>
+        </aura:iteration>
+    </aura:if>
+</aura:component>

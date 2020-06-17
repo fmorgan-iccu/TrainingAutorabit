@@ -1,0 +1,37 @@
+<aura:component >
+	<!--
+	COMPONENT OVERVIEW:
+	This is the universal alert for anything in CRM. It will mainly be used for
+	a universal error state when applications we are relying on do not load (like
+	Criff ACTion and Encompass.
+	ACCEPTED ATTRIBUTES:
+	This component accepts the following attributes:
+		• 'alertState' - this can be success, info, error, or warning
+		• 'alertMessage' - this will be the full alert message and accepts
+						   HTML elements
+	EXAMPLE USAGE:
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>Unable to get data from ACTion and Encompass.
+                    <a href="#">Try Again</a>
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+	-->
+    <!--Setting Attributes-->
+    <aura:attribute name="alertState" type="String"/>
+    <aura:attribute name="alertMessage" type="Object"/>
+
+	<div class="{!'crm-alert ' + v.alertState}">
+        <lightning:layout verticalAlign="center">
+            <lightning:layoutItem >
+                <lightning:icon iconName="{! 'utility:' + v.alertState}"
+
+                                size="small"/>
+            </lightning:layoutItem>
+        	<lightning:layoutItem class="alertMessage">
+            	{!v.alertMessage}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

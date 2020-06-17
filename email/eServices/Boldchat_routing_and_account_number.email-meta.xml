@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Boldchat routing and account number</name>
+    <style>none</style>
+    <subject>Routing and account information</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+Thank you for your email. Idaho Central Credit Union’s routing number is 324173626. This is also located at the bottom of each page on iccu.com.  To access your full account number, you will need to log into your eBranch, select the account, followed by account details.  The full account number will be listed there
+
+It has been our pleasure to help. If there is anything else we can do, please do not hesitate to contact us. We appreciate your membership. Have a wonderful day, {!Case.ContactId}!
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,88 @@
+/** Applications **/
+.THIS h2 {
+    font-size: t(xLargeText);
+    font-weight: bold;
+    padding-left: .5em;
+}
+.THIS h3 {
+    font-size: t(largeText);
+    font-weight: bold;
+    padding: 1.5em 0 1em;
+}
+.THIS {
+    padding: 2em;
+}
+.THIS .cCrmMemberApplication:not(:last-child):not(:empty) {
+    margin-bottom: 1em;
+}
+/**Icons and Colors**/
+.THIS .cFontawesomeIcon {
+    border-radius: .25rem;
+}
+.THIS .cFontawesomeIcon[style*="purple"] {
+    background-color: t(iconPurple) !important;
+    fill: t(iconFill);
+}
+/** Visual Status Progress **/
+.THIS .app-status {
+    display: flex;
+}
+.THIS .individual-status:not(:last-child):not(:empty) {
+    margin-right: 10px;
+}
+.THIS .individual-status {
+    
+    height: 40px;
+    position:relative;
+    background: t(lightestGray);
+    /**Flex it**/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.THIS .individual-status:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 10px solid white;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+.THIS .individual-status:before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 10px solid t(lightestGray);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+.THIS .individual-status p {
+    text-align: center;
+    color: t(mediumGray);
+    padding-left: 8px;
+}
+/*complete*/
+.THIS .individual-status.complete {
+    background: t(iccuSuccess);
+}
+.THIS .individual-status.complete:before {
+    border-left: 10px solid t(iccuSuccess);
+}
+/*working*/
+.THIS .individual-status.working {
+    background: t(iccuNotification);
+}
+.THIS .individual-status.working:before {
+    border-left: 10px solid t(iccuNotification);
+}
+/*Working or Complete*/
+.THIS .individual-status.complete p,
+.THIS .individual-status.working p{
+    color: t(textOnColor);
+}

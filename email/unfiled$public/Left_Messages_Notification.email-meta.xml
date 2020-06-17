@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent to customers who FSC agents left message to</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Left Messages Notification</name>
+    <style>none</style>
+    <subject>Left Voice Message</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

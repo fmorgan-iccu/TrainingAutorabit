@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <chartTheme>dark</chartTheme>
+    <colorPalette>dusk</colorPalette>
+    <dashboardChartTheme>dark</dashboardChartTheme>
+    <dashboardColorPalette>dusk</dashboardColorPalette>
+    <dashboardGridLayout>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity.Product_Amount__c</column>
+                </chartSummary>
+                <componentType>BarGrouped</componentType>
+                <decimalPrecision>-1</decimalPrecision>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>FULL_NAME</groupingColumn>
+                <groupingColumn>Opportunity.Product__c</groupingColumn>
+                <groupingSortProperties/>
+                <header>FSC Opportunity Total Amount and Product</header>
+                <legendPosition>Right</legendPosition>
+                <report>FSC_Reports/FSC_Opportunity_Total_Amount_and_Product</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>0</rowIndex>
+            <rowSpan>4</rowSpan>
+        </dashboardGridComponents>
+        <numberOfColumns>9</numberOfColumns>
+        <rowHeight>80</rowHeight>
+    </dashboardGridLayout>
+    <dashboardType>LoggedInUser</dashboardType>
+    <description>FSC monthly opportunity total amount by agent</description>
+    <isGridLayout>true</isGridLayout>
+    <runningUser>mberehe@iccu.com</runningUser>
+    <textColor>#000000</textColor>
+    <title>Monthly Totals By Agent</title>
+    <titleColor>#000000</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>

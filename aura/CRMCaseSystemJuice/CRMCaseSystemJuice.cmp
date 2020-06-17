@@ -1,0 +1,46 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" >
+    
+    <!-- Get Case Data! -->
+    <aura:attribute name="record" type="Object" 
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" 
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" 
+                    description="An error message bound to force:recordData"/>
+    <aura:attribute name="dataJuice" type="String"/>
+    
+    <force:recordData aura:id="record"
+                      fields="OwnerId, ContactId, Status, Priority,
+                              AvokaData__c, AvokaStatus__c, AvokaForm__c,
+                              AvokaTrackingCode__c, AvokaTransactionStatus__c, AvokaJob__c,
+                              ContactPhone, Origin, Description, CaseNumber"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      mode="VIEW"/>
+
+    <!-- Begin Component -->
+    <aura:if isTrue="{!v.recordError.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.recordError}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+    
+    <div class="slds-card">
+        
+        <div class="SystemInfo-Container">
+            <h2>System Information</h2>
+            <p>If you are looking for additional details, view the source below. This will open a new tab that showcases an XML document, formatted for quick searchability.</p>
+            <p class="DulyNoted">Note: The easiest way to navigate the source file is to use CRTL + F and search for items you are looking for.</p>
+            <div class="ViewSource-Button">
+                <a href="{! 'https://iccu--uidev--c.cs63.visual.force.com/apex/AOXmlAvokaData?caseId=' + v.simpleRecord.Id}" target="blank"><lightning:button variant="brand" label="View Source File"/></a	>
+            </div>
+        </div>
+        
+	</div>
+</aura:component>

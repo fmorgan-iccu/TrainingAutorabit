@@ -1,0 +1,88 @@
+<apex:page standardController="PLNDR__PrecisionLender_Scenario__c" showHeader="false">
+<apex:stylesheet value="{$Resource.PLStyles}" />
+
+
+            <apex:pageBlock >
+                  <apex:pageBlockSection title="Scenario Summary" collapsible="false" columns="2" showHeader="true">                                                             
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Name__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Is_Pipeline__c}"/>                                  
+                
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Type__c}" />
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Competitor_Name__c}" rendered="{!IF(PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Type__c = 'competitive',true, false)}"  />
+                    <apex:outputText value="&nbsp;" escape="false" rendered="{!IF(PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Type__c = 'competitive',false, true)}"/>                                         
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__Scenario_Description__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Gross_Funding__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Commitment__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Net_Funding__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Average_Balance__c}"/>
+                </apex:pageBlockSection>
+                
+                <!-- In Progress Changes for AllLoans, Deposits, Others FS's 
+                <apex:tabPanel switchType="client" selectedTab="tab1" id="AccountTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+                    <apex:tab label="All" name="tab1" id="tab1">
+                        <apex:pageBlock >
+                            <apex:pageBlockSection collapsible="false" columns="2" showHeader="false">                                    
+                                <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Interest_Income__c}"/>
+                            </apex:pageBlockSection>
+                        </apex:pageBlock>
+                    </apex:tab>
+                </apex:tabPanel>
+                -->
+                    
+                <apex:pageBlockSection title="Scenario Financial Statement" collapsible="false" columns="2" showHeader="true">
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Interest_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Average_Yield__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Interest_Expense__c}" html-sss="border-bottom:solid 1px"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Net_Interest_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Net_Interest_Margin__c}"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Non_Interest_Expense__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Loan_Loss_Reserves__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Other_Income__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Pre_Tax_Income__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Taxes__c}"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Net_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_ROA__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Target_Net_Income__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Target_ROA__c}"/>
+                    
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    <apex:outputText value="&nbsp;" escape="false"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Average_Assets__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_ROE__c}"/>
+                    
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Average_Equity__c}"/>
+                    <apex:outputField value="{!PLNDR__PrecisionLender_Scenario__c.PLNDR__FS_Target_ROE__c}"/>
+                    
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+
+</apex:page>

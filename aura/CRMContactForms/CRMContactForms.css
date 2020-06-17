@@ -1,0 +1,90 @@
+.THIS {
+    font-size: 16px;
+    padding: 4em;
+}
+
+.THIS .form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.THIS h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.THIS h2 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.THIS .leader {
+    font-size: 1.25em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.THIS .form-card {
+    background: #fff;
+    flex: 1 1 auto;
+    margin: 1em;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .10);
+    border-radius: 8px;
+    transition: all 0.35s ease-in-out;
+    background-size: 1px 400px;
+    text-align: center;
+    width: 20%;
+}
+
+.THIS .coming-soon {
+    background: none;
+    border: 1px dashed #999999;
+    flex: 1 1 auto;
+    margin: 1em;
+    padding: 1.5em;
+    border-radius: 8px;
+    transition: all 0.35s ease-in-out;
+    background-size: 1px 400px;
+    text-align: center;
+    color: #999999;
+    width: 20%;
+}
+
+.THIS .coming-soon-icon {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    padding: 0.75em;
+    color: #999999;
+}
+
+.THIS .form-card:hover {
+    cursor: pointer;
+    color: #fff;
+    background-image: linear-gradient(45deg, #00AE00 0%, #006C18 100%);
+    background-position: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .25);
+}
+
+.THIS .form-card:hover > .icon {
+    color: #fff;
+}
+
+.THIS .icon {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    padding: 0.75em;
+    color: #1c8900;
+    transition: all 0.35s ease-in-out;
+}
+
+@media screen and (max-width: 1060px) {
+    .THIS .form-card, .THIS .coming-soon {
+        width: 45%;
+    }
+}

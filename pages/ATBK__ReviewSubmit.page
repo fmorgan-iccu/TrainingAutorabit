@@ -1,0 +1,42 @@
+<apex:page id="ReviewSubmit"
+	controller="ATBK.ReviewSubmitController"
+	extensions="nFORCE.RemoteActionController"
+	lightningStyleSheets="true"
+	title="{!$Label[configurations['titleLabel']]}"
+	docType="html-5.0"
+	applyHtmlTag="false"
+	showHeader="false">
+
+	<apex:slds />
+	<c:ReviewSubmitConfiguration />
+	<c:ReviewSubmitIncludes />
+	<div id="reviewSubmit" class="slds-scope">
+		<c:PushTopicListener elementToAttachTo="reviewSubmit" topic="ATBKStatusUpdate" />
+		<c:ReviewSubmitPartial />
+		<review-submit
+			action="{!configurations['action']}"
+			button-label="{!$Label[configurations['buttonLabel']]}"
+			close-icon-url="{!URLFOR($Resource.nFORCE__SLDS0122,'/assets/icons/utility/close_60.png')}"
+			close-label="{!$Label.Close}"
+			confirm-button-label="{!$Label[configurations['confirmButtonLabel']]}"
+			context-object-id="{!configurations['contextId']}"
+			death-star-default-path="{!URLFOR($Resource.Common,'/assets/images/BookToCore_Default.svg')}"
+			internal-error-text="{!$Label[configurations['internalErrorText']]}"
+			modal-label="{!$Label[configurations['modalLabel']]}"
+			modal-timeout="{!configurations['modalTimeout']}"
+			modal-title-label="{!$Label[configurations['modalTitleLabel']]}"
+			remote-action="{!$RemoteAction.RemoteActionController.invoke}"
+			remote-fetch-status="ATBK.BaseUIController.FetchStatus"
+			remote-send-action="ATBK.BaseUIController.SendAction"
+			summary-page-href="{!configurations['summaryPageHref']}"
+			timeout-error-text="{!$Label[configurations['timeoutErrorText']]}"
+			title-label="{!$Label[configurations['titleLabel']]}"
+		></review-submit>
+	</div>
+	<div class="screen-section-group">
+		<apex:include pageName="nFORCE__ncGridList" rendered="true" />
+	</div>
+	<c:ReadOnlyGrid titleLabel="Core Specific Information"
+		items="{!configurations['coreSpecificData']}"
+		rendered="{!configurations['containsCoreSpecificData']}" />
+</apex:page>

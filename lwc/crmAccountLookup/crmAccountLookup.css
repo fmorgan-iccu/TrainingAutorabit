@@ -1,0 +1,64 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin-bottom: .3em;
+}
+
+/* Card Styling */
+.account {
+    padding: 1em;
+    border: 1px solid #BDBDBD;
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 2em;
+}
+
+.slds-icon-custom-custom31 {
+    margin-right: 0.5em;
+    background-color: #8E10A7;
+}
+
+.slds-icon-utility-close:hover {
+    cursor: pointer;
+}
+
+.account-info {
+    display: flex;
+}
+
+.title, .account-number {
+    flex: 1;
+}
+/* Account Searching */
+.search-info {
+    padding: .5em 2rem;
+    background: #F0F0F0;
+}
+.search-item {
+    display: flex;
+    padding: .5em 2rem;
+}
+.search-item:hover,
+.contact:hover {
+    cursor: pointer;
+    background: #F0F0F0;
+}
+.account-nickname {
+    font-weight: bold;
+}
+.search-dropdown {
+    border:1px solid rgb(221, 219, 218);
+    padding-top: .2rem;
+}
+.search {
+    margin: 0;
+}
+.account-search {
+    margin-bottom: 2em;
+}

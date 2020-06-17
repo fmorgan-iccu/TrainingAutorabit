@@ -1,0 +1,14 @@
+.THIS {
+    background-color: t(iccuError);
+    border-radius: .25rem;
+    padding: 1em 0;
+}
+.THIS p {
+    color: t(textOnColor);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: t(largeText);
+}
+.THIS.display-false {
+    display: none;
+}

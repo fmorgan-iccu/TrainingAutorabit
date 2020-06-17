@@ -1,0 +1,10 @@
+Hi {!Lead.ReferringTeamMember__c},
+
+Thank you for referring {!Lead.Name} over to me!
+
+
+
+Regards, 
+
+{!Lead.OwnerFullName}
+{!Lead.OwnerTitle}

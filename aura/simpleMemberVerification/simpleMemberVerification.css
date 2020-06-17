@@ -1,0 +1,180 @@
+.THIS {
+    width: 100%;
+}
+.THIS p,
+.THIS label,
+.THIS h1,
+.THIS h5{
+    color: t(darkestGray);
+}
+.THIS .main-login form {
+    padding-top: .3em;
+}
+.THIS .login-label {
+    font-weight: 800;
+    font-size: t(mediumText);
+    text-transform: uppercase;
+}
+.THIS input[type=text], 
+.THIS input[type=password] {
+    width: 100%;
+    padding: .5em;
+    border-style: none;
+    border: 1px solid t(mediumGray);
+    margin: .3em 0 2em;
+    font-size: t(mediumText);
+    border-radius: .25rem;
+}
+.THIS .slds-modal__container {
+    margin: auto;
+}
+.THIS .cVerificationModalBody p {
+    font-size: t(mediumText);
+}
+.THIS .slds-button.secondary {
+    color: t(iccuPrimaryGreen);
+}
+.THIS .slds-button:hover {
+    color: t(iccuSecondaryGreen);
+}
+.THIS .slds-button.slds-button_brand {
+    color: white;
+    background-color: t(iccuPrimaryGreen);
+    border: none;
+}
+.THIS .slds-button.slds-button_brand:hover {
+    background-color: t(iccuSecondaryGreen);
+}
+.THIS .slds-modal__footer {
+    border: none;
+    background-color: white;
+}
+.THIS .modal-pop.slds-button {
+    color: white;
+} 
+.THIS .slds-modal {
+    top: 130px;
+}
+.THIS .slds-button.slds-modal__close:hover {
+    color: white;
+    opacity: .7;
+}
+
+@media (min-width: 48em){
+    .THIS slds-modal__container {
+        width: 100%;
+    }
+}
+/*************************
+ * BEGIN NEW CSS
+ * ***********************/
+/** GENERAL **/
+.THIS .identifyMember .identify {
+    padding: .5em 2em;
+}
+.THIS .identifyMember .message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.THIS .message p {
+    font-size: t(largeText);
+    font-weight: bold;
+}
+.THIS .alert-container {
+    padding: 1em;
+}
+/** MODAL **/
+.THIS:focus {
+    outline: none;
+}
+.THIS .slds-show {
+    height: 600px;
+}
+/** TABS **/
+.THIS .identifyMember .slds-tabs--default__item.slds-has-focus {
+    color: t(iccuPrimaryGreen);
+}
+.THIS .identifyMember .slds-tabs--default__item.slds-has-focus:after,
+.THIS .identifyMember .slds-tabs_default__item:hover:after, 
+.THIS .identifyMember .slds-tabs--default__item:hover:after{
+    background-color: t(iccuPrimaryGreen);
+}
+.THIS .identifyMember .slds-tabs--default__item.slds-active .slds-tabs--default__link:hover,
+.THIS .identifyMember a:hover, 
+.THIS .identifyMember a:focus {
+    color: t(iccuSecondaryGreen);
+}
+/** PASSPHRASE **/
+/* Buttons */
+.THIS .identifyMember button.slds-button {
+    width: 100%;
+    display: block;
+    margin-bottom: .5em;
+    padding: .8em 0;
+}
+.THIS .identifyMember .cCRMAlert.crm-alert button.slds-button {
+    width: auto;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0 1em;
+}
+.THIS .identifyMember button.slds-button:nth-of-type(1) {
+    margin-top: 2em;
+}
+.THIS .identifyMember .slds-button+.slds-button {
+    margin-left: 0;
+}
+.THIS .identifyMember button.slds-button.slds-button--brand {
+    background-color: t(iccuPrimaryGreen);
+    border: none;
+}
+.THIS .identifyMember button.slds-button.slds-button--brand:hover {
+    background-color: t(iccuSecondaryGreen);
+    border: none;
+    color: white;
+}
+.THIS .identifyMember button.slds-button.declinedPassphrase {
+    background-color: t(darkGray);
+    color: white;
+    border: none;
+}
+.THIS .identifyMember button.slds-button.declinedPassphrase:hover {
+    background-color: t(darkestGray);
+    color: white;
+    border: none;
+}
+/* Passphrase Set */
+.THIS .identifyMember .identify.passphrase.hasPassphrase h3 {
+    font-weight: bold;
+    font-size: t(largeText);
+}
+.THIS .identifyMember .identify.passphrase.hasPassphrase h3:nth-of-type(2) {
+    margin-top: .5em;
+}
+.THIS .identifyMember .identify.passphrase.hasPassphrase p {
+    margin-left: 1em;
+    padding: .5em 0;
+}
+/* Passphrase Not Set */
+.THIS .identifyMember .identify .slds-form-element.lightningInput:nth-of-type(1) {
+    margin-bottom: 1em;
+}
+.THIS .identifyMember .identify .slds-form-element.lightningInput label {
+    font-size: t(largeText);
+}
+/* Declined Passphrase */
+.THIS .identifyMember .message .slds-icon {
+    margin-right: .5em;
+}
+.THIS .identifyMember .message .slds-icon-text-default {
+    fill: t(iccuPrimaryGreen)
+}
+/** QUESTIONS **/
+.THIS .identifyMember .qAmount {
+    color: t(iccuPrimaryGreen);
+    font-weight: bold;
+    font-size: t(xLargeText);
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is automatically sent to members when we call and left them a voice mail</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Test</letterhead>
+    <name>Left Voice Mail</name>
+    <style>formalLetter</style>
+    <subject>I Left You a Voice Mail</subject>
+    <textOnly>Hello {!CASE(FIND(&quot;-&quot;, Opportunity.Name), 0, null, LEFT(Opportunity.Name, FIND(&quot;-&quot;, Opportunity.Name) - 2))},
+
+My name is {!Opportunity.OwnerFullName}, I am a Loan Officer at Idaho Central Credit Union and I’m emailing you in regards to the loan inquiry that you requested. I just left you a voicemail but I wanted to send you an email in case this was a more convenient way for you to communicate with me.
+
+I have some questions about the information you entered in your application and I’d like to go over the application process with you. I would greatly appreciate it if you could get back to me at your earliest convenience. You can do this by contacting me at one of the numbers below, or by simply replying to this email.
+
+I look forward to hearing from you. Thank you and have a nice day!
+
+Thanks again!
+{!Opportunity.OwnerFirstName}
+
+Treasure Valley – 208-846-7000
+Magic Valley – 208-733-4777
+Eastern Idaho – 208-478-3300
+North Idaho – 208-667-7722</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

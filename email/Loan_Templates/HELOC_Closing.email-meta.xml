@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Outbound_Letterhead</letterhead>
+    <name>HELOC Closing</name>
+    <style>freeForm</style>
+    <subject>HELOC Closing Appointment</subject>
+    <textOnly>1(800)456-5067Hello {!CASE(FIND(&quot;-&quot;, Opportunity.Name), 0, null, LEFT(Opportunity.Name, FIND(&quot;-&quot;, Opportunity.Name) - 2))},
+
+I just wanted to let you know we are clear to close on your Home Equity Line of Credit.
+
+A summary of the documents you will be signing can be found on our website by following this HELOC Documents. Please make sure to bring your photo ID as the Deed of Trust will need to be notarized.
+
+Here are the details of your loan:
+
+Loan amount: {!Opportunity.Amount}
+
+Rate: {!Opportunity.Interest_Rate__c}. This rate is variable and can go up or down based on the Prime Rate, set monthly by the Federal Reserve.
+
+Minimum payments on the HELOC are interest only.
+
+Payments are due on the 25th of each month.
+
+The term of the loan is a 10-year draw period. At the end of that draw period, any remaining loan balance would need to be paid in full, or refinanced.
+
+Debit cards and/or checks are available for the credit line.
+
+There are no upfront fees on the HELOC, as long as the line remains open for 3 years. You’re not required to carry a balance on the line; it only needs to remain open in order to avoid the early closure fee, which is $350.
+
+A Reconveyance Fee of $78 will be charged by the Title Company, who will record the Deed of Trust, to release the lien upon paying off and closing the HELOC (this fee also applies for HELOC limit increases).
+
+You have elected to {!Opportunity.Life_insurance__c} Life Insurance and {!Opportunity.Disability_Insurance__c} Disability Insurance.
+
+I have your arrival time scheduled at the xxxxxxx Branch (insert Branch Address) on x/xx/20xx at 2:30 PM. All signers must be present.Please be aware that once you arrive at the Branch there may be a wait time of up to 1 hour for a Financial Services Officer to become available to assist you. Once a Financial Services Officer is available, the signing process will take 30-45 minutes.
+
+Please be aware that the Loan Officer who will assist you may not have all of the specific details of your loan application. If you have questions that the Financial Services Officer is unable to answer, please call or email me.
+
+After you sign, we still have a 3-day right of rescission, your time to cancel the loan if you desire. After the 3 business days, the loan will be funded and available for you. Please let me know if you have any questions.
+
+
+
+
+
+
+Thank you,
+
+{!Opportunity.OwnerFullName}
+
+{!Opportunity.OwnerTitle}
+
+1(800)456-5067
+
+Helping members achieve financial success.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

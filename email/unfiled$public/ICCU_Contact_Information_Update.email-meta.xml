@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>A transactional email that is sent when a DNA person&apos;s email is changed in both systems.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ICCU Contact Information Update</name>
+    <style>none</style>
+    <subject>ICCU Contact Information Updated</subject>
+    <textOnly>ICCU contact information updated
+
+Hello {!Contact.FirstName},
+
+For your security, Idaho Central Credit Union sends a notification whenever a change is made on your account. A change was made to the {!var.updatedFields} listed on your account. If you did not authorize this change, please contact Idaho Central Credit Union immediately.
+
+Sincerely,
+
+Idaho Central Credit Union
+
+
+This email was sent to:  {!Contact.Email}
+
+This email was sent by:
+{!Organization.Name}
+{!Organization.Street}
+{!Organization.City}, {!Organization.State} {!Organization.PostalCode}
+{!Organization.Country}
+
+We respect your right to privacy - view our policy at https://www.iccu.com/online-policy</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

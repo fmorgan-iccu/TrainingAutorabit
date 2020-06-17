@@ -1,0 +1,28 @@
+.error {
+    background: #FAE3E6;
+    border-left: 10px solid #D0021B;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+    display: flex;
+}
+.success {
+    background: #DAF8D2;
+    border-left: 10px solid #24B200;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+    display: flex;
+}
+.warn {
+    background: #FFF2D3;
+    border-left: 10px solid #FFC128;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+    display: flex;
+}
+.info {
+    background: #E5EFFF;
+    border-left: 10px solid #3073DD;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+    display: flex;
+}

@@ -1,0 +1,31 @@
+<aura:component >
+    
+    <!-- Setup Attributes -->
+    
+    <!--The questions answer(s)- there may be more than one-->
+    <aura:attribute name="answers" type="Object"/>
+    <!-- the attribute "type" takes the name of an icon
+		Only three icons will work right:
+		check: if the member got the answer correct
+		times: if the member got the question wrong
+		question: the question is being asked
+	 -->
+    <aura:attribute name="type" type="String" default="question"/>
+    <!--The verification question-->
+    <aura:attribute name="question" type="String"/>
+    
+    <!-- Component -->
+    <div>
+        <div class="identify-question">
+            <c:fontawesomeIcon iconName="{!v.type}" iconSize="medium"></c:fontawesomeIcon>
+            <p>{!v.question}</p>
+        </div>
+        <div class="identify-answer">
+            <p>
+	            <aura:iteration items="{!v.answers}" var="answer">
+                    {!answer}<br />
+        	    </aura:iteration>
+            </p>
+        </div>
+    </div>
+</aura:component>

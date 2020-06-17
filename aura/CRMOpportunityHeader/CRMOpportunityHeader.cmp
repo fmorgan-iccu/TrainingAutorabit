@@ -1,0 +1,123 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" >
+
+    <!-- Date & Number formatting libraries -->
+    <ltng:require scripts="{!join(',', $Resource.NumeralJS, $Resource.MomentJS)}" afterScriptsLoaded="{!c.resourceReceived}" />
+    
+    <aura:attribute name="formattedCloseDate" type="String" />
+    <aura:attribute name="formattedAmount" type="String" />
+    
+    <aura:attribute name="backgroundImage" type="String"/>
+    
+	<!-- get the recordId -->
+    <aura:attribute name="recordId" type="String" />
+
+    <aura:attribute name="record" type="Object" 
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" 
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" 
+                    description="An error message bound to force:recordData"/>
+    
+    <!-- Attribute for abandoned applications -->
+    <aura:attribute name="abandonedApplication" type="Boolean" default="false"
+                    description="An error message displayed if an Avoka application has been abandoned."/>
+
+    <aura:attribute name="applications" type="Array" description="List of applications associated with this opportunity." />
+    <aura:attribute name="applicationIDs" type="Array" description="List of ACTion IDs associated with the loan(s)." />
+    
+    <force:recordData aura:id="record"
+                      fields="Name, Product__c, Product_Amount__c, CloseDate, ProductMajorCode__c, ProductMinorCode__c, avokaApplicationInfoJSON__c, Lost_Reason__c"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      recordUpdated="{!c.recordReceived}"
+                      mode="VIEW"/>
+    
+    <!-- if record error -->
+    <aura:if isTrue="{!v.recordError.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.recordError}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+    
+    <!-- if opportunity is abandoned in Avoka -->
+    <aura:if isTrue="{!v.abandonedApplication}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                	This application has been abandoned. No further action is needed.
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <div class="slds-card"> <!-- Begin card -->
+        <!-- BEGIN CARD HEADER -->
+        <div class="slds-card__header slds-grid" style="{! 'background-image:url(' + v.backgroundImage + ');'}">
+            <div class="OpportunityHeaderContainer">
+                <div class="OpportunityHeaderInfo">
+                        <lightning:icon iconName="standard:opportunity" />
+                        <div class="memberName">
+                            <h1 class="MemberNameHeader">{!v.simpleRecord.Name}</h1>
+                            <h3 class="MemberLegalName">Close Date: {!v.formattedCloseDate}</h3>
+                        </div>
+                </div><!-- END OF MemberNameContainer -->
+                
+                <div class="MemberActions">
+                    <p><span class="descriptor">Product:</span>&nbsp;{!v.simpleRecord.Product__c}</p>
+                </div> <!-- END OF MemberActions -->
+
+            </div> <!-- END OF MemberHeaderContainer -->
+        </div>
+    </div>
+    
+    <!-- Card Body - Includes important high-level information -->
+    <div class="slds-card__body slds-card__body_inner">
+
+        <h3 id="OpportunityInformation">Opportunity Information</h3>
+        <aura:iteration items="{!v.applications}" var="application">
+            <div class="container-flex">
+                <div class="OpportunityItems">
+                    <p class="label">Product Type</p>
+                    <p>{!application.propertyType}</p>
+                </div>
+                
+                <div class="OpportunityItems">
+                    <p class="label">Product Sub-Type</p>
+                    <p>{!application.propertySubType}</p>
+                </div>
+                
+                <div class="OpportunityItems">
+                    <p class="label">Purchase Type</p>
+                    <p>{!application.purchaseType}</p>
+                </div>
+                
+                <aura:if isTrue="{!application.formattedAmount &amp;&amp; application.formattedAmount.length > 0}">
+                    <div class="OpportunityItems">
+                        <p class="label">Requested Amount</p>
+                        <p>${!application.formattedAmount}</p>
+                    </div>
+                </aura:if>
+                
+                <aura:if isTrue="{!application.vin &amp;&amp; application.vin.length > 0}">
+                    <div class="OpportunityItems">
+                        <p class="label">Collateral VIN</p>
+                        <p>{!application.vin}</p>
+                    </div>
+                </aura:if>
+            </div>
+        </aura:iteration>
+
+        <aura:iteration items="{!v.applicationIDs}" var="appID">
+            <div class="OpportunityItems">
+                <p class="label">Application ID</p>
+                <p>{!appID}</p>
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>

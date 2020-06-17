@@ -1,0 +1,100 @@
+.THIS .slds-card__header, .THIS .slds-card__body {
+    background: t(iccuHeaderBackground);
+    color: t(iccuLightText);
+}
+
+.THIS .slds-card__footer {
+    margin-top: 0;
+}
+
+.THIS .slds-card__header {
+    margin-bottom: 0;
+    padding: .75rem 1rem;
+}
+
+.THIS .product-headings {
+    display: block;
+    /* If we do bold on this on we need to make sure to add it to
+     * CRMMemberInsights too :)
+    font-weight: 600;
+    */
+    font-size: t(mediumText);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.THIS .product-headings:after {
+    left: 100%;
+}
+
+.THIS .slds-grid {
+    overflow: hidden;
+}
+
+.THIS .slds-icon-text-default {
+    fill: #fff;
+}
+
+/** Fallback color in case no color is chosen for a promotion **/
+.THIS .slds-icon_container {
+    background-color: t(mediumGray);
+    padding: 4px;
+}
+
+/** Begin Promotion Colors! **/
+.THIS .slds-icon_container.green,
+.THIS .slds-icon_container.Green {
+    background-color: t(iccuSuccess);
+    padding: 4px;
+}
+
+.THIS .slds-icon_container.darkBlue,
+.THIS .slds-icon_container.DarkBlue,
+.THIS .icon-column .slds-icon_container[class*="Dark Blue"]{
+    background-color: #009688;
+    padding: 4px;
+}
+
+.THIS .slds-icon_container.purple,
+.THIS .slds-icon_container.Purple {
+    background-color: #9013FE;
+    padding: 4px;
+}
+
+.THIS .slds-icon_container.darkGrey,
+.THIS .slds-icon_container.DarkGrey,
+.THIS .slds-icon_container[class*="Dark Grey"] {
+    background-color: #9B9B9B;
+    padding: 4px;
+}
+
+.THIS .slds-icon_container.blue,
+.THIS .slds-icon_container.Blue {
+    background-color: #37B1E3;
+    padding: 4px;
+}
+
+.THIS .slds-icon_container.red,
+.THIS .slds-icon_container.Red {
+    background-color: #EB3D3D;
+    padding: 4px;
+}
+
+.THIS hr {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.THIS .product-headings {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    line-height: .1em;
+    margin: 2em 0 1.5em;
+}
+.THIS .product-headings span {
+    background:#fff; 
+    padding:0 10px 0 0; 
+}
+.THIS .no-promo {
+    text-align: left;
+}

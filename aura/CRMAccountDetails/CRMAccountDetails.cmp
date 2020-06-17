@@ -1,0 +1,189 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="MemberAccountsController">
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Attributes -->
+    <aura:attribute name="account" type="Map" default="{}"/>
+    <aura:attribute name="transactions" type="Array"/>
+  	<aura:attribute name="actions" type="Aura.Component[]"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="interestRate" type="String" />
+    <aura:attribute name="availableBalance" type="String" />
+    <aura:attribute name="currentBalance" type="String" />
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="contactName" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="nextPaymentDate" type="String" />
+    <aura:attribute name="nextPaymentAmount" type="String" />
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <ltng:require scripts="{!$Resource.NumeralJS}" afterScriptsLoaded="{!c.formatAmounts}" />
+    <ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatDates}" />
+
+    <div role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            <div class="{!v.account.isOverdrawn || v.account.isOverdue ? 'slds-modal__headerOverdrawn' : 'slds-modal__header'}">
+                <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                    X
+                    {! v.actions }
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                    <aura:if isTrue="{!v.contactName.length > 0}">
+                        {!v.contactName}'s
+                    </aura:if>
+                    Account Details
+                </h2>
+            </div>
+
+            <div class="slds-modal__content">
+                <div class="{!v.account.isOverdrawn || v.account.isOverdue ? 'AccountHeaderOverdrawn' : 'AccountHeader'}">
+                    <div class="AccountHeaderContainer">
+                        <lightning:layout horizontalAlign="spread">
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="6" >
+                                <!-- Added If statement to render Nickname of account, else show default name with an h2 tag -->
+                                <aura:if isTrue="{!v.account.nickName}">
+                                    <h2>{!v.account.nickName}</h2>
+                                    <h5>{!v.account.name}</h5>
+                                    <aura:set attribute="else">
+                                		<h2>{!v.account.name}</h2>
+                                    </aura:set>	
+                                </aura:if>
+                            </lightning:layoutItem>	
+                            
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="3" largeDeviceSize="3" >
+                                <div class="BalanceHeader" id="CurrentBalanceHeader">
+                                    <h5>Current Balance</h5>
+                                    <p class="BalanceSize">{!v.currentBalance}</p>
+                                </div>
+                            </lightning:layoutItem>	
+                            
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="3" largeDeviceSize="3" >
+                                <div class="BalanceHeader">
+                                    <h5>Available Balance</h5>
+                                    <p class="BalanceSize">{!v.availableBalance}</p>
+                                </div>
+                            </lightning:layoutItem>	
+                        </lightning:layout>    
+                    </div>
+                </div>
+                          
+                <!-- START OF TABULAR NAVIGATION -->
+                <lightning:tabset >
+                    <!-- START OF ACCOUNT DETAILS TAB -->
+                    <lightning:tab label="Account Details">
+                        <div class="AccountDetailsContainer">
+                            <h2>Account Details</h2>
+                            <p>Below you will find the details associated with this account.</p>
+                            
+                            <!-- FIRST ROW OF 3 COLUMN INFO -->
+                            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                    <h5>Account Number</h5>
+                                    <p>{!v.account.accountNumber}</p>
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                    <h5>Account Nickname</h5>
+                                    <p>{!v.account.nickName}</p>
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                    <h5>Available Balance</h5>
+                                    <p>{!v.availableBalance}</p>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                            
+                            <!-- SECOND ROW OF 3 COLUMN INFO -->
+                            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                    <h5>Interest Rate</h5>
+                                    <p>{!v.interestRate}</p> 
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                    <h5>Branch Name</h5>
+                                    <p>{!v.account.branchName}</p>
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                    <aura:if isTrue="{!v.nextPaymentDate.length > 0}">
+                                        <h5>Next Payment Date</h5>
+                                        <p>{!v.nextPaymentDate}</p>
+                                    </aura:if>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                            
+                            <!-- THIRD ROW OF 3 COLUMN INFO -->
+                            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                    <aura:if isTrue="{!v.nextPaymentAmount.length > 0}">
+                                        <h5>Next Payment Amount</h5>
+                                        <p>{!v.nextPaymentAmount}</p>
+                                    </aura:if>
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                </lightning:layoutItem>
+                                
+                                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                            
+                            <hr/>
+                            
+                            <!-- START OF ACCOUNT ROLES INFORMATION -->
+                            <div>
+                                <h2>Account Roles</h2>
+                                <p>Below you will find the roles associated with this account, organized by the person(s). </p>
+                                <c.CRMAccountRoles account="{!v.account}" />
+                            </div>
+                        </div>
+                        
+                    </lightning:tab>
+                    
+                    <!-- START OF TRANSACTIONS TAB -->
+                    <lightning:tab label="Transactions">
+                        <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+                            <c:CRMAlert alertState="error">
+                                <aura:set attribute="alertMessage">
+                                    <p>
+                                        {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.fetchTransactions}" />
+                                    </p>
+                                </aura:set>
+                            </c:CRMAlert>
+                        </aura:if>
+                        
+                        <div class="IntroInfo">
+                            <h2 id="TransactHistoryHeader">Transaction History</h2>
+                            <p>Below are the transactions related to the account. Click on each transaction to expand and view the extra details.</p>
+                        </div>
+                        <aura:if isTrue="{!v.isLoading}">
+                            <c:CRMLoadingSpinner message="Transactions..." />
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.transactions.length &lt;= 0}">
+                        	<div class="noTransactions">
+                                <c:CRMAlert alertState="info">
+                                    <aura:set attribute="alertMessage">
+                                        <h4>Insufficient Transactions</h4>
+                                        <p>There are not any transactions on this account within the last 30 days. 
+                                            Please visit DNA for transactions older than 30 days.</p>
+                                    </aura:set>
+                                </c:CRMAlert>
+                            </div>
+                        </aura:if>
+                        <aura:iteration items="{!v.transactions}" var="transaction">
+                            <c.CRMTransactionHistoryData Transaction="{!transaction}" />
+                        </aura:iteration>
+                    </lightning:tab>          
+                </lightning:tabset>            
+                
+            </div>
+            
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">Close</button> 
+            </footer>
+        </div>
+    </div>
+</aura:component>

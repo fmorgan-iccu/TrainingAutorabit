@@ -1,0 +1,8 @@
+.slds-pill_container {
+    border: none;
+    margin-top: 0.5em;
+}
+.label {
+    font-size: .75em;
+    color: rgb(62, 62, 60)
+}

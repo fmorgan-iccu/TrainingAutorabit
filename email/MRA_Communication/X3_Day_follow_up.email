@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt;">Reminder that </span>{!Opportunity.Account} was contacted 3 days ago.&nbsp;</font><div><font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Point of contact is:</font><span style="font-size: 12pt;">{!Opportunity.Member_Name__c}&nbsp;</span><div><font face="arial">mobile number is:&nbsp;{!Opportunity.Mobile__c}</font></div><div><font face="arial">email:&nbsp;{!Opportunity.Email__c}</font></div></div>]]></td>
+</tr>
+</table>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>APP ERRORS</name>
+    <style>none</style>
+    <subject>eBranch</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+Thank you for contacting us.  Sorry to hear you experienced a problem with your eBranch, I can help resolve this issue.  We will also need to know the following information:
+
+Device make and model:
+
+Device software version on the phone:
+
+ICCU App Version:
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+{!Case.OwnerTitle}
+
+Idaho Central Credit Union
+
+Eastern Idaho 208-478-3300
+
+Treasure Valley 208-846-7000
+
+Magic Valley 208-733-4777
+
+www.iccu.com
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

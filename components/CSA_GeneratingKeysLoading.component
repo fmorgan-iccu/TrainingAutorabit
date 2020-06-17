@@ -1,0 +1,10 @@
+<apex:component id="CSA_GeneratingKeysLoading">
+    <div class="slds-spinner_container slds-hide" id="slds-loading-generate">
+        <div role="status" class="slds-spinner slds-spinner--medium slds-spinner--brand">
+            <span class="slds-assistive-text">Loading</span>
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+            <div class="slds-loading-text">Generating Lookup Key(s)...</div>
+        </div>
+    </div>
+</apex:component>

@@ -1,0 +1,83 @@
+.THIS {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 16px;
+    color: #1a1a1a;
+    transition: all .2s ease-in-out;
+}
+
+.THIS #TransactionDescription {
+    font-weight: 600;
+}
+
+.THIS #CreditAmount {
+    color: t(iccuBrandGreen);
+    font-weight: 600;
+}
+
+.THIS #DebitAmount {
+    color: t(iccuError);
+    font-weight: 600;
+}
+
+.THIS #PostDate {
+    margin-top: 0.5em;
+    font-weight: 600;
+    font-size: .80rem;
+    color: rgba(0, 0, 0, 0.55);
+    text-transform: uppercase;
+}
+
+.THIS .TransactionHeader {
+    font-weight: 600;
+    font-size: .80rem;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+
+.THIS .TransactionHeader + p {
+    overflow-wrap: break-word;
+  	word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.THIS .iconContainer {
+    margin-bottom: -2em;
+}
+
+.THIS #transactLayerOne {
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+.THIS .BorderTop {
+    border-top: 1px solid t(lightestGray);
+}
+
+.THIS #transactLayerOne:hover {
+    background-color: rgba(36, 178, 0, 0.1);
+    border: 1px solid #24B200;
+}
+
+.THIS #transactLayerOne:active {
+    background-color: rgba(36, 178, 0, 0.1);
+    border-top: 1px solid t(iccuBrandGreen);
+    border-right: 1px solid t(iccuBrandGreen);
+    border-left: 1px solid t(iccuBrandGreen);
+}
+
+.THIS .activeColor {
+    border-top: 1px solid t(iccuBrandGreen);
+    border-right: 1px solid t(iccuBrandGreen);
+    border-left: 1px solid t(iccuBrandGreen);
+}
+
+.THIS #transactLayerTwo {
+    padding: 0.5em;
+    background-color: rgba(36, 178, 0, 0.1);
+    border-left: 1px solid #24B200;
+    border-right: 1px solid #24B200;
+    border-bottom: 1px solid #24B200;
+}

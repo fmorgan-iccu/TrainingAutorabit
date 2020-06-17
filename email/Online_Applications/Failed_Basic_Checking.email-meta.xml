@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Outbound_Letterhead</letterhead>
+    <name>Failed-Basic Checking</name>
+    <style>freeForm</style>
+    <subject>Your Recent Application with ICCU</subject>
+    <textOnly>Hello {!Opportunity.Contact_First_Name__c},
+
+
+Thank you for your application for membership and a Free Checking Account with Idaho Central Credit Union.  Unfortunately you do not qualify for a Free Checking Account at this time due to your credit score.  You do however qualify for membership and a Basic Checking Account.  The Basic Checking Account has a $15 monthly fee and does not have any overdraft options.  If this is an account that you are interested in, we can help you set it up via email so that you can go into a branch and make your initial deposit, or you can set it up in your local branch with a Financial Services Officer.  Please contact us at 1-800-456-5067 using reference number &lt;CollabJob&gt; to let us know how you would like to proceed, or if you have any questions.
+
+
+Thank you,
+
+
+{!Case.OwnerFullName}
+
+Idaho Central Credit Union
+
+P.O. Box 2469
+
+Pocatello, ID 83206
+
+d: (208) 239-3000 | f: (208) 239-3055</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
