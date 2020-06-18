@@ -1,0 +1,99 @@
+<template>
+        <div class="main-container slds-is-relative">
+            <div if:true={isLoading}>
+                <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+            </div>
+
+            <div if:true={isSaving}>
+                <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+            </div>
+
+            <!-- AutoPayoff Form Header -->
+            <c-crm-form-header
+                form="Auto Payoff"
+                membersname={contact.Name}>
+                    <p>This form will pre-fill the auto payoff form for you. You will need to manually image the form into OnBase after the document is downloaded in your browser. This form also gives you the option to submit a title release form.</p>
+            </c-crm-form-header>
+
+            <div if:true={complete}>
+                <div class="success-message">
+                    <p>You have successfully submitted an auto payoff form for this member.</p>
+                </div>
+                <iframe width="1" height="1" src={renderPdfUrl}></iframe>
+            </div>
+            <div if:false={complete}>
+                <!--Auto Payoff Form Content-->
+                <section class="content">
+                    <template if:true={showError}>
+                        <c-crm-form-error>
+                            <p>{error}</p>
+                        </c-crm-form-error>
+                    </template>
+
+                    <article>
+                        <h2>Which auto loan is this for?</h2>
+
+                        <c-crm-account-lookup
+                            contact-id={contactid}
+                            filter-by-type="auto"
+                            filter-by-owner-id={contactid}
+                            is-disabled={isDisabled}
+                            onchange={handleAccountChange}
+                            onerror={handleAccountError}
+                            onload={handleAccountsLoaded}>
+                        </c-crm-account-lookup>
+                    </article>
+
+                    <template if:true={accountSelected}>
+                        <article>
+                            <h2>Company Information</h2>
+                            <div class="form-row">
+                                <lightning-input disabled={isDisabled} class="company-name" label="Company Name" value=""></lightning-input>
+                            </div>
+                                <c-crm-Lwc-Address-Detail oncountrychange={handleCountryChangeError} editing={editing} disabled={isDisabled} hide-country="true" hide-line2="true" onloaded={handleFormLoaded} onloading={handleFormLoading}></c-crm-Lwc-Address-Detail>
+                        </article>
+
+                        <article>
+                            <h2>Payoff Information</h2>
+
+                            <div class="form-row">
+                                <lightning-input disabled={isDisabled} type="date" class="payoff-date half" label="Payoff Date" value={formattedPayoffDate} onchange={handlePayoffDateChange} required></lightning-input>
+                            </div>
+                            <div class="form-row">
+                                <lightning-input disabled={isDisabled} class="payoff-amount" label="Payoff Amount" value={payoffAmount} required></lightning-input>
+                                <lightning-input disabled={isDisabled} class="per-diem" label="Per Diem" value={perDiem} required></lightning-input>
+                            </div>
+                        </article>
+
+                        <article>
+                            <h2>Title Release</h2>
+                            <lightning-input disabled={isDisabled} type="checkbox" class="title-release" label="I need to release the title." onchange={handleTitleRelease}></lightning-input>
+                        </article>
+
+                        <template if:true={titleRelease}>
+                            <div class="reminder-box">
+                                <h4>Important to Remember</h4>
+                                <ul>
+                                    <li>If {contact.FirstName} is selling to a private party it would be in {contact.FirstName}'s best interest to complete and return the Release of Liability form to the DMV.</li>
+                                    <li>This form does not change the name on the title. Any name changes will need to be requested at the DMV once the title is received.</li>
+                                    <li>The title release section of this form will submit into onBase automatically on your behalf.</li>
+                                </ul>
+                            </div>
+
+                            <c-crm-title-release-detail account={account} tax-owner={taxOwner} onerror={handleFormError} onloaded={handleFormLoaded} onloading={handleFormLoading} onsuccess={handleAutoPayoffGeneration} onsaving={handleFormSaving}></c-crm-title-release-detail>
+                        </template>
+
+                        <section if:true={showErrorOnSubmit}>
+                            <c-crm-form-error>
+                                <p>{errorOnSubmit}</p>
+                            </c-crm-form-error>
+                        </section>
+                    </template>
+                        <div class="action-buttons flex">
+                            <!-- <lightning-button label="Cancel"></lightning-button> -->
+                            <lightning-button label="Create PDF" variant="brand" onclick={handleSubmitForm} disabled={disableSubmit}></lightning-button>
+                        </div>
+                </section>
+            </div>
+        </div>
+</template>

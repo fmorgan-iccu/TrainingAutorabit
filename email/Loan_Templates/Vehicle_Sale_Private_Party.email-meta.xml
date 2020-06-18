@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Vehicle Sale: Private Party</name>
+    <style>none</style>
+    <subject>Private Party Vehicle Sale</subject>
+    <textOnly>Hello {!CASE(FIND(&quot;-&quot;, Opportunity.Name), 0, null, LEFT(Opportunity.Name, FIND(&quot;-&quot;, Opportunity.Name) - 2))},
+
+The information listed below is what we need to complete a Private Party Purchase:
+
+This information will allow us to complete all of the necessary documentation to properly complete this loan and place your name on the title.
+
+Without the following information, we are unable to proceed with the loan.
+
+1.)    Name of your Insurance Provider, Agent’s Name, and Phone Number
+
+2.)    Year, make, model, miles, and the Vehicle Identification Number (VIN) you are looking to purchase
+
+3.)    Driver’s license information (DL #, Issue Date, and Expiration Date)
+
+4.)    I will need the seller’s following information
+
+a.       Full name that is on the title
+
+b.       A living address for the seller
+
+c.       Telephone number &amp; email address
+
+d.       Driver’s license number for the seller
+
+e.       Full image of the title(if they own the vehicle outright) &amp; vehicle registration
+
+i.  This title will need to be dropped off at any one of our branch locations or you can mail it to:
+
+Idaho Central Credit Union
+
+PO Box 2469
+
+Pocatello, Idaho 83202
+
+f.        If they have a lien on the car, the sellers will need to contact their institution and request a 15-day payoff amount with a per diem, loan number, and mailing address for the payoff check
+
+g.       After we have this information, I will have my processors contract up a sales agreement/power of attorney document for the seller to sign electronically.
+
+Once I have this information from you, I’ll be in contact with you to go over final numbers and decide on a payment due date. After going over the necessary information, we can decide on how you would like to sign your documents.
+
+Thank you,
+
+{!Opportunity.OwnerFullName}
+
+{!Opportunity.OwnerTitle}
+
+1(800)456-5067
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

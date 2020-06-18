@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Funded Loan</name>
+    <style>none</style>
+    <subject>Loan confirmation</subject>
+    <textOnly>Hello {!CASE(FIND(&quot;-&quot;, Opportunity.Name), 0, null, LEFT(Opportunity.Name, FIND(&quot;-&quot;, Opportunity.Name) - 2))},
+
+I wanted to follow up and confirm with you that your {!Opportunity.Product__c} loan has been completed.
+
+Idaho Central Loan Details:
+
+Payment amount: $xxxxx
+
+1st payment due date: Payment Date
+
+As a reminder you have chosen to make your monthly payments by:
+
+•                     eBranch Online Banking
+
+•                     Transfer Funds  (transfer from any of your accounts within eBranch)
+
+•                     External Transfer (manual or automatic electronic transfer from another financial institution to Idaho Central within eBranch)
+
+•                     EZ Pay (automatic set transfer from another financial institution to Idaho Central)
+
+•                     Check by mail (send to PO Box 2469, Pocatello, ID 83206)
+
+•                     Any Idaho Central Branch location
+
+If you have any questions, please contact me by phone at {!Opportunity.OwnerPhone} or email at {!Opportunity.OwnerEmail}.
+
+
+
+Thank you,
+
+{!Opportunity.OwnerFullName}
+
+{!Opportunity.OwnerTitle}
+
+1(800)456-5067
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

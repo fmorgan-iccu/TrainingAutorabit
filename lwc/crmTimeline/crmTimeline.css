@@ -1,0 +1,29 @@
+:host {
+    font-size: 16px;
+}
+.main-container {
+    padding: 2em;
+}
+.main-container header {
+    display: flex;
+    justify-content: space-between;
+}
+h2 {
+    font-size: var(--c-xLargeText);
+    font-weight: bold;
+}
+h3 {
+    font-size: var(--c-largeText);
+    font-weight: bold;
+    padding: 1em 0;
+}
+.actions lightning-button+lightning-button {
+    margin-left: 1em;
+}
+lightning-button-menu {
+    background: var(--lwc-brandAccessible);
+    border-radius: 4px;
+}
+lightning-button-menu:hover {
+    background: var(--lwc-brandAccessibleActive);
+}

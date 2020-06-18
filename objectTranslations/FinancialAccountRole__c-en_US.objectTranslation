@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Financial Account Role</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Financial Account Roles</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Financial Account Roles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Financial Account --></label>
+        <name>FinancialAccount__c</name>
+        <relationshipLabel><!-- Financial Account Roles --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

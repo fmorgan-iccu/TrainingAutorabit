@@ -1,0 +1,149 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin-bottom: .3em;
+}
+
+/* Card Styling */
+.account {
+    padding: .5em;
+    border: 1px solid #BDBDBD;
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 2em;
+}
+
+.title lightning-icon,
+.parent-li ul li lightning-icon {
+	margin-right: 0.5em;
+}
+
+/*Auto*/
+.slds-icon-custom-custom31 {
+    background-color: #8E10A7;
+}
+/*Mortgage*/
+.slds-icon-custom-custom107 {
+    background-color: #FE620D;
+}
+/*deposit*/
+.slds-icon-custom-custom17 {
+    background-color: #1c8900;
+}
+/*Credit Card*/
+.slds-icon-custom-custom40 {
+    background-color: #2f5ec4;
+}
+/*default/bank icon*/
+.slds-icon-custom-custom16 {
+    background-color: #555759;
+}
+.slds-icon-utility-close:hover,
+.parent-li ul li {
+    cursor: pointer;
+}
+
+.account-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.account-info p span {
+	font-weight: bold;
+}
+.account-number {
+	display: flex;
+	align-items: center;
+}
+.close-icon {
+	margin-left: 1em;
+	margin-bottom: .5em;
+}
+/* Account Searching */
+.account-nickname {
+    font-weight: bold;
+}
+.account-search {
+    margin-bottom: 2em;
+}
+
+/*****************
+*  NEW DROPDOWN  *
+******************/
+
+.dropdown-container ul {
+	width: 100%;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+}
+
+.dropdown-container ul ul {
+	display: none;
+}
+
+.dropdown-container ul li:hover > ul {
+	display: block;
+}
+
+.dropdown-container ul .parent-li {
+	float: left;
+	width: 100%;
+	text-align: left;
+    border: 1px solid rgb(221, 219, 218); 
+    border-radius: 0;
+}
+	
+.dropdown-container ul li:hover > a {
+	background: #F2F2F2;
+}
+
+.dropdown-container ul li a {
+	display: block; 
+	padding: .25em .5em;
+	color: #2a2a2a; 
+	text-decoration: none;
+}
+					
+.dropdown-container ul ul {
+	border-radius: 0px; 
+	padding: 0;
+	top: 100%;
+}
+
+.dropdown-container ul ul li {
+	float: none;
+	border-bottom: 1px solid #eaeaea; 
+	position: relative;
+}
+.parent-li > a {
+    border-bottom: 1px solid #eaeaea; 
+}
+
+.dropdown-container ul ul li p {
+	padding: .25em .5em;
+}	
+
+.dropdown-container ul ul li:hover {
+	background: #F2F2F2;
+}	
+
+.down-triangle {
+	float: right;
+	width: 0; 
+ 	height: 0;
+ 	margin-top: 10px;
+ 	border-top: 6px solid #808080;
+    border-left: 6px solid transparent; 
+    border-right: 6px solid transparent; 
+}
+
+.parent-li ul li:last-of-type {
+    border-bottom: none;
+}

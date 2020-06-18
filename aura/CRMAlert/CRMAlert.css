@@ -1,0 +1,88 @@
+.THIS.crm-alert {
+    width: 100%;
+    color: #1a1a1a;
+    padding: 1em 1.5em;
+}
+.THIS.crm-alert .slds-icon {
+    margin-right: 1em;
+}
+.THIS.crm-alert .alertMessage {
+    color: #1a1a1a;
+}
+.THIS.crm-alert .alertMessage p {
+    color: #1a1a1a;
+}
+/**Alert Type Styling**/
+.THIS.crm-alert.warning {
+    border-left: 10px solid t(iccuWarning);
+    background: #FFF2D3;
+}
+.THIS.crm-alert.error {
+    border-left: 10px solid t(iccuError);
+    background: #FAE3E6;
+}
+.THIS.crm-alert.info {
+    border-left: 10px solid t(iccuNotification);
+    background: #E5EFFF;
+}
+.THIS.crm-alert.success {
+    border-left: 10px solid t(iccuSuccess);
+    background: #DAF8D2;
+}
+
+.THIS.crm-alert.warning lightning-icon svg {
+    fill: t(iccuWarning);
+}
+.THIS.crm-alert.error lightning-icon svg {
+    fill: t(iccuError);
+}
+.THIS.crm-alert.info lightning-icon svg {
+    fill: t(iccuNotification);
+}
+.THIS.crm-alert.success lightning-icon svg {
+    fill: t(iccuSuccess);
+}
+
+/** Icons **/
+/** Links n' buttons **/
+.THIS.crm-alert a {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.THIS.crm-alert button,
+.THIS.crm-alert button.slds-button {
+    display: inline-block;
+    margin-left: 1em;
+    background: white;
+    border-radius: .25rem;
+    border: 2px solid white;
+    font-weight: bold;
+}
+.THIS.crm-alert.warning button {
+    color: t(iccuWarning)
+}
+.THIS.crm-alert.error button {
+    color: t(iccuError)
+}
+.THIS.crm-alert.info button {
+    color: t(iccuNotification)
+}
+.THIS.crm-alert.success button {
+    color: t(iccuSuccess)
+}
+.THIS.crm-alert button:hover {
+    color: white;
+}
+.THIS.crm-alert.warning button:hover {
+    background-color: t(iccuWarning)
+}
+.THIS.crm-alert.error button:hover {
+    background-color: t(iccuError)
+}
+.THIS.crm-alert.info button:hover {
+    background-color: t(iccuNotification)
+}
+.THIS.crm-alert.success button:hover {
+    background-color: t(iccuSuccess)
+}

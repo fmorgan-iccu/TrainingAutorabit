@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Outbound_Letterhead</letterhead>
+    <name>FULFILLMENT AUTO REPLY</name>
+    <style>freeForm</style>
+    <subject>Re: Recent ICCU Request</subject>
+    <textOnly>Hello {!Case.Contact},
+
+
+Thank you for your request! Attached are your documents.
+
+
+It has been our pleasure to help. If there is anything else we can do, please do not hesitate to contact us. We appreciate your membership. Have a wonderful day!
+
+
+Thank you,
+
+
+{!Opportunity.OwnerFullName}
+
+Idaho Central Credit Union
+
+P.O. Box 2469
+
+Pocatello, ID 83206
+
+d: (208) 239-3000 | f: (208) 239-3055</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,2 @@
+<apex:page standardController="Account" extensions="PLNDR.OpenInPrecisionLenderController" action="{!OpenRelationshipInPrecisionLender}" >
+</apex:page>

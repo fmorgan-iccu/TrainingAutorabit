@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send email when Left Message One will checked</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Complaint Case Left Closing Message Temp</name>
+    <style>none</style>
+    <subject>Idaho Central Follow-up</subject>
+    <textOnly>Hello{!Case.BLANKVALUE(MID( ContactId , FIND(&quot; &quot;, ContactId ), LEN(ContactId ) ),  LEFT( ContactId ,FIND(&quot; &quot;, ContactId ))) } ,
+
+Great news!  The promotion on your new account has been applied.  Your account will reflect your new balance immediately in eBranch &lt;link to eBranch&gt;.  
+
+We appreciate your membership with Idaho Central Credit Union. 
+
+Thank you,
+
+{!Case.OwnerFullName}
+
+Idaho Central Credit Union
+P.O. Box 2469
+Pocatello, ID 83206
+d: (208) 239-3000 | f: (208) 239-3055</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

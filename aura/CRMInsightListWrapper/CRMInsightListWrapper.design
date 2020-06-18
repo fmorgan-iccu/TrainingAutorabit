@@ -1,0 +1,3 @@
+<design:component label="Insight List Wrapper">
+	<design:attribute name="AllowCustomInsights" label="Allow Custom Insights" description="Do you want to allow custom insights to be created? Accounts are unsupported." />
+</design:component>

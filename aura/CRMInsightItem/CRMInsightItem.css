@@ -1,0 +1,297 @@
+.THIS h5 {
+    font-weight: t(fontWeightBold);
+}
+
+.THIS .main-row-1 {
+    display: t(iccuFlex);
+    align-items: center;
+    width: 100%;
+}
+
+.THIS .text-row-1 {
+    display: t(iccuFlex);
+    justify-content: t(iccuSpaceBetween);
+    align-items: center;
+}
+
+.THIS .main-row-1.true {
+    color: #9B9B9B;
+}
+
+.THIS .true [class^=slds-icon] {
+    background-color: #ECEEEF;
+    fill: #9B9B9B;
+}
+
+.THIS .icon-column {
+    padding-right: .8em;
+}
+
+.THIS .text-column {
+    flex-grow: 1;
+}
+
+.THIS .text-row-2 p {
+    text-align: left;
+    font-style: italic;
+}
+
+.THIS.container {
+    padding: .5em 0;
+}
+.THIS h5.title {
+    text-align: left;
+}
+.THIS .editInsight {
+    text-decoration: underline;
+    color: t(linkColor);
+    border: none;
+    padding: 0;
+}
+
+/**Colors**/
+.THIS [class^=slds-icon],
+.THIS .cFontawesomeIcon {
+    border-radius: .25rem;
+}
+.THIS svg[class^=slds-icon] {
+    padding: .2em;
+}
+
+.THIS .iccu [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="iccu"] {
+    background-color: t(iccuPrimaryGreen) !important;
+    fill: t(iconFill);
+}
+
+.THIS .yellow [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="yellow"],
+.THIS .cFontawesomeIcon[style*="Yellow"],
+.THIS .spinner-container.yellow {
+    background-color: t(iconYellow) !important;
+    fill: t(iconFill);
+}
+
+.THIS .purple [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="purple"],
+.THIS .cFontawesomeIcon[style*="Purple"],
+.THIS .spinner-container.purple {
+    background-color: t(iconPurple) !important;
+    fill: t(iconFill);
+}
+
+.THIS .blue [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="blue"],
+.THIS .cFontawesomeIcon[style*="Blue"],
+.THIS .spinner-container.blue {
+    background-color: t(iconBlue) !important;
+    fill: t(iconFill);
+}
+
+.THIS .red [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="red"],
+.THIS .cFontawesomeIcon[style*="Red"],
+.THIS .spinner-container.red {
+    background-color: t(iconRed) !important;
+    fill: t(iconFill);
+}
+
+.THIS .deepRed [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="deepRed"],
+.THIS .spinner-container.deepRed {
+    background-color: t(iconDeepRed) !important;
+    fill: t(iconFill);
+}
+
+.THIS .teal [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="teal"],
+.THIS .cFontawesomeIcon[style*="Teal"],
+.THIS .spinner-container.teal {
+    background-color: t(iconTeal) !important;
+    fill: t(iconFill);
+}
+
+.THIS .green [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="green"],
+.THIS .cFontawesomeIcon[style*="Green"],
+.THIS .spinner-container.green {
+    background-color: t(iconGreen) !important;
+    fill: t(iconFill);
+}
+
+.THIS .orange [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="orange"],
+.THIS .cFontawesomeIcon[style*="Orange"],
+.THIS .spinner-container.orange {
+    background-color: t(iconOrange) !important;
+    fill: t(iconFill);
+}
+
+.THIS .pink [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="pink"],
+.THIS .cFontawesomeIcon[style*="Pink"],
+.THIS .spinner-container.pink {
+    background-color: t(iconPink) !important;
+    fill: t(iconFill);
+}
+
+.THIS .indigo [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="indigo"],
+.THIS .cFontawesomeIcon[style*="Indigo"],
+.THIS .spinner-container.indigo {
+    background-color: t(iconIndigo) !important;
+    fill: t(iconFill);
+}
+
+.THIS .lime [class^=slds-icon],
+.THIS .cFontawesomeIcon[style*="lime"],
+.THIS .cFontawesomeIcon[style*="Lime"],
+.THIS .spinner-container.lime {
+    background-color: t(iconLime) !important;
+    fill: t(iconFill);
+}
+
+/**LOADING INSIGHT**/
+.THIS .slds-spinner_container {
+	position: relative;
+}
+.THIS .slds-spinner {
+    position: relative;
+    top: .5rem;
+}
+.THIS .slds-spinner--small {
+    width: .8rem;
+}
+.THIS .CRMInsightSpinner .slds-spinner::before,
+.THIS .CRMInsightSpinner .slds-spinner::after,
+.THIS .CRMInsightSpinner .slds-spinner [class|=slds-spinner__dot]::before,
+.THIS .CRMInsightSpinner .slds-spinner [class|=slds-spinner__dot]::after {
+    background-color: white;
+    /*
+    width: .15rem;
+    height: .15rem;
+    */
+}
+.THIS .spinner-container {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: .25rem;
+    padding: .25rem;
+}
+/**Spinner**/
+.THIS .slds-spinner_small.slds-spinner:after,
+.THIS .slds-spinner_small .slds-spinner__dot-a:after,
+.THIS .slds-spinner_small .slds-spinner__dot-b:after,
+.THIS .slds-spinner--small.slds-spinner:after,
+.THIS .slds-spinner--small .slds-spinner__dot-a:after,
+.THIS .slds-spinner--small .slds-spinner__dot-b:after,
+.THIS .slds-spinner_small.slds-spinner:before,
+.THIS .slds-spinner_small .slds-spinner__dot-a:before,
+.THIS .slds-spinner_small .slds-spinner__dot-b:before,
+.THIS .slds-spinner--small.slds-spinner:before,
+.THIS .slds-spinner--small .slds-spinner__dot-a:before,
+.THIS .slds-spinner--small .slds-spinner__dot-b:before{
+    -webkit-animation-name: opacitySpin;
+    animation-name: opacitySpin;
+}
+/*animations*/
+@keyframes opacitySpin {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes opacitySpin {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/*animated elipses*/
+.THIS .loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+/**Flag Notes**/
+.THIS [class$=Details],
+.THIS [class$=Details] .slds-icon {
+    text-decoration: underline;
+    color: t(linkColor);
+    fill: t(linkColor);
+}
+.THIS .main-row-2 {
+    height: auto;
+	overflow: visible;
+    margin-top: .5em;
+    padding: 1em;
+    text-align:left;
+}
+.THIS .main-row-2.open-false {
+    display: none;
+}
+.THIS .main-row-2.open-true {
+    display: block;
+    animation-name: container-grow;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+.THIS .main-row-2.close-true {
+    display: block;
+    max-height: 0px;
+    padding: 0;
+    overflow: hidden;
+    animation-name: container-shrink;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+}
+@keyframes container-grow {
+    0% {
+        max-height: 0;
+    	overflow: hidden;
+        background-color: transparent;
+    }
+    60% {
+        background-color: rgba(1, 166, 79, .08);
+        max-height: 500px;
+        overflow: scroll;
+        box-shadow: 0 0 2px 2px rgba(1, 166, 79, .08);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+@keyframes container-shrink {
+    0% {
+        max-height: 500px;
+        padding: 1em;
+    }
+    99% {
+        padding: 0 1em;
+    }
+    100% {
+        max-height: 0px;
+        overflow: hidden;
+        padding: 0;
+    }
+}

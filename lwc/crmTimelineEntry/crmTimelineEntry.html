@@ -1,0 +1,74 @@
+<template>
+    <template if:true={isCase}>
+        <div class="entry-item">
+            <div class={iconClasses} if:true={useSfIcon}>
+                <lightning-icon icon-name={caseIcon} variant="inverse"></lightning-icon>
+            </div>
+            <div class={iconClasses} if:false={useSfIcon}>
+                <lightning-icon src={caseIcon} variant="inverse"></lightning-icon>
+            </div>
+
+            <div class="entry-info">
+                <div class="entry-info-item">
+                    <p><a class="entry-link" onclick={openCase} if:true={entry.canViewRecord}>{entry.subject}</a></p>
+                    <template if:false={entry.canViewRecord}>
+                        <p class="entry-subject">{entry.subject}</p>
+                    </template>
+                </div>
+                <div class="entry-info-item">
+                    <p class="entry-itme-decription">{entry.description}</p>
+                </div>
+                <div class="entry-info-item">
+                     <p>Case Owner: {entry.ownerName}</p>
+                </div>
+                <div class="entry-info-item">
+                    <p>Status: <span class={entry.statusClass}>{entry.status}</span></p>
+                </div>
+                <!--TODO: this is where we can iterate through entry.customDetail to account for items for specific account types-->
+                <div class="entry-info-item" if:true={showSentiment}>
+                    <p>Member Sentiment: <img class="member-emoji" src={emojiUrl} /></p>
+                </div>
+                <!--Note: Even after iteration items are implemented date will always be last unless timeline is redesigned-->
+                <div class="entry-info-item date">
+                    <p>{entry.dateLabel}: {entry.date}</p>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template if:true={isOpportunity}>
+        <div class="entry-item">
+
+            <div class={iconClasses} if:true={useSfIcon}>
+                <lightning-icon icon-name={opportunityIcon} variant="inverse"></lightning-icon>
+            </div>
+            <div class={iconClasses} if:false={useSfIcon}>
+                <lightning-icon src={opportunityIcon} variant="inverse"></lightning-icon>
+            </div>
+
+            <div class="entry-info">
+
+                <div class="entry-info-item">
+                    <p><a class="entry-link" onclick={openOpportunity} if:true={entry.canViewRecord}>{entry.name}</a></p>
+                    <template if:false={entry.canViewRecord}>
+                        <p class="entry-name">{entry.name}</p>
+                    </template>
+                </div>
+                <div class="entry-info-item">
+                    <p class="entry-itme-decription">Role: {entryRole}</p>
+                </div>
+                <div class="entry-info-item">
+                    <p>Opportunity Owner: {entry.ownerName}</p>
+                </div>
+                <div class="entry-info-item">
+                    <p>Stage: <span class={entry.stageClass}>{entry.stageName}</span></p>
+                </div>
+                <div class="entry-info-item">
+                    <p>Application ID: {entry.applicationId}</p>
+                </div>
+                <div class="entry-info-item">
+                    <p>{entry.dateLabel}: {entry.date}</p>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

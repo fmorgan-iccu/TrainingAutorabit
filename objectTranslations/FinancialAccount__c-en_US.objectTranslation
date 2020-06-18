@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Financial Account</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Financial Accounts</value>
+    </caseValues>
+    <fields>
+        <help><!-- The financial account number. --></help>
+        <label><!-- Account Number --></label>
+        <name>AccountNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date that the financial account was closed. --></help>
+        <label><!-- Closed Date --></label>
+        <name>ClosedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates if the financial account has been closed. --></help>
+        <label><!-- Closed --></label>
+        <name>Closed__c</name>
+    </fields>
+    <fields>
+        <help><!-- The account description.  This can be either a user defined description/nick name or a system assigned value (e.g. charge off). --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date that the financial account was opened.  If the account has been re-opened, it will be the original open date. --></help>
+        <label><!-- Opened Date --></label>
+        <name>OpenedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Roles JSON --></label>
+        <name>PrimaryRolesJson__c</name>
+    </fields>
+    <fields>
+        <help><!-- The DNA major account type code. --></help>
+        <label><!-- Product Major Code --></label>
+        <name>ProductMajorCode__c</name>
+        <picklistValues>
+            <masterLabel>BKCK</masterLabel>
+            <translation><!-- BKCK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CK</masterLabel>
+            <translation><!-- CK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CML</masterLabel>
+            <translation><!-- CML --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CNS</masterLabel>
+            <translation><!-- CNS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRIF</masterLabel>
+            <translation><!-- CRIF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EXT</masterLabel>
+            <translation><!-- EXT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL</masterLabel>
+            <translation><!-- GL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LEAS</masterLabel>
+            <translation><!-- LEAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MLN</masterLabel>
+            <translation><!-- MLN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MTG</masterLabel>
+            <translation><!-- MTG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RR</masterLabel>
+            <translation><!-- RR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RTMT</masterLabel>
+            <translation><!-- RTMT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAV</masterLabel>
+            <translation><!-- SAV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TD</masterLabel>
+            <translation><!-- TD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The DNA minor account type code. --></help>
+        <label><!-- Product Minor Code --></label>
+        <name>ProductMinorCode__c</name>
+        <picklistValues>
+            <masterLabel>107</masterLabel>
+            <translation><!-- 107 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>109</masterLabel>
+            <translation><!-- 109 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>110</masterLabel>
+            <translation><!-- 110 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>113</masterLabel>
+            <translation><!-- 113 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>117</masterLabel>
+            <translation><!-- 117 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>118</masterLabel>
+            <translation><!-- 118 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>119</masterLabel>
+            <translation><!-- 119 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>122</masterLabel>
+            <translation><!-- 122 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>134</masterLabel>
+            <translation><!-- 134 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>135</masterLabel>
+            <translation><!-- 135 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>136</masterLabel>
+            <translation><!-- 136 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>137</masterLabel>
+            <translation><!-- 137 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>138</masterLabel>
+            <translation><!-- 138 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>139</masterLabel>
+            <translation><!-- 139 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>154</masterLabel>
+            <translation><!-- 154 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD03</masterLabel>
+            <translation><!-- CD03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD06</masterLabel>
+            <translation><!-- CD06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD12</masterLabel>
+            <translation><!-- CD12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD18</masterLabel>
+            <translation><!-- CD18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD24</masterLabel>
+            <translation><!-- CD24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD36</masterLabel>
+            <translation><!-- CD36 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD48</masterLabel>
+            <translation><!-- CD48 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD60</masterLabel>
+            <translation><!-- CD60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CKBA</masterLabel>
+            <translation><!-- CKBA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CKBS</masterLabel>
+            <translation><!-- CKBS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CKCL</masterLabel>
+            <translation><!-- CKCL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CKEC</masterLabel>
+            <translation><!-- CKEC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CKMM</masterLabel>
+            <translation><!-- CKMM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CP06</masterLabel>
+            <translation><!-- CP06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CP60</masterLabel>
+            <translation><!-- CP60 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FR12</masterLabel>
+            <translation><!-- FR12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FR24</masterLabel>
+            <translation><!-- FR24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SECH</masterLabel>
+            <translation><!-- SECH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMMP</masterLabel>
+            <translation><!-- SMMP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMMS</masterLabel>
+            <translation><!-- SMMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SREG</masterLabel>
+            <translation><!-- SREG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSEC</masterLabel>
+            <translation><!-- SSEC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assumed</masterLabel>
+            <translation><!-- Assumed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chargeoff</masterLabel>
+            <translation><!-- Chargeoff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed with Balances Remaining</masterLabel>
+            <translation><!-- Closed with Balances Remaining --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dormant</masterLabel>
+            <translation><!-- Dormant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Denied</masterLabel>
+            <translation><!-- Loan Denied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Accrual</masterLabel>
+            <translation><!-- Non-Accrual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Originating</masterLabel>
+            <translation><!-- Originating --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

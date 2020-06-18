@@ -1,0 +1,48 @@
+.search-filters {
+    display: flex;
+    margin-bottom: 1em;
+}
+.search-filters lightning-input {
+    width: 17.5%;
+    padding-right: 1em;
+}
+.search-filters lightning-input:first-child {
+    width: 30%;
+}
+.search-filters lightning-input:last-child {
+    padding-right: 0;
+}
+.search-action {
+    display: flex;
+    justify-content: flex-end;
+}
+/*Medium Screen*/
+@media (max-width: 1020px) {
+    .search-filters {
+        flex-wrap: wrap;
+    }
+    .search-filters lightning-input {
+        width: 25%;
+        padding-right: 1em;
+    }
+    .search-filters lightning-input:first-child {
+        width: 100%;
+        padding-right: 0;
+    }
+}
+/*Small Screen*/
+@media (max-width: 750px) {
+    .search-filters {
+        flex-wrap: wrap;
+    }
+    .search-filters lightning-input {
+        width: 50%;
+        padding-right: 1em;
+    }
+    .search-filters lightning-input:first-child {
+        width: 100%;
+    }
+    .search-filters lightning-input:nth-child(odd) {
+        padding-right: 0;
+    }
+}

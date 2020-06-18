@@ -1,0 +1,112 @@
+<template>
+    <div class="main-container slds-is-relative">
+
+        <div if:true={isLoading}>
+            <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+        </div>
+        <div if:true={isSaving}>
+            <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+        </div>
+        <c-crm-form-header
+            form="Skip-A-Pay"
+            membersname={contact.Name}>
+        </c-crm-form-header>
+
+        <div class="content confirmation" if:true={complete}>
+            <div class="success-image">
+                <img src={successImage} alt="illustration of document being sent to docusign"/>
+            </div>
+            <div class="success-message">
+                <h2>Form Created Successfully</h2>
+                <p>The Skip-a-Pay form was created successfully and is on its way to docusign to collect the members signature.</p>
+                <h3>Next Steps and Reminders</h3>
+                <p>Please remind the member of the following things:</p>
+                <ul>
+                    <li if:true={showFeeInformation}>There is a $29 fee for each loan payment skipped</li>
+                    <li>The member is responsible for cancelling any automatic transfers or bill payments that they have setup to pay their loan</li>
+                    <li>The member can expect to recieve their documents through email and will sign them using docusign.</li>
+                    <li>The member should sign the documents as soon as possible to avoid processing delays.</li>
+                    <li>If multiple loan payments were skipped the member will need to sign multiple documents. All documents will appear in the same docusign packet.</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="content">
+
+            <div if:true={showError}>
+                <c-crm-form-error>
+                    <p>{error}</p>
+                </c-crm-form-error>
+            </div>
+            <template if:false={accountSelection}>
+                <c-crm-form-error if:true={notEligible}>
+                    <div>
+                        <h2>Account is not eligible for skip-a-pay</h2>
+                        <p>You must get authorization from the MAD department to continue.</p>
+                    </div>
+                </c-crm-form-error>
+            </template>
+        <template if:false={complete}>
+            <article>
+                <c-crm-multiple-account-selection
+                    contact-id={contactid}
+                    filter-by-type="autovisa"
+                    filter-by-owner-id={contactid}
+                    is-disabled={isDisabled}
+                    onerror={handleAccountError}
+                    onload={handleAccountsLoaded}
+                    oncontinue={enableContinue}>
+                </c-crm-multiple-account-selection>
+
+                <template if:true={accountSelection}>
+                    <div class="action-buttons flex">
+                        <lightning-button disabled={disableContinueButton} label="Continue" variant="brand" onclick={handleContinueClicked}></lightning-button>
+                    </div>
+                </template>
+            </article>
+
+            <template if:false={accountSelection}>
+
+                <article>
+                    <template if:true={notEligible}>
+                        <h2>MAD Approval</h2>
+                        <lightning-input
+                            type="checkbox"
+                            label="I certify that MAD has authorized this skip-a-pay"
+                            name="input1"
+                            onchange={toggleEligibility}
+                            class="space-below"></lightning-input>
+                    </template>
+                </article>
+
+                <article if:false={notEligible}>
+                        <c-crm-lwc-alert alert-type="info" if:true={showFeeInformation}>
+                            <div>
+                                <h4>Skip-a-Pay Fee</h4>
+                                <p>Remember to inform the member that there is a $29 fee associated with skipping this months payment.</p>
+                            </div>
+                        </c-crm-lwc-alert>
+
+                        <div class="space-below">
+                            <lightning-combobox
+                                name="payment"
+                                label="Which payment would the member like to skip?"
+                                value={nextSkippedDate}
+                                placeholder="Select the payment the member would like to skip"
+                                options={skipPaymentOptions}
+                                onchange={skippedPaymentChanged}
+                                required ></lightning-combobox>
+                        </div>
+
+                        <h5>Next Payment Due:</h5>
+                        <p>The next payment will be due in {nextPaymentDate} on their regular due date.</p>
+                </article>
+
+                <div class="action-buttons flex">
+                    <lightning-button label="Submit" variant="brand" onclick={submitSkipAPayForm} disabled={disableSubmit}></lightning-button>
+                </div>
+            </template>
+        </template>
+        </section>
+    </div>
+</template>

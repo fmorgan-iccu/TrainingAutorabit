@@ -1,0 +1,32 @@
+.card-contents {
+    margin: 0 var(--lwc-spacingMedium);
+}
+.card-action-button {
+    margin-left: var(--lwc-spacingSmall);
+}
+.insight-section-header {
+    text-align: left;
+    font-size: var(--c-mediumText);
+}
+.insight-second-section {
+    margin-left: var(--lwc-spacingSmall);
+    padding-left: var(--lwc-spacingMedium);
+    border-left: 2px solid var(--c-iconBlue);
+}
+.insight-section-header-container {
+    display: flex;
+    align-items: center;
+}
+.insight-section-header {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    line-height: .1em;
+    margin: 2em 0 1.5em;
+}
+.insight-section-header span {
+    background:#fff;
+    padding:0 10px 0 0;
+}
+.loading-space {
+    min-height: 12em;
+}

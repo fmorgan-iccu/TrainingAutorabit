@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>memberservice@iccu.com</email>
+    <name>eServices Escalation</name>
+    <queueMembers>
+        <users>
+            <user>aneal@iccu.com</user>
+            <user>achaqueco@iccu.com</user>
+            <user>csowell@iccu.com</user>
+            <user>csanchez@iccu.com</user>
+            <user>hhuggins@iccu.com</user>
+            <user>jmorgan@iccu.com</user>
+            <user>jkmiller@iccu.com</user>
+            <user>johmie@iccu.com</user>
+            <user>kanderson@iccu.com</user>
+            <user>khumpherys@iccu.com</user>
+            <user>kwortman@iccu.com</user>
+            <user>lroberts@iccu.com</user>
+            <user>mruth@iccu.com</user>
+            <user>mbarnard@iccu.com</user>
+            <user>sshinney@iccu.com</user>
+            <user>sschickedanz@iccu.com.fscm</user>
+            <user>zpelayo@iccu.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

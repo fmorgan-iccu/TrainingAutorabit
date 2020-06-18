@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- The APEX Class Name to use for delivery processing of abandoned transactions for the specified form code. --></help>
+        <label><!-- Abandoned Processor Class --></label>
+        <name>avoka__Abandoned_Processor_Class__c</name>
+    </fields>
+    <fields>
+        <help><!-- Configuration details for the abandoned transaction delivery processor. Format of the config is determined by the Processor Class that uses it - typically JSON. --></help>
+        <label><!-- Abandoned Processor Config --></label>
+        <name>avoka__Abandoned_Processor_Config__c</name>
+    </fields>
+    <fields>
+        <help><!-- The APEX Class Name to use for delivery processing of completed transactions for the specified form code. --></help>
+        <label><!-- Completed Processor Class --></label>
+        <name>avoka__Completed_Processor_Class__c</name>
+    </fields>
+    <fields>
+        <help><!-- Configuration details for the completed transaction delivery processor. Format of the config is determined by the Processor Class that uses it - typically JSON. --></help>
+        <label><!-- Completed Processor Config --></label>
+        <name>avoka__Completed_Processor_Config__c</name>
+    </fields>
+    <fields>
+        <help><!-- The APEX Class Name to use for delivery processing of saved transactions for the specified form code. --></help>
+        <label><!-- Saved Processor Class --></label>
+        <name>avoka__Saved_Processor_Class__c</name>
+    </fields>
+    <fields>
+        <help><!-- Configuration details for the saved transaction delivery processor. Format of the config is determined by the Processor Class that uses it - typically JSON. --></help>
+        <label><!-- Saved Processor Config --></label>
+        <name>avoka__Saved_Processor_Config__c</name>
+    </fields>
+</CustomObjectTranslation>

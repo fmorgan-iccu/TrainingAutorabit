@@ -1,0 +1,199 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: .75em;
+}
+
+.main-container {
+    background: #fff;
+    border-radius: 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+}
+
+/* Main Content Styling */
+.content {
+    padding: 3em;
+}
+
+/*Confirmation Page*/
+.confirmation {
+    display: flex;
+    align-items: center;
+}
+.success-image {
+    width: 30%;
+}
+.success-message {
+    width: 70%;
+    padding-left: 2em;
+}
+ul {
+    list-style: disc;
+    margin-left: 2em;
+}
+
+li {
+    margin-bottom: .25em;
+}
+
+/* Transaction Selection */
+.transaction-control-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: .5em;
+    margin-top: 1.5em;
+}
+.transaction-control-info p {
+    font-size: 1.5em;
+    color: var(--c-iccuBrandGreen);
+    font-weight: bold;
+}
+.transaction-control-info a {
+    color: var(--c-iccuBrandGreen);
+    text-decoration: underline;
+}
+.transaction-control-info a:hover {
+    color: var(--c-iccuDarkHover);
+}
+/* Selected Transactions*/
+p.merchant {
+    font-style: italic;
+    margin-top: 1.5em;
+}
+.selected-transaction {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+    border: 1px solid #c7c7c7;
+}
+.selected-transactions div.selected-transaction:first-child {
+    margin-top: .5em;
+}
+.selected-transactions div.selected-transaction:last-child {
+    margin-bottom: .5em;
+}
+.selected-transactions div.selected-transaction:nth-child(n+2) {
+    border-top: none;
+}
+.selected-transaction-amount p {
+    color: var(--c-iccuError);
+}
+.selected-transaction-detail p {
+    display: inline-block;
+}
+.selected-transaction-detail-date {
+    font-size: .8em;
+    color: #9c9c9c;
+    font-weight: bold;
+    margin-right: 1em;
+}
+.selected-transaction-detail-description {
+    font-weight: bold;
+}
+/* Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+.pagination-item {
+    color: var(--c-iccuBrandGreen);
+    padding: 0 .5em;
+    text-decoration: underline;
+}
+.pagination-item:hover {
+    color: var(--c-iccuDarkHover);
+    cursor: pointer;
+}
+.pagination-item.selected {
+    border: 1px solid var(--c-iccuBrandGreen);
+    text-decoration: none;
+}
+.pagination-item.selected:hover {
+    border-color: var(--c-iccuDarkHover);
+}
+/*Confirmation*/
+.success-message {
+    padding: 3em 1em;
+}
+.success-message h2 {
+    margin-bottom: .5em;
+}
+.success-message h3 {
+    padding-top: 1em;
+    margin-bottom: .5em;
+}
+.success-message ol {
+    list-style: decimal;
+    margin: 1.2em;
+}
+/* Buttons and Spacing */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+}
+.action-buttons lightning-button {
+    margin-right: .5em;
+}
+.action-buttons lightning-button:last-child {
+    margin-right: none;
+}
+.dispute-reason {
+    margin-top: 1em;
+}
+.dispute-reason + p {
+    margin-bottom: 1em;
+}
+
+/** MEDIA QUERIES **/
+
+@media screen and (max-width: 1000px) {
+    /*Confirmation Page*/
+    .confirmation {
+        align-items: flex-start;
+    }
+}
+@media screen and (max-width: 800px) {
+    /*Confirmation Page*/
+    .confirmation {
+        flex-wrap: wrap;
+    }
+    .success-image {
+        width: 40%;
+        margin: auto;
+    }
+    .success-message {
+        width: 100%;
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 550px) {
+    /*Confirmation Page*/
+    .success-image {
+        display: none;
+    }
+}

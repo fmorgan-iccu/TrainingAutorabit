@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>X2016_EISF_NonMember</letterhead>
+    <name>EISF Confirmation NonMember2017</name>
+    <style>freeForm</style>
+    <subject>Open your membership today! Receive $100.</subject>
+    <textOnly>It was a pleasure to meet you at the Eastern Idaho State Fair today. You have officially been entered to win our custom Honda Ruckus*!
+
+At Idaho Central Credit Union, our team is ready and willing to help you achieve financial success. Open a membership with checking today at iccu.com and receive $100**! Simply enter the promo code EISF100.
+
+We have a solution to help you with all of your financial needs.
+
+• Checking and Savings
+• Home Loans
+• Auto &amp; RV Loans
+• Low-rate Visas, including Rewards
+• Free eBranch Online Banking
+• And much more
+
+For more information, visit your local branch or iccu.com today!
+
+
+
+
+*To view official rules click here. No purchase or membership necessary. One entry per person. Eligible participants must be 18 years of age or older and possess a valid form of identification. Form must be complete to be valid. All entries must be submitted by 9/10/2016.
+**To receive $100 you must obtain a checking account with debit card, eBranch, or Direct Deposit, and account must be opened with a $100 minimum balance. $100 to be deposited at time of obtaining at least one of the three services in conjunction with account opening. Must be a new Idaho Central member. Account must remain open for a minimum of six months from reward date or $25 will be deducted from account at closing. Limit one reward per person, per household. Membership required, based on eligibility. Offer ends 9/17/2016.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

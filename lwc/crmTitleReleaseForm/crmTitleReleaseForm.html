@@ -1,0 +1,65 @@
+<template>
+        <div class="main-container slds-is-relative" onerror={handleError}>
+            <div if:true={isLoading}>
+                <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+            </div>
+
+            <div if:true={isSaving}>
+                <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+            </div>
+
+            <!-- TitleRelease Form Header -->
+            <c-crm-form-header
+                form="Title Release"
+                membersname={contact.Name}>
+            <p>Filling out the form below will submit a title release form to onBase on your behalf. When submiting this form please ask yourself the following questions: Is {contact.FirstName} selling to a private party? Is a name change required on the title?</p>
+            <ul>
+                <li>If {contact.FirstName} is selling to a private party it would be in {contact.FirstName}'s best interest to complete and return the Release of Liability form to the DMV.</li>
+                <li>This form does not change the name on the title. Any name changes will need to be requested at the DMV once the title is received.</li>
+            </ul>
+            </c-crm-form-header>
+
+            <div if:true={complete}>
+                <div class="success-message">
+                    <p>You have successfully submitted a title release form for this member.</p>
+                </div>
+            </div>
+            <div if:false={complete}>
+                <section class="content">
+                    <template if:true={showError}>
+                        <c-crm-form-error>
+                            <p>{error}</p>
+                        </c-crm-form-error>
+                    </template>
+                    <template if:true={showErrorOnSubmit}>
+                        <c-crm-form-error>
+                            <p>{errorOnSubmit}</p>
+                        </c-crm-form-error>
+                    </template>
+
+                    <article>
+                        <h2>Which auto loan is this for?</h2>
+
+                        <c-crm-account-lookup
+                            class="primary-account"
+                            contact-id={contactid}
+                            filter-by-type="auto"
+                            filter-by-owner-id={contactid}
+                            is-disabled={isDisabled}
+                            onchange={handleAccountChange}
+                            onerror={handleAccountError}
+                            onload={handleAccountsLoaded}>
+                        </c-crm-account-lookup>
+                    </article>
+
+                    <template if:true={accountSelected}>
+                        <c-crm-title-release-detail account={account} tax-owner={taxOwner} onerror={handleFormError} onsuccess={handleFormSucess} onloaded={handleFormLoaded} onloading={handleFormLoading} onsaving={handleFormSaving}></c-crm-title-release-detail>
+                    </template>
+                    <div class="action-buttons flex">
+                        <!-- <lightning-button label="Cancel"></lightning-button> -->
+                        <lightning-button label="Submit" variant="brand" onclick={handleSubmitForm} disabled={disableSubmit}></lightning-button>
+                    </div>
+            </section>
+        </div>
+    </div>
+</template>

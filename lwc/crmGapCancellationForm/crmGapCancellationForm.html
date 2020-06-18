@@ -1,0 +1,128 @@
+<template>
+
+    <!-- Main Container for the Travel Form -->
+    <div class="main-container slds-is-relative">
+
+        <div if:true={isLoading}>
+            <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+        </div>
+
+        <div if:true={isSaving}>
+            <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+        </div>
+
+        <!-- GAP Cancellation Header -->
+        <c-crm-form-header
+            form="GAP Cancellation"
+            membersname={taxOwner.Name}>
+        </c-crm-form-header>
+
+        <div if:true={complete}>
+            <div class="success-message">
+                <h2>Form Created Successfully</h2>
+                <p>The GAP Cancellation form was created successfully! Click the download in the bottom left hand corner of your screen to complete the process.</p>
+            </div>
+            <iframe width="1" height="1" src={renderPdfUrl}></iframe>
+        </div>
+
+        <div if:false={complete}>
+            <!-- GAP Cancellation Content -->
+                <section class="content">
+                    <div if:true={showError}>
+                        <c-crm-form-error>
+                            <p>{error}</p>
+                        </c-crm-form-error>
+                    </div>
+                    <div if:true={showErrorOnSubmit}>
+                        <c-crm-form-error>
+                            <p>{errorOnSubmit}</p>
+                        </c-crm-form-error>
+                    </div>
+
+                <article>
+                    <h2>Select an Account</h2>
+                    <c-crm-account-lookup
+                            class="primary-account"
+                            contact-id={contactid}
+                            filter-by-type="auto"
+                            filter-by-owner-id={contactid}
+                            filter-by-gap="true"
+                            is-disabled={isDisabled}
+                            onchange={handleAccountChange}
+                            onerror={handleAccountError}
+                            onload={handleAccountsLoaded}>
+                        </c-crm-account-lookup>
+                </article>
+
+                <!-- GAP Cancellation Information -->
+                <template if:true={accountSelected}>
+                    <div if:true={memberHasFullRefund}>
+                        <c-crm-lwc-alert
+                            alert-type="info">
+                            <div>
+                                <h3 class="refund-alert-heading">Full Refund</h3>
+                                <p>Woohoo! {taxOwner.FirstName} is eligible for a full refund as long as the cancellation date is before {cancelBeforeDate}.</p>
+                            </div>
+                        </c-crm-lwc-alert>
+                    </div>
+                    <div if:false={fullRefundOnLoad}>
+                        <c-crm-lwc-alert
+                            alert-type="warn">
+                            <div>
+                                <h3 class="refund-alert-heading">No Refund</h3>
+                                <p>{taxOwner.FirstName} can cancel GAP but isn't eligible for a refund as it has been more than 90 days since the contract date.</p>
+                            </div>
+                        </c-crm-lwc-alert>
+                    </div>
+
+                    <article class="gap-cancellation-info">
+
+                        <!--Issue and Cancellation Dates-->
+                        <div class="flex form-field-section">
+                            <lightning-input class="flex-1 date-input m-right effective-date" type="date" label="Effective Date / Issue Date" value={effectiveDate} onchange={handleEffectiveDateChange} required></lightning-input>
+                            <lightning-input class="flex-1 date-input m-left cancellation-date" type="date" label="Cancellation Date" value={cancellationDate} onchange={handleCancellationDateChange} required></lightning-input>
+                        </div>
+
+                        <div if:false={fullRefund} class="date-past-refund">
+                            <c-crm-lwc-alert
+                                alert-type="warn">
+                                <div>
+                                    <h3 class="refund-alert-heading">Date Selected is not eligible for a refund</h3>
+                                    <p>The cancellation date you selected is 90 days past the contract date. {taxOwner.FirstName} can still cancel GAP but is no longer eligible for a refund. In order to receive a refund the cancellation date must be on or before {cancelBeforeDate}. You will need to confirm below that the member still wants to proceed." </p>
+                                </div>
+                            </c-crm-lwc-alert>
+                            <div>
+                                <h4 class="refund-alert-heading">Please confirm that the member understands they will not be getting a refund</h4>
+                                <lightning-input disabled={isDisabled} type="checkbox" class="cancellation-date-acknowledged" label="I confirm" required></lightning-input>
+                            </div>
+                        </div>
+
+                        <!-- Reason for Cancellation -->
+                            <lightning-radio-group class="cancellation-reason"
+                              label="Reason For Cancellation"
+                              options={cancellationOptions}
+                              value={cancellationReason}
+                              type="radio"
+                              required
+                              onchange={onChangeCancellationReason}></lightning-radio-group>
+
+                              <div if:true={showExplanation}>
+                                    <lightning-input
+                                      type="text"
+                                      name="reason"
+                                      label="Explanation (less than 23 characters)"
+                                      required
+                                      max-length="23"
+                                      class="short-input explanation"></lightning-input>
+                            </div>
+                    </article>
+                </template>
+
+                <div class="action-buttons flex">
+                    <lightning-button label="Create PDF" variant="brand" onclick={generateGapCancellationForm} disabled={disableSubmit}></lightning-button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</template>

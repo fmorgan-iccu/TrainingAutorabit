@@ -1,0 +1,41 @@
+<template>
+
+    <template if:false={showSelectedAccount}>
+        <div class="dropdown-container">
+            <ul>
+                <li class="parent-li"><a href="#">Select an Account<div class="down-triangle"></div></a>
+                    <ul>
+                        <template if:true={showAccountList}>
+                            <template for:each={displayAccounts} for:item="account">
+                                <li key={account.accountNumber} data-account-number={account.accountNumber} onclick={handleSelectAccount}>
+                                    <p if:true={filterByAuto}><lightning-icon icon-name={account.icon} size="small"></lightning-icon><span class="account-nickname">{account.displayName}</span> - {account.accountNumber} - {account.collateral}</p>
+                                    <p if:false={filterByAuto}><lightning-icon icon-name={account.icon} size="small"></lightning-icon><span class="account-nickname">{account.displayName}</span> - {account.accountNumber}</p>
+                                </li>
+                            </template>
+                        </template>
+                        <template if:false={showAccountList}>
+                            <li><p>No available accounts.</p></li>
+                        </template>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </template>
+
+    <!-- Account Card -->
+    <template if:true={showSelectedAccount}>
+        <div class="account">
+            <div class="account-info">
+                <p class="title">
+                    <lightning-icon icon-name={selectedAccount.icon} size="medium"></lightning-icon>
+                    <span if:true={filterByAuto}>{selectedAccount.displayName} - {selectedAccount.collateral}</span>
+                    <span if:false={filterByAuto}>{selectedAccount.displayName}</span>
+                </p>
+                <div class="account-number">
+                    <p><span>Account Number: </span>{selectedAccount.accountNumber}</p>
+                    <lightning-button-icon class="close-icon" icon-name="utility:close" variant="bare" alternative-text="remove account" onclick={handleClearAccount}></lightning-button-icon>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

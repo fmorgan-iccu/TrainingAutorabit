@@ -1,0 +1,3 @@
+<design:component>
+	<design:attribute name="AllowCustomInsights" label="Allow Custom Insights" description="Indicates whether custom insights are allowed or not. Currently they are not supported for accounts." />
+</design:component>

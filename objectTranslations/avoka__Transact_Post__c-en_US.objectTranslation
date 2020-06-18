@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Physical address associated with the task. --></help>
+        <label><!-- Address --></label>
+        <name>avoka__Address__c</name>
+    </fields>
+    <fields>
+        <help><!-- The flag controlling whether the task is claimable exclusively by a single user (optional, only possible if the task is assigned to group(s)). --></help>
+        <label><!-- Allow Claim Flag --></label>
+        <name>avoka__Allow_Claim_Flag__c</name>
+    </fields>
+    <fields>
+        <help><!-- The user to assign the task to (must be specified if group is not). --></help>
+        <label><!-- Assign Group --></label>
+        <name>avoka__Assign_Group__c</name>
+    </fields>
+    <fields>
+        <help><!-- The user to assign the task to (must be specified if group is not). --></help>
+        <label><!-- Assign User --></label>
+        <name>avoka__Assign_User__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where a number of requests are sent together, this field can be used to group post request into a batch. --></help>
+        <label><!-- Batch Code --></label>
+        <name>avoka__Batch_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date and time that the task will expire (optional: needs to be in the future). --></help>
+        <label><!-- Expiry Timestamp --></label>
+        <name>avoka__Expiry_Timestamp__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unique form identifier in Avoka Transact. --></help>
+        <label><!-- Form Code --></label>
+        <name>avoka__Form_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The latitude component of the geolocation information associated with the task (optional; can range from -90 to 90). --></help>
+        <label><!-- Latitude --></label>
+        <name>avoka__Latitude__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide an Sobject Id for the SalesForce object to be associated with this submission in Avoka Transact. --></help>
+        <label><!-- Linked Sobject Id --></label>
+        <name>avoka__Linked_Sobject_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- The longitude component of the geolocation information associated with the task (optional; can range from -180 to 180). --></help>
+        <label><!-- Longitude --></label>
+        <name>avoka__Longitude__c</name>
+    </fields>
+    <fields>
+        <help><!-- Personal message to include in notification email (optional). --></help>
+        <label><!-- Personal Message --></label>
+        <name>avoka__Personal_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- Identifies the portal where anonymous assignments will be linked. --></help>
+        <label><!-- Portal Name --></label>
+        <name>avoka__Portal_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify the SObject Id of the object you wish to use for prefill and the prefill XML will automatically be generated for that object. --></help>
+        <label><!-- Prefill Sobject Id --></label>
+        <name>avoka__Prefill_Sobject_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- XML data to prefill into the form (data will be mapped in Avoka Transact). --></help>
+        <label><!-- Prefill Xml --></label>
+        <name>avoka__Prefill_Xml__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date and time when the processing occurred. --></help>
+        <label><!-- Processed Timestamp --></label>
+        <name>avoka__Processed_Timestamp__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provides any message relevant to the processing. --></help>
+        <label><!-- Processing Message --></label>
+        <name>avoka__Processing_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- The data returned from Avoka Transact in the processing response. --></help>
+        <label><!-- Processing Response --></label>
+        <name>avoka__Processing_Response__c</name>
+    </fields>
+    <fields>
+        <help><!-- Current status of the processing of this post request with Avoka Transact. --></help>
+        <label><!-- Processing Status --></label>
+        <name>avoka__Processing_Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation><!-- Ready --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The email address for anonymous recipients, not used if Assign User or Assign Group is provided. --></help>
+        <label><!-- Recipient Email --></label>
+        <name>avoka__Recipient_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date and time when the task is scheduled to be done, for calendar integration (optional). --></help>
+        <label><!-- Scheduled Timestamp --></label>
+        <name>avoka__Scheduled_Timestamp__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag to instruct Avoka Transact whether to send a notification email to the recipient. --></help>
+        <label><!-- Send Email Flag --></label>
+        <name>avoka__Send_Email_Flag__c</name>
+    </fields>
+    <fields>
+        <help><!-- The sequence number that can be set to number tasks that are part of a set (optional). --></help>
+        <label><!-- Sequence --></label>
+        <name>avoka__Sequence__c</name>
+    </fields>
+    <fields>
+        <help><!-- Submission data from a prior submission that will be used to create the new task. --></help>
+        <label><!-- Submission Data --></label>
+        <name>avoka__Submission_Data__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unique key for the task in Avoka Transact (populated after successful task creation). --></help>
+        <label><!-- Submission Key --></label>
+        <name>avoka__Submission_Key__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provides a link to the submission record created in Avoka Transact. --></help>
+        <label><!-- Submission URL --></label>
+        <name>avoka__Submission_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Descriptive text relating to the task to give the user additional context. --></help>
+        <label><!-- Task Description --></label>
+        <name>avoka__Task_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Short display title for the user (relevant in scenarios where the task will appear in a list). --></help>
+        <label><!-- Task Title --></label>
+        <name>avoka__Task_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unique reference code for the task in Avoka Transact (populated after successful task creation). --></help>
+        <label><!-- Tracking Code --></label>
+        <name>avoka__Tracking_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Instructs Avoka Transact whether to allow the assigned user to delete the task. --></help>
+        <label><!-- User Deletable Flag --></label>
+        <name>avoka__User_Deletable_Flag__c</name>
+    </fields>
+    <webLinks>
+        <label><!-- Process_Post_Request --></label>
+        <name>avoka__Process_Post_Request</name>
+    </webLinks>
+</CustomObjectTranslation>

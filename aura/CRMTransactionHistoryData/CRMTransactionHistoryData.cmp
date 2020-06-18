@@ -1,0 +1,99 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+
+    <!-- TODO:  This component has been replaced with an LWC version, crmTransactionDetail.  This should be deleted ASAP. -->
+
+    <!-- call this on page load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <!-- Date formatting library -->
+    <ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatDates}" />
+    <ltng:require scripts="{!$Resource.NumeralJS}" afterScriptsLoaded="{!c.formatNumbers}" />
+
+    <!--
+	COMPONENT OVERVIEW:
+	This is a singular transaction that is used within
+	the CRMMemberTransactionHistory component.
+
+    ATTRIBUTES:
+	This component accepts the following attributes:
+        • "TransactDescription": The title or description of the transaction.
+        • "TransactCredit": The amount of credits applied.
+        • "TransactDebit" : The amount that has been withdrawn from the account.
+        • "TransactBalance" : The current balance of the account
+        • "TransactType" : The type of transaction (i.e. Point of Sale, Transfer, Deposit, etc.)
+        • "TransactPostDate" : The posting date. Format is mm/dd/yyyy
+        • "TransactEffectDate" : The effective date. Format is mm/dd/yyyy
+        • "TransactID" : The transactional id related to that transaction item.
+    -->
+
+	<!-- Defining attributes -->
+    <aura:attribute name="Transaction" type="Object"/>
+    <aura:attribute name="postDate" type="String"/>
+    <aura:attribute name="effectiveDate" type="String"/>
+    <aura:attribute name="amount" type="String" />
+    <aura:attribute name="balance" type="String" />
+    <aura:attribute name="balanceSign" type="String" />
+    <aura:attribute name="creditDebitHeader" type="String" />
+    <!--TODO: Set to selected when a transaction is selected - there is a basic onclick event but it doesn't really work-->
+    <aura:attribute name="selected" type="Boolean" default="false" />
+    <!--TODO: If ANY transaction is selected, this needs to be set to true-->
+    <aura:attribute name="transactionDetailView" type="Boolean" default="true" />
+
+    <!-- This is the content of the transaction -->
+    <div>
+        <div aria-expanded="false" class="{!v.balanceSign + ' BorderTop selected-' + v.selected}" onclick="{!c.transactionSelected}" aura:id="toggleActiveColor" id="transactLayerOne">
+            <section class="transaction">
+                <div class="descriptionContainer">
+                    <p class="transactionDescription">
+                        <!-- Some transactions, like deposits or withdrawls, don't have an external description -->
+                        <!--TODO: More research on transaction descriptions and what we want to display-->
+                    	<aura:if isTrue="{!v.Transaction.externalDescription.length > 0}">
+                            {!v.Transaction.externalDescription}
+
+                            <aura:set attribute="else">
+                                {!v.Transaction.description} - {!v.Transaction.internalDescription}
+                            </aura:set>
+                        </aura:if>
+                        <aura:if isTrue="{!v.Transaction.checkNumber.length &gt; 0}">
+                            - #{!v.Transaction.checkNumber}
+                        </aura:if>
+                    </p>
+                    <p class="postDate">{!v.postDate}</p>
+                </div>
+
+                <aura:if isTrue="{!v.transactionDetailView}">
+                    <div class="amountOverview">
+                        <p class="{!v.creditDebitHeader + ' amount'}">
+                            <span>
+                                    <aura:if isTrue="{!v.Transaction.isCredit}">+</aura:if>
+                            </span>{!v.amount}</p>
+                        <h3 class="{!v.balanceSign + ' balanceInfo TransactionHeader'}">Balance: {!v.balance}</h3>
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="{!v.creditDebitHeader + '-section'}">
+                            <h3 class="TransactionHeader">{!v.creditDebitHeader}</h3>
+                            <p class="amount">
+                                <span>
+                                        <aura:if isTrue="{!v.Transaction.isCredit}">+</aura:if>
+                                </span>{!v.amount}</p>
+                        </div>
+                        <div class="{!v.balanceSign + ' balance'}">
+                            <h3 class="TransactionHeader">Balance</h3>
+                            <p>{!v.balance}</p>
+                        </div>
+                    </aura:set>
+                </aura:if>
+            </section>
+        </div>
+
+        <!--
+            here are the data points that were previously used
+            {!v.Transaction.description}
+            {!v.postDate}
+            {!v.effectiveDate}
+            {!v.Transaction.transactionNumber}
+        -->
+
+    </div>
+
+</aura:component>

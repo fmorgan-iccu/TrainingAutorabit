@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Additional ICCU Fraud Prevention Resources</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Special Event</name>
+    <style>none</style>
+    <subject>Additional ICCU Fraud Prevention Resources</subject>
+    <textOnly>Additional ICCU Fraud Prevention Resources
+
+Dear {!Contact.FirstName},
+
+It was my pleasure to assist you today. As discussed, Idaho Central Credit Union provides multiple tools and features to help protect you against fraud and identity theft. First, please be sure to enroll in the free Kroll credit monitoring service provided by Idaho Central. Enrollment information was included in the letter you received.
+
+
+In addition to credit monitoring, here are a few tools that I feel would be beneficial for you. These tools are free to you as a member and I encourage you to take advantage of these. If you have further questions about these or other ICCU services, please contact us or visit your local ICCU location.
+
+
+Click the image to learn more about these FREE ICCU Services:
+
+
+
+
+Sincerely,
+
+{!Contact.LastModifiedBy}
+
+
+
+This 				email was sent to:  {!Contact.Email}
+
+This 				email was sent by: {!Organization.Name}
+{!Organization.Street}
+{!Organization.City}, 				{!Organization.State} {!Organization.PostalCode}
+{!Organization.Country}
+
+We respect your right to privacy -     view our policy</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="report" type="Object" description="The report to be displayed." /> 
+    
+    <aura:attribute name="title" type="String" description="The title of the report" />
+    <aura:attribute name="reportData" type="Array" description="An array of data elements to be displayed to the user." />
+
+    <h1 class="report-title">{!v.title}</h1>
+
+    <aura:if isTrue="{! !empty(v.reportData) }">
+        <aura:iteration items="{!v.reportData}" var="data">
+            <div>
+                <c:CRMFSCReportData data="{!data}" />
+            </div>
+        </aura:iteration>
+    </aura:if>
+    
+</aura:component>

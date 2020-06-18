@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Form_Auto_Payoff</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Form_Gap_Cancellation</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Form_Hot_Card</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Form_Skip_A_Pay</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Form_Title_Release</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Form_Travel_Form</name>
+    </customPermissions>
+    <description>Contains common forms used by many of the departments (e.g. MCC and VSC)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Helix Common Forms</label>
+    <license>Salesforce</license>
+</PermissionSet>

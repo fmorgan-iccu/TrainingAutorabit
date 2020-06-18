@@ -1,0 +1,107 @@
+.THIS #SystemBody p {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/** DECISION COLOR CODING **/
+/*Default color and styles*/
+.THIS.SystemResponses-Cards {
+    border: 1px solid #F2F2F2;
+}
+.THIS.SystemResponses-Cards.responseMessage {
+    border: 1px solid rgb(62,62,60);
+}
+.THIS.SystemResponses-Cards #SystemBody {
+    background-color: rgba(242,242,242,.5);
+}
+.THIS h3 {
+    color: #999;
+}
+.THIS p.decision {
+    font-weight: bold;
+    color: #999;
+}
+.THIS.ACCEPT h3,
+.THIS.APPROVE h3,
+.THIS.APPROVED h3,
+.THIS.DENIED h3,
+.THIS.DECLINE h3,
+.THIS.DECLINED h3,
+.THIS.FAIL h3,
+.THIS.REVIEW h3,
+.THIS.responseMessage h3,
+.THIS.responseMessage p.decision,
+.THIS.ACCEPT p.decision,
+.THIS.APPROVE p.decision,
+.THIS.APPROVED p.decision,
+.THIS.DENIED p.decision,
+.THIS.DECLINE p.decision,
+.THIS.DECLINED p.decision
+.THIS.REVIEW p.decision {
+    color: rgb(62,62,60);
+}
+.THIS .message:hover {
+    cursor: pointer;
+    background-color: rgba(242,242,242,.5);
+}
+/*Success color and styles*/
+.THIS.SystemResponses-Cards.ACCEPT,
+.THIS.SystemResponses-Cards.APPROVE,
+.THIS.SystemResponses-Cards.APPROVED {
+    border: 1px solid #24b200;
+}
+.THIS.SystemResponses-Cards.ACCEPT #SystemBody,
+.THIS.SystemResponses-Cards.APPROVE #SystemBody,
+.THIS.SystemResponses-Cards.APPROVED #SystemBody {
+    background-color: rgba(36, 178, 0, 0.1);
+}
+.THIS.SystemResponses-Cards.ACCEPT .decisionStatus,
+.THIS.SystemResponses-Cards.APPROVE .decisionStatus,
+.THIS.SystemResponses-Cards.APPROVED .decisionStatus {
+    color: #24b200;
+}
+.THIS.ACCEPT .systemHeader:hover,
+.THIS.APPROVE .systemHeader:hover,
+.THIS.APPROVED .systemHeader:hover {
+    cursor: pointer;
+    background-color: rgba(36, 178, 0, 0.1);
+}
+/*Error/DECLINE color and styles*/
+.THIS.SystemResponses-Cards.DENIED,
+.THIS.SystemResponses-Cards.DECLINE,
+.THIS.SystemResponses-Cards.DECLINED,
+.THIS.SystemResponses-Cards.FAIL,
+.THIS.SystemResponses-Cards.REVIEW {
+    border: 1px solid #eb3d3d;
+}
+.THIS.SystemResponses-Cards.DENIED #SystemBody,
+.THIS.SystemResponses-Cards.DECLINE #SystemBody,
+.THIS.SystemResponses-Cards.DECLINED #SystemBody,
+.THIS.SystemResponses-Cards.FAIL #SystemBody,
+.THIS.SystemResponses-Cards.REVIEW #SystemBody {
+    background-color: rgba(235,61,61,.05);
+}
+.THIS.SystemResponses-Cards.DENIED .decisionStatus,
+.THIS.SystemResponses-Cards.DECLINE .decisionStatus,
+.THIS.SystemResponses-Cards.DECLINED .decisionStatus,
+.THIS.SystemResponses-Cards.FAIL .decisionStatus,
+.THIS.SystemResponses-Cards.REVIEW .decisionStatus {
+    color: #eb3d3d;
+}
+.THIS.DENIED .systemHeader:hover,
+.THIS.DECLINE .systemHeader:hover,
+.THIS.DECLINED .systemHeader:hover,
+.THIS.FAIL .systemHeader:hover,
+.THIS.REVIEW .systemHeader:hover {
+    cursor: pointer;
+    background-color: rgba(235,61,61,.05);
+}
+
+/** TOGLE **/
+.THIS .hideMe {
+    display: none;
+}
+.THIS .showMe {
+    display: block;
+}

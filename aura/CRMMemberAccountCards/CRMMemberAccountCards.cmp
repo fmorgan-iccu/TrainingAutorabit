@@ -1,0 +1,67 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="MemberCardController">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+    <aura:handler event="c:CardNeedsUpdate" action="{!c.cardNeedsUpdate}"/>
+
+    <aura:attribute name="recordId" type="String" />
+
+    <aura:attribute name="debitCards" type="Array" />
+    <aura:attribute name="creditCards" type="Array" />
+
+    <aura:attribute name="isLoading" type="Boolean"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="noCardsMessage" type="String"/>
+
+    <div>
+        <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+            <c:CRMAlert alertState="error">
+                <aura:set attribute="alertMessage">
+                    <p>
+                        {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.refreshCards}" />
+                    </p>
+                </aura:set>
+            </c:CRMAlert>
+        </aura:if>
+
+        <aura:if isTrue="{!v.isLoading}">
+            <c:CRMLoadingSpinner message="Credit and Debit Cards..." />
+        </aura:if>
+
+        <aura:if isTrue="{!v.isLoading == false}">
+
+            <section class="card-list">
+                <h1 style="font-size: 2em;">Debit Cards</h1>
+
+                <aura:iteration items="{!v.debitCards}" var="card">
+                    <c:CRMMemberAccountCardInfo AccountCard="{!card}" />
+                </aura:iteration>
+
+                <aura:if isTrue="{!v.debitCards.length == 0}">
+                    No active debit cards.
+                </aura:if>
+            </section>
+
+            <section class="card-list">
+                <h1 style="font-size: 2em;">Credit Cards</h1>
+
+                <aura:iteration items="{!v.creditCards}" var="card">
+                    <c:CRMMemberAccountCardInfo AccountCard="{!card}" />
+                </aura:iteration>
+
+                <aura:if isTrue="{!v.creditCards.length == 0}">
+                    No active credit cards.
+                </aura:if>
+            </section>
+
+            <br /><br /><br /><br /><br />
+            <div style="width: 25%">
+                <lightning:input aura:id="username" label="Username" class="field" type="text" value=""/><br />
+                <lightning:input aura:id="password" label="Password" class="field" type="password" value=""/><br />
+                <lightning:button variant="brand" label="Log In" title="Log In" onclick="{!c.authenticate}" />
+            </div>
+
+        </aura:if>
+
+    </div>
+
+</aura:component>

@@ -1,0 +1,118 @@
+:host {
+    font-size: 16px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.space-below {
+    margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1.17em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+.back-to-selection {
+    color: var(--c-iccuPrimaryGreen);
+    text-align: right;
+    display: block;
+    padding-top: .5em;
+}
+
+.selected-account-count {
+    font-size: 1.5em;
+    color: var(--c-iccuPrimaryGreen);
+    font-weight: bold;
+    padding-bottom: .3em;
+}
+.selectable-account,
+.selected-account {
+    padding: .5em;
+    border: 1px solid #CCC;
+    align-items: center;
+}
+.selected-account.ineligible {
+    background: #fae7e3;
+}
+.sselected-account.ineligible .eligibility p {
+    font-weight: bold;
+}
+.selected-account .eligibility p,
+.selected-account .due-date p {
+    display: inline;
+    padding-right: .25em;
+}
+.selectable-account.selected {
+    background: var(--c-iccuPrimaryGreen);
+    color: white;
+}
+.selectable-account:hover {
+    background: #F2F2F2;
+    cursor: pointer;
+}
+.selectable-account.selected:hover {
+    background: var(--c-iccuDarkHover);
+}
+.account-details {
+    display: flex;
+    align-items: center;
+}
+.account-details h5 {
+    padding-right: .5em;
+}
+
+.eligibility,
+.due-date {
+    font-style: italic;
+    text-align: right;
+}
+
+.icon-container {
+    background: #4D4D4D;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    border-radius: 4px;
+    margin-right: 1em;
+}
+
+.icon-container.auto {
+    background: #800080;
+}
+
+.icon-container.card {
+    background: var(--c-iccuPrimaryGreen);
+}
+
+.selectable-account.selected .icon-container {
+    background: transparent;
+}
+
+.icon-container lightning-icon.slds-icon_container {
+    background: transparent;
+}

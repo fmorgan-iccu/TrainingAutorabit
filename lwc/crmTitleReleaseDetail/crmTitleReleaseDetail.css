@@ -1,0 +1,62 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+.flex {
+    display: flex;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 1.25em;
+    margin-bottom: .3em;
+}
+flex {
+    display: flex;
+}
+
+/* Form Styling */
+article {
+    margin-bottom: 2em;
+}
+.form-row {
+    display: flex;
+    margin: 0 .5em 0 .5em;
+}
+.form {
+    display: flex;
+}
+lightning-input {
+    flex-grow: 1;
+}
+lightning-radio-group {
+    flex: 1;
+    margin: .5em .5em .5em .5em;
+}
+
+.left {
+    margin: 0 .5em 0 0;
+    width: 50%;
+}
+.right {
+    margin: 0 0 0 .5em;
+    width: 50%;
+}
+
+.checkboxcss {
+    margin-top: 1em;
+}

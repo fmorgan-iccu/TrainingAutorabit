@@ -1,0 +1,51 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AuthController">
+    <!-- At the time of writing, many legacy aura components broadcast RequireSystemOfRecordLogin
+        events to the this component to indicate when authentication is required.  Because ICCU is
+        starting to use Lightning Web Components (LWC), each LWC that must broadcast this event
+        must be wrapped in an Aura component.  This Aura wrapper will relay the LWC event as an
+        Aura event.  See CRMTravelFormWrapper for any example.
+        
+        For more information, see
+        https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.events_sending_to_aura_components -->
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Register listeners for cross component notifications -->
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleAuthenticationStateChange}"/>
+    <aura:handler event="c:DNABusinessServicesLogin" action="{!c.handleAuthenticationStateChange}"/>
+    <aura:handler event="c:CCMLogin" action="{!c.handleAuthenticationStateChange}"/>
+    <aura:handler event="c:DNACoreLogout" action="{!c.handleAuthenticationStateChange}"/>
+    <aura:handler event="c:DNABusinessServicesLogout" action="{!c.handleAuthenticationStateChange}"/>
+    <aura:handler event="c:CCMLogout" action="{!c.handleAuthenticationStateChange}"/>
+    <aura:handler event="c:RequireSystemOfRecordLogin" action="{!c.handleRequireSystemOfRecordLogin}" />
+
+    <aura:attribute name="allowLogout" type="Boolean" default="false" access="private" />
+    <aura:attribute name="errorMessage" type="String" access="private" />
+    <aura:attribute name="isAuthenticated" type="Boolean" default="false" access="private" />
+    <aura:attribute name="isGettingAuthInfo" type="Boolean" default="false" access="private" />
+    <aura:attribute name="location" type="String" default="" access="public" description="Used to identify the lightning page that embeds this component; useful for debugging!" />
+    <aura:attribute name="wideDisplay" type="Boolean" default="false" access="public" />
+
+    <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>{!v.errorMessage}</p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <div class="{! 'left-col-component dnaAuthContainer wideDisplay' + v.wideDisplay}">
+        <c:CRMDnaLogin aura:id="cCRMDnaLogin" hideAfterLogin="{!v.wideDisplay}" class="{! 'wideDisplay' + v.wideDisplay}"/>
+        <c:CRMCcmLogin aura:id="cCRMCcmLogin" hideAfterLogin="{!v.wideDisplay}" class="{! 'wideDisplay' + v.wideDisplay}"/>
+
+        <!-- NOTE:  If we ever want a process all login option, this button can be used.
+        <aura:if isTrue="{!not(v.isAuthenticated)}">
+            <button class="login-button slds-button- -brand" onclick="{!c.processLogin}">Login</button>
+        </aura:if> -->
+
+        <aura:if isTrue="{!and(v.allowLogout, v.isAuthenticated)}">
+            <button class="slds-button slds-button- -brand" onclick="{!c.processLogout}">Logout</button>
+        </aura:if>
+    </div>
+
+</aura:component>

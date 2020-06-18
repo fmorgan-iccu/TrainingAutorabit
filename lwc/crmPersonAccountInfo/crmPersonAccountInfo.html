@@ -1,0 +1,32 @@
+<template>
+    <div class="component-container">
+        <template if:true={showError}>
+            <c-crm-form-error>
+                <p>{error}</p>
+            </c-crm-form-error>
+        </template>
+        <template if:false={showError}>
+            <div class="oops-container">
+                <h1>Oops!</h1>
+                <p>Is this what you're looking for?</p>
+            </div>
+            <div class="member-card">
+                <header>
+                    <div class="header-left">
+                        <lightning-icon icon-name="standard:contact" alternative-text="Contact" size="large"></lightning-icon>
+                        <h2>{contact.Name}</h2>
+                    </div>
+                    <button type="button" onclick={handleNavigation}>Go to {contact.FirstName}'s Profile</button>
+                </header>
+                <article>
+                    <div>
+                        <p><span>Person Number: </span>{contact.PersonNumber__c}</p>
+                        <p><span>Email Address: </span>{contact.Email}</p>
+                        <p><span>Member Number: </span>{contact.MemberNumber__c}</p>
+                        <p><span>Phone Number: </span>{contact.Phone}</p>
+                    </div>
+                </article>
+            </div>
+        </template>
+    </div>
+</template>

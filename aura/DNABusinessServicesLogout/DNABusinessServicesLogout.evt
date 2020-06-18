@@ -1,0 +1,1 @@
+<aura:event type="APPLICATION" description="DNA Business Services API logout"/>

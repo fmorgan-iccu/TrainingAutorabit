@@ -1,0 +1,105 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <!-- Get Case Data! -->
+    <aura:attribute name="record" type="Object" 
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" 
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" 
+                    description="An error message bound to force:recordData"/>
+    <force:recordData aura:id="record"
+                      fields="OwnerId, ContactId, Status, Priority, MCCSubclass__c, 
+                              ContactPhone, Origin, CallBackNumber__c, MCCClass__c,
+                              Description, MemberSentiment__c, CaseNumber"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      mode="VIEW"/>
+    
+    <!-- Begin Component -->
+    <aura:if isTrue="{!v.recordError.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.recordError}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+    
+    <div class="slds-card">
+        <!-- BEGIN CARD HEADER -->	
+        <div class="slds-card__header slds-grid" style="{! 'background-image:url(' + $Resource.CRMCaseBackground + ');'}">
+            <div class="MemberHeaderContainer">
+                <div class="MemberNameContainer">
+                    <lightning:icon iconName="utility:case" variant="inverse"/>
+                    <div class="CaseName">
+                        <h1 class="MemberNameHeader">Case {!v.simpleRecord.CaseNumber}</h1>
+                        <h3 class="MemberLegalName">{!v.simpleRecord.MCCClass__c}
+                            <aura:if isTrue="{!v.simpleRecord.MCCSubclass__c}">
+                               &nbsp;• {!v.simpleRecord.MCCSubclass__c}
+                            </aura:if></h3>
+                    </div>
+                </div><!-- END OF MemberNameContainer -->
+            </div> <!-- END OF MemberHeaderContainer --> 
+        </div>
+        
+        <!-- BEGIN CARD BODY -->
+        <div class="slds-card__body slds-card__body_inner">
+            
+            <h3 id="MemberInformation">Case Information</h3>
+            
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Description</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.Description}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>                    
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Status</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.Status}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Priority</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.Priority}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="grow" padding="around-medium" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Case Origin</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.Origin}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Member Sentiment</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.simpleRecord.MemberSentiment__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div><!-- END CARD BODY -->
+    </div>
+</aura:component>

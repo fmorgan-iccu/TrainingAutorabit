@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject></baseObject>
+    <category>admin</category>
+    <deployed>false</deployed>
+    <description>This report will show the number of users using Lighting</description>
+    <label>Lighting Usage</label>
+    <sections>
+        <masterLabel>LightningUsageByAppTypeMetrics</masterLabel>
+    </sections>
+</ReportType>

@@ -1,0 +1,41 @@
+<template>
+    <c-crm-ui-card>
+        <h3 slot="title">Member Insights</h3>
+        <div slot="actions">
+            <lightning-button label="Refresh" variant="brand-outline" onclick={handleRefreshInsights}></lightning-button>
+            <lightning-button label="+ Add" variant="brand-outline" onclick={handleCreateCustomInsight} class=".card-action-button" if:true={allowCustomInsights}></lightning-button>
+        </div>
+
+        <div class="card-contents">
+            <div if:true={isLoading}>
+                <c-crm-lwc-loading-spinner message="Loading Insights"></c-crm-lwc-loading-spinner>
+                <div class="loading-space"></div>
+            </div>
+
+            <template if:true={showError}>
+                <c-crm-form-error>
+                    <p>{error}</p>
+                </c-crm-form-error>
+            </template>
+
+            <template if:true={noInsights}>
+                <p>There are no insights.</p>
+            </template>
+
+            <template if:true={showAccountInsights}>
+                <h2 class="insight-section-header"><span>Account Insights</span></h2>
+                <template for:each={accountInsights} for:item="i">
+                    <c-crm-insight key={i.id} insight={i}></c-crm-insight>
+                </template>
+            </template>
+
+            <template if:true={showGeneralInsights}>
+                <h2 class="insight-section-header"><span>General Insights</span></h2>
+                <template for:each={generalInsights} for:item="i">
+                    <c-crm-insight key={i.key} insight={i}></c-crm-insight>
+                </template>
+            </template>
+        </div>
+
+    </c-crm-ui-card>
+</template>

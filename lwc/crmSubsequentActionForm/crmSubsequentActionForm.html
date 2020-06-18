@@ -1,0 +1,206 @@
+<template>
+    <div class="main-container slds-is-relative">
+
+        <div if:true={isLoading}>
+            <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+        </div>
+
+        <div if:true={isSaving}>
+            <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+        </div>
+
+        <c-crm-form-header
+            form="Subsequent Action"
+            membersname={contact.Name}>
+        </c-crm-form-header>
+
+        <div class="content confirmation" if:true={complete}>
+            <div class="success-image">
+                <img src={successImage} alt="illustration of document being sent to docusign"/>
+            </div>
+            <div class="success-message">
+                <h2>Form Created Successfully</h2>
+                <p>The Subsequent Action form was created successfully and is on its way to docusign to collect the members signature.</p>
+                <h3>Next Steps and Reminders</h3>
+                <p>Please remind the member of the following things:</p>
+                <ul>
+                    <li>The member can expect to recieve their documents through email and will sign them using docusign.</li>
+                    <li>The member should sign the documents as soon as possible to avoid processing delays.</li>
+                </ul>
+            </div>
+        </div>
+        <div if:false={complete}>
+
+            <section class="content">
+                <div if:true={showError}>
+                    <c-crm-form-error>
+                        <p>{error}</p>
+                    </c-crm-form-error>
+                </div>
+                <c-crm-form-error if:true={missingEmail}>
+                    <div>
+                        <h3>Missing Email</h3>
+                        <p>The member must have an email address in Helix. Please add an email to the contact page and refresh this form.</p>
+                    </div>
+                </c-crm-form-error>
+
+                <article>
+                    <template if:true={accountSelected}>
+                        <h2>Selected Account</h2>
+                    </template>
+                    <template if:false={accountSelected}>
+                        <h2>Select an Account</h2>
+                    </template>
+
+                    <c-crm-account-lookup
+                        contact-id={contactid}
+                        filter-by-type="auto"
+                        filter-by-owner-id={contactid}
+                        filter-by-first-payment="true"
+                        is-disabled={isDisabled}
+                        onchange={handleAccountChange}
+                        onerror={handleAccountError}
+                        onload={handleAccountsLoaded}>
+                    </c-crm-account-lookup>
+                </article>
+
+                <template if:true={accountSelected}>
+                    <article>
+                        <lightning-combobox
+                            name="requestType"
+                            label="Type of Request"
+                            placeholder="Select a Type"
+                            value={requestType}
+                            options={requestTypeOptions}
+                            onchange={changeRequestType}
+                            required></lightning-combobox>
+                    </article>
+
+                    <template if:true={showModification}>
+                        <article class="modification">
+                            <div class="form-row">
+                                <lightning-checkbox-group
+                                    name="modificationTypeRadio"
+                                    label="What needs to be modified?"
+                                    options={modificationTypeOptions}
+                                    value={modificationTypeValue}
+                                    onchange={modificationTypeChange}
+                                    class="bottom-spacing modReasons"
+                                    required>
+                                </lightning-checkbox-group>
+                            </div>
+                            <c-crm-alert-banner
+                                if:true={showPaymentAmount}
+                                alert-type="info"
+                                alert-title="Calulating New Payment Amount"
+                                alert-message="Please use the ACTion re-amortization tool to determine the new payment amount">
+                            </c-crm-alert-banner>
+                            <div class="modification-fields">
+                                <lightning-input if:true={showPaymentAmount} class="monthlyPayment" disabled={isDisabled} label="New Payment Amount" onchange={changePaymentAmount} type="number" formatter="currency" step="0.01" required></lightning-input>
+                                <lightning-input if:true={showInterestRate} class="interestRate" disabled={isDisabled} label="New Interest Rate" onchange={changeInterestRate} required></lightning-input>
+                                <lightning-input if:true={showDueDate} class="dueDate" disabled={isDisabled} label="New Due Date" onchange={changeDueDate} type="date" required></lightning-input>
+                                <lightning-input if:true={showEffectiveDate} class="effectiveDate" disabled={isDisabled} label="Effective Date" onchange={changeEffectiveDate} type="date" required></lightning-input>
+                                <template if:true={showModReason}>
+                                    <lightning-combobox
+                                        class="modificationReason"
+                                        name="modificationReason"
+                                        label="Modification Reason"
+                                        placeholder="Select an Option"
+                                        value={modificationReason}
+                                        options={modificationReasons}
+                                        onchange={changeModificationReason}
+                                        required>
+                                    </lightning-combobox>
+                                    <lightning-combobox
+                                        class="modificationReason2"
+                                        name="modificationReason2"
+                                        label="Additional Reason (if applicable)"
+                                        placeholder="Select an Option"
+                                        value={modificationReason2}
+                                        options={modificationReasons}
+                                        onchange={changeModificationReason2}>
+                                    </lightning-combobox>
+                                </template>
+                            </div>
+                        </article>
+                    </template>
+
+                    <template if:true={showDeclination}>
+                        <lightning-checkbox-group
+                            class="insuranceOptions"
+                            name="Checkbox Group"
+                            label="Select the insurance option(s) the member would like to opt out of."
+                            options={insuranceOptions}
+                            value={insuranceOption}
+                            onchange={changeInsurance}
+                            required>
+                        </lightning-checkbox-group>
+                        <template if:true={showLifeOptOut}>
+                            <lightning-checkbox-group
+                                name="Checkbox Group"
+                                label="Who would like to opt out of life insurance?"
+                                options={lifeOptOutOptions}
+                                value={lifeOptOut}
+                                onchange={changeLifeOption}
+                                required>
+                            </lightning-checkbox-group>
+                        </template>
+                        <template if:true={showDisOptOut}>
+                            <lightning-checkbox-group
+                                name="Checkbox Group"
+                                label="The following member will be opted out of disability insurance:"
+                                options={disOptOutOptions}
+                                value={disOptOut}
+                                required>
+                            </lightning-checkbox-group>
+                        </template>
+                    </template>
+
+                    <template if:true={showAddInsurance}>
+                        <lightning-radio-group name="addInsuranceRadio"
+                            label="How would the member like to pay for the insurance?"
+                            options={addInsuranceOptions}
+                            value={addInsuranceOption}
+                            type="radio"
+                            onchange={changeAddInsurance}
+                            required
+                            class="bottom-spacing addInsurance"></lightning-radio-group>
+                        <template if:true={showIncreasePayment}>
+                            <c-crm-alert-banner
+                                alert-type="info"
+                                alert-title="Calulating New Monthly Payment"
+                                alert-message="Please fill out the CUNA form first which will tell you the new monthly payment amount">
+                            </c-crm-alert-banner>
+                            <lightning-input disabled={isDisabled} label="New monthly payment" value={paymentAmount} onchange={changePaymentAmount} type="number" formatter="currency" step="0.01" required></lightning-input>
+                        </template>
+                    </template>
+
+                    <template if:true={showReleaseBorrower}>
+                        <p if:true={showNoBorrower}>There are no borrowers on this account.</p>
+                        <div if:false={showNoBorrower}>
+                            <lightning-radio-group name="removeBorrowerRadio"
+                                label="Who would you like to remove from the loan?"
+                                options={removeBorrowerOptions}
+                                value={removeBorrowerOption}
+                                type="radio"
+                                onchange={changeRemoveBorrower}
+                                required>
+                            </lightning-radio-group>
+                            <lightning-input if:true={showRemoveOtherBorrower} disabled={isDisabled} label="Borrower / Guarantor being removed from the loan:" value={otherBorrower} required></lightning-input>
+                        </div>
+                    </template>
+
+                    <section if:true={showErrorOnSubmit}>
+                        <c-crm-form-error>
+                            <p>{errorOnSubmit}</p>
+                        </c-crm-form-error>
+                    </section>
+                </template>
+
+                <div class="action-buttons flex">
+                    <lightning-button label="Submit" variant="brand" onclick={generateSubsequentActionForm} disabled={disableSubmit}></lightning-button>
+                </div>
+            </section>
+        </div>
+    </div>
+</template>

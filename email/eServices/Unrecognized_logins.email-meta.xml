@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Unrecognized logins</name>
+    <style>none</style>
+    <subject>Unrecognized logins</subject>
+    <textOnly>We&apos;re sorry to hear about that concern! Unrecognized logins are typically caused by third-party budgeting apps. For example, if you use Quicken, Mint, YNAB, or any other budgeting app, they generally log in periodically to sync accounts. If you do not have anything that may be logging in to sync like that, then we recommend updated your login information. To do this, please log into your eBranch from the full site, select your name in the top, right-hand corner, and then select Settings. From there, select the Security tab. Here you will be able to update your username, password, and security questions. This should stop any unrecognized logins.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

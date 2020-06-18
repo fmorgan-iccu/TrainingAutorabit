@@ -1,0 +1,126 @@
+:host {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 16px;
+    color: #555759;
+    transition: all .2s ease-in-out;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+}
+.transaction .descriptionContainer {
+    width: 70%
+}
+.transaction .Credit-section,
+.transaction .Debit-section,
+.transaction .balance {
+    width: 15%
+}
+.amountOverview {
+    width: 25%;
+}
+
+.transactionDescription {
+    font-weight: 600;
+    font-size: 1.125em;
+}
+
+.Credit-section,
+.Credit.amount {
+    color: var(--c-iccuBrandGreen);
+}
+
+.postDate {
+    margin-top: 0.5em;
+    font-weight: 600;
+    font-size: 0.875em;
+    color: rgba(0, 0, 0, 0.55);
+    text-transform: uppercase;
+}
+
+.TransactionHeader {
+    font-weight: 600;
+    font-size: 0.875em;
+}
+
+.TransactionHeader + p,
+.amountOverview .amount {
+    overflow-wrap: break-word;
+  	word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    font-size: 1.5em;
+    font-weight: 200;
+}
+
+.iconContainer {
+    margin-bottom: -2em;
+}
+
+.balance.negative,
+.balanceInfo.negative {
+    color: #cc3225;
+}
+
+.transactLayerOne {
+    cursor: pointer;
+    padding: 0.5em;
+    transition: background-color .25s;
+}
+
+.transactLayerOne.negative {
+    border: 1px solid #cc3225;
+}
+.transactLayerOne.compact-selected-true.negative,
+.transactLayerOne.compact-selected-true.negative:active {
+    border-right: none;
+}
+
+.BorderTop {
+    border-top: 1px solid var(--c-lightestGray);
+}
+
+.transactLayerOne:hover {
+    background-color: #E6E6E6;
+    transition: background-color .25s;
+}
+
+.transactLayerOne.disabled {
+    background-color: #E6E6E6;
+    cursor: auto;
+}
+
+.transactLayerOne.hide {
+    display: none;
+}
+
+.transactLayerOne.compact-selected-true,
+.transactLayerOne.compact-selected-true:active {
+    background: #E2F0DF;
+}
+.transactLayerOne.compact-selected-true.negative,
+.transactLayerOne.compact-selected-true.negative:active {
+    background: #FFF0ED;
+}
+.transactLayerOne.normal-selected-true {
+    background: var(--c-iccuBrandGreen);
+}
+.transactLayerOne.normal-selected-true,
+.transactLayerOne.normal-selected-true .Credit-section,
+.transactLayerOne.normal-selected-true .Credit.amount,
+.transactLayerOne.normal-selected-true .postDate {
+    color: white;
+}
+
+.transactLayerOne.normal-selected-false:hover {
+    background-color: #E2F0DF;
+    transition: background-color .25s;
+}
+
+.transactLayerOne.normal-selected-true:hover {
+    background-color: var(--c-iccuSecondaryGreen);
+    transition: background-color .25s;
+}

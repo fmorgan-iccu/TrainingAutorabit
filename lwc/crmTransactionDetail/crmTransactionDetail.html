@@ -1,0 +1,31 @@
+<template>
+    <div aria-expanded="false" class={transactionWrapperClasses} onclick={handleClicked}>
+        <section class="transaction">
+            <div class="descriptionContainer">
+                <p class="transactionDescription">{transaction.shortDescription}</p>
+                <p class="postDate">{postDate}</p>
+            </div>
+
+            <template if:true={transactionDetailView}>
+                <div class="amountOverview">
+                    <p class={transactionAmountClasses}>
+                        <span if:true={transaction.isCredit}>+</span>{amount}
+                    </p>
+                    <h3 class={transactionBalanceClasses}>Balance: {balance}</h3>
+                </div>
+            </template>
+            <template if:false={transactionDetailView}>
+                <div class={transactionAmountClasses2}>
+                    <h3 class="TransactionHeader">{creditDebitHeader}</h3>
+                    <p class="amount">
+                        <span if:true={transaction.isCredit}>+</span>{amount}
+                    </p>
+                </div>
+                <div class={transactionBalanceClasses2}>
+                    <h3 class="TransactionHeader">Balance</h3>
+                    <p>{balance}</p>
+                </div>
+            </template>
+        </section>
+    </div>
+</template>

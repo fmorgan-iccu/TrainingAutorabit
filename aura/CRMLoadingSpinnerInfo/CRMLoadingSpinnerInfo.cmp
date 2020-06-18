@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <!-- 
+	COMPONENT OVERVIEW:
+	This is the componentized information that is passed to the CRMLoadingSpinner component.
+	-->
+    
+    <!--
+	ATTRIBUTES:
+	This component accepts the following attributes:
+		• "SpinnerInfo" - This is the text that is displayed to the user.
+	-->
+    
+    <!-- DEFINING ATTRIBUTES -->
+    <aura:attribute name="SpinnerInfo" type="String"/>
+    
+    <!-- Begin Component --> 
+    <div class="container">
+    	<h3 class="SpinnerText">Loading {!v.SpinnerInfo}</h3>
+    </div>
+	
+</aura:component>

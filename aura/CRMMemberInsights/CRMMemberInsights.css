@@ -1,0 +1,60 @@
+.THIS .slds-card__header, .THIS .slds-card__body {
+    background: t(iccuHeaderBackground);
+    color: t(iccuLightText);
+}
+
+.THIS .slds-button:not(.editInsight),
+.THIS .slds-button_brand,
+.THIS .slds-button--brand {
+    background: t(iccuLightText);
+    color: t(iccuSecondaryGreen);
+    border-color: transparent;
+}
+
+.THIS .slds-button:hover:not(.editInsight),
+.THIS .slds-button_brand:hover,
+.THIS .slds-button--brand:hover {
+	background: #ecf4ea;
+    border-color: transparent;
+}
+.THIS .editInsight:hover {
+    background: transparent;
+}
+
+.THIS .slds-card__footer {
+    margin-top: 0;
+}
+
+.THIS .slds-card__header {
+    margin-bottom: 0;
+    padding: .75rem 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.THIS .slds-card__header .slds-has-flexi-truncate {
+    flex: auto;
+}
+
+.THIS .insight-section-header {
+    text-align: left;
+    font-size: t(mediumText);
+}
+.THIS .insight-second-section {
+    margin-left: .8em;
+    padding-left: 1em;
+    border-left: 2px solid t(iconBlue);
+}
+.THIS .insight-section-header-container {
+    display: flex;
+    align-items: center;
+}
+.THIS .insight-section-header {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    line-height: .1em;
+    margin: 2em 0 1.5em;
+}
+.THIS .insight-section-header span {
+    background:#fff;
+    padding:0 10px 0 0;
+}

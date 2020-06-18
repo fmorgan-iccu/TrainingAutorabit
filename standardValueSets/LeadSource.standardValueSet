@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Experian</fullName>
+        <default>false</default>
+        <label>Experian</label>
+    </standardValue>
+    <standardValue>
+        <fullName>HARV</fullName>
+        <default>false</default>
+        <label>HARV</label>
+    </standardValue>
+    <standardValue>
+        <fullName>IL Onboarding</fullName>
+        <default>false</default>
+        <label>IL Onboarding</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MRA-Runoff</fullName>
+        <default>false</default>
+        <label>MRA-Runoff</label>
+    </standardValue>
+    <standardValue>
+        <fullName>OSC Lead</fullName>
+        <default>false</default>
+        <label>OSC Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Referral</fullName>
+        <default>false</default>
+        <label>Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pre-approved HELOC</fullName>
+        <default>false</default>
+        <label>Pre-approved HELOC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Home Loan Report</fullName>
+        <default>false</default>
+        <label>Home Loan Report</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MRA Home Loan</fullName>
+        <default>false</default>
+        <label>MRA Home Loan</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Asset Watch</fullName>
+        <default>false</default>
+        <label>Asset Watch</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MCC Referral</fullName>
+        <default>false</default>
+        <label>MCC Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>IFCA Conference 2019</fullName>
+        <default>false</default>
+        <label>IFCA Conference 2019</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,104 @@
+<template>
+        <div if:false={complete}>
+            <template if:true={account}>
+                <article>
+                    <h2>Vehicle and Payment Information</h2>
+                    <div class="form-row">
+                        <lightning-input class="left" disabled={isDisabled} label="Vehicle Make"  value={make} onchange={handleMakeChange} required></lightning-input>
+                        <lightning-input class="right" disabled={isDisabled} label="Vehicle Model" value={model} onchange={handleModelChange} required></lightning-input>
+                    </div>
+                    <div class="form-row">
+                        <lightning-input class="left" disabled={isDisabled} label="Vehicle Year" value={year} onchange={handleYearChange} required></lightning-input>
+                        <lightning-input class="right" disabled={isDisabled} label="Vehicle Vin" value={vin} onchange={handleVinChange} required></lightning-input>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="form">
+                        <lightning-radio-group required
+                            disabled={isDisabled}
+                            class= "payOffType"
+                            name="payofftype"
+                            label="Payoff Type"
+                            value={payoffValue}
+                            options={payoffOptions}
+                            onchange={handlePayoffChange} >
+                        </lightning-radio-group>
+
+                        <lightning-radio-group if:true={showIndividualPayoff} required
+                            disabled={isDisabled}
+                            class="actionToTake"
+                            name="memberOptions"
+                            label="Individual Payoff"
+                            value={memberValue}
+                            options={memberOptions}
+                            onchange={handleMemberChange} >
+                        </lightning-radio-group>
+                    </div>
+                </article>
+
+                <div if:true={showMailing}>
+                    <h2>Mailing Information</h2>
+                    <div class="form-row">
+                        <lightning-input disabled={isDisabled} class="thirdParty left" label="3rd Party Name" required></lightning-input>
+                        <lightning-input disabled={isDisabled} class="attn right" label="Attn:"></lightning-input>
+                    </div>
+                    <c-crm-Lwc-Address-Detail oncountrychange={handleCountryChangeError} editing={editing} disabled={isDisabled} hide-country="true" hide-line2="true"></c-crm-Lwc-Address-Detail>
+                </div>
+
+                <template if:true={showIndividualPayoff}>
+                    <template if:true={showPaidInFull}>
+                        <h2>Member Information</h2>
+                        <c-crm-Lwc-Address-Detail oncountrychange={handleCountryChangeError} editing={editing} disabled={isDisabled} line1={taxOwner.MailingStreet} city={taxOwner.MailingCity} state={taxOwner.MailingState} postal-code={taxOwner.MailingPostalCode} hide-country="true" hide-line2="true"></c-crm-Lwc-Address-Detail>
+                        <article>
+                            <lightning-input disabled={isDisabled} type="checkbox" class="confirmation checkboxcss" label="I confirmed this is the address the member would like the title mailed to" required></lightning-input>
+                        </article>
+                </template>
+
+                <template if:true={showBuyerFinanced}>
+                    <h2>Mailing Information</h2>
+                    <div class="form-row">
+                        <lightning-input disabled={isDisabled} class="thirdParty left" label="3rd Party Name" required></lightning-input>
+                        <lightning-input disabled={isDisabled} class="attn right" label="Attn:"></lightning-input>
+                    </div>
+                    <c-crm-Lwc-Address-Detail oncountrychange={handleCountryChangeError} editing={editing} disabled={isDisabled} hide-country="true" hide-line2="true"></c-crm-Lwc-Address-Detail>
+                </template>
+
+                    <!-- This may be needed in the future, if CLP will ever be using HELIX -->
+                    <!-- <template if:true={showMemberRefinanced}>
+                        <c-crm-account-lookup
+                            class="refinanced-account"
+                            contact-id={taxOwner.Id}
+                            filter-by-type="auto"
+                            is-disabled={isDisabled}
+                            onchange={handleRefinancedAccountChange}
+                            onerror={handleAccountError}>
+                        </c-crm-account-lookup>
+                    </template> -->
+
+                    <template if:true={showBuyerPaidInCash} class="form-row">
+                        <h2>Buyer Mailing Information</h2>
+                        <div class="form-row">
+                            <lightning-input disabled={isDisabled} class="buyersName" label="Buyer's Name" required></lightning-input>
+                        </div>
+                        <c-crm-Lwc-Address-Detail oncountrychange={handleCountryChangeError} editing={editing} disabled={isDisabled} hide-country="true" hide-line2="true"></c-crm-Lwc-Address-Detail>
+                    </template>
+
+                    <!-- <template if:true={showBuyerFinanced}>
+                        <div class="form-row">
+                            <lightning-input disabled={isDisabled} class="thirdParty" label="3rd Party Name" required></lightning-input>
+                        </div>
+                        <c-crm-Lwc-Address-Detail oncountrychange={handleCountryChangeError} editing={editing} disabled={isDisabled}></c-crm-Lwc-Address-Detail>
+                    </template> -->
+
+                    <!-- This may be needed in the future, if CLP will ever be using HELIX -->
+                    <!-- <template if:true={showBuyerFinancedICCU}>
+                        <div class="form-row">
+                        <lightning-input disabled={isDisabled} class="buyersIccuNumber" label="Buyers ICCU Member Number" required></lightning-input>
+                        <lightning-input disabled={isDisabled} class="buyersNewLoanNumber" label="Buyers New Loan Number" required></lightning-input>
+                        </div>
+                    </template> -->
+                </template>
+            </template>
+        </div>
+</template>

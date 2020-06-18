@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Addison</fullName>
+        <default>false</default>
+        <label>Addison</label>
+    </customValue>
+    <customValue>
+        <fullName>American Falls</fullName>
+        <default>false</default>
+        <label>American Falls</label>
+    </customValue>
+    <customValue>
+        <fullName>Appleway</fullName>
+        <default>false</default>
+        <label>Appleway</label>
+    </customValue>
+    <customValue>
+        <fullName>Benton</fullName>
+        <default>false</default>
+        <label>Benton</label>
+    </customValue>
+    <customValue>
+        <fullName>Blackfoot</fullName>
+        <default>false</default>
+        <label>Blackfoot</label>
+    </customValue>
+    <customValue>
+        <fullName>Blue Lakes</fullName>
+        <default>false</default>
+        <label>Blue Lakes</label>
+    </customValue>
+    <customValue>
+        <fullName>Broadway</fullName>
+        <default>false</default>
+        <label>Broadway</label>
+    </customValue>
+    <customValue>
+        <fullName>Burley</fullName>
+        <default>false</default>
+        <label>Burley</label>
+    </customValue>
+    <customValue>
+        <fullName>Caldwell</fullName>
+        <default>false</default>
+        <label>Caldwell</label>
+    </customValue>
+    <customValue>
+        <fullName>Cherry Lane</fullName>
+        <default>false</default>
+        <label>Cherry Lane</label>
+    </customValue>
+    <customValue>
+        <fullName>Chubbuck</fullName>
+        <default>false</default>
+        <label>Chubbuck</label>
+    </customValue>
+    <customValue>
+        <fullName>Cleveland</fullName>
+        <default>false</default>
+        <label>Cleveland</label>
+    </customValue>
+    <customValue>
+        <fullName>Coeur d&apos;Alene</fullName>
+        <default>false</default>
+        <label>Coeur d&apos;Alene</label>
+    </customValue>
+    <customValue>
+        <fullName>Downtown</fullName>
+        <default>false</default>
+        <label>Downtown</label>
+    </customValue>
+    <customValue>
+        <fullName>Eagle</fullName>
+        <default>false</default>
+        <label>Eagle</label>
+    </customValue>
+    <customValue>
+        <fullName>Fairview</fullName>
+        <default>false</default>
+        <label>Fairview</label>
+    </customValue>
+    <customValue>
+        <fullName>Hayden</fullName>
+        <default>false</default>
+        <label>Hayden</label>
+    </customValue>
+    <customValue>
+        <fullName>Hitt Road</fullName>
+        <default>false</default>
+        <label>Hitt Road</label>
+    </customValue>
+    <customValue>
+        <fullName>Jerome</fullName>
+        <default>false</default>
+        <label>Jerome</label>
+    </customValue>
+    <customValue>
+        <fullName>Kuna</fullName>
+        <default>false</default>
+        <label>Kuna</label>
+    </customValue>
+    <customValue>
+        <fullName>LBJ</fullName>
+        <default>false</default>
+        <label>LBJ</label>
+    </customValue>
+    <customValue>
+        <fullName>MCC</fullName>
+        <default>false</default>
+        <label>MCC</label>
+    </customValue>
+    <customValue>
+        <fullName>Mountain View</fullName>
+        <default>false</default>
+        <label>Mountain View</label>
+    </customValue>
+    <customValue>
+        <fullName>MVHS</fullName>
+        <default>false</default>
+        <label>MVHS</label>
+    </customValue>
+    <customValue>
+        <fullName>Nampa</fullName>
+        <default>false</default>
+        <label>Nampa</label>
+    </customValue>
+    <customValue>
+        <fullName>North Linder</fullName>
+        <default>false</default>
+        <label>North Linder</label>
+    </customValue>
+    <customValue>
+        <fullName>Overland</fullName>
+        <default>false</default>
+        <label>Overland</label>
+    </customValue>
+    <customValue>
+        <fullName>Parkcenter</fullName>
+        <default>false</default>
+        <label>Parkcenter</label>
+    </customValue>
+    <customValue>
+        <fullName>Pierce Park</fullName>
+        <default>false</default>
+        <label>Pierce Park</label>
+    </customValue>
+    <customValue>
+        <fullName>Pocatello</fullName>
+        <default>false</default>
+        <label>Pocatello</label>
+    </customValue>
+    <customValue>
+        <fullName>Post Falls</fullName>
+        <default>false</default>
+        <label>Post Falls</label>
+    </customValue>
+    <customValue>
+        <fullName>Rexburg</fullName>
+        <default>false</default>
+        <label>Rexburg</label>
+    </customValue>
+    <customValue>
+        <fullName>Rexburg Innovation Center</fullName>
+        <default>false</default>
+        <label>Rexburg Innovation Center</label>
+    </customValue>
+    <customValue>
+        <fullName>Southside Nampa</fullName>
+        <default>false</default>
+        <label>Southside Nampa</label>
+    </customValue>
+    <customValue>
+        <fullName>Sunnyside</fullName>
+        <default>false</default>
+        <label>Sunnyside</label>
+    </customValue>
+    <customValue>
+        <fullName>Thunder Ridge High School</fullName>
+        <default>false</default>
+        <label>Thunder Ridge High School</label>
+    </customValue>
+    <customValue>
+        <fullName>Ustick</fullName>
+        <default>false</default>
+        <label>Ustick</label>
+    </customValue>
+    <customValue>
+        <fullName>Vista</fullName>
+        <default>false</default>
+        <label>Vista</label>
+    </customValue>
+    <customValue>
+        <fullName>White Pine</fullName>
+        <default>false</default>
+        <label>White Pine</label>
+    </customValue>
+    <customValue>
+        <fullName>Thunder Ridge</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Thunder Ridge</label>
+    </customValue>
+    <customValue>
+        <fullName>Alameda</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Alameda</label>
+    </customValue>
+    <customValue>
+        <fullName>Park Center</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Park Center</label>
+    </customValue>
+    <customValue>
+        <fullName>Rexburg North</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Rexburg North</label>
+    </customValue>
+    <customValue>
+        <fullName>Coeur d Alene</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Coeur d Alene</label>
+    </customValue>
+    <customValue>
+        <fullName>Nampa Southside</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Nampa Southside</label>
+    </customValue>
+    <masterLabel>Branch</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

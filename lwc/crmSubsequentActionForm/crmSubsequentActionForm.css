@@ -1,0 +1,113 @@
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+.flex {
+    display: flex;
+}
+
+h2, p, .form-row {
+    margin-bottom: .3em;
+}
+.bottom-spacing {
+    margin-bottom: 1em;
+}
+
+.main-container {
+    background: #fff;
+    border-radius: 4px;
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+    max-width: 1200px;
+}
+
+.content {
+    padding: 3em;
+}
+
+article {
+    margin-bottom: 1em;
+}
+
+/*Confirmation Page*/
+.confirmation {
+    display: flex;
+    align-items: center;
+}
+.success-image {
+    width: 30%;
+}
+.success-message {
+    width: 70%;
+    padding-left: 2em;
+}
+ul {
+    list-style: disc;
+    margin-left: 2em;
+}
+
+li {
+    margin-bottom: .25em;
+}
+
+lightning-input,
+.modification lightning-combobox {
+    width: 50%;
+}
+.modification-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+lightning-checkbox-group {
+    margin-top: .75em;
+}
+.modification-fields .slds-form-element:nth-child(odd) {
+    padding-right: .5em;
+}
+.modification-fields .slds-form-element:nth-child(even) {
+    padding-left: .5em;
+}
+.action-buttons {
+    justify-content: flex-end;
+    margin-top: 2em;
+}
+
+/** MEDIA QUERIES **/
+
+@media screen and (max-width: 1000px) {
+    /*Confirmation Page*/
+    .confirmation {
+        align-items: flex-start;
+    }
+}
+@media screen and (max-width: 800px) {
+    /*Confirmation Page*/
+    .confirmation {
+        flex-wrap: wrap;
+    }
+    .success-image {
+        width: 40%;
+        margin: auto;
+    }
+    .success-message {
+        width: 100%;
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 550px) {
+    /*Confirmation Page*/
+    .success-image {
+        display: none;
+    }
+}

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Annual Budget --></label>
+        <name>Annual_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Committed --></label>
+        <name>Annual_Committed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Establishment Date --></label>
+        <name>Business_Establishment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Length Months --></label>
+        <name>Contract_Length_Months__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Length Years --></label>
+        <name>Contract_Length_Years__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Score --></label>
+        <name>CreditScore__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter person or org number leading with P or O, respectively. For example, P12345 or O12345. --></help>
+        <label><!-- DNA Person/Org Number --></label>
+        <name>DNA_Person_Org_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Type --></label>
+        <name>Dealer_Type__c</name>
+        <picklistValues>
+            <masterLabel>Auto</masterLabel>
+            <translation><!-- Auto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Boat</masterLabel>
+            <translation><!-- Boat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Auto</masterLabel>
+            <translation><!-- Commercial Auto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Motorcycle</masterLabel>
+            <translation><!-- Motorcycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Power Sports</masterLabel>
+            <translation><!-- Power Sports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RV</masterLabel>
+            <translation><!-- RV --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Default Branch --></label>
+        <name>DefaultBranch__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Joint Account IDs --></label>
+        <name>JointAccountIDs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Expense --></label>
+        <name>Marketing_Expense__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Number --></label>
+        <name>MemberNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Membership Date --></label>
+        <name>MembershipDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set to the 18 digit account Id that this record should be merged into. --></help>
+        <label><!-- Merge Into Id --></label>
+        <name>MergeIntoId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Misc. Information --></label>
+        <name>Misc_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Sold --></label>
+        <name>Monthly_Sold__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter org number leading with O. For example, O12345 --></help>
+        <label><!-- Org Number --></label>
+        <name>Org_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Name --></label>
+        <name>OrganizationName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Number --></label>
+        <name>OrganizationNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Tax ID --></label>
+        <name>OrganizationTaxID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Type --></label>
+        <name>OrganizationType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Deposit Balance --></label>
+        <name>PLNDR__Current_Deposit_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Loan Balance --></label>
+        <name>PLNDR__Current_Loan_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Other Income --></label>
+        <name>PLNDR__Current_Other_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Assets --></help>
+        <label><!-- Average Assets --></label>
+        <name>PLNDR__FS_Average_Assets__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Equity --></help>
+        <label><!-- Average Equity --></label>
+        <name>PLNDR__FS_Average_Equity__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the average interest income divided by the average outstanding assets. --></help>
+        <label><!-- Average Yield --></label>
+        <name>PLNDR__FS_Average_Yield__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Expense --></help>
+        <label><!-- Interest Expense --></label>
+        <name>PLNDR__FS_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Income --></help>
+        <label><!-- Interest Income --></label>
+        <name>PLNDR__FS_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Average Balance --></help>
+        <label><!-- Loan Average Balance --></label>
+        <name>PLNDR__FS_Loan_Average_Balance__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Commitment --></help>
+        <label><!-- Loan Commitment --></label>
+        <name>PLNDR__FS_Loan_Commitment__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Gross Funding --></help>
+        <label><!-- Loan Gross Funding --></label>
+        <name>PLNDR__FS_Loan_Gross_Funding__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Loss Reserves --></help>
+        <label><!-- Loan Loss Reserves --></label>
+        <name>PLNDR__FS_Loan_Loss_Reserves__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Net Funding --></help>
+        <label><!-- Loan Net Funding --></label>
+        <name>PLNDR__FS_Loan_Net_Funding__c</name>
+    </fields>
+    <fields>
+        <help><!-- Net Commitment for prospective accounts (Opportunities) --></help>
+        <label><!-- Net Commitment --></label>
+        <name>PLNDR__FS_Net_Commitment__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Income --></help>
+        <label><!-- Net Income --></label>
+        <name>PLNDR__FS_Net_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Interest Income --></help>
+        <label><!-- Net Interest Income --></label>
+        <name>PLNDR__FS_Net_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the Net Interest Margin - the Net Interest Income divided by the Average Outstanding Assets. --></help>
+        <label><!-- Net Interest Margin --></label>
+        <name>PLNDR__FS_Net_Interest_Margin__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Non Interest Expense --></help>
+        <label><!-- Non Interest Expense --></label>
+        <name>PLNDR__FS_Non_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Other Income --></help>
+        <label><!-- Other Income --></label>
+        <name>PLNDR__FS_Other_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Pre-Tax Income --></help>
+        <label><!-- Pre-Tax Income --></label>
+        <name>PLNDR__FS_Pre_Tax_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROA --></help>
+        <label><!-- ROA --></label>
+        <name>PLNDR__FS_ROA__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROE --></help>
+        <label><!-- ROE --></label>
+        <name>PLNDR__FS_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target ROE --></help>
+        <label><!-- Target ROE --></label>
+        <name>PLNDR__FS_Target_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Taxes --></help>
+        <label><!-- Taxes --></label>
+        <name>PLNDR__FS_Taxes__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Assets --></help>
+        <label><!-- FTP Average Assets --></label>
+        <name>PLNDR__FTPFS_Average_Assets__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Average Equity --></help>
+        <label><!-- FTP Average Equity --></label>
+        <name>PLNDR__FTPFS_Average_Equity__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the average interest income divided by the average outstanding assets. --></help>
+        <label><!-- FTP Average Yield --></label>
+        <name>PLNDR__FTPFS_Average_Yield__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Expense --></help>
+        <label><!-- FTP Interest Expense --></label>
+        <name>PLNDR__FTPFS_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Interest Income --></help>
+        <label><!-- FTP Interest Income --></label>
+        <name>PLNDR__FTPFS_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Loan Loss Reserves --></help>
+        <label><!-- FTP Loan Loss Reserves --></label>
+        <name>PLNDR__FTPFS_Loan_Loss_Reserves__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Income --></help>
+        <label><!-- FTP Net Income --></label>
+        <name>PLNDR__FTPFS_Net_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Net Interest Income --></help>
+        <label><!-- FTP Net Interest Income --></label>
+        <name>PLNDR__FTPFS_Net_Interest_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the Net Interest Margin - the Net Interest Income divided by the Average Outstanding Assets. --></help>
+        <label><!-- FTP Net Interest Margin --></label>
+        <name>PLNDR__FTPFS_Net_Interest_Margin__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Non Interest Expense --></help>
+        <label><!-- FTP Non Interest Expense --></label>
+        <name>PLNDR__FTPFS_Non_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Other Income --></help>
+        <label><!-- FTP Other Income --></label>
+        <name>PLNDR__FTPFS_Other_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Pre-Tax Income --></help>
+        <label><!-- FTP Pre-Tax Income --></label>
+        <name>PLNDR__FTPFS_Pre_Tax_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROA --></help>
+        <label><!-- FTP ROA --></label>
+        <name>PLNDR__FTPFS_ROA__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement ROE --></help>
+        <label><!-- FTP ROE --></label>
+        <name>PLNDR__FTPFS_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Target ROE --></help>
+        <label><!-- FTP Target ROE --></label>
+        <name>PLNDR__FTPFS_Target_ROE__c</name>
+    </fields>
+    <fields>
+        <help><!-- PrecisionLender Scenario Financial Statement Taxes --></help>
+        <label><!-- FTP Taxes --></label>
+        <name>PLNDR__FTPFS_Taxes__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTP Interest Expense --></label>
+        <name>PLNDR__FTP_Interest_Expense__c</name>
+    </fields>
+    <fields>
+        <label><!-- FTP Net Income --></label>
+        <name>PLNDR__FTP_Net_Income__c</name>
+    </fields>
+    <fields>
+        <label><!-- Long Id --></label>
+        <name>PLNDR__Long_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- Text version of Owner Percentile --></help>
+        <label><!-- Owner Percentile Text --></label>
+        <name>PLNDR__Owner_Percentile_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Percentile --></label>
+        <name>PLNDR__Owner_Percentile__c</name>
+    </fields>
+    <fields>
+        <label><!-- PL External Identifier --></label>
+        <name>PLNDR__PL_External_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- PrecisionLender Relationship --></label>
+        <name>PLNDR__PL_Relationship__c</name>
+    </fields>
+    <fields>
+        <help><!-- Text version of percentile --></help>
+        <label><!-- Percentile Text --></label>
+        <name>PLNDR__Percentile_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Percentile --></label>
+        <name>PLNDR__Percentile__c</name>
+    </fields>
+    <fields>
+        <label><!-- PrecisionLender Last Updated --></label>
+        <name>PLNDR__PrecisionLender_Last_Updated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Text version of Regional Percentile --></help>
+        <label><!-- Regional Percentile Text --></label>
+        <name>PLNDR__Regional_Percentile_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regional Percentile --></label>
+        <name>PLNDR__Regional_Percentile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Person Number --></label>
+        <name>PersonNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purpose of Request --></label>
+        <name>Purpose_of_Request__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Owner --></label>
+        <name>Secondary_Owner__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Secondary Phone --></label>
+        <name>Secondary_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street Name --></label>
+        <name>Street_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Contract Amount --></label>
+        <name>Total_Contract_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- VerifiedIdentityPhone --></label>
+        <name>VerifiedIdentityPhone__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- DNA --></label>
+        <name>DNA</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Default --></label>
+        <name>Default</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Open_In_Precision_Lender --></label>
+        <name>PLNDR__Open_In_Precision_Lender</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Resubscribe --></label>
+        <name>et4ae5__ExactTarget_Resubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Unsubscribe --></label>
+        <name>et4ae5__ExactTarget_Unsubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email --></label>
+        <name>et4ae5__Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_ExactTarget_Analytics --></label>
+        <name>et4ae5__View_ExactTarget_Analytics</name>
+    </webLinks>
+</CustomObjectTranslation>

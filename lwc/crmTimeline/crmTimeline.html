@@ -1,0 +1,43 @@
+<template>
+    <div class="main-container slds-is-relative"> <!--.cases-container-->
+        <div if:true={isLoading}>
+            <c-crm-lwc-loading-spinner></c-crm-lwc-loading-spinner>
+        </div>
+
+        <header>
+            <h2>Interactions</h2>
+            <div class="actions">
+                <lightning-button label="Refresh" variant="brand" onclick={refreshTimeline}></lightning-button>
+                <lightning-button label="New Case" variant="brand" onclick={createCase} if:true={showCreateCaseOnly}></lightning-button>
+                <lightning-button label="New Opportunity" variant="brand" onclick={createOpportunity} if:true={showCreateOpportunityOnly}></lightning-button>
+                <lightning-button-menu if:true={showMenu} alternative-text="Show Options" variant="bare-inverse" icon-name="utility:add" class="slds-m-left_large" menu-alignment="auto">
+                    <lightning-menu-item value="newCase" label="New Case" onclick={createCase}></lightning-menu-item>
+                    <lightning-menu-item value="newOpportunity" label="New Opportunity" onclick={createOpportunity}></lightning-menu-item>
+                </lightning-button-menu>
+            </div>
+        </header>
+
+        <!-- Open items -->
+        <h3>Open Items</h3>
+        <div if:false={isOpenItems}>
+            <p>There are no open items.</p>
+        </div>
+        <template if:true={isOpenItems} for:each={openEntries} for:item="e">
+            <div key={e.id}>
+                <c-crm-timeline-entry entry={e}></c-crm-timeline-entry>
+            </div>
+        </template>
+
+        <!-- Closed items -->
+        <!-- TODO: pagination will have to be added later.  For now, it will include all cases/opps for the last 180 days. -->
+        <h3>Closed Items</h3>
+        <div if:false={isClosedItems}>
+            <p>There are no closed items within the last 180 days.</p>
+        </div>
+        <template if:true={isClosedItems} for:each={closedEntries} for:item="e">
+            <div key={e.id}>
+                <c-crm-timeline-entry entry={e}></c-crm-timeline-entry>
+            </div>
+        </template>
+    </div>
+</template>

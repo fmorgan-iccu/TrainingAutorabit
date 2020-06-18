@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Document Template</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Document Templates</value>
+    </caseValues>
+    <fields>
+        <label><!-- Default Recipient Email --></label>
+        <name>defaultRecipientEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Recipient Name --></label>
+        <name>defaultRecipientName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Subject --></label>
+        <name>emailSubject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Template ID --></label>
+        <name>templateId__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

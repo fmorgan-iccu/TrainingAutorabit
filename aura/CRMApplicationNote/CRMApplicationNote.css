@@ -1,0 +1,9 @@
+.THIS.individualNote {
+    border-left: 3.5px solid t(iccuPrimaryGreen);
+    padding: .25em 0 .25em 1em;
+    margin: 1em 0;
+}
+.THIS .note-title {
+    margin-bottom: .5em;
+    font-size: t(largeText);
+}

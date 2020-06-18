@@ -1,0 +1,21 @@
+/**Layout Styling**/
+.THIS .layout-row-2 {
+    margin-top: t(spacingSmall);
+    margin-bottom: t(spacingSmall);
+}
+.THIS .layout-row-2__column-1 {
+    margin-right: t(spacingSmall);
+}
+.THIS .uiTabset--default .tabs__nav {
+    border-bottom: none;
+}
+.THIS .dnaAuth-layout-fix .flexipageComponent:not(:last-child):not(:empty) {
+    margin-bottom: 0;
+}
+
+.THIS .dnaAuth-layout-fix .left-col-component {
+    margin-bottom: .75rem;
+}
+.THIS h2.slds-page-header__title {
+    overflow:visible;
+}

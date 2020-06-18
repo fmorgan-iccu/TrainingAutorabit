@@ -1,0 +1,12 @@
+<template>
+    <div class="container">
+        <template if:true={showError}>
+            <c-crm-form-error>
+                <p>{error}</p>
+            </c-crm-form-error>
+        </template>
+        <div>
+            <p>PRIVATE CLIENT: This is a private client record managed by {owner.name} ext. {owner.extension}</p>
+        </div>
+    </div>
+</template>

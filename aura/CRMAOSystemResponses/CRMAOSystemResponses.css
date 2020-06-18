@@ -1,0 +1,61 @@
+.THIS {
+    font-size: 16px;
+}
+
+.THIS h2 {
+    font-size: t(largeText);
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
+
+.THIS .activeColor:active {
+    border: 1px solid t(iccuBrandGreen);
+}
+
+.THIS h3 {
+    font-size: t(largeText);
+    font-weight: 600;
+}
+
+.THIS #DecisionLabel {
+    color: rgb(62,62,60);
+}
+
+.THIS #SystemMessage-Header {
+    font-weight: 600;
+    color: rgb(62,62,60);
+}
+
+.THIS .SystemReponses-Cards:active {
+    border: 1px solid t(iccuPrimaryGreen);
+}
+
+.THIS .SystemResponses-Container {
+    padding: 1em;
+}
+
+.THIS #DecisionLabel {
+    font-weight: 600;
+}
+
+.THIS #SystemHeader {
+    display: flex;
+}
+
+.THIS #SystemHeader h3{
+	flex: 1;
+}
+.THIS .SystemResponses-Cards {
+    margin-top: 1em;
+    transition: hover 0.25 ease-in-out;
+}
+.THIS #SystemHeader {
+    padding: 1em;
+}
+.THIS #SystemBody {
+    padding: 1em;
+}
+.THIS .note {
+    padding: 1rem 0 .1rem;
+    font-size: .8rem;
+}

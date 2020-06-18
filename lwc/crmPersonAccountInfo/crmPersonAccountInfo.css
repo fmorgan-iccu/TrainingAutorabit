@@ -1,0 +1,94 @@
+.component-container {
+    color: #4d4d4d;
+    font-size: 16px;
+}
+
+/*Text above member card*/
+.oops-container {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.oops-container h1 {
+    font-size: 4em;
+    font-weight: bold;
+}
+.oops-container p {
+    font-size: 2em;
+}
+
+/*Member Card*/
+.member-card {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.member-card header,
+.member-card article {
+    padding: 1em;
+}
+
+header {
+    border-bottom: 1px solid #dedede;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.member-card article {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.member-card article p {
+    width: 50%;
+}
+
+.member-card article p span {
+    font-weight: bold;
+}
+
+header lightning-icon {
+    margin-right: 1em;
+}
+
+.member-card header h2 {
+    display: inline-block;
+    font-size: 1.5em;
+}
+
+.member-card button {
+    border-radius: 4px;
+    background: #1c8900;
+    color: white;
+    padding: .5em 1em;
+    font-weight: bold;
+}
+.member-card button:hover,
+.member-card button:active {
+    background: #006C18
+    ;
+}
+
+@media screen and (max-width: 600px) {
+    .member-card article p {
+        width: 100%;
+    }
+    header {
+        flex-wrap: wrap;
+    }
+    .header-left {
+        width: 100%;
+        padding-bottom: 1em;
+    }
+    header h2 {
+        font-size: 1.25em;
+    }
+}

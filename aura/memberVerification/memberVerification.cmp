@@ -1,0 +1,160 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+      <!--use boolean attribute for Store true/false value,
+        make default to "false" so modal boxes do not display on the load of component.
+		Also helps choose which questions will display
+        --> 
+      <aura:attribute name="identifyMember" type="boolean" default="false"/>
+      <aura:attribute name="identifyingQuestions" type="boolean" default="false"/>
+      <aura:attribute name="walletQuestions" type="boolean" default="false"/>
+      <aura:attribute name="passphraseSetup" type="boolean" default="false"/>
+      <aura:attribute name="passphraseIdentification" type="boolean" default="false"/>
+      
+   	  <!--Button to open modal
+	      TODO: Make modal open whenever there is no DNA ticket-->
+      <lightning:button class="modal-pop" onclick="{! c.identifyMember }" iconName="utility:user_role" label="Identify" variant="brand"/>    
+      <div>
+
+       <aura:if isTrue="{!v.identifyMember}">
+          
+          <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+              <div class="slds-modal__header">
+                <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                    X
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                  <h2 id="header99" class="slds-text-heading--medium">Member Identification</h2>
+              </div>
+              
+              <!-- Passphrase Identification -->
+              <aura:if isTrue="{!v.passphraseIdentification}">
+                  <c:verificationModalBody title="Passphrase Identification">
+                    <aura:set attribute="content">
+                      <c:verificationQuestions question="Passphrase Hint: Your favorite cereal"
+                                               answers="Minion Lucky Charms">
+                      </c:verificationQuestions>
+                    </aura:set>
+					<aura:set attribute="action">
+                        <button class="slds-button slds-button_brand" onclick="{!c.closeModal}" >Identify</button>
+                   		<button class="slds-button secondary" onclick="{!c.identifyingQuestions}" >Reset Passphrase</button>
+                    </aura:set>
+                  </c:verificationModalBody>  
+              </aura:if> <!-- End Passphrase Identification -->
+                
+              <!-- Identifying Questions -->
+              <aura:if isTrue="{!v.identifyingQuestions}">
+                  <c:verificationModalBody title="Identifying Questions - Ask 2 of These">
+                    <aura:set attribute="content">
+                      <c:verificationQuestions question="What is your mothers maiden name?"
+                                               answers="Smith">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is your address?"
+                                               answers="1234 Minion Way, Pocatello, ID 83201">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What are the last four digits of your SSN?"
+                                               answers="1234">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is your email address?"
+                                               answers="gru@despicableme.com">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is your member or account number?"
+                                               answers="member: 891011 | account: 12131415">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is your drivers license number?"
+                                               answers="g2h347">
+                      </c:verificationQuestions>
+                    </aura:set>
+					<aura:set attribute="action">
+                        <button class="slds-button slds-button_brand" onclick="{!c.walletQuestions}" >Next</button>
+                    </aura:set>
+                  </c:verificationModalBody>  
+              </aura:if> <!-- End Identifying Questions -->
+                
+              <!-- Out of Wallet Questions -->
+              <aura:if isTrue="{!v.walletQuestions}">
+                  <c:verificationModalBody title="Out of Wallet Questions - Ask 1 of These">
+                    <aura:set attribute="content">
+                      <c:verificationQuestions question="What is the amount of your last direct deposit?"
+                                               answers="$860">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="Who was the last check you made payable to?"
+                                               answers="Person">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is the due date of your loan?"
+                                               answers="Date">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="Who are the references listed on your signature card?"
+                                               answers="Lucy Wilde Gru">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is the make and model of the auto loan you have financed with ICCU?"
+                                               answers="Toyota, GruMobile">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="Who insures the auto loan you have financed with ICCU?"
+                                               answers="Villian Corp. Insurance">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="Who provides homeowners insurance for the Mortgage you have financed with ICCU?"
+                                               answers="Villian Corp. Insurance">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is the make and model of the vehicle you previously had financed with ICCU?"
+                                               answers="no previous vehicle, only current">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="Which account do you have a Joint Owner / POD on and what is their name?"
+                                               answers="Free Checking - Lucy Wilde Gru">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is the Joint Owner’s DOB?"
+                                               answers="August 21st 1985">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What date did you last login to your online banking?"
+                                               answers="date">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is your ebranch User ID? (only ask if it's not the member number)"
+                                               answers="bestvillian">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="How was your last loan payment made?"
+                                               answers="Automatic transfer">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="How many certificates do you currently have with ICCU?"
+                                               answers="0">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="Which branch do you use most frequently or at which branch did you open your membership?"
+                                               answers="Chubbuck">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What was the last bill pay item sent from your ICCU account?"
+                                               answers="something">
+                      </c:verificationQuestions>
+                      <c:verificationQuestions question="What is your safety deposit box number?"
+                                               answers="154">
+                      </c:verificationQuestions>
+                    </aura:set>
+					<aura:set attribute="action">
+                        <button class="slds-button slds-button_brand" onclick="{!c.passphraseSetup}" >Identify</button>
+                    </aura:set>
+                  </c:verificationModalBody> 
+              </aura:if> <!-- End Out of Wallet Questions -->
+               
+              <!-- Setup Passphrase -->
+              <aura:if isTrue="{!v.passphraseSetup}">
+                  <c:verificationModalBody title="Setup Passphrase">
+                    <aura:set attribute="content">
+                        <p>Members chosen passphrase:</p>
+                        <input type="text" placeholder="Enter member passphrase"/>
+                        <p>Passphrase hint:</p>
+                        <input type="text" placeholder="Enter passphrase hint"/>
+                    </aura:set>
+					<aura:set attribute="action">
+                        <!-- TODO: Button actually sets up passphrase -->
+                        <button class="slds-button slds-button_brand" onclick="{!c.closeModal}" >Setup</button>
+                        <!-- TODO: Button makes it so passphrase setup won't popup for another 6 months -->
+                        <button class="slds-button secondary" onclick="{!c.closeModal}" >Skip</button>
+                    </aura:set>
+                  </c:verificationModalBody> 
+              </aura:if> <!-- End Setup Passphrase -->
+                
+            </div>
+          </div>
+          <div class="slds-backdrop slds-backdrop--open"></div>
+
+     	</aura:if>
+           
+      </div>
+</aura:component>

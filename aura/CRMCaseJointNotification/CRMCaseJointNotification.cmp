@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" >
+
+    <!-- get the recordId -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="record" type="Object"
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object"
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String"
+                    description="An error message bound to force:recordData"/>
+
+    <force:recordData aura:id="record"
+                      fields="ParentId"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      mode="VIEW"/>
+
+    <aura:if isTrue="{!v.simpleRecord.ParentId}">
+        <c:CRMAlert alertState="info">
+            <aura:set attribute="alertMessage">
+                <p>This case is for the joint applicant.</p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+</aura:component>

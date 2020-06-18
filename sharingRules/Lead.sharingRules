@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Business_Relationship_conversion</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>This will allow Business Relationship user the ability to convert leads as secondary owners</description>
+        <label>Business Relationship conversion</label>
+        <sharedTo>
+            <group>Business_Information_Request_form</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Default</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FSC_Leads</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>FSC Leads</label>
+        <sharedTo>
+            <roleAndSubordinates>FSC_Manager</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MCC Referral,Online Account Opening</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>InnovationLeads</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Innovation Leads</label>
+        <sharedTo>
+            <role>Innovations</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MCC Referral,Default,Online Account Opening</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Business_Relationship_User</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Business Relationship User</label>
+        <sharedTo>
+            <group>Business_Information_Request_form</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>CEO</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,98 @@
+.THIS {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 16px;
+    color: #555759;
+    transition: all .2s ease-in-out;
+}
+
+.THIS .transaction {
+    display: flex;
+    justify-content: space-between;
+}
+.THIS .transaction .descriptionContainer {
+    width: 70%
+}
+.THIS .transaction .Credit-section,
+.THIS .transaction .Debit-section,
+.THIS .transaction .balance {
+    width: 15%
+}
+.THIS .amountOverview {
+    width: 25%;
+}
+
+.THIS .transactionDescription {
+    font-weight: 600;
+    font-size: 1.125em;
+}
+
+.THIS .Credit-section,
+.THIS .Credit.amount {
+    color: t(iccuBrandGreen);
+}
+
+.THIS .postDate {
+    margin-top: 0.5em;
+    font-weight: 600;
+    font-size: 0.875em;
+    color: rgba(0, 0, 0, 0.55);
+    text-transform: uppercase;
+}
+
+.THIS .TransactionHeader {
+    font-weight: 600;
+    font-size: 0.875em;
+}
+
+.THIS .TransactionHeader + p,
+.THIS .amountOverview .amount {
+    overflow-wrap: break-word;
+  	word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    font-size: 1.5em;
+    font-weight: 200;
+}
+
+.THIS .iconContainer {
+    margin-bottom: -2em;
+}
+
+.THIS .balance.negative,
+.THIS .balanceInfo.negative {
+    color: #cc3225;
+}
+
+.THIS #transactLayerOne {
+    cursor: pointer;
+    padding: 0.5em;
+    transition: background-color .25s;
+}
+
+.THIS #transactLayerOne.negative {
+    border: 1px solid #cc3225;
+}
+.THIS #transactLayerOne.selected-true.negative,
+.THIS #transactLayerOne.selected-true.negative:active {
+    border-right: none;
+}
+
+.THIS .BorderTop {
+    border-top: 1px solid t(lightestGray);
+}
+
+.THIS #transactLayerOne:hover {
+    background-color: #E6E6E6;
+    transition: background-color .25s;
+}
+
+.THIS #transactLayerOne.selected-true,
+.THIS #transactLayerOne.selected-true:active {
+    background: #E2F0DF;
+}
+.THIS #transactLayerOne.selected-true.negative,
+.THIS #transactLayerOne.selected-true.negative:active {
+    background: #FFF0ED;
+}

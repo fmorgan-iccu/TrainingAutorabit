@@ -1,0 +1,125 @@
+:host {
+    font-size: 16px;
+}
+h2, h3 {
+    font-weight: bold;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.25em;
+}
+/**Error and Funded Messaging banners**/
+.funded-header {
+    font-weight: 600;
+    padding-right: 2em;
+}
+.funded-header.failed {
+    color: var(--c-iccuError);
+}
+.fundedInfoContainer {
+    width: 100%;
+}
+.accounts-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.accounts-container .funded-account {
+    width: 50%;
+}
+.fundingAccount {
+    display: flex;
+    justify-content: space-between;
+}
+.fundingLabel {
+    font-weight: bold;
+}
+.fundingInfo {
+    padding-right: .5em;
+}
+.fundingInfo:last-child {
+    padding-right: 0;
+}
+/**Opportunity Header**/
+.header-container {
+    border-radius: 5px;
+    padding: 1em;
+    background-size: cover;
+    background-position: 50% 55%;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-info-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.header-details {
+    flex: 1;
+    color: white;
+}
+lightning-icon.slds-icon-action-new-opportunity {
+    background-color: transparent;
+    margin-right: 1em;
+}
+.actions a {
+    color: white;
+    padding: .5em;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.actions a:hover {
+    text-decoration: none;
+    background: white;
+    color: var(--lwc-brandAccessible);
+}
+/*Responsiveness*/
+/*Small screens*/
+@media only screen and (max-width: 900px) {
+    /*Funded Banner*/
+    .funded-header {
+        width: 100%;
+        padding: 0;
+    }
+    .accounts-container {
+        font-size: 1em;
+    }
+    .accounts-container .funded-account {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .accounts-container {
+        font-size: .8em;
+    }
+    /*Opportunity Header*/
+    .actions a,
+    .header-details p {
+        font-size: .8em;
+    }
+    h2 {
+        font-size: 1em;
+    }
+    h3 {
+        font-size: .9em;
+    }
+    lightning-icon.slds-icon-action-new-opportunity {
+        display: none;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .header-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .actions {
+        margin-top: 1em;
+    }
+    .actions a {
+        padding: .25em;
+    }
+}

@@ -1,0 +1,20 @@
+<design:component label="ICCU Page Layout">
+    <design:supportedFormFactors>
+        <design:supportedFormFactor type="Large"/>
+        <design:supportedFormFactor type="Small"/>
+    </design:supportedFormFactors>
+    <flexipage:template >
+        <flexipage:region name="banner" label="Top Banner" defaultWidth="Large">
+            <flexipage:formfactor type="Large" width="Large" />
+            <flexipage:formfactor type="Medium" width="Medium" />
+        </flexipage:region>
+        <flexipage:region name="left" label="Left Side-bar" defaultWidth="Small">
+            <flexipage:formfactor type="Large" width="Small" />
+            <flexipage:formfactor type="Medium" width="Small" />
+        </flexipage:region>
+        <flexipage:region name="right" label="Main Section" defaultWidth="Medium">
+            <flexipage:formfactor type="Large" width="Large" />
+            <flexipage:formfactor type="Medium" width="Medium" />
+        </flexipage:region>
+    </flexipage:template>
+</design:component>

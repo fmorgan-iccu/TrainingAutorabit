@@ -1,0 +1,114 @@
+<template>
+
+    <!--General Error Message-->
+    <template if:true={recordError}>
+        <c-crm-lwc-alert alert-type="error">
+            <div class="alert-content">
+                <h3>Error</h3>
+                <p>{recordError}</p>
+            </div>
+        </c-crm-lwc-alert>
+    </template>
+
+    <!--Fatal Error Message-->
+    <template if:true={isFatalError}>
+        <c-crm-lwc-alert alert-type="error">
+            <div class="alert-content">
+                <h3>Fatal Error</h3>
+                <p>There was an unknown fatal error during the application process.  Please reach out to the applicant to complete the application.</p>
+            </div>
+        </c-crm-lwc-alert>
+    </template>
+
+    <!--Abandoned App Message-->
+    <template if:true={abandonedApplication}>
+        <c-crm-lwc-alert alert-type="info">
+            <div class="alert-content">
+                <h3>Abandoned Application</h3>
+                <p>This application has been abandoned. No further action is needed.</p>
+            </div>
+        </c-crm-lwc-alert>
+    </template>
+
+    <!--Funded Banner-->
+    <template if:true={opportunity.data}>
+        <template if:true={shouldShowFundingBanner}>
+            <!--Deferred Funding banner-->
+            <template if:true={defferedFunding}>
+                <c-crm-lwc-alert alert-type="info">
+                    <div class="fundedInfoContainer">
+                        <h2>{defferedAccount} Deferred Funding</h2>
+                        <p>The member chose to defer funding on their account. Please reach out to the member to assist them in transferring the funds.</p>
+                        <p>
+                            <b>Account Number: </b>
+                            {defferedAccountNumber} | 
+                            <b> Deposit Amount: </b>
+                            <lightning-formatted-number 
+                                value={defferedAccountBalance} 
+                                format-style="currency" 
+                                currency-code="USD">
+                            </lightning-formatted-number>
+                        </p>
+                    </div>
+                </c-crm-lwc-alert>
+            </template>
+        
+
+            <!--Funded / Error Funding banner-->
+            <c-crm-lwc-alert alert-type={fundAlertType} if:true={showRegularBanner}>
+                <div class="fundedInfoContainer">
+                    <template if:true={wasSuccessfulTransaction}>
+                        <h2>Account(s) Successfully Funded with {paymentType}</h2>
+                    </template>
+                    <template if:false={wasSuccessfulTransaction}>
+                        <h2>Error Funding Accounts</h2>
+                    </template>
+                    <div class="accounts-container">
+                        <template for:each={accounts} for:item="account">
+                            <div key={account.accountNumber} class="funded-account">
+                                <h3>{account.name}</h3>
+                                <p>
+                                    <b>Account Number: </b>
+                                    {account.accountNumber} | 
+                                    <b> Deposit Amount: </b>
+                                    <lightning-formatted-number 
+                                        value={account.availableBalance} 
+                                        format-style="currency" 
+                                        currency-code="USD">
+                                    </lightning-formatted-number>
+                                </p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </c-crm-lwc-alert>
+        </template>
+    </template>
+
+    <!--Opportunity Header-->
+    <div class="header-container" style={backgroundStyle}>
+        <div class="header-content">
+            <div class="header-info-container">
+                <lightning-icon icon-name="action:new_opportunity" alternative-text="Opportunity" title="Opportunity" variant="inverse"></lightning-icon>
+                <template if:true={opportunity.data}>
+                    <div class="header-details">
+                        <h2>{opportunityName}</h2>
+                        <template if:true={promoCode}>
+                            <p>Promo: {promoCode}</p>
+                        </template>
+                    </div>
+                </template>
+            </div>
+            <div class="actions">
+                <template if:true={opportunity.data}>
+                    <template if:true={appLink}>
+                        <a href={appLink} target="_new">
+                            Online App
+                        </a>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </div>
+
+</template>

@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:isUrlAddressable"
+                description="Relays the event from the LWC crmInsightList to the CRMSystemLogins component.  See CRMSystemLogins for more info.">
+
+    <aura:attribute name="AllowCustomInsights" type="Boolean" default="false"/>
+
+    <!-- Used to relay the LWC event to the CRMSystemLogins component. -->
+    <aura:registerEvent name="notifyRequireSystemOfRecordLogin" type="c:RequireSystemOfRecordLogin"/>
+
+    <!-- Relay the DNA login event to the LWC component. -->
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+
+    <c:crmInsightList aura:id="crmInsightList" onrequirelogin="{!c.onRequireLogin}" recordId="{!v.recordId}" allowCustomInsights="{!v.AllowCustomInsights}"/>
+</aura:component>

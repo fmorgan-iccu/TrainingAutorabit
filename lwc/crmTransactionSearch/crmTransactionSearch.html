@@ -1,0 +1,14 @@
+<template>
+    <div class="container">
+        <div class="search-filters">
+            <lightning-input type="text" value={description} label="Description" onchange={handleDescriptionChange}></lightning-input>
+            <lightning-input type="number" name="input7" label="Amount from" formatter="currency" step="0.01" onchange={handleAmountMinChange}></lightning-input>
+            <lightning-input type="number" name="input7" label="To" formatter="currency" step="0.01" onchange={handleAmountMaxChange}></lightning-input>
+            <lightning-input type="date" name="input2" label="Date from" onchange={handleStartDateChange}></lightning-input>
+            <lightning-input type="date" name="input2" label="To" onchange={handleEndDateChange}></lightning-input>
+        </div>
+        <div class="search-action">
+            <lightning-button variant="brand" label="Search" onclick={handleTransactionSearch} title="Search Transactions" icon-name="utility:search" class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </div>
+</template>

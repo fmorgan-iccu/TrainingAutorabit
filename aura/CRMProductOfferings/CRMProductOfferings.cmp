@@ -1,0 +1,79 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="ProductOfferingsController" >
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute access="global" name="productOfferings" type="Object"/>
+    <aura:attribute access="global" name="promotions" type="Object"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+    
+    <lightning:card class="left-col-component">
+        <aura:set attribute="title">
+            Product Recommendations
+        </aura:set>
+        <aura:set attribute="footer">
+            
+            <!-- Begin Group -->
+            <!-- Everything above marketing promotions will not be implemented at this time. -->
+            <!--
+            <div class="slds-grid">
+                <div class="slds-order_2 slds-large-order_1">
+                    <aura:iteration items="{!v.productOfferings}" var="group">              
+                        
+                        
+                        <h3 class="product-headings">{!group.title}</h3>
+                        
+                        <div class="offering-container">
+                            
+                        -->
+                            <!-- Begin Offering -->
+                            <!--
+                            <aura:iteration items="{!group.offerings}" var="offering">
+                            -->                                
+
+                                <!-- Nate: this component doesn't appear to work...not sure why. -->
+                                <!--
+                                <div class="product-offerings">
+                                    
+                                    <c:CRMProductOfferingData icon="{!offering.icon}"
+                                                               title="{!offering.title}"
+                                                               detail-title="{!offering.details}"
+                                                               color="{!offering.color}"/> 
+                                </div>
+                                
+                            </aura:iteration> --><!-- End Offering -->
+                            
+                           
+                        <!--    
+                        </div> --><!-- End offering-container -->
+                    <!--    
+                    </aura:iteration> --><!-- End Offering Group -->
+                <!--    
+                </div> --><!-- end grid 1 of 2 --> 
+            <!--    
+            </div> --><!-- end slds-grid -->
+            
+            
+            
+            <!-- Begin Promotions -->            
+            
+            <h3 class="product-headings"><span>Marketing Promotions</span></h3>
+            <aura:if isTrue="{!v.isLoading}">
+                <c:CRMLoadingSpinner message="Marketing Promotions" />
+            </aura:if>
+            <aura:if isTrue="{!v.promotions.length == 0}">
+                <p class="no-promo">No promotions at this time.</p>
+            </aura:if>
+
+            <aura:iteration items="{!v.promotions}" var="promotion">
+                    <c:CRMProductOfferingData icon="utility:campaign"
+                                                   title="{!promotion.Name}"
+                                                   color="{!promotion.ColorPicker__c}"/>
+            </aura:iteration>
+
+            <!-- End Promotions -->
+        </aura:set>
+    </lightning:card>
+       
+    
+</aura:component>

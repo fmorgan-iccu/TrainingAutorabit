@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- The Sobject Id of the primary object affected by the processing of the submission in SalesForce. E.g. if a lead was created off the submission data, then the lead Id should be updated here. --></help>
+        <label><!-- Affected Sobject Id --></label>
+        <name>avoka__Affected_Sobject_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of attachments provided with the submission. --></help>
+        <label><!-- Attachment Count --></label>
+        <name>avoka__Attachment_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contains JSON formatted metadata about each of the attachment files --></help>
+        <label><!-- Attachment Metadata --></label>
+        <name>avoka__Attachment_Metadata__c</name>
+    </fields>
+    <fields>
+        <help><!-- Optional SalesForce case number value to be stored against the submission. --></help>
+        <label><!-- Case Number --></label>
+        <name>avoka__Case_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contains any data extracts fields pulled from the XML (configured in Avoka Transact). --></help>
+        <label><!-- Data Extracts --></label>
+        <name>avoka__Data_Extracts__c</name>
+    </fields>
+    <fields>
+        <help><!-- Identifies the type of action that triggered the delivery. --></help>
+        <label><!-- Delivery Trigger Type --></label>
+        <name>avoka__Delivery_Trigger_Type__c</name>
+        <picklistValues>
+            <masterLabel>Abandoned Transaction</masterLabel>
+            <translation><!-- Abandoned Transaction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed Transaction</masterLabel>
+            <translation><!-- Completed Transaction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saved Transaction</masterLabel>
+            <translation><!-- Saved Transaction --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Unique identifier for a form in Avoka Transact. --></help>
+        <label><!-- Form Code --></label>
+        <name>avoka__Form_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name of the form in Avoka Transact. --></help>
+        <label><!-- Form Name --></label>
+        <name>avoka__Form_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The version of the form that was submitted. --></help>
+        <label><!-- Form Version --></label>
+        <name>avoka__Form_Version__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where multiple forms were completed as part of a collaboration job using form bundles, this reference code will be the same for all transactions delivered as output from that job. --></help>
+        <label><!-- Job Reference Code --></label>
+        <name>avoka__Job_Reference_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The amount paid by the user when submitting the transaction in Avoka Transact --></help>
+        <label><!-- Payment Amount --></label>
+        <name>avoka__Payment_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Receipt number provided by the payment gateway for the payment transaction. --></help>
+        <label><!-- Payment Gateway Receipt Number --></label>
+        <name>avoka__Payment_Gateway_Receipt_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date and time provided by the payment gateway when the payment transaction occurred. --></help>
+        <label><!-- Payment Gateway Timestamp --></label>
+        <name>avoka__Payment_Gateway_Timestamp__c</name>
+    </fields>
+    <fields>
+        <help><!-- Transaction number provided by the gateway for the payment transaction. --></help>
+        <label><!-- Payment Gateway Transaction Number --></label>
+        <name>avoka__Payment_Gateway_Transaction_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name of the portal in Avoka Transact where the transaction was initiated. --></help>
+        <label><!-- Portal Name --></label>
+        <name>avoka__Portal_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date and time that the delivery was processed in SalesForce. --></help>
+        <label><!-- Processed Timestamp --></label>
+        <name>avoka__Processed_Timestamp__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provides any message relevant to the processing. --></help>
+        <label><!-- Processing Message --></label>
+        <name>avoka__Processing_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- Current status of submission processing within SalesForce. --></help>
+        <label><!-- Processing Status --></label>
+        <name>avoka__Processing_Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation><!-- Ready --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- XML data from the submitted form. --></help>
+        <label><!-- Submission Data --></label>
+        <name>avoka__Submission_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submission Key --></label>
+        <name>avoka__Submission_Key__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date and time when the submission was received by Avoka Transact --></help>
+        <label><!-- Submission Timestamp --></label>
+        <name>avoka__Submission_Timestamp__c</name>
+    </fields>
+    <fields>
+        <help><!-- At the completion of delivery processing if there is an Affected SObject Id or Case Number recorded, these need to be returned to Avoka Transact and stored against the transaction record. This field identifies if that sync has occurred. --></help>
+        <label><!-- Sync Status --></label>
+        <name>avoka__Sync_Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Transaction Score --></label>
+        <name>avoka__Transaction_Score__c</name>
+    </fields>
+    <fields>
+        <help><!-- The status of the transaction in Avoka Transact at the time of delivery. --></help>
+        <label><!-- Transaction Status --></label>
+        <name>avoka__Transaction_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Name --></label>
+        <name>avoka__User_Name__c</name>
+    </fields>
+    <webLinks>
+        <label><!-- Process_Delivery --></label>
+        <name>avoka__Process_Delivery</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,162 @@
+<template>
+    <div class="main-container slds-is-relative">
+
+        <div if:true={isLoading}>
+            <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+        </div>
+
+        <div if:true={isSaving}>
+            <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+        </div>
+
+        <c-crm-form-header
+            form="ACH Dispute"
+            membersname={contact.Name}>
+        </c-crm-form-header>
+
+        <div class="content confirmation" if:true={complete}>
+            <div class="success-image">
+                <img src={successImage} alt="illustration of document being sent to docusign"/>
+            </div>
+            <div class="success-message">
+                <h2>Form Created Successfully</h2>
+                <p>The ACH dispute form was created successfully!</p>
+                <h3>Next Steps and Reminders</h3>
+                <p>Please remind the member of the following things:</p>
+                <ul>
+                    <li>The member can expect to recieve their documents through email and will sign them using docusign.</li>
+                    <li>The member should sign the documents as soon as possible to avoid processing delays.</li>
+                    <li>The member may receive multiple forms to sign but they will all be within the same docusign packet.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div if:false={complete}>
+            <section class="content">
+                <div if:true={showError}>
+                    <c-crm-form-error>
+                        <p>{error}</p>
+                    </c-crm-form-error>
+                </div>
+                <c-crm-form-error if:true={missingEmail}>
+                    <div>
+                        <h3>Missing Email</h3>
+                        <p>The member must have an email address in Helix. Please add an email to the contact page and refresh this form.</p>
+                    </div>
+                </c-crm-form-error>
+                <template if:false={missingEmail}>
+                <template if:true={unableToProcess}>
+                    <c-crm-form-error>
+                        <div>
+                            <h3>Unable to Complete ACH Dispute</h3>
+                            <p>The member must contact the company who sent the transaction. <a href="https://isearchwp.iccu.com/policy/ach-phone-number-lookup/" target="_blank">Learn how to find the companies phone number here.</a></p>
+                        </div>
+                    </c-crm-form-error>
+                </template>
+                <template if:false={continueForm}>
+                    <lightning-radio-group name="contactedCompany"
+                    label="Did the member attempt to contact the company who sent the transaction?"
+                    options={companyContactOptions}
+                    onchange={handleContactedCompany}
+                    required></lightning-radio-group>
+                </template>
+            <template if:true={continueForm}>
+                <article>
+                    <h2>Select an Account</h2>
+                    <c-crm-account-lookup
+                    contact-id={contactid}
+                    filter-by-type="deposit"
+                    is-disabled={isDisabled}
+                    onchange={handleAccountChange}
+                    onerror={handleAccountError}
+                    onload={handleAccountsLoaded}>
+                    </c-crm-account-lookup>
+                </article>
+            </template>
+        </template>
+
+                <template if:true={accountSelected}>
+                    <h3>Please Select Transactions to Dispute</h3>
+                    <p>Below are the transactions related to the account you selected. You may search for transactions using the filters below.</p>
+                    <c-crm-transaction-search onsearch={handleTransactionSearch} ></c-crm-transaction-search>
+
+                    <div class="transaction-control-info">
+                        <p><span>{numberSelectedTransactions} </span>Transactions Selected</p>
+                        <template if:true={filterTransactions}>
+                            <a onclick={showAllTransactions}>Show All Transactions</a>
+                        </template>
+                        <template if:false={filterTransactions}>
+                            <a onclick={showFilteredTransactions}>Only show transactions that can be disputed</a>
+                        </template>
+
+                    </div>
+                        <template for:each={displayTransactions} for:item="t">
+                            <c-crm-transaction-detail
+                                key={t.transactionNumber}
+                                transaction={t}
+                                hide={t.isDisabled}
+                                disabled={t.disableAch}
+                                selectedui="normal"
+                                ontransactionclick={handleTransactionClick}>
+                            </c-crm-transaction-detail>
+                        </template>
+                    <div class="pagination-container">
+                        <div if:false={hideBackTransaction} onclick={handleBackClicked} class="pagination-item">
+                            <span>Back</span>
+                        </div>
+                        <div if:false={hideNextTransaction} onclick={handleNextClicked} class="pagination-item">
+                            <span>Next</span>
+                        </div>
+                    </div>
+                </template>
+
+                <template if:true={transactionSelected}>
+                    <h3>Selected Transactions</h3>
+                    <template for:each={displayCompanyList} for:item="c">
+                        <div key={c.name}>
+                            <p class="merchant">Company: {c.name}</p>
+                            <div class="selected-transactions">
+                                <template for:each={c.transactions} for:item="t">
+                                    <div key={t.transactionNumber}  class="selected-transaction">
+                                        <div class="selected-transaction-detail">
+                                            <p class="selected-transaction-detail-date">{t.date}</p>
+                                            <p class="selected-transaction-detail-description">{c.name}</p>
+                                        </div>
+                                        <div class="selected-transaction-amount">
+                                            <p>{t.amount}</p>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                            <h3 class="dispute-reason">Dispute Reason</h3>
+                            <p>If the members reason does not match one of the options below the transaction cannot be disputed.</p>
+                            <lightning-radio-group
+                                class="disputeReason"
+                                name="disputeReason"
+                                label="Why does the member want to dispute this transaction?"
+                                options={disputeReasons}
+                                onchange={handleReason}
+                                value={currentReason}
+                                required>
+                            </lightning-radio-group>
+                        </div>
+                    </template>
+                    <div class="pagination-container">
+                        <div if:false={hideBackCompany} onclick={handleBackCompanyClicked} class="pagination-item">
+                            <span>Previous Merchant</span>
+                        </div>
+                        <div if:false={hideNextCompany} onclick={handleNextCompanyClicked} class="pagination-item">
+                            <span>Next Merchant</span>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="action-buttons">
+                    <lightning-button if:false={hideBack} label="Back" variant="brand" onclick={handleBackButton}></lightning-button>
+                    <lightning-button if:false={hideNext} label="Next" variant="brand" disabled={disableNext} onclick={handleNextButton}></lightning-button>
+                    <lightning-button if:false={disableSubmit} label="Submit" variant="brand" onclick={submitACHForm}></lightning-button>
+                </div>
+            </section>
+        </div>
+    </div>
+</template>

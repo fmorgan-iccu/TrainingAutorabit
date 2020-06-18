@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Opening Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Opening Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Applicant Email --></label>
+        <name>ApplicantEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application ID --></label>
+        <name>ApplicationId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Message --></label>
+        <name>ErrorMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Name --></label>
+        <name>FormName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Reference Code --></label>
+        <name>JobReferenceCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Account Opening Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Processing Status --></label>
+        <name>ProcessingStatus__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation><!-- Ready --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Request Data --></label>
+        <name>RequestData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Code --></label>
+        <name>TrackingCode__c</name>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

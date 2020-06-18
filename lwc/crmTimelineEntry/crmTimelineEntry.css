@@ -1,0 +1,116 @@
+/* Top Level Styling */
+.entry-item,
+.opportunity-item {
+    margin-bottom: 1em;
+}
+
+.member-emoji {
+    height: 1.25em;
+}
+.loan-officer,
+.entry-link,
+.entry-itme-decription,
+.entry-subject,
+.entry-name {
+    font-weight: bold;
+}
+.lo-extension {
+    font-style:italic;
+}
+/** STATUS STYLING **/
+.status-open,
+.stage-approval-pending,
+.stage-contacting-applicant,
+.stage-pending-decision-mbr,
+.stage-clp,
+.stage-verifications,
+.stage-orders {
+    color: var(--c-iconBlue);
+}
+.status-being-researched,
+.status-escalated,
+.status-in-review,
+.stage-declined,
+.stage-member-rejected,
+.status-on-hold,
+.status-closed-lost {
+    color: var(--c-iconRed);
+}
+.status-assigned,
+.stage-assigned,
+.status-in-progress,
+.stage-new,
+.stage-clear-to-close,
+.status-accepted {
+    color: var(--c-iconGreen);
+}
+.status-closed,
+.stage-closed,
+.stage-complete,
+.stage-no-further-action,
+.status-closed-won {
+    color: var(--c-mediumGray);
+}
+/** Case label styling **/
+.entry-item {
+    display: flex;
+}
+.entry-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1em;
+    margin-right: 2em;
+    border-radius: 4px;
+    background-color: gray;
+}
+.entry-label.icon-font {
+    color: white;
+    font-size: 1.25em;
+}
+.entry-label.support {
+    background-color: #23B200;
+    background: linear-gradient(23deg, rgba(35,178,0,1) 0%, rgba(138,242,26,1) 100%);
+}
+.entry-label.retention {
+    background-color: #00C9BF;
+    background: linear-gradient(23deg, rgba(0,201,191,1) 0%, rgba(178,237,234,1) 100%);
+}
+.entry-label.avoka,
+.entry-label.product-based {
+    background-color: #F26222;
+    background: linear-gradient(23deg, rgba(242,98,34,1) 0%, rgba(248,187,111,1) 100%);
+}
+.entry-label.complaint {
+    background-color: #D0021B;
+    background: linear-gradient(23deg, rgba(208,2,27,1) 0%, rgba(238,34,125,1) 100%);
+}
+.entry-label.unknown {
+    background-color: rgb(222, 181, 0);
+    background: linear-gradient(23deg, rgb(222, 181, 0) 0%, rgb(255, 253, 112) 100%);
+}
+.unknown lightning-icon {
+    background: transparent;
+}
+.slds-icon {
+    fill: #fff;
+}
+.entry-info {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+.entry-info .entry-info-item {
+    width: 50%;
+}
+.entry-info .entry-info-item:nth-child(even),
+.entry-info .entry-info-item.subjectOnly ~ .entry-info-item:nth-child(odd) {
+    text-align: right;
+}
+.entry-info .entry-info-item.subjectOnly ~ .entry-info-item:nth-child(even) {
+    text-align: left;
+}
+.entry-info .entry-info-item:nth-child(odd).date {
+    width: 100%;
+    text-align: right;
+}

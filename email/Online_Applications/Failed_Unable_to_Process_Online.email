@@ -1,0 +1,61 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Hello {!Opportunity.Contact_First_Name__c},<o:p></o:p></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span lang="EN" style="mso-ansi-language:
+EN">Thank you for applying online for membership with Idaho Central Credit
+Union. Unfortunately there was an error processing your online membership
+application. We ask that you re-apply on ICCU.com by selecting the “Join Now”
+option on the top left-hand side of our home page. We can also complete a
+membership application in your local branch if that is more convenient for you.
+</span>If you have questions, please feel free to contact us at 1-800-456-5067
+using reference number &lt;CollabJob&gt;.<o:p></o:p></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span lang="EN" style="mso-ansi-language:
+EN"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span lang="EN" style="mso-ansi-language:
+EN">Thank you,<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-family:&quot;Cambria&quot;,serif;color:#1F497D;
+mso-no-proof:yes"><v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter">
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0">
+  <v:f eqn="sum @0 1 0">
+  <v:f eqn="sum 0 0 @1">
+  <v:f eqn="prod @2 1 2">
+  <v:f eqn="prod @3 21600 pixelWidth">
+  <v:f eqn="prod @3 21600 pixelHeight">
+  <v:f eqn="sum @0 0 1">
+  <v:f eqn="prod @6 1 2">
+  <v:f eqn="prod @7 21600 pixelWidth">
+  <v:f eqn="sum @8 21600 0">
+  <v:f eqn="prod @7 21600 pixelHeight">
+  <v:f eqn="sum @10 21600 0">
+ </v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:f></v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect">
+ <o:lock v:ext="edit" aspectratio="t">
+</o:lock></v:path></v:stroke></v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style="width:197.25pt;
+ height:78.75pt;visibility:visible">
+ <v:imagedata src="file:///C:/Users/fmorgan/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png" o:href="cid:image001.png@01D564C5.A1BCD660">
+</v:imagedata></v:shape></span><span style="font-family:&quot;Cambria&quot;,serif;color:#1F497D"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style=""><font color="#54575a" face="Cambria, serif"><b>{!Case.OwnerFullName}</b></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">Idaho
+Central Credit Union<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">P.O.
+Box 2469<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">Pocatello,
+ID 83206<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-family:&quot;Cambria&quot;,serif;color:#54575A">d:
+(208) 239-3000 <b>|</b> f: (208) 239-3055<o:p></o:p></span></p>]]></td>
+</tr>
+</table>

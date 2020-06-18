@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="wideDisplay" label="Wide Display" default="true" description="Indicates that the component will take a large section of the page." />
+    <design:attribute name="location" label="Location Name" default="" description="Identifies the component for event testing." />
+</design:component>

@@ -1,0 +1,113 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: .75em;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.main-container {
+    background: #fff;
+    border-radius: 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+}
+.refund-alert-heading {
+    margin-bottom: 0;
+}
+
+/* Header Stylng */
+.header {
+    background-image: linear-gradient(90deg, #006C18, #24B200);
+    color: #fff;
+    text-align: center;
+    padding: 3em;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Main Content Styling */
+.content {
+    padding: 3em;
+}
+
+.success-message {
+    text-align: center;
+    padding: 3em 1em;
+}
+
+/* GAP Cancellation Info */
+
+.gap-cancellation-info {
+    font-size: 16px;
+}
+
+.form-field-section {
+    width: 100%;
+    margin-bottom: 1em;
+    justify-content: space-between;
+}
+
+.date-input {
+    width: 400px;
+}
+
+.action-buttons {
+    justify-content: flex-end;
+    margin: 2em 0;
+}
+
+.date-past-refund {
+    margin-bottom: 1em;
+}
+
+article {
+    margin-bottom: 2em;
+}
+
+lightning-button {
+    margin-left: 1em;
+}
+
+.m-right {
+    margin-right: .5em;
+}
+.m-left {
+    margin-left: .5em;
+}
+.short-input {
+    width: 30%;
+    min-width: 330px;
+}
+
+iframe {
+    border: none;
+}

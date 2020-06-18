@@ -1,0 +1,96 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1.17em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+article {
+    margin-bottom: 2em;
+}
+
+.main-container {
+    background: #fff;
+    border-radius: 4px;
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+}
+
+.space-below {
+    margin-bottom: 1em;
+}
+
+/*Confirmation Page*/
+.confirmation {
+    display: flex;
+    align-items: center;
+}
+.success-image {
+    width: 30%;
+}
+.success-message {
+    width: 70%;
+    padding-left: 2em;
+}
+ul {
+    list-style: disc;
+    margin-left: 2em;
+}
+
+li {
+    margin-bottom: .25em;
+}
+
+/* Main Content Styling */
+.content {
+    padding: 3em;
+}
+
+.action-buttons {
+    justify-content: flex-end;
+    margin: 2em 0;
+}
+
+.info-text {
+    font-style: italic;
+    font-size: .8em;
+    padding-top: .5em;
+}
+.text-link {
+    color: #1C8900;
+    text-decoration: underline;
+    text-align: right;
+}
+.text-link:hover {
+    color: #1e5f0d;
+    cursor: pointer;
+}

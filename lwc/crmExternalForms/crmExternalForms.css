@@ -1,0 +1,127 @@
+:host {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 16px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.leader {
+    font-size: 1.25em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.not-found {
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+}
+
+.form-card-container {
+    width: 25%;
+    margin-bottom: 2em;
+}
+
+.form-card {
+    margin: 1em;
+    background: #fff;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .10);
+    border-radius: 8px;
+    transition: all 0.35s ease-in-out;
+    background-size: 1px 400px;
+    text-align: center;
+    height: 100%;
+}
+
+.coming-soon {
+    margin: 1em;
+    background: none;
+    padding: 1.5em;
+    border: 1px dashed #999999;
+    border-radius: 8px;
+    transition: all 0.35s ease-in-out;
+    background-size: 1px 400px;
+    text-align: center;
+    color: #999999;
+    height: 100%;
+}
+
+.coming-soon-icon {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    padding: 0.75em;
+    color: #999999;
+}
+
+.form-card:hover {
+    cursor: pointer;
+    color: #fff;
+    background-image: linear-gradient(45deg, #00AE00 0%, #006C18 100%);
+    background-position: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .25);
+}
+
+.form-card:hover > .icon {
+    color: #fff;
+}
+
+.icon {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    padding: 0.75em;
+    color: #1c8900;
+    transition: all 0.35s ease-in-out;
+}
+
+/** custom icons **/
+.icon-container {
+    font-size: 3em;
+}
+
+.icon-container lightning-icon {
+    padding: .75em;
+}
+
+lightning-icon svg {
+    fill: #1c8900;
+    transition: all 0.35s ease-in-out;
+    height: 54px;
+    width: 54px;
+}
+
+.form-card:hover lightning-icon svg {
+    fill: #fff;
+}
+
+@media screen and (max-width: 1180px) {
+    .form-card-container {
+        width: 33.33%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .form-card-container {
+        width: 50%;
+    }
+}

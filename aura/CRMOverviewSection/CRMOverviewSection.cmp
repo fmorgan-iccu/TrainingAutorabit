@@ -1,0 +1,22 @@
+<aura:component >
+
+    <aura:attribute name="cardName" type="String"/>
+    <aura:attribute name="iconName" type="String"/>
+    <aura:attribute name="itemAmount" type="String"/>
+    <aura:attribute name="classIdentifier" type="String"/>
+    <aura:attribute name="cardFooter" type="Object"/>
+    <aura:attribute name="cardTile" type="Object"/>
+    
+    <lightning:card title="{! v.cardName + ' (' + v.itemAmount + ')' }" iconName="{!v.iconName}" class="{!'overview-within-tabs ' + v.classIdentifier}">
+        <aura:set attribute="actions">
+            <lightning:button label="New"/>
+        </aura:set>
+    	<aura:set attribute="body">
+            {!v.cardTile}
+        </aura:set>
+        <aura:set attribute="footer">
+            {!v.cardFooter}
+        </aura:set>
+    </lightning:card>
+    
+</aura:component>

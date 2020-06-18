@@ -1,0 +1,43 @@
+.THIS.cCRMAlert {
+    margin-bottom: 1em;
+}
+.THIS .login-button-secondary {
+    background-color: transparent;
+    border: 3px solid t(iccuSecondaryGreen);
+    color: t(iccuSecondaryGreen);
+}
+.THIS .login-button-secondary:hover {
+    background-color: t(iccuSecondaryGreen);
+    border: 3px solid t(iccuSecondaryGreen);
+    color: white;
+}
+.THIS.wideDisplaytrue {
+    display: flex;
+    align-items: stretch;
+}
+.THIS.wideDisplaytrue > .cCRMDnaLogin,
+.THIS.wideDisplaytrue > .cCRMCcmLogin {
+    flex: 1;
+}
+.THIS.wideDisplaytrue > .cCRMDnaLogin {
+    margin-right: .5em;
+}
+.THIS.wideDisplaytrue > .cCRMCcmLogin {
+    margin-left: .5em;
+}
+@media (max-width: 1480px) {
+    .THIS.wideDisplaytrue {
+        flex-wrap: wrap;
+    }
+    .THIS.wideDisplaytrue > .cCRMDnaLogin,
+    .THIS.wideDisplaytrue > .cCRMCcmLogin {
+        flex: none;
+        width: 100%;
+    }
+    .THIS.wideDisplaytrue > .cCRMDnaLogin {
+        margin-right: 0;
+    }
+    .THIS.wideDisplaytrue > .cCRMCcmLogin {
+        margin-left: 0;
+    }
+ }

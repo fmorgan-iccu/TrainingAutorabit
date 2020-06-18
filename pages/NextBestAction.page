@@ -1,0 +1,224 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" standardController="Contact">
+
+    <!-- Load the interaction for the contact using the contact Id as the subscriberkey -->
+    <!-- TODO:  Need to change this to work in the sandbox with a fixed Id -->
+    <thunderhead:one_sdk customerKeyName="sfmccontactkey" customerKey="{!Contact.id}"/>
+    <apex:slds />
+    <apex:stylesheet value="{!URLFOR($Resource.fontAwesomeProFont,'/css/all.min.css')}"/>
+
+    <style>
+        body {
+            margin: 0;
+            font-size: 16px;
+            font-family: 'Salesforce Sans', Arial, Helvetica, sans-serif;
+            }
+        h4 {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        .fas {
+            margin-right: 0.25em;
+            color: #1c8900;
+            min-width: 32px;
+            text-align: center;
+        }
+        .fad {
+            --fa-primary-color: #1c8900;
+            --fa-secondary-color: dimgray;
+        }
+
+        .not-interested:hover {
+            background-color: #EB3D3D;
+        }
+
+        .not-interested:focus {
+            background-color: #EB3D3D;
+        }
+
+        .container-fluid {
+            padding: 1em;
+        }
+
+        p {
+            margin-top: -0.25em;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .header {
+            display: flex;
+        }
+
+        .main-header {
+            padding: 1em;
+            color: #fff;
+            background-color: #1c8900;
+            border-radius: 4px 4px 0 0;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+        }
+
+        #main-header-wrapper {
+            height: 55px;
+        }
+
+        .main-header h4 {
+            font-weight: normal;
+        }
+
+        .actions {
+            display: flex;
+        }
+
+        button {
+            width: 120px;
+            padding: 0.5em;
+            background: #fff;
+            margin-right: 2em;
+            border-radius: 0.25em;
+            font-size: 12px;
+        }
+
+            button:hover,:focus {
+            background: #1c8900;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .card {
+            padding: 1em;
+        }
+
+        .flex  {
+            flex: 1;
+            margin-right: 2em;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: .5em;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .talking-point {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: .5em;
+        }
+        .confidence {
+            margin-right: .75em;
+        }
+        .confidence i {
+            font-size: 2.5em;
+        }
+        .confidence p {
+            font-size: 10px;
+            color: #006C18;
+            font-weight: bold;
+        }
+        #info-paragraph {
+            font-size: .8em;
+            line-height: 1.5;
+            font-style: italic;
+            margin-top: 1em;
+        }
+        .info {
+            margin-bottom: 1em;
+        }
+        .fa-info-circle:hover {
+            cursor: pointer;
+        }
+        .fas.fa-info-circle {
+            color: white;
+        }
+    }
+    </style>
+    <script>
+    
+    function showHideInfo() {
+        var paragraphStyle = document.getElementById("info-paragraph").style.display;
+        if (paragraphStyle === "none") {
+            document.getElementById("info-paragraph").style.display = 'block';
+            document.getElementById("main-header-wrapper").style.height = '125px';
+        } else {
+            document.getElementById("info-paragraph").style.display = 'none';
+            document.getElementById("main-header-wrapper").style.height = '55px';
+        }
+    }
+
+    </script>
+
+    <div id="main-header-wrapper">
+        <div class="main-header">
+            <h4>
+                Talking Points
+                <i class="fas fa-info-circle" onclick="showHideInfo()"></i>
+            </h4>
+            
+            <p id="info-paragraph" style="display:none">
+                Talking Points offer insights and potential cross-sell opportunities for each member individually. 
+                The confidence meter on the left indicates our confidence in their potential interest in the specific product or service.
+            </p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        
+        <!--
+            one-notification-shade: Container for global message display.
+            Can be placed anywhere in the markup.
+        -->
+        <one-notification-shade></one-notification-shade>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+
+                    <!-- <div class="panel-body" style="height: 450px; overflow: hidden; overflow-y: auto;"> -->
+                    <div class="panel-body">
+                        <!--
+                            one-interaction: Container for retrieving optimizations for a given interaction.
+                            attributes:
+                                path: (required) The path to the interaction.
+                            exposed data:
+                                oneInteraction.optimizations
+                        -->
+                        <one-interaction path="/nba">
+                            <div ng-repeat="optimization in oneInteraction.optimizations" class="container" ng-cloak="true">
+
+                                <div ng-repeat="action in optimization.data.actions" class="flex" style="padding-bottom:15px;">
+                                    <!-- This is the content that is coming from Interaction Studio -->
+                                    <div id="" ng-bind-html="action.asset.content"></div>
+
+                                     <!-- Below are the actions -->
+                                    <div class="actions">
+                                        <button type="button"
+                                            class="btn btn-sm"
+                                            ng-class="{ true: 'btn-primary', false: 'btn-link' }[response.sentiment === 'positive']"
+                                            ng-repeat="response in action.asset.responses | orderBy: '-sentiment'"
+                                            ng-bind="(response.label || response.sentiment) | uppercase"
+                                            ng-click="action.sent = true"
+                                            ng-disabled="action.sent"
+                                            one-interaction-response="response">
+                                            <!--
+                                                one-interaction-response: onClick event binder for sending interaction responses to ONE.
+                                                Requires a response object to be passed to it.
+                                            -->
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </one-interaction>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</apex:page>

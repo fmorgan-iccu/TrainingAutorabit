@@ -1,0 +1,43 @@
+<aura:component >
+    
+    <!-- This is the icon name --> 
+    <aura:attribute name="icon" type="String"/>
+    
+    <!-- This is the title next to the icon (i.e. "Preferred Name, Spouse, etc.") --> 
+    <aura:attribute name="title" type="String"/>
+    
+    <!-- This is information that displays to the right of the title--> 
+    <aura:attribute name="info" type="String"/>
+    
+    <!-- This is information that displays below the title --> 
+    <aura:attribute name="detail-title" type="String"/>
+    
+    <!-- This is information that displays below the main information--> 
+    <aura:attribute name="detail-info" type="String"/>
+    
+    <!-- This is a ulitity to make the information, including the icon greyed out --> 
+    <aura:attribute name="inactive" type="Boolean" default="false"/>
+    
+    <!-- This is a uility to set the background color of the icon --> 
+    <aura:attribute name="color" type="String"/>
+    
+    
+	<div class="container">
+        
+        <div class="main-row-1">
+            
+        	<div class="icon-column">
+                <lightning:icon iconName="{!v.icon}" variant="" alternativeText="" size="x-small" class="{!v.color}"/>
+            </div>
+           
+            <div class="product-title"> 
+                 <h5 class="title">{!v.title}</h5>
+            </div>
+            
+        
+        </div>
+
+        
+    </div> <!--Container-->
+	
+</aura:component>

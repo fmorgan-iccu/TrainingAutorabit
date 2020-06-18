@@ -1,0 +1,6 @@
+Dear {!Opportunity.Member_Name__c}
+
+My name is {!Opportunity.OwnerFullName} from Idaho Central Credit Union, this is a follow up about your recent application for {!Opportunity.Product__c} with us. I just left you a voice message and I want to let you know that we are here to help you achieve financial success bbbblaaaalaaa
+
+Thank you for doing business with us 
+{!Opportunity.OwnerFullName}

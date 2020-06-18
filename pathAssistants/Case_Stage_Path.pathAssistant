@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Stage__c</fieldName>
+    <masterLabel>Case Stage Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 14.6667px; font-family: Calibri, sans-serif;&quot;&gt;Short description about the complaint that was received, who is involved and other pertinent information. &lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Complaint Summary</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>ComplaintRecordType</recordTypeName>
+</PathAssistant>

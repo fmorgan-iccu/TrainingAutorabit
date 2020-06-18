@@ -1,0 +1,1 @@
+<aura:event type="APPLICATION" description="Indicates when the DNA Core authentication is successful." />

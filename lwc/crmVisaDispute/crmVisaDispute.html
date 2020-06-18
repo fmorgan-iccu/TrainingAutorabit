@@ -1,0 +1,538 @@
+<template>
+    <div class="main-container slds-is-relative">
+
+        <div if:true={isLoading}>
+            <c-crm-lwc-loading-spinner message="Please wait while we prepare your form."></c-crm-lwc-loading-spinner>
+        </div>
+
+        <div if:true={isSaving}>
+            <c-crm-lwc-loading-spinner message="Your form is saving"></c-crm-lwc-loading-spinner>
+        </div>
+
+        <c-crm-form-header
+            form="VISA Dispute"
+            membersname={contact.Name}>
+        </c-crm-form-header>
+
+        <div class="content confirmation" if:true={complete}>
+            <div class="success-image">
+                <img src={successImage} alt="illustration of document being sent to docusign"/>
+            </div>
+            <div class="success-message">
+                <h2>Form Created Successfully</h2>
+                <p>{successMessage}</p>
+                <h3>Certifications</h3>
+                <p>Please ensure the member understands the following before signing the VISA dispute form:</p>
+                <ul>
+                    <template for:each={certifications} for:item="c">
+                        <li key={c.certification}>{c.certification}</li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+
+        <div if:false={complete}>
+            <section class="content">
+                <div if:true={showError}>
+                    <c-crm-form-error>
+                        <p>{error}</p>
+                    </c-crm-form-error>
+                </div>
+                <c-crm-form-error if:true={missingEmail}>
+                    <div>
+                        <h3>Missing Email</h3>
+                        <p>The member must have an email address in Helix. Please add an email to the contact page and refresh this form.</p>
+                    </div>
+                </c-crm-form-error>
+                <template if:false={contactedCompany}>
+                    <c-crm-form-error if:true={showMerchantContactError}>
+                        <div>
+                            <h3>Unable to Complete VISA Dispute</h3>
+                            <p>The member must contact the company who sent the transaction. <a href="https://isearchwp.iccu.com/policy/ach-phone-number-lookup/" target="_blank">Learn how to find the companies phone number here.</a></p>
+                        </div>
+                    </c-crm-form-error>
+
+                    <lightning-radio-group name="contactedCompany"
+                        label="Did the member attempt to contact the company who sent the transaction?"
+                        options={yesNoRadio}
+                        required
+                        onchange={contactedCompanyChange}></lightning-radio-group>
+                </template>
+
+                <template if:true={contactedCompany}>
+                    <h3>Select an Account</h3>
+                    <c-crm-account-lookup
+                        contact-id={contactid}
+                        filter-by-visa-dispute="true"
+                        filter-by-owner-id={contactid}
+                        is-disabled={isDisabled}
+                        onchange={handleAccountChange}
+                        onerror={handleAccountError}
+                        onload={handleAccountsLoaded}>
+                    </c-crm-account-lookup>
+                </template>
+
+                <template if:true={accountSelected}>
+                <template if:true={transactionSelection}>
+                    <h3>Please Select Transactions to Dispute</h3>
+                    <p>Below are the transactions related to the account you selected. You may search for transactions using the filters below.</p>
+                    <c-crm-transaction-search onsearch={handleTransactionSearch} ></c-crm-transaction-search>
+
+                    <div class="transaction-control-info">
+                        <p><span>{numberSelectedTransactions} </span>Transactions Selected</p>
+                        <template if:true={filterTransactions}>
+                            <a onclick={showAllTransactions}>Show All Transactions</a>
+                        </template>
+                        <template if:false={filterTransactions}>
+                            <a onclick={showFilteredTransactions}>Only show transactions that can be disputed</a>
+                        </template>
+
+                    </div>
+                        <template for:each={displayTransactions} for:item="t">
+                            <c-crm-transaction-detail
+                                key={t.transactionNumber}
+                                transaction={t}
+                                hide={t.isDisabled}
+                                disabled={t.visaDisabled}
+                                selectedui="normal"
+                                ontransactionclick={handleTransactionClick}>
+                            </c-crm-transaction-detail>
+                        </template>
+                    <div class="pagination-container">
+                        <div if:false={hideBackTransaction} onclick={handleBackClicked} class="pagination-item">
+                            <span>Back</span>
+                        </div>
+                        <div if:false={hideNextTransaction} onclick={handleNextClicked} class="pagination-item">
+                            <span>Next</span>
+                        </div>
+                    </div>
+                </template>
+
+                <template if:true={transactionSelected}>
+                    <section>
+                        <h3>Selected Transactions</h3>
+                        <div class="selected-transactions">
+                            <template for:each={selectedTransactions} for:item="t">
+                                <div key={t.transactionNumber}  class="selected-transaction">
+                                    <div class="selected-transaction-detail">
+                                        <p class="selected-transaction-detail-date">{t.postDate}</p>
+                                        <p class="selected-transaction-detail-description">{t.shortDescription}</p>
+                                    </div>
+                                    <div class="selected-transaction-amount">
+                                        <p>{t.amount}</p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </section>
+
+                    <div>
+                        <p class='card-label'><span class='required'>* </span>Which card did the member use?</p>
+                        <c-crm-card-select onchange={handleCardSelect}></c-crm-card-select>
+                    </div>
+                    <div if:true={hasSelectedCard}>
+                        <div class="card-status">
+                            <lightning-button variant="base" label="Deselect this card" onclick={cancelAction} class="slds-m-left_x-small deselect-button"></lightning-button>
+                        </div>
+                        <h3 class="dispute-reason">Dispute Reason</h3>
+                        <lightning-combobox name="disputeReason"
+                                            label="Why does the member want to dispute this transaction?"
+                                            options={disputeReasons}
+                                            required
+                                            onchange={disputeReasonSelected}></lightning-combobox>
+                    </div>
+                </template>
+
+                <section>
+                    <c-crm-lwc-alert if:true={disputeReasonError} alert-type="error">
+                        <div>
+                            <h3>{disputeReasonErrorTitle}</h3>
+                            <p>{disputeReasonErrorMessage}</p>
+                        </div>
+                    </c-crm-lwc-alert>
+
+                    <template if:true={atmFundsDispute}>
+                        <section>
+                            <h3>Did not Receive Funds from ATM</h3>
+                            <div class="two-columns">
+                                <lightning-input type="number" name="amountRequested"  required label="Amount Requested" onchange={handleAmountRequested} formatter="currency" step="0.01"></lightning-input>
+                                <lightning-input type="number" name="amountReceived" required label="Amount Received" onchange={handleAmountReceived}  formatter="currency" step="0.01"></lightning-input>
+                            </div>
+                        </section>
+                        <section>
+                            <h5>Extra Dispute Information</h5>
+                            <lightning-textarea name="notes" label="Notes:" onchange={handleRefundNotes}></lightning-textarea>
+                        </section>
+                    </template>
+
+                    <template if:true={refundNotProcessed}>
+                        <section>
+                            <h3>Refund not Processed</h3>
+                            <c-crm-alert-banner
+                                alert-type="info"
+                                alert-title="Merchandise Must be Returned"
+                                alert-message="The merchandise must be returned in order to process this dispute. The merchant has 15 days from return date to refund the transaction so credit may be delayed.">
+                            </c-crm-alert-banner>
+                            <lightning-radio-group name="creditVoucher"
+                                label="Was a credit voucher, voided transaction receipt, or refund acknowledgement given?"
+                                options={yesNoRadio}
+                                onchange={handleVoucher}
+                                required></lightning-radio-group>
+                        </section>
+                    </template>
+
+                    <template if:true={merchNotReceived}>
+                        <section>
+                            <h3>Merchandise / Services not Received</h3>
+                            <lightning-input
+                                type="date"
+                                name="expectedDeliveryDate"
+                                required
+                                onchange={handleExpectedDeliveryDate}
+                                label="Expected Date of Delivery">
+                            </lightning-input>
+                            <lightning-textarea
+                                name="productDescription"
+                                label="Detailed description of product or service ordered:"
+                                max-length="300"
+                                onchange={handleProductDescription}
+                                required>
+                            </lightning-textarea>
+                            <lightning-radio-group name="insuranceScheme"
+                                label="Bonding Authority/Insurance Scheme: "
+                                options={yesNoRadio}
+                                onchange={handleInsuranceScheme}
+                                required></lightning-radio-group>
+                            <lightning-radio-group name="shippedWrong"
+                                label="Shipped Wrong Address/Delivered Late: "
+                                options={yesNoRadio}
+                                onchange={handleShippedWrong}
+                                required></lightning-radio-group>
+                            <lightning-radio-group name="returnMerch"
+                                label="Returned Merchandise"
+                                options={yesNoRadio}
+                                onchange={handleReturnedMerchandise}
+                                required></lightning-radio-group>
+                        </section>
+                    </template>
+
+                    <template if:true={overcharged}>
+                        <section>
+                            <h3>Overcharged</h3>
+                            <lightning-input
+                                type="number"
+                                name="shouldHaveBeenCharged"
+                                required
+                                onchange={handleOverchargedAmount}
+                                label="I should have been charged:"
+                                formatter="currency"
+                                step="0.01">
+                            </lightning-input>
+                        </section>
+                    </template>
+
+                    <template if:true={membershipCancelled}>
+                        <section>
+                            <h3>Cancelled Merchandise/Services</h3>
+                            <div class="two-columns">
+                                <lightning-radio-group name="cancellationType"
+                                    label="Cancellation Type"
+                                    options={cancellationTypeRadio}
+                                    onchange={handleCancellationType}
+                                    required></lightning-radio-group>
+                                <lightning-radio-group name="recurringTransaction"
+                                    label="Is this a recurring transaction?"
+                                    options={yesNoRadio}
+                                    onchange={handleRecurringTransaction}
+                                    required></lightning-radio-group>
+                                <lightning-input
+                                    type="date"
+                                    name="dateCancelled"
+                                    onchange={handleCancellationDate}
+                                    required
+                                    label="Date Cancelled:">
+                                </lightning-input>
+                                <lightning-input
+                                    name="orderNumber"
+                                    required
+                                    onchange={handleCancellationNumber}
+                                    label="Cancellation or Order Number:">
+                                </lightning-input>
+                            </div>
+                            <lightning-textarea name="cancellationExplanation" label="Reason for Cancellation" onchange={handleCancellationReason} max-length="200"></lightning-textarea>
+                        </section>
+                    </template>
+
+                    <template if:true={duplicateProcessing}>
+                        <section>
+                            <h3>Duplicate Processing</h3>
+                        </section>
+                    </template>
+
+                    <template if:true={paidByOtherMeans}>
+                        <section>
+                            <h3>Paid by Other Means</h3>
+                            <c-crm-alert-banner
+                                alert-type="info"
+                                alert-title="Proof Required"
+                                alert-message="The member must have proof that they paid by other means or you will not be able to process this dispute. Please upload proof of paid by other means in OnBase under Dep Dispute - Visa/ATM Documentation.">
+                            </c-crm-alert-banner>
+                        </section>
+                        <section>
+                            <h5>What other proof of payment exists at ICCU or other financial institution?</h5>
+                            <lightning-radio-group name="paymentType"
+                                label="How was the payment made?"
+                                options={paymentTypeOptions}
+                                onchange={paymentTypeChange}
+                                required>
+                            </lightning-radio-group>
+                            <template if:true={showCheck}>
+                                <lightning-input
+                                    type="text"
+                                    name="paymentInfo"
+                                    label="Check Number"
+                                    onchange={handlePaymentCheck}
+                                    required>
+                                </lightning-input>
+                            </template>
+                            <template if:true={showACH}>
+                                <lightning-input
+                                    type="text"
+                                    name="paymentInfo"
+                                    label="Last 4 of Account Number"
+                                    max-length=4
+                                    onchange={handlePaymentACH}
+                                    required>
+                                </lightning-input>
+                            </template>
+                            <template if:true={showCard}>
+                                <lightning-input
+                                    type="text"
+                                    name="paymentInfo"
+                                    label="Card Number"
+                                    onchange={handlePaymentCard}
+                                    required>
+                                </lightning-input>
+                            </template>
+                        </section>
+                    </template>
+
+                    <template if:true={unauthorized}>
+                        <section>
+                            <h3>Unauthorized</h3>
+                            <c-crm-alert-banner
+                                alert-type="info"
+                                alert-title="Card Cancellation"
+                                alert-message="On submission of this form the card will be turned off so that it can't be used fraudulently again. After form submission you can order the member a new card or they can stop by the branch to have one instant issued.">
+                            </c-crm-alert-banner>
+                            <lightning-radio-group name="stateOfResidency"
+                                class="stateOfResidency"
+                                label="Did transaction(s) occur in state of residency?"
+                                options={yesNoRadio}
+                                onchange={handleStateOfResidency}
+                                required>
+                            </lightning-radio-group>
+                            <lightning-radio-group name="cardStatus"
+                                class="cardStatus"
+                                label="The members card was"
+                                options={cardStatusOptions}
+                                onchange={handleCardStatus}
+                                required>
+                            </lightning-radio-group>
+                            <lightning-radio-group name="reportedPD"
+                                class="reportedPD"
+                                label="Has this loss been reported to police department?"
+                                options={yesNoRadio}
+                                required
+                                onchange={reportedPdChange}>
+                            </lightning-radio-group>
+                            <lightning-input
+                                type="date"
+                                name="lossDiscovered"
+                                class="lossDiscovered"
+                                onchange={handleLossDiscoveredDate}
+                                required
+                                label="When was the loss discovered?">
+                            </lightning-input>
+                        </section>
+                        <section if:true={policeReport}>
+                            <h5>Police Report Information</h5>
+                            <div class="two-columns">
+                                <lightning-input
+                                    name="authority"
+                                    class="authority"
+                                    required
+                                    onchange={handleAuthorityName}
+                                    label="Name of the contacted authority">
+                                </lightning-input>
+                                <lightning-input
+                                    name="reportNumber"
+                                    class="reportNumber"
+                                    required
+                                    onchange={handleReportNumber}
+                                    label="Report Number">
+                                </lightning-input>
+                                <lightning-input
+                                    name="authorityPhone"
+                                    required
+                                    onchange={handleAuthorityPhone}
+                                    label="Authority's Phone Number">
+                                </lightning-input>
+                                <lightning-input
+                                    name="unauthorizedUser"
+                                    onchange={handleUnauthorizedUserName}
+                                    label="Name of the Unauthorized User (if known)">
+                                </lightning-input>
+                                <lightning-input
+                                    name="unauthorizedUserLine1Address"
+                                    onchange={handleUnauthorizedUserLine1Address}
+                                    label="Line 1 of the Unauthorized Users Address (if known)">
+                                </lightning-input>
+                                <lightning-input
+                                    name="unauthorizedUserLine2Address"
+                                    onchange={handleUnauthorizedUserLine2Address}
+                                    label="Line 2 of the Unauthorized Users Address (if known)">
+                                </lightning-input>
+                            </div>
+                        </section>
+                    </template>
+
+                    <template if:true={notAsDescribed}>
+                            <section>
+                                <h3>Merchandise / Service not as Described</h3>
+                                <lightning-combobox
+                                    name="disputeDueTo"
+                                    label="Dispute is due to:"
+                                    options={disputeDueToReasons}
+                                    required
+                                    onchange={disputeDueToReasonChange}>
+                                </lightning-combobox>
+                                <lightning-textarea name="merchDescription" label="Description of Reason" onchange={handleMerchReason}></lightning-textarea>
+                            </section>
+                            <section>
+                                <h5>Negotiations</h5>
+                                <lightning-radio-group name="negotiations"
+                                    label="Previous/on going negotiations:"
+                                    options={yesNoRadio}
+                                    onchange={handleNegotiations}
+                                    required>
+                                </lightning-radio-group>
+                                <lightning-textarea name="negotiationDescription" label="Description of Negotiations" onchange={handleNegotiationsDescription}></lightning-textarea>
+                            </section>
+                            <section>
+                                <h5>Returned Merchandise Information</h5>
+                                <c-crm-alert-banner
+                                    if:true={returnRequired}
+                                    alert-type="info"
+                                    alert-title="Must be Returned"
+                                    alert-message='If merchandise was damaged or defective, it must be returned before the dispute will be processed.'>
+                                </c-crm-alert-banner>
+                                <lightning-radio-group
+                                    name="merchReturn"
+                                    label="Was the merchandise returned?"
+                                    options={returnOptions}
+                                    onchange={handleMerchReturn}
+                                    required>
+                                </lightning-radio-group>
+                                <div class="two-columns">
+                                    <lightning-combobox name="returnMethod"
+                                        label="Return Method"
+                                        options={returnMethods}
+                                        onchange={handleReturnMethod}
+                                        required>
+                                    </lightning-combobox>
+                                    <lightning-textarea
+                                        class="full-width"
+                                        name="returnSpecialInstructions"
+                                        label="Provide any special instructions that were given to the member:" >
+                                    </lightning-textarea>
+                                </div>
+                            </section>
+                        </template>
+
+                    <template if:true={merchantContact}>
+                        <section>
+                            <h5>Merchant Contact Information</h5>
+                            <lightning-input
+                                type="date"
+                                onchange={handleMerchantDate}
+                                name="notReceivedMerchantContactDate"
+                                required label="Most recent merchant contact date:">
+                            </lightning-input>
+                            <lightning-input
+                                name="merchantRepName"
+                                required
+                                onchange={handleMerchantRepName}
+                                label="Merchant Representative Name:">
+                            </lightning-input>
+                            <lightning-combobox name="merchantContactMethod"
+                                    label="Method of Contact:"
+                                    options={merchantContactOptions}
+                                    onchange={handleMerchantContactMethod}
+                                    required>
+                                </lightning-combobox>
+                            <lightning-textarea
+                                name="merchantResponse"
+                                label="Merchant Response:"
+                                onchange={handleMerchantResponse}
+                                maxlength=1000
+                                required>
+                            </lightning-textarea>
+                        </section>
+                    </template>
+
+                    <template if:true={refundNotProcessed}>
+                        <section>
+                            <h5>Returned Merchandise Information</h5>
+                            <div class="two-columns">
+                                <lightning-input
+                                    type="date"
+                                    name="refundReturnDate"
+                                    onchange={handleRefundReturnDate}
+                                    required
+                                    label="Date Returned">
+                                </lightning-input>
+                                <lightning-combobox name="returnMethod"
+                                    label="Return Method"
+                                    options={returnMethods}
+                                    onchange={handleReturnMethod}
+                                    required>
+                                </lightning-combobox>
+                                <lightning-textarea
+                                    class="full-width"
+                                    name="returnMerchantResponse"
+                                    label="Merchant Response:" >
+                                </lightning-textarea>
+                            </div>
+                        </section>
+                    </template>
+
+                </section>
+
+                <div class="action-buttons">
+                    <lightning-button
+                        if:true={transactionSelection}
+                        label="Next"
+                        variant="brand"
+                        disabled={disableNext}
+                        onclick={clickNext}>
+                    </lightning-button>
+                    <lightning-button
+                        if:true={transactionSelected}
+                        label="Back"
+                        variant="base"
+                        onclick={clickBack}>
+                    </lightning-button>
+                    <lightning-button
+                        if:true={transactionSelected}
+                        label="Get Signatures"
+                        variant="brand"
+                        onclick={handleSubmitForm}
+                        disabled={disableSubmit}>
+                    </lightning-button>
+                </div>
+            </template>
+            </section>
+        </div>
+    </div>
+</template>

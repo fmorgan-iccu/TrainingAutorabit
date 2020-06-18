@@ -1,0 +1,435 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	<META NAME="referrer" CONTENT="no-referrer">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style type="text/css">
+		ReadMsgBody {
+			width: 100%;
+		}
+
+		.ExternalClass {
+			width: 100%;
+		}
+
+		.ExternalClass,
+		.ExternalClass p,
+		.ExternalClass span,
+		.ExternalClass font,
+		.ExternalClass td,
+		.ExternalClass div {
+			line-height: 100%;
+		}
+
+		body {
+			-webkit-text-size-adjust: 100%;
+			-ms-text-size-adjust: 100%;
+			margin: 0 !important;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+		}
+
+		table td {
+			border-collapse: collapse;
+		}
+
+		img {
+			outline: 0;
+		}
+
+		a img {
+			border: none;
+		}
+
+		.signature-inline {
+			display: inline-block;
+			padding-left: 8px;
+		}
+
+		.signature-inline-border {
+			display: inline-block;
+			margin-right: 8px;
+			border-right: 1px solid #565656;
+			padding: 0 12px 0 0;
+		}
+		.content-bold {
+			font-weight: bold;
+		}
+
+		.signature p {
+			margin: 0.25em 0;
+		}
+
+		@-ms-viewport {
+			width: device-width;
+		}
+
+		@media only screen and (max-width: 480px) {
+			body[yahoo] .container {
+				width: 100% !important;
+			}
+
+			body[yahoo] .footer {
+				width: auto !important;
+				margin-left: 0;
+			}
+
+			body[yahoo] .content-padding {
+				padding: 4px !important;
+			}
+
+			body[yahoo] .mobile-hidden {
+				display: none !important;
+			}
+
+			body[yahoo] .logo {
+				display: block !important;
+				padding: 0 !important;
+			}
+
+			body[yahoo] img {
+				max-width: 100% !important;
+				height: auto !important;
+				max-height: auto !important;
+			}
+
+			body[yahoo] .header img {
+				max-width: 100% !important;
+				height: auto !important;
+				max-height: auto !important;
+			}
+
+			body[yahoo] .photo img {
+				width: 100% !important;
+				max-width: 100% !important;
+				height: auto !important;
+			}
+
+			body[yahoo] .drop {
+				display: block !important;
+				width: 100% !important;
+				float: left;
+				clear: both;
+			}
+
+			body[yahoo] .footerlogo {
+				display: block !important;
+				width: 100% !important;
+				padding-top: 15px;
+				float: left;
+				clear: both;
+			}
+
+			body[yahoo] .nav4,
+			body[yahoo] .nav5,
+			body[yahoo] .nav6 {
+				display: none !important;
+			}
+
+			body[yahoo] .tableBlock {
+				width: 100% !important;
+			}
+
+			body[yahoo] .responsive-td {
+				width: 100% !important;
+				float: left !important;
+				padding: 0 !important;
+			}
+
+			.fluid,
+			.fluid-centered {
+				width: 100% !important;
+				max-width: 100% !important;
+				height: auto !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+
+			.fluid-centered {
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+
+			/* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+			body {
+				padding: 0px !important;
+				font-size: 16px !important;
+				line-height: 150% !important;
+			}
+
+			h1 {
+				font-size: 22px !important;
+				line-height: normal !important;
+			}
+
+			h2 {
+				font-size: 20px !important;
+				line-height: normal !important;
+			}
+
+			h3 {
+				font-size: 18px !important;
+				line-height: normal !important;
+			}
+
+			.buttonstyles {
+				font-family: arial, helvetica, sans-serif !important;
+				font-size: 16px !important;
+				color: #FFFFFF !important;
+				padding: 10px !important;
+			}
+
+			/* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+		}
+
+		@media only screen and (max-width: 640px) {
+			body[yahoo] .container {
+				width: 100% !important;
+			}
+
+			body[yahoo] .mobile-hidden {
+				display: none !important;
+			}
+
+			body[yahoo] .logo {
+				display: block !important;
+				padding: 0 !important;
+			}
+
+			body[yahoo] .photo img {
+				width: 100% !important;
+				height: auto !important;
+			}
+
+			body[yahoo] .nav5,
+			body[yahoo] .nav6 {
+				display: none !important;
+			}
+
+			.fluid,
+			.fluid-centered {
+				width: 100% !important;
+				max-width: 100% !important;
+				height: auto !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+
+			.fluid-centered {
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+		}
+	</style>
+	<!--[if mso]>       <style type="text/css">           /* Begin Outlook Font Fix */           body, table, td {               font-family: Arial, Helvetica, sans-serif ;               font-size:16px;               color:#808080;               line-height:1;           }           /* End Outlook Font Fix */       </style>     <![endif]-->
+</head>
+
+<body bgcolor="#ffffff" text="#000000"
+	style="background-color: #FFFFFF; color: #000000; margin: 0px; padding: 0px; -webkit-text-size-adjust:none;"
+	yahoo="fix">
+
+	<!-- Begin Content -->
+	<table cellspacing="0" cellpadding="0" border="0" width="600" class="container" align="center">
+		<tr>
+			<td>
+				<table class="tb_properties border_style" style="background-color:#FFFFFF;" cellspacing="0"
+					cellpadding="0" bgcolor="#ffffff" width="100%">
+					<tr>
+						<td align="" class="header" valign="top">
+
+							<!-- Spacing Block -->
+							<table cellpadding="0" cellspacing="0" width="100%" style="margin: 0px; min-width: 100%;"
+								class="stylingblock-content-wrapper">
+								<tr>
+									<td style="padding: 0px 10px;" class="stylingblock-content-wrapper camarker-inner">
+										&nbsp;
+									</td>
+								</tr>
+							</table>
+
+							<!-- EMAIL BODY -->
+							<table cellpadding="0" cellspacing="0" width="100%" class="stylingblock-content-wrapper"
+								style="margin: 0px; min-width: 100%;">
+								<tr>
+									<td class="stylingblock-content-wrapper camarker-inner" style="padding: 0 16px;">
+										<span
+											style="font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 20px;">
+											<p>Hello {!Contact.FirstName},</p>
+											<p>Thank you for contacting us.  Sorry to hear you experienced a problem with your eBranch, I can help resolve this issue.  We will also need to know the following information:</p>
+											<p>Device make and model:</p>
+											<p>Device software version on the phone:</p>
+											<p>ICCU App Version:</p>
+										<p>Thank you,</p>
+										</span>
+									</td>
+								</tr>
+							</table>
+
+							<!-- Logo -->
+							<table cellpadding="0" cellspacing="0" width="100%" style="margin: 0px; min-width: 100%;" class="stylingblock-content-wrapper">
+								<tr>
+									<td style="padding: 0 16px;"
+										class="stylingblock-content-wrapper camarker-inner">
+										<table width="100%" cellspacing="0" cellpadding="0">
+											<tr>
+												<td align="left">
+													<a href="https://www.iccu.com/" title="Visit iccu.com"
+														data-linkto="https://">
+														<img data-assetid="5180"
+															src="https://iccu--uidev--c.cs79.visual.force.com/resource/1559689857000/ICCUSignatureLogo?"
+															alt="Visit iccu.com" height="auto" width="40%"
+															style="display: block;">
+													</a>
+												</td>
+												<td align="right"
+													style="font-family:Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+
+							<!-- Agent Signature -->
+							<table cellpadding="0" cellspacing="0" width="100%" style="margin: 0px; min-width: 100%;" class="stylingblock-content-wrapper">
+								<tr>
+									<td style="padding: 16px">
+										<span style="font-family:arial,helvetica,sans-serif; font-size: 14px;">
+											<span class="signature">
+												<p class="signature-inline-border content-bold">{!Case.OwnerFullName}</p>
+												<p class="signature-inline">{!Case.OwnerTitle}</p>
+												<p>Idaho Central Credit Union</p>
+												<p>Eastern Idaho 208-478-3300</p>
+												<p>Treasure Valley 208-846-7000</p>
+												<p>Magic Valley 208-733-4777</p>
+												<p>www.iccu.com</p>
+											</span>
+										</span>
+									</td>
+								</tr>
+							</table>
+
+							<!-- CTA -->
+							<table>
+								<tr>
+									<td style="padding: 0 12px 12px 12px">
+										<a href="https://www.iccu.com/" title="Visit iccu.com"
+										data-linkto="https://">
+											<img src="https://iccu--uidev--c.cs79.visual.force.com/resource/1559689923000/ICCUSignatureCTA?" alt="Visit iccu.com" height="auto" width="100%">
+										</a>
+									</td>
+								</tr>
+							</table>
+
+							<!-- Social Media Icons -->
+							<table cellpadding="0" cellspacing="0" width="100%" style="margin: 0px; min-width: 100%;" class="stylingblock-content-wrapper">
+								<tr>
+									<td align="left" style="padding: 0 12px">
+										<table class="socialshare-innertable" style="display: inline-block">
+											<tbody>
+												<tr>
+													<td>
+														<a href="">
+															<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/1a560d12-c8d7-40cb-9e90-9df36933fdfa.png"
+																alt="Facebook" width="24" height="24"
+																style="display: block;; width: 16px !important; height: 16px !important">
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<!--[if mso]></td><td style="padding-right:10px;"><![endif]-->
+										<table class="socialshare-innertable" style="display: inline-block">
+											<tbody>
+												<tr>
+													<td>
+														<a href="">
+															<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/a3b47106-a80a-401f-8435-6b6398001c4f.png"
+																alt="Twitter" width="24" height="24"
+																style="display: block;; width: 16px !important; height: 16px !important">
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<!--[if mso]></td><td style="padding-right:10px;"><![endif]-->
+										<table class="socialshare-innertable" style="display: inline-block">
+											<tbody>
+												<tr>
+													<td>
+														<a href="">
+															<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/287abafd-6473-47a9-b05b-30526dc265fd.png"
+																alt="YouTube" width="24" height="24"
+																style="display: block;; width: 16px !important; height: 16px !important">
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<!--[if mso]></td><td style="padding-right:10px;"><![endif]-->
+										<table class="socialshare-innertable" style="display: inline-block">
+											<tbody>
+												<tr>
+													<td>
+														<a href="">
+															<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/8481a609-e71f-4aae-9e00-44f0a2fbd89f.png"
+																alt="Pinterest" width="24" height="24"
+																style="display: block;; width: 16px !important; height: 16px !important">
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<!--[if mso]></td><td style="padding-right:10px;"><![endif]-->
+										<table class="socialshare-innertable" style="display: inline-block">
+											<tbody>
+												<tr>
+													<td>
+														<a href="">
+															<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/df45eec7-2b51-455c-a5e1-9098496d6013.png"
+																alt="LinkedIn" width="24" height="24"
+																style="display: block;; width: 16px !important; height: 16px !important">
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<!--[if mso]></td><td style="padding-right:10px;"><![endif]-->
+										<table class="socialshare-innertable" style="display: inline-block">
+											<tbody>
+												<tr>
+													<td>
+														<a href="">
+															<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/0e6fddf1-c205-4752-ad42-e9dc03c83dea.png"
+																alt="Instagram" width="24" height="24"
+																style="display: block;; width: 16px !important; height: 16px !important">
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								<!--[if mso]></td><td><![endif]-->
+								</tr>
+							</table>
+
+							<table cellpadding="0" cellspacing="0" width="100%" style="margin: 0px; min-width: 100%;"
+							class="stylingblock-content-wrapper">
+								<tr>
+									<td style="font-style: italic; padding: 0 16px;">
+										<p>Helping members achieve financial success.</p>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

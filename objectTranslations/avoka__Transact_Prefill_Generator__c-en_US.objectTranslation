@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Configuration details for the prefill generator. Format of the config is determined by the Generator Class that uses it - typically JSON. --></help>
+        <label><!-- Generator Config --></label>
+        <name>avoka__Generator_Config__c</name>
+    </fields>
+    <fields>
+        <help><!-- The APEX Class Name to use for prefill generation for the specified form code. --></help>
+        <label><!-- Prefill Generator Class --></label>
+        <name>avoka__Prefill_Generator_Class__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the Id of a object to generate the sample prefill data from. --></help>
+        <label><!-- Sample Prefill SObject Id --></label>
+        <name>avoka__Sample_Prefill_SObject_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- The results of the sample prefill generation will be shown here. --></help>
+        <label><!-- Sample Prefill Xml --></label>
+        <name>avoka__Sample_Prefill_Xml__c</name>
+    </fields>
+    <webLinks>
+        <label><!-- Generate_Sample --></label>
+        <name>avoka__Generate_Sample</name>
+    </webLinks>
+</CustomObjectTranslation>

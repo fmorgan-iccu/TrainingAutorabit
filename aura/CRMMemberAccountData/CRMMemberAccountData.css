@@ -1,0 +1,97 @@
+.THIS {
+    margin-bottom: 1em;
+    border-left: 4px solid #DDD;
+    font-size: 16px; 
+}
+
+.THIS.accountContainerOverdrawn {
+    border-left: 4px solid t(iccuError);
+    border-top: 1px solid t(iccuError);
+    border-bottom: 1px solid t(iccuError);
+    border-right: 1px solid t(iccuError);
+}
+
+.THIS h3 {
+    font-weight: t(fontWeightBold);
+}
+
+.THIS .AccountLabel {
+    font-weight: t(fontWeightBold);
+}
+
+.THIS #ViewAccountDetails {
+    margin-top: 0.5em;
+    font-size: t(smallText);
+}
+
+.THIS #accountIcon {
+    padding: .25rem;
+}
+/**Overall Account Link**/
+.THIS {
+    transition: all 0.15s ease-in-out;
+}
+.THIS.accountContainer:hover,
+.THIS.accountContainerOverdrawn:hover,
+.THIS.accountContainer:focus,
+.THIS.accountContainerOverdrawn:focus,
+.THIS.accountContainer:active,
+.THIS.accountContainerOverdrawn:active {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+.THIS.accountContainer:hover,
+.THIS.accountContainer:focus,
+.THIS.accountContainer:active {
+    background: rgba(28,137,0,.05);
+}
+.THIS.accountContainerOverdrawn:hover,
+.THIS.accountContainerOverdrawn:focus,
+.THIS.accountContainerOverdrawn:active {
+    background: rgba(235,61,61,.05);
+}
+/**Salesforce overrides**/ 
+
+.THIS .AccountInfoColumn {
+    margin-left: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+}
+
+.THIS .padding_large {
+    padding: 24px;
+}
+
+.THIS .overdrawnBalance {
+    font-weight: 600;
+    color: t(iccuError);
+}
+
+.THIS #CurrentBalance {
+    color: rgba(0,0,0, 0.5);
+}
+
+.THIS hr {
+    margin: 1rem 0;
+    height: 0;
+}
+
+/** ADDED SALESFORCE BREAKPOINT OVERRIDES **/
+@media only screen and (min-width: 30em){
+    .THIS .AccountInfoContainer {
+    width: 50%;
+    }
+}
+
+@media only screen and (min-width: 64em){
+    .THIS .AccountInfoContainer {
+    width: 50%;
+    }
+}
+
+@media only screen and (min-width: 80em){
+    .THIS .AccountInfoContainer {
+    width: 25%;
+    }
+}

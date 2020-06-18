@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Follow-up Message</name>
+    <style>none</style>
+    <subject>Idaho Central Follow-up</subject>
+    <textOnly>Hello{!Opportunity.Contact_First_Name__c} ,
+
+Thank you for choosing Idaho Central Credit Union! I attempted to contact you today. Please call me back at your earliest convenience.
+
+
+
+
+
+
+
+Sincerely,
+
+{!Opportunity.OwnerFullName}
+
+{!Opportunity.OwnerTitle}
+
+{!Opportunity.OwnerPhone}
+
+Helping members achieve financial success.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Indicates that the indicated system has logged out.">
+    <aura:attribute name="system" type="String" required="true"/>
+</aura:event>

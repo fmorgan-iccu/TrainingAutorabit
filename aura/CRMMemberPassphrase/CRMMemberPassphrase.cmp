@@ -1,0 +1,61 @@
+<aura:component  implements="force:hasRecordId,force:lightningQuickAction,flexipage:availableForAllPageTypes" access="global" controller="SimpleMemberVerificationController">
+
+    <aura:attribute name="recordId" type="String" />   
+    <aura:attribute name="record" type="Object" description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData"/>
+    <force:recordData aura:id="record"
+                      fields="Id, FirstName, LastName"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      recordUpdated="{!c.recordUpdated}"
+                      mode="VIEW"/>
+    
+	<aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="pQuestions" type="Array" />
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="passphraseCache" type="Object" />
+    
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:locationChange" action="{!c.locationChanged}"/>
+
+    <lightning:utilityBarAPI aura:id="utilitybar"/>
+    
+    <aura:if isTrue="{!v.isLoading}">
+        <c:CRMLoadingSpinner message="Passphrase..." />
+    </aura:if>
+    <aura:if isTrue="{!v.errorMessage}">
+        <div class="alert-container">
+            <c:CRMAlert alertState="error">
+                <aura:set attribute="alertMessage">
+                    <p>
+                        {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.fetchQuestions}" />
+                    </p>
+                </aura:set>
+            </c:CRMAlert>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.isLoading == false}">
+        <aura:if isTrue="{!v.pQuestions.length &gt; 0}">
+            <!-- Member Has a Passphrase -->
+            <div class="identify passphrase hasPassphrase">
+                <div class="message">
+                    <!-- <h1 class="Header">Member's passphrase:</h1> -->
+                </div>
+                <div class="Flex">
+                    <aura:iteration items="{!v.pQuestions}" var="question">
+                        <c:verificationQuestions question="{!question.question}" answers="{!question.answers}" />
+                    </aura:iteration>
+                </div>
+                <aura:if isTrue="{!v.showResetPassphrase == false}">
+                    <lightning:button variant="brand" label="Reset Passphrase" onclick="{! c.resetPassphrase }" />
+                </aura:if>
+            </div>
+        </aura:if>
+    </aura:if>
+    
+</aura:component>

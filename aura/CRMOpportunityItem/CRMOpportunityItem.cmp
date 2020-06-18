@@ -1,0 +1,65 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+   	<!-- 
+	COMPONENT OVERVIEW:
+	This is the singular case that is used within
+	the CRMMemberCases component and anywhere else
+	a single opportunity needs to be displayed. 
+	-->
+    
+    <!-- Defining Attributes -->
+    <aura:attribute name="Opportunity" type="Object"/>
+    
+    <!-- Begin Component -->
+    <div class="opportunity-item">
+
+        <div class="opportunity-label">
+            <lightning:icon iconName="standard:opportunity" alternativeText="opportunity icon" size="medium"/>
+        </div>
+
+        <div class="opportunity-info">
+            <lightning:layout horizontalAlign="spread">
+                
+                <lightning:layoutItem>
+                    <lightning:button value="{!v.Opportunity.Id}" onclick="{!c.openOpportunity}">
+                            {!v.Opportunity.Name}                   
+                    </lightning:button>
+                </lightning:layoutItem>
+                
+            </lightning:layout>
+                
+            <lightning:layout horizontalAlign="spread">
+                <lightning:layoutItem>
+                    <p>Amount: {!v.Opportunity.Amount}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <p>Stage: <span>{!v.Opportunity.StageName}</span></p>
+                </lightning:layoutItem>
+            </lightning:layout>
+                      
+            <lightning:layout horizontalAlign="spread">
+                <lightning:layoutItem>
+                    <p>Opportunity Owner: {!v.Opportunity.Owner.Name}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <p>
+                        Contact Role:  
+                        <aura:if isTrue="{!v.Opportunity.OpportunityContactRoles[0].IsPrimary}">
+                            Primary
+                            <aura:set attribute="else">
+                                Joint
+                            </aura:set>
+                        </aura:if>
+                    </p>
+                </lightning:layoutItem>
+            </lightning:layout>
+            
+                <lightning:layout horizontalAlign="spread">
+                    <lightning:layoutItem>
+                        <p>Close Date: {!v.Opportunity.CloseDate}</p>
+                    </lightning:layoutItem>
+                </lightning:layout> 
+        </div> 
+    </div>
+    
+</aura:component>

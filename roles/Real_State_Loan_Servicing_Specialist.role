@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Real State Loan Servicing Specialist</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Real State Loan Servicing Specialist</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Real_Estate_Loan_Servicing_Manager</parentRole>
+</Role>

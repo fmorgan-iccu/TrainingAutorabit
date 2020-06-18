@@ -1,0 +1,146 @@
+<aura:component implements="force:hasRecordId" controller="MemberReferralController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Getting the current contact (record) -->
+    <aura:attribute name="record" type="Object" 
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" 
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" 
+                    description="An error message bound to force:recordData"/>
+    <aura:attribute name="loanOfficers" type="Array" description="List of loan officers for selection"/>
+    <aura:attribute name="currentUserName" type="String" description="Name of the current user."/>
+    <aura:attribute name="orgId" type="String" description="ID of the current organization"/>
+    <aura:attribute name="orgURL" type="String" description="Web-to-lead URL for the current organization"/>
+    <aura:attribute name="leadRecordTypeID" type="String" description="The ID of the record type that should be used for creating new leads."/>
+    <aura:attribute name="referralTypeFieldId" type="String" description="The ID of the Referral Type field for the give environment."/>
+    <force:recordData aura:id="record"
+                      fields="FirstName, LastName, MemberNumber__c, PersonNumber__c, Name, Phone, Email"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      mode="VIEW"/>
+    <!-- Modal Stuff -->
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+    
+    <!-- Modal -->
+    <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            
+            <!-- close button -->
+            <div class="slds-modal__header">
+                <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                    X
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2>Referral for {!v.simpleRecord.Name}</h2>
+            </div>
+            
+            <div class="slds-modal__content">
+                
+                <!-- Begin Form -->
+                <form action="{!v.orgURL}" method="POST">
+                    
+                    <input type="hidden" name="oid" value="{!v.orgId}" />
+                    <input type="hidden" name="lead_source" value="MCC Referral" />
+                                               
+                    <!-- Hide fields we want to assign info to -->
+                    <!--Referring Team Member-->
+                    <input id="00Ni000000EZ6LT" maxlength="50" name="00Ni000000EZ6LT" size="20" type="hidden"
+                           value="{!v.currentUserName}"/>
+                    
+                    <!--Member's First Name-->
+                    <input id="first_name" maxlength="40" name="first_name" size="20" type="hidden"
+                           value="{!v.simpleRecord.FirstName}" />
+                    
+                    <!--Member's Last Name-->
+                    <input id="last_name" maxlength="80" name="last_name" size="20" type="hidden"
+                           value="{!v.simpleRecord.LastName}"/>
+                    
+                    <!--Existing Member (Check yes if it is)-->
+                    <input id="00Ni000000I0IrJ" name="00Ni000000I0IrJ" type="checkbox" value="{!v.simpleRecord.MemberNumber__c.length > 0 ? '1' : '0' }" style="display: none;"
+                           checked="{!v.simpleRecord.MemberNumber__c.length > 0 ? 'checked' : '' }" />
+                    
+                    <!--DNA Person/Org Number-->
+                    <input id="00Ni000000AhGnF" maxlength="18" name="00Ni000000AhGnF" size="20" type="hidden"
+                           value="{!v.simpleRecord.PersonNumber__c}"/>
+                    
+                    <!--DNA Member Number-->
+                    <input id="00N1Y00000I54O8" maxlength="18" name="00N1Y00000I54O8" size="20" type="hidden"
+                           value="{!v.simpleRecord.MemberNumber__c}"/>
+                    
+                    <!--Company--> 
+                    <input id="company" maxlength="40" name="company" size="20" type="hidden"
+                           value="{! 'P' + v.simpleRecord.PersonNumber__c + ' ' + v.simpleRecord.Name}" />
+                    
+                    <!-- MCC Referral Record Type-->
+                    <input id="recordType" name="recordType" value="{!v.leadRecordTypeID}" type="hidden"/>
+                    
+                    <!-- End Hidden Fields -->
+                    <div class="fields">
+                        <label for="{!v.referralTypeFieldId}">Referral Type</label>
+                        <select id="{!v.referralTypeFieldId}" name="{!v.referralTypeFieldId}" title="Referral Type">
+                            <option value="Cross Sell" selected="selected">Cross Sell</option>
+                            <option value="Member Request">Member Request</option>
+                        </select>
+                        
+                        <label for="phone">Preferred Phone</label>
+                        <input  id="phone" maxlength="40" name="phone" size="20" type="text" 
+                               value="{!v.simpleRecord.Phone}"/>
+                        
+                        <label for="email">Email</label>
+                        <input  id="email" maxlength="80" name="email" size="20" type="text"
+                               value="{!v.simpleRecord.Email}" />
+                        
+                        Language:
+                        <select  id="00N1Y00000I4zg1" name="00N1Y00000I4zg1" title="Language">
+                            <option value="">--None--</option>
+                            <option value="English" selected="selected">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        
+                        Product:
+                        <select  id="00N1Y00000I4zfc" name="00N1Y00000I4zfc" title="Product">
+                            <option value="">--None--</option>
+                            <option value="Auto">Auto</option>
+                            <option value="Visa">Visa</option>
+                            <option value="HELOC">HELOC</option>
+                            <option value="Motorcycle">Motorcycle</option>
+                            <option value="Mortgage">Mortgage</option>
+                            <option value="PLOC">PLOC</option>
+                            <option value="RV">RV</option>
+                            <option value="Secured">Secured</option>
+                            <option value="Signature Loan">Signature Loan</option>
+                            <option value="Construction">Construction</option>
+                        </select>
+                        
+                        Product Amount:
+                        <input  id="00N1Y00000I50u9" name="00N1Y00000I50u9" size="20" type="text" />
+                        
+                        Loan Officer:
+                        <select  id="00N1Y00000I52ow" name="00N1Y00000I52ow" title="Loan Officer">
+                            <option value="">-None-</option>
+                            <aura:iteration items="{!v.loanOfficers}" var="officer">
+                                <option value="{!officer.Name}">{!officer.LastName}, {!officer.FirstName}</option>
+                            </aura:iteration>
+                        </select>
+                        
+                        Name of person you are speaking with (if not the primary member):
+                        <input  id="00N1Y00000I55B0" maxlength="40" name="00N1Y00000I55B0" size="20" type="text" />
+                        
+                        Comments:
+                        <textarea id="00Ni000000EZD8l" name="00Ni000000EZD8l" rows="7" type="text" wrap="soft"></textarea>
+                    </div>
+                    <div class="slds-modal__footer">
+                        <input type="submit" name="submit" />
+                    </div>      
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

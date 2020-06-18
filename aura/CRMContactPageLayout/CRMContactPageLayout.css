@@ -1,0 +1,99 @@
+/**Layout Styling**/
+.THIS .slds-grid--align-spread .slds-col,
+.THIS .slds-grid_align-spread .slds-col {
+    flex-grow: 1;
+}
+.THIS .layout-row-2 {
+    margin-top: t(spacingSmall);
+    margin-bottom: t(spacingSmall);
+}
+.THIS .layout-row-2__column-1 {
+    margin-right: t(spacingSmall);
+}
+
+.THIS .dnaAuth-layout-fix .flexipageComponent:not(:last-child):not(:empty) {
+    margin-bottom: 0;
+}
+
+.THIS .dnaAuth-layout-fix .left-col-component {
+    margin-bottom: .75rem;
+}
+/**Cards**/
+.THIS header.slds-card__header,
+.THIS .uiTabBar,
+.THIS ul.slds-tabs_default__nav {
+    border-radius: .25rem .25rem 0 0;
+}
+
+/**Tab Component**/
+.THIS .slds-tabs_card {
+    padding: 0;
+}
+
+.THIS .flexipageTabset>.uiTab.tabs__content,
+.THIS [flexipage-tab2_tab2-host] {
+    padding: 1rem;
+}
+
+.THIS .uiTabBar,
+.THIS ul.slds-tabs_default__nav {
+    padding: 0 1rem;
+    background-color: t(iccuHeaderBackground);
+}
+
+.THIS .uiTabBar li,
+.THIS ul.slds-tabs_default__nav li {
+    padding-top: 1rem;
+}
+
+.THIS .uiTabBar a,
+.THIS ul.slds-tabs_default__nav a {
+    color: t(iccuLightText);
+}
+
+.THIS .slds-tabs_default .slds-tabs_default__item>a:focus {
+    color: t(iccuLightText);
+}
+
+.THIS .uiTabset--default .tabs__item>a,
+.THIS .slds-tabs_default .slds-tabs_default__item>a {
+    color: t(iccuLightText);
+    text-transform: capitalize;
+}
+
+.THIS .slds-tabs_default__item:hover:after,
+.THIS .slds-tabs--default__item:hover:after,
+.THIS .slds-tabs_default__item.slds-is-active:after
+{
+    background-color: t(brightAccentGreen);
+}
+
+.THIS .slds-tabs_default .slds-tabs_default__item>a:focus,
+.THIS .slds-tabs_default .slds-tabs_default__item>a[aria-selected=true]
+{
+    font-weight: t(fontWeightBold);
+}
+
+/* Activity SLDS Component */
+.THIS .uiTabset--task .tabs__nav {
+    background-color: t(iccuPrimaryGreen);
+    border: none;
+}
+.THIS .uiTabset--task .tabs__item.active>a {
+    background-color: t(iccuLightText);
+}
+.THIS .uiTabset--task .tabs__item.active>a:hover {
+    text-decoration: underline;
+}
+.THIS .uiTabset--default .uiTabset--task .tabs__item {
+    padding: 0;
+}
+.THIS .uiTabset--default .uiTabset--task .tabs__item>a[aria-selected=true] {
+    border: none;
+}
+
+/*Related List Sections*/
+.THIS .slds-file-selector__dropzone {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

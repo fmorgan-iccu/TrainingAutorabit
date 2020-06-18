@@ -1,0 +1,10 @@
+<aura:component>
+    <aura:attribute name="contactId" type="String" required="true" access="public"/>
+    <aura:attribute name="forms" type="String" required="true" access="public"/>
+
+    <aura:method name="refresh" access="public" />
+
+    <lightning:workspaceAPI aura:id="workspace"/>
+
+    <c:crmExternalForms aura:id="externalForms" forms="{!v.forms}" contact-id="{!v.contactId}" onshowsubtab="{!c.onShowSubTab}"></c:crmExternalForms>
+</aura:component>

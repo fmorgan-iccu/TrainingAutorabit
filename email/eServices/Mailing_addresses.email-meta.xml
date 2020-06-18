@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Mailing addresses</name>
+    <style>none</style>
+    <subject>Mailing addresses</subject>
+    <textOnly>Idaho Central Credit Union’s mailing address is: Idaho Central Credit Union, PO Box 2469, Pocatello, ID 83206.  Idaho Central Credit Union’s physical address is: Idaho Central Credit Union, 4400 Central Way, Chubbuck, ID 83202.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,183 @@
+/* Top Level Styling */
+:host {
+    font-size: 16px;
+    width: 60%;
+}
+
+.flex {
+    display: flex;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 1.25em;
+    margin-bottom: .3em;
+}
+flex {
+    display: flex;
+}
+iframe {
+    border: none;
+}
+
+article {
+    margin-bottom: 2em;
+}
+
+.main-container {
+    background: #fff;
+    border-radius: 4px;
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+    max-width: 1200px;
+}
+
+/* Main Content Styling */
+.content {
+    padding: 3em;
+}
+
+.success-message {
+    text-align: center;
+    padding: 3em 1em;
+}
+
+/* Card Styling */
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+}
+.account, .contact {
+    padding: 1em;
+    border: 1px solid #BDBDBD;
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 2em;
+}
+.contact {
+    width: 50%;
+    margin: 1em .5em 2em .5em;
+    display: flex;
+}
+.contact.selected {
+    background: #F0F0F0;
+}
+.contact:nth-child(1) {
+    margin: 1em .5em 2em 0;
+}
+.contact:last-child {
+    margin: 1em 0 2em .5em;
+}
+.slds-icon-custom-custom31,
+.slds-icon-standard-contact {
+    margin-right: 0.5em;
+}
+.slds-icon-custom-custom31 {
+    background-color: #8E10A7;
+}
+.slds-icon-utility-close:hover {
+    cursor: pointer;
+}
+
+.account-info {
+    display: flex;
+}
+
+.label {
+    font-size: 0.75em;
+}
+
+.title, .account-number {
+    flex: 1;
+}
+/* Account Searching */
+.search-info {
+    padding: .5em 2rem;
+    background: #F0F0F0;
+}
+.search-item {
+    display: flex;
+    padding: .5em 2rem;
+}
+.search-item:hover,
+.contact:hover {
+    cursor: pointer;
+    background: #F0F0F0;
+}
+.account-nickname {
+    font-weight: bold;
+}
+.search-dropdown {
+    border:1px solid rgb(221, 219, 218);
+    padding-top: .2rem;
+}
+.search {
+    margin: 0;
+}
+.account-search {
+    margin-bottom: 2em;
+}
+/* Form Styling */
+.form {
+    display: flex;
+}
+.form-row {
+    display: flex;
+    margin: 0 .5em 0 .5em;
+}
+lightning-input {
+    flex-grow: 1;
+}
+
+.payoff-amount {
+    margin: 0 .5em 0 0;
+    width: 50%;
+}
+.per-diem {
+    margin: 0 0 0 .5em;
+    width: 50%;
+}
+
+/* Reminder Box */
+.reminder-box {
+    background: #D9E4EE;
+    border-left: 10px solid #2485E5;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+}
+.reminder-box h4 {
+    padding-bottom: .5em;
+}
+.reminder-box ul {
+    list-style: disc;
+    padding-left: 1.5em;
+}
+/* Error Box */
+.error-box {
+    background: #FAE3E6;
+    border-left: 10px solid #D0021B;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+}
+/*Buttons*/
+.action-buttons {
+    justify-content: flex-end;
+    margin-top: 2em;
+}
+
+lightning-button {
+    margin-left: 1em;
+}

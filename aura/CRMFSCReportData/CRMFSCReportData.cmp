@@ -1,0 +1,106 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="data" type="Object"/>
+
+    <div class="container-title">
+    <aura:if isTrue="{!v.data.title.length &gt; 0}">
+        <h2 id="{!v.data.title}" class="data-title">{!v.data.title}</h2>
+    </aura:if>
+    </div>
+
+    <aura:iteration items="{!v.data.data}" var="dataList">
+        
+        <div class="container-data">
+            <aura:iteration items="{!dataList}" var="dataElement">
+                <div class="{! !dataElement.title ? 'noTitle column-' + dataElement.width : 'column-' + dataElement.width }">
+                    <div class="{!dataElement.title.length &lt; 4 ? 'short-data-label' : ''}">
+                        <aura:if isTrue="{!dataElement.title.length &gt; 0}">   
+                            <p class="data-label">{!dataElement.title}</p>
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!dataElement.data &amp;&amp; dataElement.data.length &gt; 0}">
+                            <p class="data-element">{!dataElement.data}</p>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:iteration>
+        </div>        
+    </aura:iteration>
+   
+    <!--
+		Well, isn't this a fun oddity.  This is a table structure that is broken up into two separate tables.
+		Because these tables can get perdy wide, we broke them up into two.  One table has a single column, the
+		second has all the rest.  This allows the second to horizontally scroll, if needed, but still keep the context
+		of what's in the primary column, which is usually the most important piece of identifying information.
+
+		Enjoy.
+	-->
+    <div class="container-table">
+        <aura:if isTrue="{!v.data.data.headers.length &gt; 0}">
+			<!-- First Table -->
+            <div class="sticky-column">                
+                <table class="table-institution">
+                    <thead>
+                        <tr class="">
+                            <aura:iteration items="{!v.data.data.headers}" var="header" indexVar="index">
+                                <aura:if isTrue="{!index == 0}">
+                                    <th class="">
+                                        {!header}
+                                    </th>
+                                </aura:if>
+                            </aura:iteration>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.data.data.data}" var="row">
+                            <tr class="">
+                                <aura:iteration items="{!row}" var="element" indexVar="index">
+                                    <aura:if isTrue="{!index == 0}">
+                                        <td data-label="test">
+                                            <div class="" title="test">
+                                                {!element}
+                                            </div>
+                                        </td>
+                                    </aura:if>
+                                </aura:iteration>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="container-secondaryTable">
+                <table>
+                    <thead>
+                        <tr class="">
+                            <aura:iteration items="{!v.data.data.headers}" var="header" indexVar="index">
+                                <aura:if isTrue="{!index &gt; 0}">
+                                    <th class="">
+                                        {!header}
+                                    </th>
+                                </aura:if>
+                            </aura:iteration>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.data.data.data}" var="row">
+                            <tr class="">
+                                <aura:iteration items="{!row}" var="element" indexVar="index">
+                                    <aura:if isTrue="{!index &gt; 0}">
+                                        <td data-label="test">
+                                            <div class="" title="test">
+                                                {!element}
+                                            </div>
+                                        </td>
+                                    </aura:if>
+                                </aura:iteration>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+            
+        </aura:if>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>All Financial Services Officers</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Financial Services Officer</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Assistant_Branch_Manager</parentRole>
+</Role>

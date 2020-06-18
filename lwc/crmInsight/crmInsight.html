@@ -1,0 +1,30 @@
+<template>
+    <div class="container">
+        <div class={rowOneClasses}>
+            <div class="icon-column">
+                <c-crm-icon fa-icon-class={insight.icon} color="white" background-color={insight.color}></c-crm-icon>
+            </div>
+            <div class="text-column">
+                <div class="text-row-1">
+                    <h5 class="title">{insight.title}</h5>
+                    <p class="info" if:true={hasExtendedDetails}>
+                        <a onclick={handleEditInsight}>Edit</a>
+                        <a onclick={handleExpandDetail} if:false={isExpanded}>Show Detail</a>
+                        <a onclick={handleCollapseDetail} if:true={isExpanded}>Hide Detail</a>
+                    </p>
+                    <template if:false={hasExtendedDetails}>
+                        <p class="info">{insight.info}</p>
+                        <a class="editInsight" onclick={handleEditInsight} if:true={isEditable}>Edit</a>
+                    </template>
+                </div>
+                <div class="text-row-2">
+                    <p>{insight.details}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class={rowTwoClasses}>
+            <p>{insight.extendedDetail}</p>
+        </div>
+    </div>
+</template>

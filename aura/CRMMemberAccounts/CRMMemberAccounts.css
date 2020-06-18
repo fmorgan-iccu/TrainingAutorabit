@@ -1,0 +1,56 @@
+.THIS {
+    color: #1a1a1a;
+    padding: 2em;
+}
+
+.THIS .CRMOverviewSectionItem {
+    width: 100%;
+}
+
+.THIS h3 {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.THIS .fullWidth {
+    width: 100%;
+}
+
+.THIS h1 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.THIS #AccountGroupName {
+    font-size: 1.25em;
+}
+
+.THIS #AccountGroupName:not(:first-child) {
+    margin-top: 2em;
+}
+
+.THIS #AccountGroup {
+	margin-left: 0.5em;
+}
+
+.THIS .cCRMMemberAccounts {
+    border: 1px solid #dddddd;
+    border-radius: .25rem;
+    padding: 0 .75rem;
+}
+
+.THIS .slds-button.slds-button--neutral {
+    display: none;
+}
+
+.THIS .cCRMOverviewSection.cCRMMemberAccountData>div:nth-child(2) {
+    text-align: left;
+}
+
+.THIS .slds-grid.slds-wrap.cCRMMemberAccountData {
+    border-bottom: 1px solid #dddddd;
+}
+.THIS.cCRMOverviewSection>.slds-card__body {
+    display: block;
+}

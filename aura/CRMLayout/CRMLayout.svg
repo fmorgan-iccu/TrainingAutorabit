@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+    <defs>
+        <style>.cls-1{fill:#b7b7b7;}.cls-2{fill:#1c8900;}</style>
+    </defs>
+    <title>helix-layout</title>
+    <path class="cls-1" d="M540.19,43.89h-480a48,48,0,0,0-48,48v320a48,48,0,0,0,48,48h192l-16,48h-72a24,24,0,1,0,0,48h272a24,24,0,0,0,0-48h-72l-16-48h192a48,48,0,0,0,48-48v-320A48,48,0,0,0,540.19,43.89Zm-16,352h-448v-288h448Z" transform="translate(-12.19 -43.89)"/>
+    <rect class="cls-2" x="67.81" y="67.11" width="441" height="72"/>
+    <rect class="cls-2" x="67.81" y="143.11" width="153" height="204"/>
+    <rect class="cls-2" x="225.81" y="143.11" width="283" height="204"/>
+</svg>

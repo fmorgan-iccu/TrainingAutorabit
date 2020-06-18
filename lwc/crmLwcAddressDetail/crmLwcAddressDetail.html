@@ -1,0 +1,64 @@
+<template>
+    <div class="field">
+        <template if:true={isEdit}>
+            <!-- Depending on the hideLine2, change the format of this section. -->
+                <div if:false={hideLine2} class="form-row">
+                    <lightning-input class="line1" label="Address Line 1" name="line1"  value={line1} maxlength="40" onchange={handleLine1Change} disabled={disabled} required></lightning-input>
+                    <lightning-input class="line2" label="Address Line 2" name="line2"  value={line2} maxlength="40" onchange={handleLine2Change} disabled={disabled}></lightning-input>
+                </div>
+                <div if:true={hideLine2} class="form-row">
+                    <lightning-input class="line1" label="Street or P.O. Box" name="line1"  value={line1} maxlength="40" onchange={handleLine1Change} disabled={disabled} required></lightning-input>
+                </div>
+
+                <!-- Depending on the hideCountry, change the format of this section. -->
+                <div if:false={hideCountry}>
+                <div class="form-row">
+                    <lightning-input class="zipcodeInput" label="Zipcode" name="postalCode"  value={postalCode} onchange={handlePostalCodeChange} onblur={handlePostalCodeBlur} disabled={disabled} required></lightning-input>
+                    <lightning-input class="cityInput" label="City" name="city"  value={city} maxlength="30" disabled={disabled} onchange={handleCityChange}  required></lightning-input>
+                </div>
+                <div class="form-row">
+                    <span if:true={unitedStates}>
+                        <lightning-combobox required
+                            disabled={disabled}
+                            class="stateComboBox"
+                            name="stateSelect"
+                            label="State"
+                            value={state}
+                            options={stateOptions}
+                            onchange={handleStateChange} >
+                        </lightning-combobox>
+                    </span>
+                    <span if:false={unitedStates}>
+                        <lightning-input name="region" label="Region" value={state} required onchange={handleStateChange} disabled={disabled}></lightning-input>
+                    </span>
+                    <span>
+                        <lightning-combobox required
+                            disabled={disabled}
+                            class=countryComboBox
+                            name="country"
+                            label="Country"
+                            value={countryCode}
+                            options={countryOptions}
+                            onchange={handleCountryChange} >
+                        </lightning-combobox>
+                    </span>
+                </div>
+            </div>
+            <div if:true={hideCountry}>
+                <div class="form-row">
+                    <lightning-input class="zipcode zipcodeInput" label="Zipcode" name="postalCode"  value={postalCode} onchange={handlePostalCodeChange} onblur={handlePostalCodeBlur} disabled={disabled} required></lightning-input>
+                    <lightning-input class="city cityInput" label="City" name="city"  value={city} maxlength="30" disabled={disabled} onchange={handleCityChange} required></lightning-input>
+                        <lightning-combobox required
+                            disabled={disabled}
+                            class="stateComboBox state"
+                            name="stateSelect"
+                            label="State"
+                            value={state}
+                            options={stateOptions}
+                            onchange={handleStateChange} >
+                        </lightning-combobox>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

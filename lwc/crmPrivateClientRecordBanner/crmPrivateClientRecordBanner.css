@@ -1,0 +1,10 @@
+.container {
+    background: #800080;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    font-size: 1rem;
+    width: 300%;
+    margin-left: -100%;
+    margin-top: -12px;
+}

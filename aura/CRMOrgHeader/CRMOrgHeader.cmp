@@ -1,0 +1,256 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="AccountController">
+    <!-- call this on page load -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <!-- register event to fire on contact refresh   -->
+    <aura:registerEvent name="notifyAccountRefresh" type="c:AccountRefresh"/>
+
+    <!-- register event to fire on when auth is required for system of record   -->
+    <aura:registerEvent name="notifyRequireSystemOfRecordLogin" type="c:RequireSystemOfRecordLogin"/>
+
+    <!-- listen for system of record login -->
+    <aura:handler event="c:DNACoreLogin" action="{!c.handleSystemOfRecordLogin}"/>
+
+    <!-- get the recordId -->
+    <aura:attribute name="recordId" type="String" />
+
+    <!-- Attributes for fields that will be updated in sub-components. -->
+    <!-- <aura:attribute name="email" type="String" default="" /> -->
+    <aura:attribute name="mailingAddressDisabled" type="Boolean" default="false" access="private" />
+    <aura:attribute name="mailingStreet1" type="String" default="" />
+    <aura:attribute name="mailingStreet2" type="String" default="" />
+    <aura:attribute name="mailingCity" type="String" default="" />
+    <aura:attribute name="mailingState" type="String" default="" />
+    <aura:attribute name="mailingPostalCode" type="String" default="" />
+    <aura:attribute name="mailingCountry" type="String" default="" />
+    <aura:attribute name="phone" type="String" default="" />
+
+    <!-- Additional attributes for tracking state and errors. -->
+    <aura:attribute name="isValidAddress" type="Boolean" default="true" />
+    <aura:attribute name="isValidPhone" type="Boolean" default="true" />
+    <aura:attribute name="editing" type="Boolean" default="false" />
+    <aura:attribute name="errorMessageEdit" type="String" default="" />
+    <aura:attribute name="isAddressChanged" type="Boolean" default="false" />
+    <aura:attribute name="isSaving" type="Boolean" default="false" />
+    <aura:attribute name="isAuthenticated" type="Boolean" default="false" />
+
+    <!-- var for our contact -->
+    <aura:attribute name="headerAccount" type="Account"/>
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="loanTotalOwner" type="String"/>
+    <aura:attribute name="depositTotalOwner" type="String"/>
+    <aura:attribute name="yearsOfMembership" type="Integer"/>
+    <aura:attribute name="businessEstablishmentDate" type="Date"/>
+    <aura:attribute name="canViewFullTaxId" type="Boolean" default="false"/>
+    <aura:attribute name="viewingTaxId" type="Boolean" default="false" />
+    <aura:attribute name="redactedTaxId" type="String" default="" access="private" />
+
+    <!-- For alert-like notifications -->
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+        <c:CRMAlert alertState="error">
+            <aura:set attribute="alertMessage">
+                <p>
+                    {!v.errorMessage}
+                </p>
+            </aura:set>
+        </c:CRMAlert>
+    </aura:if>
+
+    <div class="slds-card">
+        <!-- BEGIN CARD HEADER -->
+        <div class="slds-card__header slds-grid" style="{! 'background-image:linear-gradient(rgba(58,73,110,0.8), rgba(58,73,110,0.8)),url(' + $Resource.OrgHeaderBackground + ');'}">
+            <div class="MemberHeaderContainer">
+                <div class="MemberNameContainer">
+                    <div class="OrgName">
+  						<lightning:icon size="large" iconName="utility:company" variant="inverse"/>
+                    	<h1 class="MemberNameHeader">{!v.headerAccount.Name}</h1>
+                    </div>
+                </div><!-- END OF MemberNameContainer -->
+
+                <div class="MemberActions">
+                    <a href="{! 'mailto:' + v.headerAccount.Email__c}">
+                        <lightning:icon size="medium" iconName="utility:email" variant="inverse"/>
+                    </a>
+                </div> <!-- END OF MemberActions -->
+            </div> <!-- END OF MemberHeaderContainer -->
+        </div>
+
+        <!-- BEGIN CARD BODY -->
+        <div class="slds-card__body slds-card__body_inner">
+            <lightning:layout horizontalAlign="spread" class="member-info">
+                    <lightning:layoutItem class="{! 'editing-' + v.editing + ' authenticated-' + v.isAuthenticated}">
+                        <h3 id="MemberInformation">Member Information</h3>
+                        <lightning:icon src="{!$Resource.editIcon + '#edit'}" size="small" alternateText="Edit Icon" onclick="{!c.editInfo}"/>
+                        <lightning:button class="memberEditBrandLink" label="Edit" onclick="{!c.editInfo}"
+                            disabled="{!v.editing||v.isAuthenticated==false}" />
+                    </lightning:layoutItem>
+                </lightning:layout>
+
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <lightning:layoutItem flexibility="grow" class="informationColumn" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Address</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.headerAccount.BillingStreet}</p>
+                            <p>{!v.headerAccount.BillingCity},&nbsp; {!v.headerAccount.BillingState}	&nbsp; {!v.headerAccount.BillingPostalCode}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Tax ID</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <aura:if isTrue="{!v.canViewFullTaxId}">
+                                <aura:if isTrue="{!v.viewingTaxId}">
+                                    <div onclick="{!c.hideTaxId}" class="taxId">
+                                        <p>{!v.headerAccount.OrganizationTaxID__c}</p>
+                                        <lightning:icon iconName="utility:preview" variant="success" size="x-small" alternativeText="Showing" />
+                                    </div>
+                                    <aura:set attribute="else">
+                                        <div onclick="{!c.showTaxId}" class="taxId">
+                                            <p>{!v.redactedTaxId}</p>
+                                            <lightning:icon iconName="utility:hide" variant="success" size="x-small" alternativeText="Hiding" />
+                                        </div>
+                                    </aura:set>
+                                </aura:if>
+                                <aura:set attribute="else">
+                                    <p>{!v.redactedTaxId}</p>
+                                </aura:set>
+                            </aura:if>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Business Established</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.businessEstablishmentDate}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+
+                </lightning:layoutItem>
+            <lightning:layoutItem flexibility="grow" class="informationColumn" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Loan Total Owner</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.loanTotalOwner}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Business Member Number</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.headerAccount.OrganizationNumber__c}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Membership Tenure</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem>
+                            <aura:if isTrue="{!v.yearsOfMembership != '0'}">
+                                <span>
+                                    <lightning:icon iconName="standard:reward" variant="inverse" size="small"
+                                        alternativeText="Reward Ribbon" />
+                                    {!v.yearsOfMembership} Years
+                                </span>
+                            </aura:if>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            <lightning:layoutItem flexibility="grow" class="informationColumn" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Deposit Total Owner</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <p>{!v.depositTotalOwner}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Main Phone</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <lightning:formattedPhone value="{!v.headerAccount.Phone}"/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="spread" class="member-info">
+                        <lightning:layoutItem class="bold">
+                            <p>Email</p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem >
+                            <lightning:formattedEmail value="{!v.headerAccount.Email__c}" />
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div><!-- END CARD BODY -->
+
+        <div class="editSectionContainer slds-is-relative">
+            <!-- Section for showing the editing form. -->
+            <aura:if isTrue="{!v.editing}">
+                <div class="editSection">
+                    <hr>
+                    </hr>
+                </div>
+                <lightning:layout horizontalAlign="spread" class="member-info">
+                    <lightning:layoutItem>
+                        <h3 class="editDetails">Edit Details Below</h3>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem>
+                        <aura:if isTrue="{!v.isSaving}">
+                            <lightning:spinner variant="brand" size="medium" class="CRMSpinner" />
+                        </aura:if>
+                    </lightning:layoutItem>
+                </lightning:layout>
+                <div class="editSection">
+                    <aura:if isTrue="{!v.errorMessageEdit.length &gt; 0}">
+                        <c:CRMAlert alertState="error">
+                            <aura:set attribute="alertMessage">
+                                <p>{!v.errorMessageEdit}</p>
+                            </aura:set>
+                        </c:CRMAlert>
+                    </aura:if>
+                </div>
+                <lightning:layout horizontalAlign="spread" multipleRows="true" class="member-info editSection member-edit-info">
+                    <lightning:layoutItem size="6">
+                        <aura:if isTrue="{!v.mailingAddressDisabled}">
+                            <div class="addressDisabled">
+                                <p>Any change to contact information used for tax documents needs to be made in DNA.</p>
+                            </div>
+                        </aura:if>
+                        <c:CRMAddressDetail line1="{!v.mailingStreet1}" line2="{!v.mailingStreet2}"
+                            city="{!v.mailingCity}" state="{!v.mailingState}" postalCode="{!v.mailingPostalCode}"
+                            country="{!v.mailingCountry}" editing="{!v.editing}" isValid="{!v.isValidAddress}"
+                            isAddressChanged="{!v.isAddressChanged}" disabled="{!v.mailingAddressDisabled}" />
+                        <lightning:input aura:id="verifiedIdentity" type="checkbox" name="verification"
+                            label="Member properly verified according to procedure?" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="6">
+                        <c:CRMPhoneDetail phone="{!v.phone}" editing="{!v.editing}" hideMobile="{!v.editing}" businessPhone="true"
+                            isValid="{!v.isValidPhone}" />
+                    </lightning:layoutItem>
+                </lightning:layout>
+                <lightning:layout horizontalAlign="spread" multipleRows="true" class="member-info edit-actions">
+                    <lightning:layoutItem alignmentBump="right">
+                        &nbsp;
+                    </lightning:layoutItem>
+                    <lightning:layoutItem>
+                        <lightning:button label="Cancel" onclick="{!c.cancelEdit}" />
+                        <lightning:button variant="brand" class="memberEditBrand" aura:id="save" label="Save"
+                            onclick="{!c.saveChanges}" />
+                    </lightning:layoutItem>
+
+                </lightning:layout>
+            </aura:if>
+        </div> <!--END .editSectionContainer-->
+    </div>
+</aura:component>

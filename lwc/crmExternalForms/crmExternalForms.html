@@ -1,0 +1,32 @@
+<template>
+
+    <div if:false={isLoaded}>
+        <c-crm-lwc-loading-spinner message="Please wait while we retrieve the available forms."></c-crm-lwc-loading-spinner>
+    </div>
+
+    <template if:true={showError}>
+        <c-crm-form-error>
+            <p>{error}</p>
+        </c-crm-form-error>
+    </template>
+
+    <div if:true={showNoFormsAvaialble} class="not-found">
+        No forms were found.
+    </div>
+
+    <template for:each={formDefinitions} for:item='formDef'>
+        <div key={formDef.id} class="form-card-container">
+            <div class="form-card" data-form-id={formDef.id} onclick={openForm}>
+                <i class={formDef.classes}></i>
+                <h2>{formDef.name}</h2>
+            </div>
+        </div>
+    </template>
+
+    <div if:true={showComingSoon} class="form-card-container">
+        <div class="coming-soon">
+            <i class="coming-soon-icon fas fa-file"></i>
+            <h2>Coming Soon</h2>
+        </div>
+    </div>
+</template>

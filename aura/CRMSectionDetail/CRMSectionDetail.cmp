@@ -1,0 +1,23 @@
+<aura:component >
+    <!--
+	This component holds the sections for CRMMCCMemberDetails
+	-->
+    <aura:attribute name="sectionTitle" type="String"/>
+    <aura:attribute name="fields" type="Object"/>
+    
+    <!-- attributes to show and hide information -->
+    <aura:attribute name="ViewSection" type="Boolean" default="True" />
+    <aura:attribute name="SectionClosed" type="Boolean" default="False" />
+    
+    <section>
+        <header onclick="{!c.accordian}">
+            <lightning:icon iconName="utility:chevrondown" size="small"
+                            class="{! 'open-' + v.ViewSection + ' close-' + v.SectionClosed }"/>
+            <p>{!v.sectionTitle}</p>
+        </header>
+        <div class="{! 'fieldgroup open-' + v.ViewSection + ' close-' + v.SectionClosed }">
+            {!v.fields}
+        </div> <!-- .fieldgroup -->
+    </section>
+	
+</aura:component>

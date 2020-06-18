@@ -1,0 +1,23 @@
+<apex:page standardController="Contact">
+<!-- Begin Transact App -->
+  <div id="transact-container"></div>
+  <apex:canvasApp applicationName="Avoka_Transact_Connector"
+        containerId="transact-container"
+        width="100%"
+        border="0"
+        scrolling="no"
+        height="350px"
+        maxHeight="infinite"
+        parameters="{
+            SObjectId:'{!HTMLENCODE(Contact.Id)}',
+            SObjectType:'Contact',
+            ContactFirstName:'{!HTMLENCODE(Contact.FirstName)}',
+            ContactLastName:'{!HTMLENCODE(Contact.LastName)}',
+            ContactEmail:'{!HTMLENCODE(Contact.Email)}',
+            EnableUserView:'false',
+            EnableObjectView:'true',
+            EnableNewForm:'true',
+            EnableGlobalSearch:'true'
+        }" />
+  <!-- End Transact App -->
+</apex:page>

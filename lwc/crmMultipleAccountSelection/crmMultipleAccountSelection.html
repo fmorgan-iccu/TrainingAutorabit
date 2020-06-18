@@ -1,0 +1,57 @@
+<template>
+
+    <template if:false={showSelectedAccounts}>
+        <template if:true={showAccountList}>
+            <div>
+                <h2>Select Account(s)</h2>
+                <p class="space-below">Select all the accounts the member would like to skip a payment for:</p>
+            </div>
+            <p class="selected-account-count"><span>{selectedAccountCount}</span> Account(s) Selected</p>
+            <template for:each={displayAccounts} for:item="account">
+                <div key={account.accountNumber} data-account-number={account.accountNumber} class={account.accountContainerClasses} onclick={handleAccountClick}>
+                    <div class="account-details">
+                        <div class='icon-container auto'>
+                            <lightning-icon icon-name={account.icon} alternative-text="Auto" variant="inverse" size="small"></lightning-icon>
+                        </div>
+                        <h5 style = "text-transform:capitalize;">{account.accountType}</h5>
+                        <p>{account.displayName} - {account.accountNumber}</p>
+                    </div>
+                    <div class="eligibility">
+                        <p>{account.eligible}</p>
+                    </div>
+                </div>
+            </template>
+        </template>
+        <template if:false={showAccountList}>
+            <p>No available accounts.</p>
+        </template>
+    </template>
+
+    <template if:true={showSelectedAccounts}>
+        <h2 class="space-below">Selected Account(s)</h2> <!--Todo say "Selected Accounts" if more than one account was selected and "Selected Account" if only one account was selected-->
+            <p class="selected-account-count"><span>{selectedAccountCount}</span> Account(s) Selected</p>
+            <template for:each={selectedAccounts} for:item="account">
+                <div key={account.accountNumber} data-account-number={account.accountNumber} class={account.accountIneligibleClasses} onclick={handleAccountClick}>
+                    <div class="account-details">
+                        <div class='icon-container auto'>
+                            <lightning-icon icon-name={account.icon} alternative-text="Auto" variant="inverse" size="small"></lightning-icon>
+                        </div>
+                        <h5 style = "text-transform:capitalize;">{account.accountType}</h5>
+                        <p>{account.displayName} - {account.accountNumber}</p>
+                    </div>
+                    <div class="eligibility">
+                        <div if:false={account.selectedAccountEligible}>
+                            <p>{account.eligible}</p>
+                            <lightning-button-icon icon-name="utility:close"  variant="container" alternative-text="Settings" title="Remove"></lightning-button-icon>
+                        </div>
+                        <div if:true={account.selectedAccountEligible}>
+                            <p>Payment due {account.nextPaymentDateDayForDisplay}</p>
+                            <lightning-button-icon icon-name="utility:close"  variant="container" alternative-text="Settings" title="Remove"></lightning-button-icon>
+                        </div>
+                    </div>
+                </div>
+        </template>
+        <a class="back-to-selection" onclick={selectAccounts}>Back to account selection</a>
+    </template>
+
+</template>

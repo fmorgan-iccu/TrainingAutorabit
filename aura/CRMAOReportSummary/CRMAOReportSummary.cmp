@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	<aura:attribute name="report" type="Object" description="Report to display to the user."/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <div class="title-container">
+        <h1 class="report-title">{!v.report.title}</h1>  
+        <lightning:button variant="brand" label="View Report Details" title="View Report Details" onclick="{! c.showDetails }" />
+    </div>
+    <div class="summary">
+        <aura:iteration items="{!v.report.summary}" var="summarySection">
+            <c:CRMFSCReportData data="{!summarySection}" />
+        </aura:iteration>
+    </div>
+</aura:component>

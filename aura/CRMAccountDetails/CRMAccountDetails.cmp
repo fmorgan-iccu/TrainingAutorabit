@@ -1,0 +1,257 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:isUrlAddressable" access="global" controller="MemberAccountsController">
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- Attributes that must be provided or passed via the page reference. -->
+    <aura:attribute name="accountNumber" type="String" access="public" />
+    <aura:attribute name="recordId" type="String" access="public" />
+
+    <!-- State attributes -->
+    <aura:attribute name="actions" type="Aura.Component[]"/>
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="isBusiness" type="Boolean" default="false" /> <!--for now, this helps us know if they are eligible for forms-->
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="selectedTransactionNumber" type="String" default="" />
+    <aura:attribute name="selectedTransaction" type="Map" default="{}" />
+    <aura:attribute name="selectedTransactionBalanceSign" type="String" default="" />
+    <aura:attribute name="viewDetail" type="String" default="" />
+
+    <!-- Data attributes loaded via the Apex controller -->
+    <aura:attribute name="account" type="Map" default="{}" access="private" />
+    <aura:attribute name="contactName" type="String" access="private" />
+    <aura:attribute name="transactions" type="Array" access="private" />
+    <aura:attribute name="interestRate" type="String" access="private" />
+    <aura:attribute name="availableBalance" type="String" access="private" />
+    <aura:attribute name="currentBalance" type="String" access="private" />
+    <aura:attribute name="nextPaymentAmount" type="String" access="private" />
+    <aura:attribute name="nextPaymentDate" type="String" access="private" />
+    <aura:attribute name="formActions" type="String" default="" access="private" />
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <ltng:require scripts="{!$Resource.NumeralJS}" afterScriptsLoaded="{!c.formatAmounts}" />
+    <ltng:require scripts="{!$Resource.MomentJS}" afterScriptsLoaded="{!c.formatDates}" />
+
+    <!--TODO: Allow to take up more space-->
+    <div class="content">
+        <div class="{!v.account.isOverdrawn || v.account.isOverdue ? 'AccountHeaderOverdrawn' : 'AccountHeader'}">
+            <div class="AccountHeaderContainer">
+                <h2 class="slds-text-heading_medium slds-hyphenate">
+                    <aura:if isTrue="{!v.contactName.length > 0}">
+                        {!v.contactName}'s
+                    </aura:if>
+                    Account Details
+                </h2>
+                <lightning:layout horizontalAlign="spread">
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="6" >
+                        <!-- Added If statement to render Nickname of account, else show default name with an h2 tag -->
+                        <aura:if isTrue="{!v.account.nickName}">
+                            <h2>{!v.account.nickName}</h2>
+                            <h5>{!v.account.name}</h5>
+                            <aura:set attribute="else">
+                                <h2>{!v.account.name}</h2>
+                            </aura:set>
+                        </aura:if>
+                    </lightning:layoutItem>
+
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="3" largeDeviceSize="3" >
+                        <div class="BalanceHeader" id="CurrentBalanceHeader">
+                            <h5>Current Balance</h5>
+                            <p class="BalanceSize">{!v.currentBalance}</p>
+                        </div>
+                    </lightning:layoutItem>
+
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="3" largeDeviceSize="3" >
+                        <div class="BalanceHeader">
+                            <h5>Available Balance</h5>
+                            <p class="BalanceSize">{!v.availableBalance}</p>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </div>
+
+        <!-- START OF TABULAR NAVIGATION -->
+        <lightning:tabset >
+            <!-- START OF ACCOUNT DETAILS TAB -->
+            <lightning:tab label="Account Details">
+                <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+                    <c:CRMAlert alertState="error">
+                        <aura:set attribute="alertMessage">
+                            <p>
+                                {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.fetchAccountInfo}" />
+                            </p>
+                        </aura:set>
+                    </c:CRMAlert>
+                </aura:if>
+
+                <div class="AccountDetailsContainer">
+                    <h2>Account Details</h2>
+                    <p>Below you will find the details associated with this account.</p>
+
+                    <!-- FIRST ROW OF 3 COLUMN INFO -->
+                    <lightning:layout horizontalAlign="spread" multipleRows="true">
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                            <h5>Account Number</h5>
+                            <p>{!v.account.accountNumber}</p>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                            <h5>Account Nickname</h5>
+                            <p>{!v.account.nickName}</p>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                            <h5>Available Balance</h5>
+                            <p>{!v.availableBalance}</p>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+
+                    <!-- SECOND ROW OF 3 COLUMN INFO -->
+                    <lightning:layout horizontalAlign="spread" multipleRows="true">
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                            <h5>Interest Rate</h5>
+                            <p>{!v.interestRate}</p>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                            <h5>Branch Name</h5>
+                            <p>{!v.account.branchName}</p>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                            <aura:if isTrue="{!v.nextPaymentDate.length > 0}">
+                                <h5>Next Payment Date</h5>
+                                <p>{!v.nextPaymentDate}</p>
+                            </aura:if>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+
+                    <!-- THIRD ROW OF 3 COLUMN INFO -->
+                    <lightning:layout horizontalAlign="spread" multipleRows="true">
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                            <aura:if isTrue="{!v.nextPaymentAmount.length > 0}">
+                                <h5>Next Payment Amount</h5>
+                                <p>{!v.nextPaymentAmount}</p>
+                            </aura:if>
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                        </lightning:layoutItem>
+
+                        <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4" class="AccountDetailInfo">
+                        </lightning:layoutItem>
+                    </lightning:layout>
+
+                    <!-- START OF ACCOUNT ACTIONS -->
+                    <aura:if isTrue="{! !v.isBusiness }">
+                        <hr/>
+                        <div>
+                            <h2>Account Actions</h2>
+                            <p>Below are forms that you can complete related to this account. </p>
+                            <!--FORMS-->
+                            <!-- <c:CRMContactForms state="{v.recordId}"/> -->
+                            <c:CRMExternalFormsWrapper aura:id="externalForms" contactId="{!v.recordId}" forms="{!v.formActions}"></c:CRMExternalFormsWrapper>
+                        </div>
+                    </aura:if>
+
+                    <hr/>
+
+                    <!-- START OF ACCOUNT ROLES INFORMATION -->
+                    <div>
+                        <h2>Account Roles</h2>
+                        <p>Below you will find the roles associated with this account, organized by the person(s). </p>
+                        <c:CRMAccountRoles account="{!v.account}" />
+                    </div>
+                </div>
+
+            </lightning:tab>
+
+            <!-- START OF TRANSACTIONS TAB -->
+            <lightning:tab label="Transactions">
+                <aura:if isTrue="{!v.errorMessage.length &gt; 0}">
+                    <c:CRMAlert alertState="error">
+                        <aura:set attribute="alertMessage">
+                            <p>
+                                {!v.errorMessage} <lightning:button label="Try Again" onclick="{!c.fetchAccountInfo}" />
+                            </p>
+                        </aura:set>
+                    </c:CRMAlert>
+                </aura:if>
+
+                <div class="IntroInfo">
+                    <h2 id="TransactHistoryHeader">Transaction History</h2>
+                    <p>Below are the transactions related to the account. Click on each transaction to expand and view the extra details.</p>
+                </div>
+                <!--TODO: Transaction search function-->
+                <aura:if isTrue="{!v.isLoading}">
+                    <c:CRMLoadingSpinner message="Transactions..." />
+                </aura:if>
+
+                <aura:if isTrue="{!v.transactions.length &lt;= 0}">
+                    <div class="noTransactions">
+                        <c:CRMAlert alertState="info">
+                            <aura:set attribute="alertMessage">
+                                <h4>Insufficient Transactions</h4>
+                                <p>There are not any transactions on this account within the last 30 days.
+                                    Please visit DNA for transactions older than 30 days.</p>
+                            </aura:set>
+                        </c:CRMAlert>
+                    </div>
+                </aura:if>
+
+                <div class="transactionsContainer">
+                    <div class="{!'transactions ' + v.viewDetail}">
+                        <aura:iteration items="{!v.transactions}" var="t">
+                            <c:crmTransactionDetail transaction="{!t}" ontransactionclick="{!c.handleTransactionClick}" />
+                        </aura:iteration>
+                    </div>
+
+                    <aura:if isTrue="{!v.selectedTransactionNumber.length > 0}">
+                        <div class="{!v.selectedTransactionBalanceSign + ' selectedTransaction'}">
+                            <div class="closeTransaction">
+                                <span onclick="{!c.closeTransaction}">X</span>
+                            </div>
+                            <div class="transactionDetailSection mainTransactionInfo">
+                                <div class="description">{!v.selectedTransaction.shortDescription}</div>
+                                <p class="amount">{!v.selectedTransaction.amount}</p>
+                            </div>
+                            <aura:if isTrue="{!v.selectedTransaction.originatingPerson.length > 0}">
+                                <div class="transactionDetailSection personInfo">
+                                    <p>{!v.selectedTransaction.originatingPersonRole}</p>
+                                    <p>{!v.selectedTransaction.originatingPerson}</p>
+                                </div>
+                            </aura:if>
+                            <div class="transactionDetailSection additionalDetails">
+                                <div class="detail-item">
+                                    <p>Transaction Type</p>
+                                    <p>{!v.selectedTransaction.description}</p>
+                                </div>
+                                <div class="detail-item">
+                                    <p>Posting Date</p>
+                                    <p>{!v.selectedTransaction.postDate}</p>
+                                </div>
+                                <div class="detail-item">
+                                    <p>Effective Date</p>
+                                    <p>{!v.selectedTransaction.effectiveDate}</p>
+                                </div>
+                                <div class="detail-item">
+                                    <p>Transaction ID</p>
+                                    <p>{!v.selectedTransaction.transactionNumber}</p>
+                                </div>
+                            </div>
+                            <div class="transactionDetailSection description">
+                                <p><span>Description: </span>{!v.selectedTransaction.longDescription}</p>
+                            </div>
+                        </div>
+                    </aura:if>
+                </div>
+
+                <!-- TODO: this should load more transactions -->
+                <!-- <div class="loadMoreTransactions">
+                    <p>Load More Transactions</p>
+                </div> -->
+
+            </lightning:tab>
+        </lightning:tabset>
+    </div>
+</aura:component>

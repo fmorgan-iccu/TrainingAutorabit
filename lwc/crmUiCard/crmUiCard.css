@@ -1,0 +1,8 @@
+header {
+    background: var(--c-iccuPrimaryGreen);
+    padding: .75rem 1rem;
+    border-radius: 4px 4px 0 0;
+}
+header h2 {
+    color: white;
+}

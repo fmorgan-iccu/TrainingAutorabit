@@ -1,0 +1,9 @@
+.slds-spinner_container .slds-spinner .lightning-spinner-message {
+    transform: translate(-25%, -50%) rotate(-90deg);
+    width: 320px;
+    text-align: center;
+}
+/* because lwc does not allow using id's as css selectors we need to use multiple classes to override a sf spinner style */
+div.slds-spinner_container.innovations.team.is.awesome {
+    z-index: 3;
+}

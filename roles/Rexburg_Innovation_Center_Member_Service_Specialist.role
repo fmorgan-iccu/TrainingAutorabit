@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>None</contactAccessLevel>
+    <description>Rexburg Innovation Center Member Service Specialist</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Rexburg Innovation Center Member Service Specialist</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Rexburg_Innovation_Center_Branch_Manager</parentRole>
+</Role>

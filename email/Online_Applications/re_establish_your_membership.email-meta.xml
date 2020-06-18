@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Outbound_Letterhead</letterhead>
+    <name>re-establish your membership</name>
+    <style>freeForm</style>
+    <subject>Your Recent Application with ICCU</subject>
+    <textOnly>Hello {!Opportunity.Contact_First_Name__c},
+
+
+Thank you for your online application to re-establish your membership with Idaho Central Credit Union.  Unfortunately we are unable to process your request online.  In order to re-establish your membership, please apply at your local branch with a Financial Services Officer.  I apologize for the inconvenience. If you have questions, please feel free to contact us at 1-800-456-5067 using reference number &lt;CollabJob&gt;.
+
+
+Thank you,
+
+
+{!Case.OwnerFullName}
+
+Idaho Central Credit Union
+
+P.O. Box 2469
+
+Pocatello, ID 83206
+
+d: (208) 239-3000 | f: (208) 239-3055</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

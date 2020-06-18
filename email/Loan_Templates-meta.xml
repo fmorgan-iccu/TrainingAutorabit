@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Loan Templates</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <role>FSC_Manager</role>
+        <roleAndSubordinates>Financial_Service_Officer</roleAndSubordinates>
+        <roleAndSubordinates>Virtual_Service_Center_Agent</roleAndSubordinates>
+        <roleAndSubordinates>Virtual_Service_Center_Manager</roleAndSubordinates>
+    </sharedTo>
+</EmailFolder>

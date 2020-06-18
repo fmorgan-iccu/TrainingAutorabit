@@ -1,0 +1,168 @@
+.THIS {
+    font-size: 16px;
+    padding: 2em;
+    margin-bottom: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.THIS ::placeholder {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+/* Styling the Validation Container */
+.THIS .validation-container {
+    background: #fff;
+    border-left: 4px solid #EB3D3D;
+    border-radius: 4px;
+    padding: 1em;
+    margin-bottom: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling the Inputs */
+.THIS .uiInput--input .input, 
+.THIS .uiInput--input.input {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    margin-bottom: 1em;
+}
+
+.THIS .slds-button_icon-bare, 
+.THIS .slds-button--icon-bare {
+    color: #fff;
+}
+
+.THIS .slds-input {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.THIS .slds-icon-text-default {
+    fill: #BC3030;
+    vertical-align: top;
+}
+
+.THIS .error-headline {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #BC3030;
+}
+
+/* Login Header Styling */
+.THIS .login-header {
+    color: #fff;
+    padding-right: 2em;
+}
+
+.THIS #ccmPassword {
+    margin-bottom: 1em;
+}
+
+.THIS .login-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.THIS .login-title .slds-icon_container {
+    padding-right: .5em;
+}
+
+.THIS .login-container {
+    flex: 1;
+    align-self: flex-end;
+}
+
+.THIS .collapse-login,
+.THIS .show-login {
+    padding-top: 1em;
+    clear: both;
+}
+
+.THIS .collapse-login a,
+.THIS .show-login a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.THIS .fully-loggedin p {
+    color: #fff;
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+.THIS .main-container {
+    display: block;
+}
+
+.THIS .main-container.authenticatedtrue {
+    display: flex;
+}
+
+.THIS .collapse-login p,
+.THIS .show-login p
+ {
+    text-align: right;
+}
+
+.THIS .collapse-login a:hover,
+.THIS .show-login a:hover
+ {
+    color: rgba(255, 255, 255, 0.70);
+}
+.THIS {
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center 40%;
+}
+.THIS.containerHidden {
+    display: none;
+    background-color: white;
+}
+.THIS > img.authIcon {
+    width: 2em;
+    color: white;
+}
+
+.THIS .slds-spinner_container {
+    border-radius: 8px;
+}
+
+/*Buttons*/
+.THIS .login-button{
+    border-radius: .25rem;
+    font-size: t(mediumText);
+    background-color: white;
+    border: 1px solid #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    padding: .3em 0;
+}
+.THIS input[type=submit]:hover,
+.THIS input[type=submit]:active,
+.THIS .login-button:hover,
+.THIS .login-button:active {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.THIS.containerNotAuthed .login-button {
+    color: #F26222;
+}
+
+/*Wide Display*/
+
+.THIS.wideDisplaytrue .main-container {
+    display: flex;
+}
+
+/*Media Queries*/
+@media (min-width: 850px) { 
+    .THIS.wideDisplaytrue .login-button {
+        width: auto;
+        padding: .5em 8em;
+        float: right;
+    }
+ }
