@@ -2,8 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Business Lending Manager</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Assistant Branch Manager</name>
+    <name>Business Lending User</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Branch_Manager</parentRole>
+    <parentRole>Business_Lending_Manager</parentRole>
 </Role>

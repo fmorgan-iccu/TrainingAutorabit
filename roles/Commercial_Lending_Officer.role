@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Assistant Branch Manager</name>
+    <name>Commercial Lending Officer</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Branch_Manager</parentRole>
+    <parentRole>Commercial_Lending_Supervisor2</parentRole>
 </Role>

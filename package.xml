@@ -5626,6 +5626,7 @@
         <members>Blue_Lakes_Branch_Manager</members>
         <members>Blue_Lakes_Branch_Member_Service_Specialist</members>
         <members>Branch_Manager</members>
+        <members>Branch_Performance</members>
         <members>Branch_Performance_Analyst</members>
         <members>Branch_Performance_Resolution_Specialist</members>
         <members>Broadway_Branch_Assistant_Manager</members>
@@ -5641,9 +5642,15 @@
         <members>Business_Analyst_Manager</members>
         <members>Business_Development</members>
         <members>Business_Development_Manager</members>
+        <members>Business_Development_Manager1</members>
         <members>Business_Development_Officer</members>
+        <members>Business_Development_User</members>
+        <members>Business_Lending_Manager</members>
+        <members>Business_Lending_User</members>
         <members>Business_Loan_Officer</members>
         <members>Business_Project_Manager</members>
+        <members>Business_Relations_Manager</members>
+        <members>Business_Relations_Users</members>
         <members>Business_Relationship_Manager</members>
         <members>Business_Relationship_Officer</members>
         <members>Business_Relationship_Supervisor</members>
@@ -5682,7 +5689,10 @@
         <members>Commercial_Compliance_Analyst</members>
         <members>Commercial_Credit_Administrator</members>
         <members>Commercial_Lending_Manager</members>
+        <members>Commercial_Lending_Manager2</members>
+        <members>Commercial_Lending_Officer</members>
         <members>Commercial_Lending_Supervisor</members>
+        <members>Commercial_Lending_Supervisor2</members>
         <members>Commercial_Loan_Officer</members>
         <members>Commercial_Loan_Processor</members>
         <members>Commercial_Loan_Underwriter</members>
@@ -5698,7 +5708,9 @@
         <members>Consumer_Loan_Underwriting_Manager</members>
         <members>Consumer_Processing_Manager</members>
         <members>DNA_Applications_Analyst</members>
+        <members>Dealer_Relation_Users</members>
         <members>Dealer_Relations_Manager</members>
+        <members>Dealer_Relations_Managers</members>
         <members>Dealer_Relationship_Officer</members>
         <members>Deposit_Services_Manager</members>
         <members>Deposit_Services_Specialist</members>
@@ -5708,11 +5720,17 @@
         <members>Director_of_Public_Relations</members>
         <members>East_Idaho_Assistant_Vice_President</members>
         <members>Event_Coordinator</members>
+        <members>Executive</members>
         <members>Executive_Assistant</members>
         <members>FSC_Manager</members>
+        <members>FSC_Manager2</members>
+        <members>FSC_Supervisor</members>
+        <members>FSO</members>
         <members>Financial_Analyst</members>
+        <members>Financial_Service_Manager2</members>
         <members>Financial_Service_Officer</members>
         <members>Financial_Service_Supervisor</members>
+        <members>Financial_Service_Supervisor2</members>
         <members>Financial_Services_Officer</members>
         <members>Fraud_Officer</members>
         <members>Fraud_Supervisor</members>
@@ -5733,6 +5751,8 @@
         <members>Human_Resource_Specialist</members>
         <members>Indirect_Lending</members>
         <members>Indirect_Lending_Manager</members>
+        <members>Indirect_Lending_Managers</members>
+        <members>Indirect_Lending_User</members>
         <members>Indirect_Loan_Officer</members>
         <members>Indirect_Loan_Processing_Supervisor</members>
         <members>Indirect_Loan_Processor</members>
@@ -5746,9 +5766,18 @@
         <members>Lead_Business_Relationship_Officer</members>
         <members>Lead_Recruiter</members>
         <members>Lending_Manager</members>
+        <members>Loan_Officer</members>
         <members>Loan_Servicing_Assistant</members>
         <members>Loan_Servicing_Manager</members>
         <members>Loan_Servicing_Specialist</members>
+        <members>MCC_Assistant_Manager</members>
+        <members>MCC_Manager</members>
+        <members>MCC_Supervisor</members>
+        <members>MRA_Manager</members>
+        <members>MRA_Supervisor</members>
+        <members>MRA_User</members>
+        <members>MRS_User</members>
+        <members>Marketing</members>
         <members>Marketing_Data_Analyst</members>
         <members>Marketing_Digital_Specialist</members>
         <members>Marketing_Graphic_Designer</members>
@@ -5770,6 +5799,8 @@
         <members>Member_Relationship_Manager</members>
         <members>Mortgage_Compliance_Analyst</members>
         <members>Mortgage_Loan_Officer</members>
+        <members>Mortgage_Manager</members>
+        <members>Mortgage_Officer</members>
         <members>Mortgage_Regional_Sales_Manager</members>
         <members>Nampa_Branch_Assistant_Manager</members>
         <members>Nampa_Branch_Financial_Services_Officer</members>
@@ -5796,6 +5827,7 @@
         <members>Post_Falls_Branch_Member_Service_Specialist</members>
         <members>Private_Client</members>
         <members>Private_Client_Manager</members>
+        <members>Private_Client_User</members>
         <members>Producer</members>
         <members>Product_Owner</members>
         <members>Quality_Assurance_Analyst</members>
@@ -5814,6 +5846,8 @@
         <members>Senior_Member_Contact_Center_Agent</members>
         <members>Server_Administrator</members>
         <members>Server_Manager</members>
+        <members>Social_Media_Public_Relations_Manager</members>
+        <members>Social_Media_Public_Relations_User</members>
         <members>Social_Media_Specialist</members>
         <members>Social_Media_Strategist</members>
         <members>Software_Developer</members>
@@ -5831,10 +5865,14 @@
         <members>Tech_Support</members>
         <members>Technical_Support</members>
         <members>Technical_Writer</members>
+        <members>Tier_I</members>
+        <members>Tier_II</members>
+        <members>Top_Level_Record_View</members>
         <members>Trainer</members>
         <members>Training_Manager</members>
         <members>Training_Supervisor</members>
         <members>UI_UX_Designer_Producer</members>
+        <members>User</members>
         <members>Ustick_Branch_Assistant_Manager</members>
         <members>Ustick_Branch_Financial_Services_Officer</members>
         <members>Ustick_Branch_MSS_Supervisor</members>
@@ -5843,6 +5881,9 @@
         <members>VP_of_Consumer_Lending</members>
         <members>VP_of_Mortgage_Lending</members>
         <members>VSC</members>
+        <members>VSC_Manager</members>
+        <members>VSC_Supervisor</members>
+        <members>VSC_User</members>
         <members>Vice_President_of_Human_Resources</members>
         <members>Vice_President_of_Marketing</members>
         <members>Virtual_Service_Center_Agent</members>
@@ -5851,9 +5892,11 @@
         <members>White_Pine_Branch_Financial_Services_Officer</members>
         <members>White_Pine_Branch_Member_Specialist</members>
         <members>White_Pine_Branch_Supervisor</members>
+        <members>Work_Force_Specialist</members>
         <members>Workforce_Mgmt_Specialist</members>
         <members>Workstation_Manager</members>
         <members>Workstation_Technician</members>
+        <members>eServices</members>
         <members>eServices_Specialist</members>
         <name>Role</name>
     </types>

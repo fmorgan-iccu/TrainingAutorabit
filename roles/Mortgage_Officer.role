@@ -3,7 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Assistant Branch Manager</name>
+    <name>Mortgage Officer</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Branch_Manager</parentRole>
+    <parentRole>Mortgage_Manager</parentRole>
 </Role>
